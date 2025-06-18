@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医療介護経営コンサルティング | ロンショール合同会社</title>
+  <meta name="description" content="医療・介護事業者の経営支援。睡眠時無呼吸症候群の検査/治療導入支援、労災二次健診事業、オンライン診療の導入サポートなど、最新の知見で事業を成功に導きます。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    a { color: var(--primary); text-decoration: none; }
+    
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--light);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav li { font-weight: 600; }
+    
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::before {
+      width: 80%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+    
+    .service-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.1;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .service-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--light);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .service-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+    }
+    
+    .service-subtitle {
+      font-size: 1.3rem;
+      color: var(--gray-dark);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .service-overview {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .service-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .overview-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .overview-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-dark);
+    }
+    
+    .overview-image {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .overview-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .overview-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    
+    .services-section {
+      padding: 6rem 2rem;
+      background: var(--gray);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .service-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-card:hover::before {
+      background: var(--gradient-accent);
+    }
+    
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover .service-icon {
+      transform: scale(1.2);
+    }
+    
+    .service-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .service-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .cta-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-desc {
+      font-size: 1.1rem;
+      color: var(--gray-dark);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    }
+    
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .service-title {
+        font-size: 2.5rem;
+      }
+      .overview-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">TOP</a></li>
+          <li><a href="../index.html#story">ストーリー</a></li>
+          <li><a href="../index.html#mission">ミッション</a></li>
+          <li><a href="../index.html#services">サービス</a></li>
+          <li><a href="../about.html">会社情報</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <div class="service-badge">MEDICAL CONSULTING</div>
+      <h1 class="service-title">医療介護経営コンサルティング</h1>
+      <p class="service-subtitle">最新の知見と技術で、あなたの事業を成功に導きます。医療・介護事業者の経営課題を解決し、持続可能な成長を実現します。</p>
+    </div>
+  </section>
+  
+  <section class="service-overview">
+    <div class="service-container">
+      <div class="section-badge">OVERVIEW</div>
+      <h2 class="section-title">サービス概要</h2>
+      <div class="overview-content">
+        <div class="overview-text">
+          <p>医療・介護業界の急速な変化に対応し、事業の持続的成長を実現するための包括的なコンサルティングサービスを提供しています。</p>
+          <p>睡眠時無呼吸症候群の検査/治療導入支援、産業医向けの労災二次健診事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開など、最新の知見を用いた集患対策まで、幅広いニーズに対応。状況に合わせて堅実に利益を上げていくご提案をさせていただいております。</p>
+        </div>
+        <div class="overview-image">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療介護経営コンサルティング">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="services-section">
+    <div class="service-container">
+      <div class="section-badge">SERVICES</div>
+      <h2 class="section-title">コンサルティングメニュー</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">😴</div>
+          <div class="service-title">睡眠時無呼吸症候群 検査/治療導入支援</div>
+          <div class="service-desc">
+            睡眠時無呼吸症候群の検査・治療体制の構築をトータルサポート。機器選定から運用体制の確立まで、収益性の高い事業展開を実現します。
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🏥</div>
+          <div class="service-title">労災二次健診事業 導入支援</div>
+          <div class="service-desc">
+            産業医の先生向けに労災二次健診給付制度を活用した事業展開をサポート。企業との連携体制構築から運用まで、包括的に支援します。
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💻</div>
+          <div class="service-title">オンライン診療 導入サポート</div>
+          <div class="service-desc">
+            システム選定から運用体制の構築、患者様への案内方法まで、オンライン診療の成功に必要なすべてをサポートします。
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <div class="service-title">介護事業・障害福祉サービス 展開支援</div>
+          <div class="service-desc">
+            医療から介護・福祉への事業展開を戦略的にサポート。許認可取得から人材確保、運営ノウハウまで、トータルでご支援します。
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <div class="service-title">集患対策・マーケティング支援</div>
+          <div class="service-desc">
+            最新のデジタルマーケティング手法を活用した集患対策。Web戦略から地域連携まで、効果的な集患を実現します。
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <div class="service-title">経営改善・収益向上支援</div>
+          <div class="service-desc">
+            診療報酬の最適化、コスト削減、業務効率化など、多角的なアプローチで経営改善を実現。堅実な利益向上をお約束します。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">あなたの事業を、次のステージへ</h2>
+      <p class="cta-desc">
+        医療・介護業界の変化は加速しています。最新の知見と豊富な実績で、あなたの事業の成功をサポートします。まずは無料相談から始めませんか？
+      </p>
+      <div class="cta-buttons">
+        <a href="../contact.html" class="cta-btn primary">無料相談を予約</a>
+        <a href="../index.html" class="cta-btn secondary">ホームに戻る</a>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">ホーム</a>｜
+        <a href="../index.html#story">ストーリー</a>｜
+        <a href="../index.html#mission">ミッション</a>｜
+        <a href="../index.html#services">サービス</a>｜
+        <a href="../about.html">会社情報</a>｜
+        <a href="../contact.html">お問い合わせ</a>｜
+        Good Small Company
+        ｜ <a href="../privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
+  </footer>
+</body>
+</html>

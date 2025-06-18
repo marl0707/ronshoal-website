@@ -527,6 +527,19 @@
             background: var(--light);
             border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: var(--shadow-card);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
         }
         
         .flip-card-back {
@@ -543,6 +556,8 @@
             color: var(--primary);
             margin-bottom: 1rem;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
         
         .flip-card:hover .service-number {
@@ -554,6 +569,8 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
             color: var(--dark);
+            position: relative;
+            z-index: 1;
         }
         
         .flip-card-back .service-title {
@@ -563,6 +580,8 @@
         .service-desc {
             color: var(--gray-dark);
             line-height: 1.6;
+            position: relative;
+            z-index: 1;
         }
         
         .flip-card-back .service-desc {
@@ -719,7 +738,7 @@
                     <div class="mission-number">02</div>
                     <div class="mission-title">健康経営を促進させ、働きやすい社会を作る</div>
                     <div class="mission-desc">
-                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠になります。病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する対策を健康経営というキーワードを軸に企業様にご提案していきます。
+                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠です。病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する前の対策を、健康経営というキーワードを軸に企業様へご提案してまいります。
                     </div>
                 </div>
             </div>
@@ -734,6 +753,7 @@
                 <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <img src="images/health-checkup.jpg" alt="健診プラス" class="service-image">
                             <div class="service-number">01</div>
                             <div class="service-title">健診プラス</div>
                             <div class="service-desc">
@@ -753,6 +773,7 @@
                 <div class="flip-card" onclick="window.location.href='services/health-passport.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <img src="images/digital-health.jpg" alt="健康パスポート" class="service-image">
                             <div class="service-number">02</div>
                             <div class="service-title">健康パスポート</div>
                             <div class="service-desc">
@@ -772,6 +793,7 @@
                 <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <img src="images/workplace-health.jpg" alt="職場 de クリニック" class="service-image">
                             <div class="service-number">03</div>
                             <div class="service-title">職場 de クリニック</div>
                             <div class="service-desc">
@@ -791,6 +813,7 @@
                 <div class="flip-card" onclick="window.location.href='services/agi-step.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <img src="images/ai-technology.jpg" alt="AGIステップ" class="service-image">
                             <div class="service-number">04</div>
                             <div class="service-title">AGIステップ</div>
                             <div class="service-desc">
@@ -810,6 +833,7 @@
                 <div class="flip-card" onclick="window.location.href='services/consulting.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
+                            <img src="images/medical-consulting.jpg" alt="医療介護経営コンサルティング" class="service-image">
                             <div class="service-number">05</div>
                             <div class="service-title">医療介護経営コンサルティング</div>
                             <div class="service-desc">
