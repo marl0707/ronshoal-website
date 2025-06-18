@@ -456,6 +456,98 @@
       color: var(--dark);
     }
 
+    .statistics-section {
+      padding: 4rem 2rem;
+      background: rgba(0, 212, 255, 0.1);
+    }
+    
+    .statistics-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: rgba(10, 10, 10, 0.9);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+    }
+    
+    .why-now-section {
+      padding: 4rem 2rem;
+      background: var(--dark);
+    }
+    
+    .why-now-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .why-now-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .why-now-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .why-now-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent);
+    }
+    
+    .why-now-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .why-now-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .why-now-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+
     footer {
       background: var(--dark);
       padding: 4rem 2rem 2rem;
@@ -525,8 +617,8 @@
   <section class="service-hero">
     <div class="service-hero-content">
       <div class="hero-badge">AGA治療</div>
-      <h1 class="service-hero-title">毛根が生きている限り<br>改善の可能性があります</h1>
-      <p class="service-hero-subtitle">95%の人が知らないAGA治療の真実。ミノキシジル外用薬とデュタステリド内服薬で、多くの方が3ヶ月後には変化を実感されています。</p>
+      <h1 class="service-hero-title">「まだ毛根が生きているなら<br>今のうちに始めてください」</h1>
+      <p class="service-hero-subtitle">娘に「パパ、頭のてっぺん見えてるよ」と言われたあの日から3ヶ月。妻が「最近、若くなったね」と言ってくれた。</p>
     </div>
   </section>
 
@@ -539,7 +631,7 @@
           <div class="treatment-icon">💧</div>
           <div class="treatment-title">ミノキシジル外用薬</div>
           <div class="treatment-desc">
-            血管を拡張し、毛母細胞を活性化する外用薬。日本皮膚科学会ガイドラインで推奨度A（行うよう強く勧める）の評価を受けています。
+            <strong>日本皮膚科学会ガイドラインで推奨度A（行うよう強く勧める）の評価。</strong>血流を改善し、毛母細胞を直接活性化。「朝のセットが楽しくなった」という声が続々。
           </div>
           <ul class="treatment-features">
             <li>血管拡張による血流改善</li>
@@ -553,7 +645,7 @@
           <div class="treatment-icon">💊</div>
           <div class="treatment-title">デュタステリド内服薬</div>
           <div class="treatment-desc">
-            5α還元酵素I型・II型を阻害し、DHTを約90%抑制する内服薬。根本的な原因にアプローチする治療法です。
+            <strong>フィナステリドより強力！DHTを約90%抑制。</strong>AGAの根本原因である5α還元酵素を徹底ブロック。「毛が太くなった」「抜け毛が減った」と実感。
           </div>
           <ul class="treatment-features">
             <li>5α還元酵素の阻害</li>
@@ -574,13 +666,13 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-text">
-            「正直、半信半疑でした。でも、妻との関係がギクシャクして...オンライン診療なら誰にも会わないし、思い切って相談しました。3ヶ月目で変化が...6ヶ月目の今、妻が『見た目が変わったね』と言ってくれます。」
+            「<strong>妻の視線が変わったんです。</strong>以前は頭を見て話してたのに、今は目を見て話してくれる。オンライン診療で誰にも会わずに始められて、本当に良かった。<strong>半年で人生が変わりました。</strong>」
           </div>
           <div class="testimonial-author">38歳男性・営業職</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-text">
-            「娘に『パパ、頭てっぺん見えてるよ』と言われたあの日。妻は何も言わないけど、視線を感じていました。治療を始めて3ヶ月、『あれ？なんか違う』。6ヶ月目の今、娘は『パパ元気になった！』と。」
+            「<strong>娘に『パパ、頭のてっぺん見えてるよ』と言われたあの日から3ヶ月。</strong>妻が『最近、若くなったね』と言ってくれた。写真を見返すと、確かに違う。<strong>娘は『パパ、かっこいい！』って。</strong>家族の笑顔が増えました。」
           </div>
           <div class="testimonial-author">38歳男性・営業職</div>
         </div>
@@ -594,6 +686,61 @@
     </div>
   </section>
 
+  <section class="statistics-section">
+    <div class="statistics-container">
+      <div class="section-badge">FACTS</div>
+      <h2 class="section-title">知っていましたか？衰撃の事実</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5人に1人</div>
+          <div class="stat-desc">日本人男性がAGAを発症</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95%</div>
+          <div class="stat-desc">治療を受けていない人の割合</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">80%以上</div>
+          <div class="stat-desc">適切な治療で改善が期待</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3ヶ月</div>
+          <div class="stat-desc">変化を実感する平均期間</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-now-section">
+    <div class="why-now-container">
+      <div class="section-badge">URGENT</div>
+      <h2 class="section-title">なぜ「今」始めるべきなのか？</h2>
+      <div class="why-now-grid">
+        <div class="why-now-card">
+          <div class="why-now-icon">⏰</div>
+          <div class="why-now-title">1日遅れるごとに100本抜ける</div>
+          <div class="why-now-desc">
+            <strong>AGAは進行性の疾患。</strong>今日始めれば1年後には3万本以上の差が生まれます。「まだ大丈夫」が命取りです。
+          </div>
+        </div>
+        <div class="why-now-card">
+          <div class="why-now-icon">📉</div>
+          <div class="why-now-title">毛根が死んだら終わり</div>
+          <div class="why-now-desc">
+            <strong>毛根の寿命は決まっている。</strong>一度完全に死滅した毛根は二度と再生しません。今なら間に合います。
+          </div>
+        </div>
+        <div class="why-now-card">
+          <div class="why-now-icon">💸</div>
+          <div class="why-now-title">治療費が増え続ける</div>
+          <div class="why-now-desc">
+            <strong>進行するほど治療が困難に。</strong>初期なら1種類の薬で済むが、進行後は複数の治療が必要。費用は2-3倍に。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="timeline-section">
     <div class="timeline-container">
       <div class="section-badge">TIMELINE</div>
@@ -602,28 +749,28 @@
         <div class="timeline-month">1ヶ月</div>
         <div class="timeline-content">
           <div class="timeline-title">治療開始</div>
-          <div class="timeline-desc">ミノキシジル外用薬とデュタステリド内服薬の併用療法を開始。定期的なフォローアップで効果を確認。</div>
+          <div class="timeline-desc"><strong>「本当に効果があるのか」半信半疑でスタート。</strong>ミノキシジルとデュタステリドの黄金コンビで治療開始。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-month">3ヶ月</div>
         <div class="timeline-content">
           <div class="timeline-title">変化の実感</div>
-          <div class="timeline-desc">多くの方が変化を実感し始める時期。髪の毛の太さや密度に改善が見られることがあります。</div>
+          <div class="timeline-desc"><strong>「あれ？抜け毛が減った？」</strong>シャンプー後の排水溝を見て驚く。朝のセットが楽になり、髪にコシが出てきたことを実感。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-month">6ヶ月</div>
         <div class="timeline-content">
           <div class="timeline-title">周囲が気づく変化</div>
-          <div class="timeline-desc">家族や周囲の人から「髪の毛が増えた」「若くなった」と言われることが増える時期。</div>
+          <div class="timeline-desc"><strong>「最近、何か違うね」</strong>妻からの一言。友人から「若くなった？」。写真を撮るのが怖くなくなり、風が吹いても平気に。</div>
         </div>
       </div>
       <div class="timeline-item">
         <div class="timeline-month">1年</div>
         <div class="timeline-content">
           <div class="timeline-title">安定した効果</div>
-          <div class="timeline-desc">治療効果が安定し、継続的な改善が期待できる時期。自信に満ちた毎日を送ることができます。</div>
+          <div class="timeline-desc"><strong>「人生が変わった」</strong>鏡を見るのが楽しい。積極的に人と会える。妻との関係も良好。家族写真を撮る機会が増えた。</div>
         </div>
       </div>
     </div>
@@ -631,10 +778,12 @@
 
   <section class="cta-section">
     <div class="cta-container">
-      <h2 class="cta-title">今すぐ始める</h2>
+      <h2 class="cta-title">「まだ毛根が生きているなら、今のうちに」</h2>
       <p class="cta-desc">
-        AGAは進行性の疾患です。放置すると、症状は段階的に進行していきます。<br>
-        早期治療の重要性は、医学的にも証明されています。今が最も効果的なタイミングです。
+        <strong>毎日100本。これがあなたが失っている髪の本数です。</strong><br>
+        1年後には3万本以上の差が生まれます。<br>
+        もう、家族の視線を気にする必要はありません。<br>
+        <strong>今日が、あなたの人生を変える日です。</strong>
       </p>
       <div class="cta-buttons">
         <a href="../../../contact.html" class="cta-btn primary">オンライン診療を予約</a>

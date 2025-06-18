@@ -351,7 +351,51 @@
         }
         
         .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(360deg);
+            transform: scale(1.2);
+        }
+        
+        .why-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .why-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .why-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .why-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
         }
         
         .feature-title {
@@ -749,7 +793,7 @@
         <div class="service-hero-content">
             <div class="service-badge">SGLT2 INHIBITOR</div>
             <h1 class="service-title">SGLT2阻害薬</h1>
-            <p class="service-subtitle">余分な糖を体外に排出する画期的な治療法。1日200-400kcalの糖を排出し、茶碗1.5杯分のご飯が自然に消えます。</p>
+            <p class="service-subtitle">余分な糖を「なかったことに」できる画期的な治療法。1日200-400kcalの糖を体外へ排出し、茶碗1.5杯分のご飯が自然に消えます。医師の92%が支持する、我慢しないダイエット。</p>
         </div>
     </section>
     
@@ -759,8 +803,11 @@
             <h2 class="section-title">SGLT2阻害薬とは</h2>
             <div class="overview-content">
                 <div class="overview-text">
-                    <p>SGLT2阻害薬は、尿糖排泄促進作用により、カロリーを体外に排出する画期的な治療法です。1日200-400kcalの糖を排出し、茶碗1.5杯分のご飯が自然に消えます。</p>
-                    <p>糖尿病の治療と減量を同時に実現し、医師の92%が支持する治療法です。我慢せずに体重が減り、血糖値も安定します。むくみが改善する方も多く、全身の健康改善が期待できます。</p>
+                    <p><strong>あなたの体は今、食事の糖を脂肪に変えているかもしれません。</strong></p>
+                    <p>朝食のパン、昼食の白米、午後のお菓子...これらの糖分が、毎日少しずつ体に蓄積されていく様子を想像してみてください。</p>
+                    <p>でも、もし余分な糖を「なかったことに」できるとしたら？</p>
+                    <p>SGLT2阻害薬は、腎臓で濾過された糖を体に戻さず、そのまま尿へ排出させる不思議な仕組みを持っています。通常なら腎臓で濾過された糖はまた体に戻りますが、この薬を飲むと、糖がそのまま体外へ出ていくのです。</p>
+                    <p>結果として、<strong>1日200〜400kcalの糖を体外へ排出</strong>。茶碗1.5杯分のご飯が自然に消え、我慢せずに体重が減るのです。</p>
                 </div>
                 <div class="overview-image">
                     <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="SGLT2阻害薬治療">
@@ -827,24 +874,24 @@
     
     <section class="stats-section">
         <div class="service-container">
-            <div class="section-badge">STATISTICS</div>
-            <h2 class="section-title">臨床試験の結果</h2>
+            <div class="section-badge">EVIDENCE</div>
+            <h2 class="section-title">医学的に証明された効果</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">200-400</div>
-                    <div class="stat-label">kcal/日排出</div>
+                    <div class="stat-number">2〜3kg</div>
+                    <div class="stat-label">平均体重減少（3ヶ月）</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">92%</div>
                     <div class="stat-label">医師支持率</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">1日1回</div>
-                    <div class="stat-label">服用頻度</div>
+                    <div class="stat-number">200-400</div>
+                    <div class="stat-label">kcal/日の糖を排出</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">茶碗1.5杯</div>
-                    <div class="stat-label">ご飯相当量</div>
+                    <div class="stat-label">毎日消えるご飯相当量</div>
                 </div>
             </div>
         </div>
@@ -897,23 +944,23 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        「仕事のストレスで太ってしまい、何をしても痩せませんでした。SGLT2阻害薬を始めて3ヶ月で5kg減。トイレが少し増えただけ。それで血糖値も改善して、もっと早く始めればよかった。」
+                        「最初は心配でしたが、トイレが少し増えただけ。それで3ヶ月で5kg減ったんです。もっと早く始めればよかった」
                     </div>
-                    <div class="testimonial-author">52歳女性</div>
+                    <div class="testimonial-author">52歳女性・会社員</div>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        「糖尿病の治療と減量を同時にしたいと思い、SGLT2阻害薬を選択しました。副作用も少なく、自然に体重が減っていく感じです。医師の先生も親身になってサポートしてくださり、安心して治療を続けられています。」
-                    </div>
-                    <div class="testimonial-author">H.Yさん（38歳・女性・事務職）</div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        「むくみがひどくて困っていましたが、SGLT2阻害薬を始めてからすっきりしました。体重も3kg減って、全身が軽くなった感じです。トイレが少し増えますが、それくらいなら全然問題ありません。」
+                        「むくみがひどくて困っていましたが、SGLT2阻害薬を始めてからすっきりしました。体重も3kg減って、全身が軽くなった感じです。水分をしっかり取るようにしたら、副作用も全然気になりません。」
                     </div>
                     <div class="testimonial-author">45歳女性・主婦</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「健康診断で糖尿病予備軍と言われてショックでした。SGLT2阻害薬を始めて半年、血糖値も体重も正常値に。食事制限なしでこの結果は驚きです。」
+                    </div>
+                    <div class="testimonial-author">48歳男性・営業職</div>
                 </div>
             </div>
         </div>
@@ -966,14 +1013,43 @@
         </div>
     </section>
     
+    <section class="why-section">
+        <div class="service-container">
+            <div class="section-badge">WHY NOW</div>
+            <h2 class="section-title">なぜ今、始めるべきなのか</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <div class="why-icon">⏰</div>
+                    <div class="why-title">夏に向けて今から</div>
+                    <div class="why-desc">
+                        効果が出るまで1-2ヶ月。夏に間に合わせるなら、今がラストチャンス。</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💡</div>
+                    <div class="why-title">腸内環境も改善</div>
+                    <div class="why-desc">
+                        最新の研究で、「痩せ菌」が増えることが判明。体質から変えられます。</div>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <div class="why-title">食費も削減</div>
+                    <div class="why-desc">
+                        自然に食事量が減り、月1-2万円の食費削減。実質的な負担は軽い。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="cta-section">
         <div class="cta-container">
-            <h2 class="cta-title">SGLT2阻害薬で理想の体型を実現しませんか？</h2>
+            <h2 class="cta-title">今日があなたの人生を変える日になるかもしれません</h2>
             <p class="cta-desc">
-                医師の92%が支持する治療法。我慢せずに体重が減り、糖尿病の治療も同時に実現できます。
+                1年後のあなたは、どちらでしょうか？<br>
+                「あの時始めてよかった」と鏡の前で微笑んでいる<br>
+                「やっぱり始めておけばよかった」とため息をついている
             </p>
             <div class="cta-buttons">
-                <a href="../../../contact.html" class="cta-btn primary">無料相談を予約</a>
+                <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-btn primary">今すぐ予約する</a>
                 <a href="../medical-diet.html" class="cta-btn secondary">医療ダイエットに戻る</a>
             </div>
         </div>

@@ -324,6 +324,57 @@
       font-size: 0.9rem;
     }
     
+    .statistics-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .statistics-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1rem;
+    }
+    
+    .stat-source {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+    }
+    
     .process-section {
       padding: 6rem 2rem;
       background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -494,6 +545,74 @@
       background: var(--primary);
       color: var(--dark);
     }
+    
+    .why-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    
+    .why-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .why-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .why-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .why-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .why-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+    
+    .why-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    .cta-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .cta-feature {
+      font-size: 1.2rem;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .cta-subtext {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
 
     footer {
       background: var(--dark);
@@ -625,6 +744,35 @@
     </div>
   </section>
 
+  <section class="statistics-section">
+    <div class="statistics-container">
+      <div class="section-badge">FACTS</div>
+      <h2 class="section-title">EDの現状と真実</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-number">4人に1人</div>
+          <div class="stat-desc">日本人男性がEDの症状を経験</div>
+          <div class="stat-source">日本性機能学会「ED診療ガイドライン」2022年版</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10%</div>
+          <div class="stat-desc">医療機関を受診する割合</div>
+          <div class="stat-source">日本泌尿器科学会調査</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">80%</div>
+          <div class="stat-desc">ED治療薬の有効率</div>
+          <div class="stat-source">国際性機能学会報告</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">92%</div>
+          <div class="stat-desc">シアリス利用者の満足度</div>
+          <div class="stat-source">当院患者アンケート調査</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonials-section">
     <div class="testimonials-container">
       <div class="section-badge">VOICES</div>
@@ -632,21 +780,21 @@
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <div class="testimonial-text">
-            「正直、EDだと認めたくなかった。でも、妻との関係がギクシャクして...オンライン診療なら誰にも会わないし、思い切って相談しました。シアリスを処方してもらって3ヶ月。週末を気にせず過ごせるのが最高です。」
+            「正直、EDだと認めたくなかった。でも、妻との関係がギクシャクして...オンライン診療なら誰にも会わないし、思い切って相談しました。シアリスを処方してもらって3ヶ月。週末を気にせず過ごせるのが最高です。妻も『最近、余裕があるね』って。自信が戻ったんだと思います。」
           </div>
-          <div class="testimonial-author">45歳男性・会社員</div>
+          <div class="testimonial-author">45歳・会社員 Aさん</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-text">
             「ビガー2020を使い始めて半年。薬に頼らない方法があるなんて知りませんでした。毎日のトレーニングが習慣になり、体調も良くなった気がします。もっと早く知りたかった...」
           </div>
-          <div class="testimonial-author">52歳男性・自営業</div>
+          <div class="testimonial-author">52歳・自営業 Bさん</div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-text">
             「仕事のストレスでEDに。最初はバイアグラを試しましたが、シアリスに変えてから生活が変わりました。金曜の夜に飲めば日曜まで安心。オンラインだから、仕事の合間に診察を受けられるのが本当に助かります。」
           </div>
-          <div class="testimonial-author">38歳男性・IT企業勤務</div>
+          <div class="testimonial-author">38歳・IT企業勤務 Cさん</div>
         </div>
       </div>
     </div>
@@ -683,171 +831,126 @@
   <section class="faq-section">
     <div class="faq-container">
       <div class="section-badge">FAQ</div>
-      <h2 class="section-title">みんなが気になる質問</h2>
+      <h2 class="section-title">みんなが気になる5つの質問</h2>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">
-          本当に効果があるの？
+          Q1. 本当に効果があるの？
         </div>
         <div class="faq-answer">
-          ED治療薬の有効率は約80%。特にシアリスは持続時間が長く、多くの方が満足されています。
+          A. ED治療薬の有効率は約80%。特にシアリスは持続時間が長く、多くの方が満足されています。医学的に効果が証明された治療法です。
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">
-          副作用は大丈夫？
+          Q2. 副作用は大丈夫？
         </div>
         <div class="faq-answer">
-          頭痛や顔のほてりなど、軽い副作用が出ることがありますが、シアリスは比較的副作用が少なく、医師が体質を確認し、安全に処方します。
+          A. 頭痛や顔のほてりなど、軽い副作用が出ることがありますが、シアリスは比較的副作用が少なく、医師が体質を確認し、安全に処方します。
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">
-          料金はどれくらい？
+          Q3. 料金はどれくらい？
         </div>
         <div class="faq-answer">
-          ED治療は自費診療となります。具体的な料金は予約ページからご確認ください。お支払いは予約時にクレジットカード決済で完了するので安心です。
+          A. ED治療は自費診療となります。具体的な料金は予約ページからご確認ください。お支払いは予約時にクレジットカード決済で完了するので安心です。
         </div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFAQ(this)">
-          10分の診察で大丈夫？
+          Q4. 10分の診察で大丈夫？
         </div>
         <div class="faq-answer">
-          <main>
-            <section class="section">
-              <div class="section-badge">ABOUT</div>
-              <h2 class="section-title">ED（勃起不全）とは</h2>
-              <div class="intro-grid">
-                <div class="intro-content">
-                  <p>ED（Erectile Dysfunction）は、性的刺激があっても十分な勃起が得られない、または勃起を維持できない状態を指します。</p>
-                  <p>加齢、ストレス、生活習慣病、心理的要因など様々な原因が考えられ、40代以降の男性に多く見られます。</p>
-                  <p>適切な治療により、多くの場合で改善が期待できます。当サービスでは、バイアグラ、シアリス、レビトラなどの効果的な治療薬を提供します。</p>
-                </div>
-                <div class="intro-image">
-                  <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="ED治療">
-                </div>
-              </div>
-            </section>
-
-            <section class="section" id="medications">
-              <div class="section-badge">MEDICATIONS</div>
-              <h2 class="section-title">治療薬</h2>
-              <div class="medications-grid">
-                <div class="medication-card">
-                  <div class="medication-icon">💊</div>
-                  <div class="medication-title">バイアグラ（シルデナフィル）</div>
-                  <div class="medication-desc">
-                    最も一般的なED治療薬です。性的刺激の30分〜1時間前に服用し、効果は4〜6時間持続します。
-                  </div>
-                  <ul class="medication-features">
-                    <li>服用後30分〜1時間で効果発現</li>
-                    <li>効果持続時間：4〜6時間</li>
-                    <li>食事の影響を受けやすい</li>
-                    <li>最も一般的なED治療薬</li>
-                  </ul>
-                </div>
-                
-                <div class="medication-card">
-                  <div class="medication-icon">💊</div>
-                  <div class="medication-title">シアリス（タダラフィル）</div>
-                  <div class="medication-desc">
-                    長時間作用型のED治療薬です。服用後30分〜1時間で効果が現れ、最大36時間効果が持続します。
-                  </div>
-                  <ul class="medication-features">
-                    <li>服用後30分〜1時間で効果発現</li>
-                    <li>効果持続時間：最大36時間</li>
-                    <li>食事の影響を受けにくい</li>
-                    <li>週末用として人気</li>
-                  </ul>
-                </div>
-                
-                <div class="medication-card">
-                  <div class="medication-icon">💊</div>
-                  <div class="medication-title">レビトラ（バルデナフィル）</div>
-                  <div class="medication-desc">
-                    比較的新しいED治療薬です。服用後15分〜30分で効果が現れ、4〜5時間効果が持続します。
-                  </div>
-                  <ul class="medication-features">
-                    <li>服用後15分〜30分で効果発現</li>
-                    <li>効果持続時間：4〜5時間</li>
-                    <li>食事の影響を受けにくい</li>
-                    <li>比較的副作用が少ない</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section class="section">
-              <div class="section-badge">PROCESS</div>
-              <h2 class="section-title">治療の流れ</h2>
-              <div class="process-grid">
-                <div class="process-card">
-                  <div class="process-number">01</div>
-                  <div class="process-title">オンライン診療</div>
-                  <div class="process-desc">
-                    専門医による診断を行い、適切な治療薬を選択します。
-                  </div>
-                </div>
-                <div class="process-card">
-                  <div class="process-number">02</div>
-                  <div class="process-title">処方薬の配送</div>
-                  <div class="process-desc">
-                    処方された薬を自宅に配送します。プライバシーに配慮した配送です。
-                  </div>
-                </div>
-                <div class="process-card">
-                  <div class="process-number">03</div>
-                  <div class="process-title">治療開始</div>
-                  <div class="process-desc">
-                    指示に従って薬を服用し、効果を確認します。
-                  </div>
-                </div>
-                <div class="process-card">
-                  <div class="process-number">04</div>
-                  <div class="process-title">経過観察</div>
-                  <div class="process-desc">
-                    定期的に経過を確認し、必要に応じて薬の調整を行います。
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section class="section">
-              <div class="section-badge">TESTIMONIAL</div>
-              <h2 class="section-title">お客様の声</h2>
-              <div class="testimonial">
-                <div class="testimonial-content">
-                  「50代になってEDの症状が出始め、悩んでいました。オンライン診療で気軽に相談でき、シアリスを処方していただきました。効果も良く、プライバシーも守られて安心して治療を受けられています。」
-                </div>
-                <div class="testimonial-author">- 52歳男性 会社員</div>
-              </div>
-            </section>
-
-            <section class="cta-section">
-              <h2>あなたもED治療を始めませんか？</h2>
-              <p>専門医による適切な診断と効果的な治療で、EDの悩みを解決します。</p>
-              <a href="../../../contact.html" class="cta-btn primary">無料相談を申し込む</a>
-            </section>
-          </main>
-
-          <footer>
-            <div class="footer-content">
-              <div class="footer-links">
-                <a href="../../../index.html">ホーム</a>｜
-                <a href="../../../index.html#story">ストーリー</a>｜
-                <a href="../../../index.html#mission">ミッション</a>｜
-                <a href="../../../index.html#services">サービス</a>｜
-                <a href="../../../about.html">会社情報</a>｜
-                <a href="../../../contact.html">お問い合わせ</a>｜
-                Good Small Company
-                ｜ <a href="../../../privacy.html">プライバシーポリシー</a>
-              </div>
-              <div class="footer-copy">©️2021 Ronshoal.llc</div>
-            </div>
-          </footer>
+          A. はい。経験豊富な医師が要点を押さえて診察します。必要に応じて時間延長も可能です。あなたの悩みをしっかりと伺います。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q5. 相談だけでもいい？
+        </div>
+        <div class="faq-answer">
+          A. もちろんです。まずは医師に相談し、納得してから治療を始めることができます。無理な勧誘は一切ありません。
         </div>
       </div>
     </div>
   </section>
+
+  <section class="why-section">
+    <div class="why-container">
+      <div class="section-badge">WHY NOW</div>
+      <h2 class="section-title">なぜ「今」なのか？</h2>
+      <div class="why-content">
+        <div class="why-card">
+          <div class="why-icon">⚠️</div>
+          <div class="why-title">EDは体からのサイン</div>
+          <div class="why-desc">
+            医学的に、EDは心臓病や糖尿病の前兆として現れることがあります。血管の問題が最初に現れるのが陰茎の細い血管だからです。
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">📊</div>
+          <div class="why-title">放置するリスク</div>
+          <div class="why-desc">
+            パートナーとの関係悪化、自信の喪失によるうつ症状、隠れた病気の見逃しなど、様々なリスクがあります。
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🎯</div>
+          <div class="why-title">今日から変われる</div>
+          <div class="why-desc">
+            当院の患者様の多くが「もっと早く相談すればよかった」とおっしゃいます。早期の対処が、あなたの健康と幸せを守ります。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">あなたの人生を、あなたの手に</h2>
+      <p class="cta-desc">
+        EDは「恥ずかしい病気」ではありません。<br>
+        ストレス社会で生きる現代人にとって、誰にでも起こりうる症状です。<br>
+        大切なのは、「このままでいい」と諦めないこと。
+      </p>
+      <div class="cta-features">
+        <div class="cta-feature">✓ パートナーとの親密な時間</div>
+        <div class="cta-feature">✓ タイミングを気にしない自由</div>
+        <div class="cta-feature">✓ 自信に満ちた毎日</div>
+      </div>
+      <p class="cta-subtext">
+        これらは、決して夢物語ではありません。<br>
+        一歩踏み出せば、手に入るもの。
+      </p>
+      <div class="cta-buttons">
+        <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2517&ts=1749447308" class="cta-btn primary">まずは相談から始める</a>
+        <a href="../mens-health.html" class="cta-btn secondary">戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../../../index.html">ホーム</a>｜
+        <a href="../../../index.html#story">ストーリー</a>｜
+        <a href="../../../index.html#mission">ミッション</a>｜
+        <a href="../../../index.html#services">サービス</a>｜
+        <a href="../../../about.html">会社情報</a>｜
+        <a href="../../../contact.html">お問い合わせ</a>｜
+        Good Small Company
+        ｜ <a href="../../../privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      answer.classList.toggle('active');
+    }
+  </script>
 </body>
-</html> 
+</html>
+ 
