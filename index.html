@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ねむりナビ | 健康管理の総合サポート</title>
-    <meta name="description" content="労災二次健診、オンライン診療、子どもの足の健康、睡眠外来支援など、健康管理の総合サポートを提供">
+    <title>ロンショール合同会社 | 健康管理の総合サポート</title>
+    <meta name="description" content="労災二次健診、オンライン診療、医療ダイエット、睡眠時無呼吸症候群、男性ヘルスケアなど、健康管理の総合サポートを提供">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -259,10 +259,63 @@
             font-size: 1.1rem;
         }
 
+        /* Health Passport Services */
+        .health-passport-services {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+        }
+
+        .services-subgrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .sub-service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .sub-service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sub-service-card h4 {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .sub-service-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .sub-service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #555;
+        }
+
+        .sub-service-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
         /* Features Section */
         .features {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+            background: white;
         }
 
         .features-grid {
@@ -453,6 +506,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .services-subgrid {
+                grid-template-columns: 1fr;
+            }
+
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -464,12 +521,13 @@
         <div class="container">
             <div class="header-content">
                 <a href="#" class="logo">
-                    <span class="logo-icon">😴</span>
-                    ねむりナビ
+                    <span class="logo-icon">🏥</span>
+                    ロンショール合同会社
                 </a>
                 <nav>
                     <ul class="nav-links">
                         <li><a href="#services">サービス</a></li>
+                        <li><a href="#health-passport">健康パスポート</a></li>
                         <li><a href="#features">特徴</a></li>
                         <li><a href="#about">会社概要</a></li>
                         <li><a href="#contact">お問い合わせ</a></li>
@@ -481,8 +539,8 @@
 
     <section class="hero">
         <div class="container">
-            <h1>健康管理の総合サポート<br>ねむりナビ</h1>
-            <p>労災二次健診からオンライン診療まで、企業と従業員の健康をトータルでサポート。<br>睡眠の質向上、子どもの足の健康、専門外来の紹介まで、あなたの健康を守ります。</p>
+            <h1>健康管理の総合サポート<br>ロンショール合同会社</h1>
+            <p>労災二次健診からオンライン診療まで、企業と従業員の健康をトータルでサポート。<br>医療ダイエット、睡眠時無呼吸症候群、男性ヘルスケアまで、あなたの健康を守ります。</p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">無料相談を申し込む</a>
                 <a href="#services" class="btn btn-secondary">サービス詳細</a>
@@ -514,7 +572,7 @@
                         <div class="service-icon">📱</div>
                         <h3>健康パスポート</h3>
                     </div>
-                    <p>オンライン診療による健康管理サービス。いつでもどこでも専門医に相談できます</p>
+                    <p>オンライン診療プラットフォームによる総合的な健康管理サービス。専門医による診療をいつでもどこでも受けることができます</p>
                     <ul class="service-features">
                         <li>24時間オンライン診療</li>
                         <li>専門医による健康相談</li>
@@ -523,46 +581,46 @@
                         <li>セキュアな個人情報保護</li>
                     </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">👶</div>
-                        <h3>子どもの足の健康</h3>
-                    </div>
-                    <p>子どもの成長期における足の健康を守る専門サイトの運営とサポート</p>
-                    <ul class="service-features">
-                        <li>足の成長に関する情報提供</li>
-                        <li>専門医による相談サービス</li>
-                        <li>予防ケアのアドバイス</li>
-                        <li>成長期の足のトラブル解決</li>
-                        <li>親御さん向け教育コンテンツ</li>
+            </div>
+        </div>
+    </section>
+
+    <section class="health-passport-services" id="health-passport">
+        <div class="container">
+            <h2 class="section-title">健康パスポート 専門サービス</h2>
+            <p class="section-subtitle">オンライン診療で提供する専門的な医療サービス</p>
+            <div class="services-subgrid">
+                <div class="sub-service-card">
+                    <h4>🏥 医療ダイエット</h4>
+                    <p>肥満症治療薬を用いた専門的なダイエットプログラム</p>
+                    <ul>
+                        <li>マンジャロ（セマグルチド）</li>
+                        <li>リベルサス（セマグルチド）</li>
+                        <li>SGLT2阻害剤</li>
+                        <li>メトホルミン</li>
+                        <li>専門医による継続サポート</li>
                     </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">😴</div>
-                        <h3>睡眠重補給外来支援</h3>
-                    </div>
-                    <p>クリニック向けの睡眠時無呼吸症候群診療の導入・運営サポート</p>
-                    <ul class="service-features">
-                        <li>睡眠外来の立ち上げ支援</li>
-                        <li>検査機器の導入サポート</li>
-                        <li>医師・スタッフ研修</li>
-                        <li>患者紹介システム</li>
-                        <li>継続的な運営サポート</li>
+                <div class="sub-service-card">
+                    <h4>😴 睡眠時無呼吸症候群</h4>
+                    <p>在宅での睡眠検査からCPAP治療まで一貫サポート</p>
+                    <ul>
+                        <li>在宅睡眠検査</li>
+                        <li>オンライン診療</li>
+                        <li>CPAP機器の導入</li>
+                        <li>継続的な治療サポート</li>
+                        <li>保険適用可能</li>
                     </ul>
                 </div>
-                <div class="service-card">
-                    <div class="service-header">
-                        <div class="service-icon">👟</div>
-                        <h3>インソール外来支援</h3>
-                    </div>
-                    <p>足のトラブル解決のためのインソール外来の導入・運営サポート</p>
-                    <ul class="service-features">
-                        <li>インソール外来の設立支援</li>
-                        <li>専門機器の導入サポート</li>
-                        <li>技術者研修プログラム</li>
-                        <li>患者ケアシステム</li>
-                        <li>継続的な技術サポート</li>
+                <div class="sub-service-card">
+                    <h4>👨 男性ヘルスケア</h4>
+                    <p>AGA治療とED治療をオンラインで提供</p>
+                    <ul>
+                        <li>AGA（男性型脱毛症）治療</li>
+                        <li>ED（勃起不全）治療</li>
+                        <li>専門医による診療</li>
+                        <li>処方箋のオンライン発行</li>
+                        <li>プライバシーに配慮した診療</li>
                     </ul>
                 </div>
             </div>
@@ -625,7 +683,7 @@
         <div class="container">
             <div class="cta-content">
                 <h2>健康管理の新しい選択肢を<br>始めませんか？</h2>
-                <p>企業の健康経営、従業員の健康管理、専門外来の導入など、お客様のニーズに合わせた最適なソリューションをご提案いたします。まずはお気軽にご相談ください。</p>
+                <p>企業の健康経営、従業員の健康管理、オンライン診療の導入など、お客様のニーズに合わせた最適なソリューションをご提案いたします。まずはお気軽にご相談ください。</p>
                 <a href="#" class="btn btn-primary">無料相談を申し込む</a>
             </div>
         </div>
@@ -635,7 +693,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>ねむりナビ</h3>
+                    <h3>ロンショール合同会社</h3>
                     <p>健康管理の総合サポート企業として、企業と従業員の健康をトータルでサポートしています。労災二次健診からオンライン診療まで、幅広いサービスをご提供。</p>
                 </div>
                 <div class="footer-section">
@@ -643,9 +701,9 @@
                     <ul>
                         <li><a href="#">検診プラス（労災二次健診）</a></li>
                         <li><a href="#">健康パスポート（オンライン診療）</a></li>
-                        <li><a href="#">子どもの足の健康</a></li>
-                        <li><a href="#">睡眠重補給外来支援</a></li>
-                        <li><a href="#">インソール外来支援</a></li>
+                        <li><a href="#">医療ダイエット</a></li>
+                        <li><a href="#">睡眠時無呼吸症候群</a></li>
+                        <li><a href="#">男性ヘルスケア</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -659,13 +717,13 @@
                 </div>
                 <div class="footer-section">
                     <h3>お問い合わせ</h3>
-                    <p>Email: info@nemuri-navi.com<br>
+                    <p>Email: info@ronshoal.com<br>
                     Tel: 03-XXXX-XXXX<br>
                     受付時間: 平日 9:00-18:00</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 ねむりナビ. All rights reserved.</p>
+                <p>&copy; 2025 ロンショール合同会社. All rights reserved.</p>
             </div>
         </div>
     </footer>
