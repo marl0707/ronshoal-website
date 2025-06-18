@@ -5,254 +5,450 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ロンショール合同会社 | すべての人々に後悔のない人生を</title>
     <meta name="description" content="医療の未来を変える。ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
-            color: #222;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            line-height: 1.6;
         }
         a { color: #1a237e; text-decoration: none; }
         header {
-            background: rgba(255,255,255,0.95);
-            border-bottom: 1px solid #eee;
-            position: sticky;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 16px rgba(30,40,80,0.04);
-            backdrop-filter: blur(6px);
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
         .header-inner {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.7rem 1.5rem;
+            padding: 1rem 2rem;
         }
         .logo {
-            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-            font-weight: 700;
-            font-size: 2.1rem;
-            letter-spacing: 0.12em;
-            color: #1a237e;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: flex;
             align-items: center;
+            gap: 0.8rem;
         }
-        .logo svg {
-            width: 2.2rem;
-            height: 2.2rem;
-            margin-right: 0.5rem;
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--dark);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
         }
         nav ul {
             display: flex;
-            gap: 2.2rem;
+            gap: 3rem;
             list-style: none;
             margin: 0;
             padding: 0;
         }
         nav li { font-weight: 600; }
-        nav a { font-size: 1.08rem; position: relative; }
-        nav a::after {
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        nav a::before {
             content: '';
-            display: block;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
             width: 0;
             height: 2px;
-            background: #1a237e;
-            transition: width 0.3s;
-            position: absolute;
-            left: 0; bottom: -2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
         }
-        nav a:hover::after { width: 100%; }
+        nav a:hover::before {
+            width: 100%;
+        }
+        nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
         .hero {
-            min-height: 70vh;
-            background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
         }
-        .hero-bg {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-            opacity: 0.45;
-            filter: blur(2px) grayscale(0.1);
-            animation: heroParallax 18s linear infinite alternate;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
+            opacity: 0.15;
+            animation: heroParallax 20s ease-in-out infinite alternate;
         }
         @keyframes heroParallax {
-            0% { background-position: 50% 60%; }
-            100% { background-position: 50% 40%; }
+            0% { transform: scale(1.1) translateY(-10px); }
+            100% { transform: scale(1.1) translateY(10px); }
         }
         .hero-content {
             position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
+            z-index: 2;
             text-align: center;
-            color: #1a237e;
+            max-width: 1000px;
+            padding: 0 2rem;
         }
-        .hero-content h1 {
-            font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-            font-size: 2.8rem;
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
             font-weight: 700;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.2rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 16px rgba(255,255,255,0.25);
-            background: linear-gradient(90deg, #1a237e 60%, #3e8ed0 100%);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+            box-shadow: var(--shadow-soft);
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-10px); }
+        }
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
         }
-        .hero-content .handwritten {
-            font-family: 'Noto Sans JP', cursive;
-            font-size: 1.3rem;
-            color: #2e7d32;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            background: #fffbe7;
-            border-radius: 18px;
-            padding: 0.3em 1.2em;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.07);
-            transform: rotate(-2deg);
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
         }
-        .hero-content p {
-            font-size: 1.18rem;
-            color: #333;
-            margin-bottom: 2.2rem;
-            line-height: 1.7;
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .hero-content .cta-btn {
-            background: linear-gradient(90deg, #1a237e 60%, #3e8ed0 100%);
-            color: #fff;
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
             border: none;
-            border-radius: 30px;
-            padding: 1rem 2.8rem;
-            font-size: 1.15rem;
+            border-radius: 50px;
             font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
-            box-shadow: 0 4px 24px rgba(30,40,80,0.10);
-            transition: background 0.2s, transform 0.2s;
-            letter-spacing: 0.05em;
-        }
-        .hero-content .cta-btn:hover {
-            background: linear-gradient(90deg, #3e8ed0 60%, #1a237e 100%);
-            transform: translateY(-2px) scale(1.04);
-        }
-        .parallax-illust {
-            position: absolute;
-            right: 2vw; bottom: 0; z-index: 2;
-            width: 180px;
-            opacity: 0.8;
-            pointer-events: none;
-            animation: illustFloat 6s ease-in-out infinite alternate;
-        }
-        @keyframes illustFloat {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-18px) scale(1.04); }
-        }
-        main { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem 0 1rem; }
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            border-left: 6px solid #3e8ed0;
-            padding-left: 0.8rem;
-            letter-spacing: 0.05em;
-            background: linear-gradient(90deg, #e3e9f2 60%, #f8fafc 100%);
-            border-radius: 0 18px 18px 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
             display: inline-block;
-        }
-        .story-text {
-            background: #fff;
-            border-radius: 12px;
-            padding: 1.5rem 1.2rem;
-            line-height: 1.9;
-            color: #333;
-            box-shadow: 0 2px 12px rgba(30,40,80,0.06);
-            margin-bottom: 2.5rem;
             position: relative;
             overflow: hidden;
+        }
+        .cta-btn.primary {
+            background: var(--gradient-primary);
+            color: var(--dark);
+            box-shadow: var(--shadow-glow);
+        }
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .cta-btn.primary:hover {
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+        }
+        .cta-btn.secondary:hover {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        .story-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            position: relative;
+        }
+        .story-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .story-content {
+            position: relative;
+        }
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: relative;
         }
         .story-text::before {
             content: '"';
             font-family: 'Montserrat', serif;
-            font-size: 3.5rem;
-            color: #e3e9f2;
+            font-size: 4rem;
+            color: var(--primary);
             position: absolute;
-            left: 1rem; top: 0.2rem;
-            z-index: 0;
+            top: -1rem;
+            left: 1rem;
+            opacity: 0.3;
         }
-        .mission-list {
-            display: flex; flex-wrap: wrap; gap: 2rem;
+        .story-image {
+            position: relative;
         }
-        .mission-item {
-            background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
-            border-radius: 12px;
-            padding: 1.5rem 1.2rem;
-            flex: 1 1 320px; min-width: 260px;
-            box-shadow: 0 2px 12px rgba(30,40,80,0.04);
+        .story-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        .story-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        .mission-section {
+            padding: 8rem 2rem;
+            background: var(--dark);
+        }
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .mission-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
-        .mission-num {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700; color: #3e8ed0; font-size: 1.3rem; margin-bottom: 0.5rem;
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
-        .mission-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .mission-desc { color: #444; font-size: 1.01rem; }
-        .business-list { display: flex; flex-direction: column; gap: 2rem; }
-        .business-item {
-            background: #fff;
-            border-radius: 12px;
-            padding: 1.5rem 1.2rem;
-            box-shadow: 0 2px 12px rgba(30,40,80,0.06);
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .mission-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .mission-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--light);
+        }
+        .mission-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        .services-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+        }
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            border-left: 6px solid #3e8ed0;
+            cursor: pointer;
         }
-        .business-num {
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        .service-number {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700; color: #3e8ed0; font-size: 1.1rem; margin-bottom: 0.3rem;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
-        .business-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .business-desc { color: #444; font-size: 1.01rem; }
-        .news {
-            background: linear-gradient(90deg, #e3e9f2 60%, #f8fafc 100%);
-            border-radius: 12px;
-            padding: 1.2rem;
-            box-shadow: 0 2px 8px rgba(30,40,80,0.04);
-            margin-bottom: 2.5rem;
+        .service-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--light);
         }
-        .about, .profile { display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
-        .about-info, .profile-info { flex: 1; min-width: 260px; }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; background: #eee; }
-        .contact-form { background: #fff; border-radius: 12px; padding: 2rem 1rem; max-width: 500px; margin: 0 auto; box-shadow: 0 2px 8px rgba(30,40,80,0.04); }
-        .contact-form label { display: block; margin-bottom: 0.3rem; font-weight: 500; }
-        .contact-form input, .contact-form textarea { width: 100%; padding: 0.7rem; margin-bottom: 1.2rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; font-family: inherit; background: #f8fafc; }
-        .contact-form textarea { min-height: 100px; resize: vertical; }
-        .contact-form .privacy { display: flex; align-items: center; margin-bottom: 1.2rem; }
-        .contact-form .privacy input[type=checkbox] { margin-right: 0.5rem; }
-        .contact-form button { background: linear-gradient(90deg, #1a237e 60%, #3e8ed0 100%); color: #fff; border: none; border-radius: 25px; padding: 0.7rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
-        .contact-form button:hover { background: linear-gradient(90deg, #3e8ed0 60%, #1a237e 100%); }
-        footer { background: #1a237e; color: #fff; padding: 2rem 1rem 1rem 1rem; text-align: center; margin-top: 3rem; }
-        .footer-links { margin-bottom: 1rem; }
-        .footer-links a { color: #fff; margin: 0 1rem; font-size: 1.05rem; text-decoration: underline; }
-        .footer-copy { font-size: 1rem; color: #cfd8dc; }
-        @media (max-width: 900px) {
-            .header-inner, main { max-width: 98vw; }
+        .service-desc {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
         }
-        @media (max-width: 800px) {
-            .mission-list { flex-direction: column; }
-            .about, .profile { flex-direction: column; gap: 1rem; }
-            .profile-img { margin: 0 auto; }
-            .hero-content h1 { font-size: 2rem; }
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                gap: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -260,177 +456,142 @@
     <header>
         <div class="header-inner">
             <div class="logo">
-                <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+                <div class="logo-icon">R</div>
                 ロンショール合同会社
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">TOP</a></li>
-                    <li><a href="#philosophy">理念</a></li>
-                    <li><a href="#business">事業内容</a></li>
-                    <li><a href="#about">会社情報</a></li>
-                    <li><a href="#contact">お問い合わせ</a></li>
+                    <li><a href="#home">TOP</a></li>
+                    <li><a href="#story">ストーリー</a></li>
+                    <li><a href="#mission">ミッション</a></li>
+                    <li><a href="#services">サービス</a></li>
+                    <li><a href="about.html">会社情報</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <section class="hero">
-        <div class="hero-bg"></div>
+    <section class="hero" id="home">
         <div class="hero-content">
-            <div class="handwritten">未来を変えるのは、あなたの「選択」</div>
-            <h1>すべての人々に<br>後悔のない人生を</h1>
-            <p>こども達に負の遺産を残さない。<br>医療費削減への挑戦。<br>ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。</p>
-            <a href="#contact" class="cta-btn">あなたの未来を相談する</a>
-        </div>
-        <img src="https://cdn.pixabay.com/photo/2017/01/31/13/14/hand-2026764_1280.png" alt="手書き風イラスト" class="parallax-illust">
-    </section>
-    <main>
-        <section class="story">
-            <div class="section-title">STORY</div>
-            <div class="story-text">
-                通院？それとも仕事？<br><br>
-                「はぁ？！午前休？こんな忙しい時期に何考えてんの？昼イチの会議絶対遅れるなよ！」<br><br>
-                先月から申請していた休みについて朝から嫌味を言われ、糖尿病クリニックへ向かう足が重い、、捌け口のない怒りをアスファルトに小さく擦り付ける。<br><br>
-                お爺さんお婆さんで溢れかえっている待合室、、いつもの光景だ。<br><br>
-                簡単に受付を済まし、待合室の隅に腰掛けると、疲れ切った表情のサラリーマンが頭を抱えているのが目に入った。彼もまた、同じような状況にあるのかもしれない。彼の隣の空席に座り、ほんの少し安堵を感じる。<br><br>
-                予約時間になっても自分の名前が呼ばれることはない。これもいつも通り、15分以上は遅れる。ノートPCを膝の上で開き、電源を立ち上げる。<br>
-                上司から追加の資料を会議までに作成するようメールが来ていた。彼は有給という概念を知っているのだろうか。<br><br>
-                名前が呼ばれ、診察室に向かう。いつもの医師が既にパソコンの画面を見ながら何やらメモを取っている。「どうですか、最近の体調は？」との問いかけに、「いえ、相変わらずです」と答える。「では、いつもの処方出しておきますね。」<br>
-                いつものやりとりを終え、診察室を出る。このやりとりの為だけに、毎月上司に嫌味を言われていると考えると、悲しくなる。<br><br>
-                再び席に座ると、先ほどのサラリーマンが額に大量の汗をかきながら小声でスマホを耳に当てている<br>
-                「いえ、だから今クリニックにいまして、まだ診察が始まっていなくて、、」<br>
-                「はい、、それはそうなんですが、、、わかりました。」<br>
-                彼は、スマホをポケットにしまうと深いため息をつきながら受付のスタッフに、何やら謝ながらクリニックを後にした。仕事で急な呼び出しを受けたのだろうか。私も先月同じようなことがあったと思い出し、憂鬱な気分になった。<br><br>
-                会計を待ち、処方箋を受け取り、その処方箋を近くのクリニックへ持って行き、薬を受け取ってから会社に向かうとすると、昼イチの会議ギリギリになる。いつものように会議室に入ると、上司が「遅いんだよ！」という怒号を飛ばすのは容易に想像できる。<br><br>
-                もう限界だ。<br><br>
-                理解のない会社や上司が悪いのか、病気になった自分が悪いのか、病気になりやすい自分の家系が悪いのか。<br><br>
-                考えても仕方がない、妻や子どもがいる自分には選択肢などない<br>
-                会社を辞めるのか、通院を辞めるのか<br><br>
-                答えは明らかだ。
+            <div class="hero-badge">未来を変えるのは、あなたの「選択」</div>
+            <h1 class="hero-title">すべての人々に<br>後悔のない人生を</h1>
+            <p class="hero-subtitle">こども達に負の遺産を残さない。医療費削減への挑戦。<br>ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。</p>
+            <div class="hero-cta">
+                <a href="contact.html" class="cta-btn primary">あなたの未来を相談する</a>
+                <a href="#story" class="cta-btn secondary">ストーリーを見る</a>
             </div>
-        </section>
-        <section class="mission" id="philosophy">
-            <div class="section-title">MISSION</div>
-            <div class="mission-list">
-                <div class="mission-item">
-                    <div class="mission-num">1</div>
+        </div>
+    </section>
+    <section class="story-section" id="story">
+        <div class="story-container">
+            <div class="story-content">
+                <div class="section-badge">STORY</div>
+                <h2 class="section-title">通院？それとも仕事？</h2>
+                <div class="story-text">
+                    「はぁ？！午前休？こんな忙しい時期に何考えてんの？昼イチの会議絶対遅れるなよ！」<br><br>
+                    先月から申請していた休みについて朝から嫌味を言われ、糖尿病クリニックへ向かう足が重い、、捌け口のない怒りをアスファルトに小さく擦り付ける。<br><br>
+                    お爺さんお婆さんで溢れかえっている待合室、、いつもの光景だ。<br><br>
+                    簡単に受付を済まし、待合室の隅に腰掛けると、疲れ切った表情のサラリーマンが頭を抱えているのが目に入った。彼もまた、同じような状況にあるのかもしれない。彼の隣の空席に座り、ほんの少し安堵を感じる。<br><br>
+                    予約時間になっても自分の名前が呼ばれることはない。これもいつも通り、15分以上は遅れる。ノートPCを膝の上で開き、電源を立ち上げる。<br>
+                    上司から追加の資料を会議までに作成するようメールが来ていた。彼は有給という概念を知っているのだろうか。<br><br>
+                    名前が呼ばれ、診察室に向かう。いつもの医師が既にパソコンの画面を見ながら何やらメモを取っている。「どうですか、最近の体調は？」との問いかけに、「いえ、相変わらずです」と答える。「では、いつもの処方出しておきますね。」<br>
+                    いつものやりとりを終え、診察室を出る。このやりとりの為だけに、毎月上司に嫌味を言われていると考えると、悲しくなる。<br><br>
+                    再び席に座ると、先ほどのサラリーマンが額に大量の汗をかきながら小声でスマホを耳に当てている<br>
+                    「いえ、だから今クリニックにいまして、まだ診察が始まっていなくて、、」<br>
+                    「はい、、それはそうなんですが、、、わかりました。」<br>
+                    彼は、スマホをポケットにしまうと深いため息をつきながら受付のスタッフに、何やら謝ながらクリニックを後にした。仕事で急な呼び出しを受けたのだろうか。私も先月同じようなことがあったと思い出し、憂鬱な気分になった。<br><br>
+                    会計を待ち、処方箋を受け取り、その処方箋を近くのクリニックへ持って行き、薬を受け取ってから会社に向かうとすると、昼イチの会議ギリギリになる。いつものように会議室に入ると、上司が「遅いんだよ！」という怒号を飛ばすのは容易に想像できる。<br><br>
+                    もう限界だ。<br><br>
+                    理解のない会社や上司が悪いのか、病気になった自分が悪いのか、病気になりやすい自分の家系が悪いのか。<br><br>
+                    考えても仕方がない、妻や子どもがいる自分には選択肢などない<br>
+                    会社を辞めるのか、通院を辞めるのか<br><br>
+                    答えは明らかだ。
+                </div>
+            </div>
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療現場">
+            </div>
+        </div>
+    </section>
+    <section class="mission-section" id="mission">
+        <div class="mission-container">
+            <div class="section-badge">MISSION</div>
+            <h2 class="section-title">私たちの使命</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-number">01</div>
                     <div class="mission-title">仕事が忙しい方でも継続的な医療提供を</div>
                     <div class="mission-desc">
-                        早期治療介入によって重症化を防ぎ社会保障費を削減する。<br>
-                        仕事が忙しく、後回しになりがちな生活習慣病等の通院。放置すると重症化し、合併症の発症や心筋梗塞、脳梗塞に繋がります。<br>
-                        オンライン診療などのIT技術を駆使して、クリニック受診のハードルを下げることにより早期治療介入を促進し、将来的にかかる社会保障費を削減します。
+                        早期治療介入によって重症化を防ぎ社会保障費を削減する。仕事が忙しく、後回しになりがちな生活習慣病等の通院。放置すると重症化し、合併症の発症や心筋梗塞、脳梗塞に繋がります。オンライン診療などのIT技術を駆使して、クリニック受診のハードルを下げることにより早期治療介入を促進し、将来的にかかる社会保障費を削減します。
                     </div>
                 </div>
-                <div class="mission-item">
-                    <div class="mission-num">2</div>
+                <div class="mission-card">
+                    <div class="mission-number">02</div>
                     <div class="mission-title">健康経営を促進させ、働きやすい社会を作る</div>
                     <div class="mission-desc">
-                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠になります。<br>
-                        病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する対策を健康経営というキーワードを軸に企業様にご提案していきます。
+                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠になります。病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する対策を健康経営というキーワードを軸に企業様にご提案していきます。
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="business" id="business">
-            <div class="section-title">私たちの仕事</div>
-            <div class="business-list">
-                <div class="business-item">
-                    <div class="business-num">1</div>
-                    <div class="business-title">労災二次健診給付制度を活用した無料訪問健康診断事業「健診プラス」</div>
-                    <div class="business-desc">
-                        二次健康診断等給付という制度はご存知でしょうか？<br>
-                        二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。<br>
-                        弊社ではその制度を活用して、企業様へ訪問健診を行うサポートをしております。<br>
-                        コストゼロで健康経営の推進や福利厚生の拡充が可能なので、まだ導入されていない企業様は是非お問い合わせください。
+        </div>
+    </section>
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="section-badge">SERVICES</div>
+            <h2 class="section-title">私たちの仕事</h2>
+            <div class="services-grid">
+                <div class="service-card" onclick="window.location.href='services/kenko-plus.html'">
+                    <div class="service-number">01</div>
+                    <div class="service-title">健診プラス</div>
+                    <div class="service-desc">
+                        労災二次健診給付制度を活用した無料訪問健康診断事業。二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。
                     </div>
                 </div>
-                <div class="business-item">
-                    <div class="business-num">2</div>
-                    <div class="business-title">オンライン診療プラットフォーム「健康パスポート」</div>
-                    <div class="business-desc">
+                <div class="service-card" onclick="window.location.href='services/health-passport.html'">
+                    <div class="service-number">02</div>
+                    <div class="service-title">健康パスポート</div>
+                    <div class="service-desc">
                         仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。
                     </div>
                 </div>
-                <div class="business-item">
-                    <div class="business-num">3</div>
-                    <div class="business-title">健康経営をサポートする新しい福利厚生サービス「職場 de クリニック」</div>
-                    <div class="business-desc">
-                        どうすれば社員の生産性を高められるのか。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチ
+                <div class="service-card" onclick="window.location.href='services/workplace-clinic.html'">
+                    <div class="service-number">03</div>
+                    <div class="service-title">職場 de クリニック</div>
+                    <div class="service-desc">
+                        健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。
                     </div>
                 </div>
-                <div class="business-item">
-                    <div class="business-num">4</div>
-                    <div class="business-title">大規模言語モデルを用いたビジネス支援事業「AGIステップ」</div>
-                    <div class="business-desc">
-                        今やビジネスを構築する上で避けて通れないと言われている大規模言語モデルを用いたAI技術で「あなたの分身」を作り出します。<br>
-                        AGIステップは、その高度なAI（人工知能）と自動化機能を活用することで企業の業務効率を飛躍的に向上させることが可能です。<br>
-                        24時間対応のAIサポートで、コスト削減と業務効率化を実現します。
+                <div class="service-card" onclick="window.location.href='services/agi-step.html'">
+                    <div class="service-number">04</div>
+                    <div class="service-title">AGIステップ</div>
+                    <div class="service-desc">
+                        大規模言語モデルを用いたビジネス支援事業。今やビジネスを構築する上で避けて通れないと言われている大規模言語モデルを用いたAI技術で「あなたの分身」を作り出します。
                     </div>
                 </div>
-                <div class="business-item">
-                    <div class="business-num">5</div>
-                    <div class="business-title">医療介護経営コンサルティング</div>
-                    <div class="business-desc">
-                        ドクター向けに睡眠時無呼吸症候群の検査/治療 導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
+                <div class="service-card" onclick="window.location.href='services/consulting.html'">
+                    <div class="service-number">05</div>
+                    <div class="service-title">医療介護経営コンサルティング</div>
+                    <div class="service-desc">
+                        ドクター向けに睡眠時無呼吸症候群の検査/治療導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="news">
-            <div class="section-title">お知らせ</div>
-            弊社事業とのアライアンス契約をご希望の法人様、お気軽にお問い合わせ下さい。
-        </section>
-        <section class="about" id="about">
-            <div class="about-info">
-                <div class="section-title">会社情報</div>
-                <div style="margin-bottom:1.2rem;">"すべての人々に後悔のない人生を"<br><br>これが私の人生理念です。<br>ヒトが死を恐れる理由の1つとして「人生でやり残したことがまだ残っている」という理由があります。<br><br>私の周りの人々が後悔のない人生を送れる意思決定のお手伝いや微力ながら、すべての人々が自分の人生を終える瞬間、「自分の人生、最高に楽しかった」と心から思える社会を目指しています。</div>
-                <div><b>会社名</b><br>Ronshoal.llc</div>
-                <div><b>代表</b><br>瀬島 和樹</div>
-                <div><b>創業</b><br>2021年1月26日</div>
-                <div><b>連絡先</b><br>info@ronshoal.com</div>
-            </div>
-            <div class="profile-info">
-                <div class="section-title">代表プロフィール</div>
-                <div><b>あだ名：</b>セジマール</div>
-                <div><b>出身：</b>神戸（北川景子と幼稚園幼なじみ）</div>
-                <div><b>資格：</b>生田流箏曲中伝/柳川流三線中伝/剣道初段/調理師　等々</div>
-                <div><b>現在：</b>息子の教育のためマレーシアに在住</div>
-                <div><b>学歴：</b>奈良県立医大　医学部修士課程 臨床実証医学講座所属</div>
-                <div><b>趣味：</b>育児、教育、作曲</div>
-                <div><b>最近嬉しかったこと：</b>マレーシアで牛タン1kg1,200円で買えるので、かなりの頻度で牛タン料理作ってます。</div>
-            </div>
-        </section>
-        <section id="contact">
-            <div class="section-title">お問い合わせ</div>
-            <form class="contact-form">
-                <label for="name">お名前 <span style="color:#d00;">必須</span></label>
-                <input type="text" id="name" name="name" required>
-                <label for="company">会社名</label>
-                <input type="text" id="company" name="company">
-                <label for="email">メールアドレス <span style="color:#d00;">必須</span></label>
-                <input type="email" id="email" name="email" required>
-                <label for="tel">電話番号</label>
-                <input type="tel" id="tel" name="tel">
-                <label for="message">お問い合わせ内容 <span style="color:#d00;">必須</span></label>
-                <textarea id="message" name="message" required></textarea>
-                <div class="privacy">
-                    <input type="checkbox" id="agree" name="agree" required>
-                    <label for="agree" style="margin:0;">プライバシーポリシーに同意する</label>
-                </div>
-                <button type="submit">送信</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-links">
-            <a href="#">ホーム</a>｜
-            <a href="#philosophy">目指す社会</a>｜
-            <a href="#business">事業内容</a>｜
-            <a href="#contact">お問い合わせ</a>｜
-            Good Small Company
-            ｜ <a href="#">プライバシーポリシー</a> |
         </div>
-        <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#home">ホーム</a>｜
+                <a href="#story">ストーリー</a>｜
+                <a href="#mission">ミッション</a>｜
+                <a href="#services">サービス</a>｜
+                <a href="about.html">会社情報</a>｜
+                <a href="contact.html">お問い合わせ</a>｜
+                Good Small Company
+                ｜ <a href="privacy.html">プライバシーポリシー</a>
+            </div>
+            <div class="footer-copy">©️2021 Ronshoal.llc</div>
+        </div>
     </footer>
 </body>
 </html>

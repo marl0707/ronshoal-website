@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>男性ヘルスケア | 健康パスポート | ロンショール合同会社</title>
+  <meta name="description" content="AGA治療、ED治療など男性特有の健康問題を専門的にサポート。プライバシーに配慮した診療で安心して治療を受けられます。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #ffd700;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::before {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.15;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .service-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    
+    .section {
+      margin-bottom: 6rem;
+      position: relative;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .intro-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .intro-image {
+      position: relative;
+    }
+    
+    .intro-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .intro-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    
+    .treatments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .treatment-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .treatment-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .treatment-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      font-weight: 900;
+    }
+    
+    .treatment-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .treatment-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .treatment-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .treatment-features li {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .treatment-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      font-weight: 900;
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .feature-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .testimonial {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 6rem;
+      color: var(--primary);
+      position: absolute;
+      top: -1rem;
+      left: 2rem;
+      opacity: 0.2;
+    }
+    
+    .testimonial-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .treatments-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav ul {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">TOP</a></li>
+          <li><a href="../../index.html#story">ストーリー</a></li>
+          <li><a href="../../index.html#mission">ミッション</a></li>
+          <li><a href="../../index.html#services">サービス</a></li>
+          <li><a href="../../about.html">会社情報</a></li>
+          <li><a href="../../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="service-badge">MEN'S HEALTH</div>
+      <h1 class="hero-title">男性ヘルスケア</h1>
+      <p class="hero-subtitle">AGA治療、ED治療など男性特有の健康問題を<br>プライバシーに配慮した診療でサポート</p>
+      <div class="hero-cta">
+        <a href="../../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+        <a href="#treatments" class="cta-btn secondary">治療内容を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="section-badge">ABOUT</div>
+      <h2 class="section-title">男性ヘルスケアとは</h2>
+      <div class="intro-grid">
+        <div class="intro-content">
+          <p>男性特有の健康問題は、なかなか人に相談しにくいものです。AGA（男性型脱毛症）やED（勃起不全）など、多くの男性が悩みを抱えながらも、適切な治療を受けられていないのが現状です。</p>
+          <p>当サービスでは、プライバシーに最大限配慮し、専門医による適切な診断と治療を提供します。オンライン診療により、自宅で安心して相談いただけます。</p>
+        </div>
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="男性ヘルスケア">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="treatments">
+      <div class="section-badge">TREATMENTS</div>
+      <h2 class="section-title">治療内容</h2>
+      <div class="treatments-grid">
+        <a href="mens-health/aga-treatment.html" class="treatment-card">
+          <div class="treatment-icon">💇‍♂️</div>
+          <div class="treatment-title">AGA治療（薄毛治療）</div>
+          <div class="treatment-desc">
+            男性型脱毛症の治療を行います。内服薬や外用薬を組み合わせた効果的な治療を提供します。
+          </div>
+          <ul class="treatment-features">
+            <li>フィナステリド（プロペシア）</li>
+            <li>ミノキシジル外用薬</li>
+            <li>定期的な経過観察</li>
+          </ul>
+        </a>
+        
+        <a href="mens-health/ed-treatment.html" class="treatment-card">
+          <div class="treatment-icon">💊</div>
+          <div class="treatment-title">ED治療（勃起不全治療）</div>
+          <div class="treatment-desc">
+            勃起不全の治療を行います。バイアグラ、シアリス、レビトラなどの内服薬を処方します。
+          </div>
+          <ul class="treatment-features">
+            <li>バイアグラ（シルデナフィル）</li>
+            <li>シアリス（タダラフィル）</li>
+            <li>レビトラ（バルデナフィル）</li>
+          </ul>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">FEATURES</div>
+      <h2 class="section-title">3つの特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">プライバシー保護</div>
+          <div class="feature-desc">
+            完全匿名での診療が可能です。個人情報は厳重に管理され、プライバシーを最大限保護します。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍⚕️</div>
+          <div class="feature-title">専門医による診療</div>
+          <div class="feature-desc">
+            男性ヘルスケアに精通した専門医が、適切な診断と治療を提供します。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">オンライン診療</div>
+          <div class="feature-desc">
+            自宅で気軽に相談できます。通院の手間がなく、継続的な治療が可能です。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">TESTIMONIAL</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「薄毛が気になり始めて、なかなか人に相談できずにいました。オンライン診療で気軽に相談でき、適切な治療を受けることができました。プライバシーも守られ、安心して治療を続けられています。」
+        </div>
+        <div class="testimonial-author">- 40代男性 会社員</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>あなたも男性ヘルスケアを始めませんか？</h2>
+      <p>プライバシーに配慮した診療で、安心して治療を受けられます。</p>
+      <a href="../../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../../index.html">ホーム</a>｜
+        <a href="../../index.html#story">ストーリー</a>｜
+        <a href="../../index.html#mission">ミッション</a>｜
+        <a href="../../index.html#services">サービス</a>｜
+        <a href="../../about.html">会社情報</a>｜
+        <a href="../../contact.html">お問い合わせ</a>｜
+        Good Small Company
+        ｜ <a href="../../privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
+  </footer>
+</body>
+</html> 

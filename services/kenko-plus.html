@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健診プラス | ロンショール合同会社</title>
+  <meta name="description" content="労災二次健診給付制度を活用した無料訪問健康診断事業。企業の健康経営をコストゼロで実現。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #ffd700;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::before {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.15;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .service-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    
+    .section {
+      margin-bottom: 6rem;
+      position: relative;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .intro-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .intro-image {
+      position: relative;
+    }
+    
+    .intro-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .intro-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      font-weight: 900;
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .feature-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .testimonial {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 6rem;
+      color: var(--primary);
+      position: absolute;
+      top: -1rem;
+      left: 2rem;
+      opacity: 0.2;
+    }
+    
+    .testimonial-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .faq-section {
+      margin-top: 4rem;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem 2rem;
+      font-weight: 700;
+      color: var(--light);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-question.active::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    
+    .faq-answer {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .faq-answer.active {
+      padding: 1.5rem 2rem;
+      max-height: 200px;
+    }
+    
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav ul {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">TOP</a></li>
+          <li><a href="../index.html#story">ストーリー</a></li>
+          <li><a href="../index.html#mission">ミッション</a></li>
+          <li><a href="../index.html#services">サービス</a></li>
+          <li><a href="../about.html">会社情報</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="service-badge">SERVICE 01</div>
+      <h1 class="hero-title">健診プラス</h1>
+      <p class="hero-subtitle">労災二次健診給付制度を活用した無料訪問健康診断事業<br>企業の健康経営をコストゼロで実現</p>
+      <div class="hero-cta">
+        <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+        <a href="#features" class="cta-btn secondary">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="section-badge">ABOUT</div>
+      <h2 class="section-title">健診プラスとは</h2>
+      <div class="intro-grid">
+        <div class="intro-content">
+          <p>二次健康診断等給付という制度はご存知でしょうか？</p>
+          <p>二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。</p>
+          <p>弊社ではその制度を活用して、企業様へ訪問健診を行うサポートをしております。コストゼロで健康経営の推進や福利厚生の拡充が可能なので、まだ導入されていない企業様は是非お問い合わせください。</p>
+        </div>
+        <div class="intro-image">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="健康診断">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-badge">FEATURES</div>
+      <h2 class="section-title">3つの特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <div class="feature-title">コストゼロ</div>
+          <div class="feature-desc">
+            企業様の負担なしで健康経営の推進や福利厚生の拡充が可能です。労災保険料から支払われるため、追加コストは一切かかりません。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <div class="feature-title">訪問対応</div>
+          <div class="feature-desc">
+            企業様のオフィスに直接訪問し、従業員の負担を最小限に抑えます。通院の手間を省き、業務への影響を最小限にします。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <div class="feature-title">早期発見</div>
+          <div class="feature-desc">
+            重症化を防ぎ、従業員の健康と企業の生産性を守ります。定期的な健康チェックでリスクを早期に発見し、適切な対策を講じます。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">TESTIMONIAL</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「従業員の健康管理に悩んでいましたが、健診プラスの導入で従業員の満足度が大幅に向上しました。コストもかからず、本当にありがたいサービスです。特に忙しい時期でも従業員が健康診断を受けられるようになり、企業としても安心です。」
+        </div>
+        <div class="testimonial-author">- 製造業A社 人事部長</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくある質問</h2>
+      <div class="faq-section">
+        <div class="faq-item">
+          <div class="faq-question">対象となる企業は？</div>
+          <div class="faq-answer">労災保険の適用事業場であれば、規模に関係なくご利用いただけます。従業員数に関わらず、すべての企業様が対象です。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">申し込みから実施までどのくらい？</div>
+          <div class="faq-answer">通常、申し込みから2-3週間で実施可能です。企業様のスケジュールに合わせて柔軟に対応いたします。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">従業員の負担は？</div>
+          <div class="faq-answer">従業員の負担は一切ありません。すべて無料で受診いただけます。また、オフィス訪問により通院の手間も省けます。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">どのような検査が含まれますか？</div>
+          <div class="faq-answer">脳梗塞や心筋梗塞の発症リスクを把握するための検査が含まれます。詳細はお問い合わせ時にご案内いたします。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>あなたの企業でも健診プラスを導入しませんか？</h2>
+      <p>コストゼロで従業員の健康管理を強化できます。まずはお気軽にご相談ください。</p>
+      <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../index.html">ホーム</a>｜
+        <a href="../index.html#story">ストーリー</a>｜
+        <a href="../index.html#mission">ミッション</a>｜
+        <a href="../index.html#services">サービス</a>｜
+        <a href="../about.html">会社情報</a>｜
+        <a href="../contact.html">お問い合わせ</a>｜
+        Good Small Company
+        ｜ <a href="../privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
+  </footer>
+
+  <script>
+    // FAQ アコーディオン機能
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // 他のFAQを閉じる
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.classList.remove('active');
+        });
+        
+        // クリックされたFAQを開く
+        if (!isActive) {
+          question.classList.add('active');
+          answer.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

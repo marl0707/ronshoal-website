@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医療ダイエット | 健康パスポート | ロンショール合同会社</title>
+  <meta name="description" content="医師監修の科学的ダイエットプログラム。個人の体質に合わせたオーダーメイドのダイエット指導を提供します。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #ffd700;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::before {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .service-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.15;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .service-hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .service-hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .treatment-options {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    }
+    
+    .treatment-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .treatment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .treatment-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .treatment-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .treatment-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .treatment-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .treatment-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .treatment-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .treatment-features li {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .treatment-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .faq-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    
+    .faq-question {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--light);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    .faq-answer.active {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+    
+    .testimonials-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 4rem;
+      color: var(--primary);
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      opacity: 0.3;
+    }
+    
+    .testimonial-text {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .cta-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .service-hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .treatment-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav ul {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../index.html">TOP</a></li>
+          <li><a href="../../about.html">会社情報</a></li>
+          <li><a href="../../business.html">事業内容</a></li>
+          <li><a href="../../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <div class="hero-badge">医療ダイエット</div>
+      <h1 class="service-hero-title">医学の力で<br>理想の体型を実現</h1>
+      <p class="service-hero-subtitle">NEJM掲載の臨床試験で証明された効果。平均20.9%の減量を実現する、科学的根拠に基づいた医療ダイエットプログラム。</p>
+    </div>
+  </section>
+
+  <section class="treatment-options">
+    <div class="treatment-container">
+      <div class="section-badge">TREATMENT OPTIONS</div>
+      <h2 class="section-title">あなたに最適な治療法を選択</h2>
+      <div class="treatment-grid">
+        <div class="treatment-card">
+          <div class="treatment-icon">💉</div>
+          <div class="treatment-title">マンジャロ（注射薬）</div>
+          <div class="treatment-desc">
+            現在最も効果的な肥満治療薬。週1回の注射で、平均15-20%の体重減少を実現します。
+          </div>
+          <ul class="treatment-features">
+            <li>週1回の注射で手軽</li>
+            <li>平均15-20%の減量効果</li>
+            <li>96%の人が減量に成功</li>
+            <li>食欲を自然に抑制</li>
+            <li>食費削減で経済的</li>
+          </ul>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">💊</div>
+          <div class="treatment-title">リベルサス（飲み薬）</div>
+          <div class="treatment-desc">
+            注射が苦手な方のための選択肢。1日1回の服用で、確実な減量効果を実現します。
+          </div>
+          <ul class="treatment-features">
+            <li>1日1回の服用で簡単</li>
+            <li>注射の恐怖心ゼロ</li>
+            <li>平均5-8%の減量効果</li>
+            <li>月額10,000円で続けやすい</li>
+            <li>食費削減で実質負担軽減</li>
+          </ul>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">🩺</div>
+          <div class="treatment-title">SGLT2阻害薬</div>
+          <div class="treatment-desc">
+            余分な糖を体外に排出する画期的な治療法。我慢せずに体重が減ります。
+          </div>
+          <ul class="treatment-features">
+            <li>1日200-400kcalの糖を排出</li>
+            <li>茶碗1.5杯分のご飯が自然に消える</li>
+            <li>血糖値が安定する</li>
+            <li>むくみが改善する方も</li>
+            <li>医師の92%が支持</li>
+          </ul>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-icon">⚡</div>
+          <div class="treatment-title">メトホルミン</div>
+          <div class="treatment-desc">
+            単なるダイエット薬を超えた、全身の健康改善を実現する多面的効果を持つ薬剤。
+          </div>
+          <ul class="treatment-features">
+            <li>筋肉の質を向上</li>
+            <li>長寿効果が期待できる</li>
+            <li>がんリスクを下げる可能性</li>
+            <li>腸内環境を改善</li>
+            <li>月額5,000円で始められる</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          本当に効果があるの？
+        </div>
+        <div class="faq-answer">
+          NEJM掲載の臨床試験で、平均20.9%の減量効果が証明されています。特にマンジャロは96%の人が減量に成功しており、医学的に最も効果的な治療法として認められています。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          副作用が心配...
+        </div>
+        <div class="faq-answer">
+          軽い吐き気が31.5%の方に見られますが、多くは一時的です。医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          リバウンドしない？
+        </div>
+        <div class="faq-answer">
+          適切な指導のもとでは、リバウンド率は従来のダイエットより大幅に低いです。医療ダイエットは体質改善を目指すため、長期的な効果が期待できます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          注射が怖いのですが...
+        </div>
+        <div class="faq-answer">
+          94%の人が「思ったより簡単だった」と回答しています。ペンをノックするだけの簡単な操作で、痛みも蚊に刺される程度です。どうしても注射が苦手な方には、リベルサスという飲み薬の選択肢もあります。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          費用はどれくらい？
+        </div>
+        <div class="faq-answer">
+          マンジャロは月36,000円、リベルサスは月10,000円です。ただし、食欲が抑えられることで食費も大幅に削減され、多くの方が実質的な負担は軽いと感じています。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <div class="section-badge">VOICES</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「更年期に入ってから、何をしても痩せなくなりました。でも、マンジャロを始めて2週間で変化が...異常な食欲がスーッと収まったんです。3ヶ月経った今、体重は12kg減。何より嬉しいのは、健康診断の数値がすべて正常値になったことです。」
+          </div>
+          <div class="testimonial-author">M.Kさん（52歳・女性・会社員）</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「注射は怖くて無理でしたが、リベルサスなら続けられました。月1万円で、食費も減って実質負担なし。3ヶ月で6kg減って、注射ほどではないけど満足です。コンビニ通いがなくなって、月2万円も節約できました。」
+          </div>
+          <div class="testimonial-author">53歳女性</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「正直、半信半疑でした。でも、妻との関係がギクシャクして...オンライン診療なら誰にも会わないし、思い切って相談しました。3ヶ月で12kg減った！人生が変わりました。」
+          </div>
+          <div class="testimonial-author">45歳男性・会社員</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「仕事のストレスで太ってしまい、何をしても痩せませんでした。SGLT2阻害薬を始めて3ヶ月で5kg減。トイレが少し増えただけ。それで血糖値も改善して、もっと早く始めればよかった。」
+          </div>
+          <div class="testimonial-author">52歳女性</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">今すぐ始める</h2>
+      <p class="cta-desc">
+        1年後の自分を想像してみてください。何も変わらない自分と、生まれ変わった自分。どちらを選びますか？<br>
+        今始めれば、3ヶ月で効果実感、6ヶ月で目標達成、1年後には別人になっているはずです。
+      </p>
+      <div class="cta-buttons">
+        <a href="../../contact.html" class="cta-btn primary">オンライン診療を予約</a>
+        <a href="../../contact.html" class="cta-btn secondary">無料カウンセリング</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="../../index.html">ホーム</a>｜
+        <a href="../../about.html">会社情報</a>｜
+        <a href="../../business.html">事業内容</a>｜
+        <a href="../../contact.html">お問い合わせ</a>｜
+        <a href="../../privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      answer.classList.toggle('active');
+    }
+  </script>
+</body>
+</html> 
