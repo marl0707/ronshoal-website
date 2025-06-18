@@ -4,21 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>医療ダイエット | 健康パスポート | ロンショール合同会社</title>
-  <meta name="description" content="医学的根拠に基づいた安全で効果的な医療ダイエット。マンジャロ、リベルサス、SGLT2、メトホルミンなど、最新の治療薬を活用したダイエット治療を提供します。">
+  <meta name="description" content="医学的根拠に基づいた安全で効果的なダイエット治療。マンジャロ、リベルサス、SGLT2、メトホルミンなど、最新の治療薬を活用します。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    
     :root {
       --primary: #00d4ff;
       --secondary: #ff6b35;
@@ -34,7 +22,21 @@
       --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
       --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
     }
-
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    a { color: var(--primary); text-decoration: none; }
+    
     header {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
@@ -133,7 +135,7 @@
       background: rgba(0, 212, 255, 0.1);
       box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
     }
-
+    
     .service-hero {
       min-height: 60vh;
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
@@ -236,7 +238,7 @@
       margin-right: auto;
     }
     
-    .service-overview {
+    .treatments-section {
       padding: 6rem 2rem;
       background: var(--light);
     }
@@ -268,50 +270,14 @@
       background-clip: text;
     }
     
-    .overview-content {
+    .treatments-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-    
-    .overview-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--gray-dark);
-    }
-    
-    .overview-image {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .overview-image:hover {
-      transform: scale(1.05);
-    }
-    
-    .overview-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: var(--shadow-card);
-    }
-    
-    .treatment-menu {
-      padding: 6rem 2rem;
-      background: var(--gray);
-    }
-    
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
     
-    .menu-card {
+    .treatment-card {
       background: var(--light);
       border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 20px;
@@ -321,10 +287,9 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      text-align: center;
     }
     
-    .menu-card::before {
+    .treatment-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -335,39 +300,39 @@
       transition: all 0.3s ease;
     }
     
-    .menu-card:hover {
+    .treatment-card:hover {
       transform: translateY(-10px) scale(1.02);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     }
     
-    .menu-card:hover::before {
+    .treatment-card:hover::before {
       background: var(--gradient-accent);
     }
     
-    .menu-icon {
+    .treatment-icon {
       font-size: 3rem;
       margin-bottom: 1rem;
       transition: all 0.3s ease;
     }
     
-    .menu-card:hover .menu-icon {
-      transform: scale(1.2) rotate(360deg);
+    .treatment-card:hover .treatment-icon {
+      transform: scale(1.2);
     }
     
-    .menu-title {
+    .treatment-title {
       font-weight: 700;
       font-size: 1.3rem;
       margin-bottom: 1rem;
       color: var(--dark);
     }
     
-    .menu-desc {
+    .treatment-desc {
       color: var(--gray-dark);
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
     
-    .menu-btn {
+    .treatment-btn {
       display: inline-block;
       padding: 0.8rem 1.5rem;
       background: var(--gradient-primary);
@@ -375,137 +340,17 @@
       border-radius: 25px;
       font-weight: 600;
       transition: all 0.3s ease;
+      text-decoration: none;
     }
     
-    .menu-btn:hover {
+    .treatment-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
     }
     
-    .testimonials-section {
-      padding: 6rem 2rem;
-      background: var(--light);
-    }
-    
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .testimonial-card {
-      background: var(--light);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .testimonial-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-    .testimonial-card::before {
-      content: '"';
-      font-family: 'Montserrat', serif;
-      font-size: 4rem;
-      color: var(--primary);
-      position: absolute;
-      top: -1rem;
-      left: 1rem;
-      opacity: 0.3;
-    }
-    
-    .testimonial-content {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--gray-dark);
-      margin-bottom: 1.5rem;
-      font-style: italic;
-    }
-    
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--dark);
-      font-size: 0.9rem;
-    }
-    
-    .faq-section {
-      padding: 6rem 2rem;
-      background: var(--gray);
-    }
-    
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .faq-item {
-      background: var(--light);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s ease;
-    }
-    
-    .faq-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-    .faq-question {
-      background: rgba(0, 212, 255, 0.05);
-      padding: 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--dark);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .faq-question:hover {
-      background: rgba(0, 212, 255, 0.1);
-      color: var(--primary);
-    }
-    
-    .faq-question::after {
-      content: '+';
-      position: absolute;
-      right: 1.5rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.5rem;
-      color: var(--primary);
-      transition: all 0.3s ease;
-    }
-    
-    .faq-question.active::after {
-      transform: translateY(-50%) rotate(45deg);
-    }
-    
-    .faq-answer {
-      padding: 0 1.5rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      color: var(--gray-dark);
-      line-height: 1.6;
-    }
-    
-    .faq-answer.active {
-      padding: 1.5rem;
-      max-height: 500px;
-    }
-    
     .cta-section {
       padding: 6rem 2rem;
-      background: var(--light);
+      background: var(--gray);
       text-align: center;
     }
     
@@ -577,7 +422,7 @@
       color: var(--light);
       box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
     }
-
+    
     footer {
       background: var(--dark);
       padding: 4rem 2rem 2rem;
@@ -614,14 +459,7 @@
       .service-title {
         font-size: 2.5rem;
       }
-      .overview-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
-      .testimonials-grid {
+      .treatments-grid {
         grid-template-columns: 1fr;
       }
       .cta-buttons {
@@ -653,148 +491,64 @@
       </nav>
     </div>
   </header>
-
+  
   <section class="service-hero">
     <div class="service-hero-content">
       <div class="service-badge">MEDICAL DIET</div>
       <h1 class="service-title">医療ダイエット</h1>
-      <p class="service-subtitle">医学的根拠に基づいた安全で効果的なダイエット治療。最新の治療薬を活用して、あなたの理想の体型を実現します。</p>
+      <p class="service-subtitle">医学的根拠に基づいた安全で効果的なダイエット治療。最新の治療薬で、無理なく理想の体型を実現します。</p>
     </div>
   </section>
-
-  <section class="service-overview">
-    <div class="service-container">
-      <div class="section-badge">OVERVIEW</div>
-      <h2 class="section-title">医療ダイエットとは</h2>
-      <div class="overview-content">
-        <div class="overview-text">
-          <p>医療ダイエットは、医師の指導のもと、医学的根拠に基づいた安全で効果的なダイエット治療です。従来のダイエットでは効果が得られなかった方、健康上の理由でダイエットが必要な方に最適です。</p>
-          <p>NEJM掲載の臨床試験で、平均20.9%の減量効果が証明されており、多くの方が成功を収めています。個人の体質や生活習慣に合わせて、最適な治療薬を選択し、継続的なサポートを提供します。</p>
-        </div>
-        <div class="overview-image">
-          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="医療ダイエット">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="treatment-menu">
+  
+  <section class="treatments-section">
     <div class="service-container">
       <div class="section-badge">TREATMENTS</div>
-      <h2 class="section-title">治療薬メニュー</h2>
-      <div class="menu-grid">
-        <div class="menu-card" onclick="window.location.href='treatments/mounjaro.html'">
-          <div class="menu-icon">💊</div>
-          <div class="menu-title">マンジャロ（Mounjaro）</div>
-          <div class="menu-desc">
-            最新のGLP-1受容体作動薬。食欲抑制と血糖値改善の両方に効果があり、高い減量効果が期待できます。
+      <h2 class="section-title">治療薬一覧</h2>
+      <div class="treatments-grid">
+        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/mounjaro.html'">
+          <div class="treatment-icon">💉</div>
+          <div class="treatment-title">マンジャロ（Mounjaro）</div>
+          <div class="treatment-desc">
+            最新のGLP-1受容体作動薬。NEJM掲載の臨床試験で平均20.9%の減量効果が証明。96%の人が減量に成功しています。
           </div>
-          <a href="treatments/mounjaro.html" class="menu-btn">詳しく見る</a>
+          <a href="medical-diet/treatments/mounjaro.html" class="treatment-btn">詳しく見る</a>
         </div>
         
-        <div class="menu-card" onclick="window.location.href='treatments/rybelsus.html'">
-          <div class="menu-icon">💊</div>
-          <div class="menu-title">リベルサス（Rybelsus）</div>
-          <div class="menu-desc">
-            経口GLP-1受容体作動薬。注射が苦手な方でも安心して使用でき、継続しやすい治療です。
+        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/rybelsus.html'">
+          <div class="treatment-icon">💊</div>
+          <div class="treatment-title">リベルサス（Rybelsus）</div>
+          <div class="treatment-desc">
+            世界初の経口GLP-1受容体作動薬。注射が苦手な方でも安心。食欲を自然に抑制し、無理なく減量をサポートします。
           </div>
-          <a href="treatments/rybelsus.html" class="menu-btn">詳しく見る</a>
+          <a href="medical-diet/treatments/rybelsus.html" class="treatment-btn">詳しく見る</a>
         </div>
         
-        <div class="menu-card" onclick="window.location.href='treatments/sglt2.html'">
-          <div class="menu-icon">💊</div>
-          <div class="menu-title">SGLT2阻害薬</div>
-          <div class="menu-desc">
-            尿糖排泄促進作用により、カロリーを体外に排出。糖尿病の治療と減量を同時に実現します。
+        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/sglt2.html'">
+          <div class="treatment-icon">🍬</div>
+          <div class="treatment-title">SGLT2阻害薬</div>
+          <div class="treatment-desc">
+            余分な糖を「なかったことに」できる画期的な治療法。1日200-400kcalの糖を体外へ排出。医師の92%が支持する治療法です。
           </div>
-          <a href="treatments/sglt2.html" class="menu-btn">詳しく見る</a>
+          <a href="medical-diet/treatments/sglt2.html" class="treatment-btn">詳しく見る</a>
         </div>
         
-        <div class="menu-card" onclick="window.location.href='treatments/metformin.html'">
-          <div class="menu-icon">💊</div>
-          <div class="menu-title">メトホルミン</div>
-          <div class="menu-desc">
-            安全性が高く、長年使用されている糖尿病治療薬。インスリン抵抗性を改善し、減量をサポートします。
+        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/metformin.html'">
+          <div class="treatment-icon">⚕️</div>
+          <div class="treatment-title">メトホルミン</div>
+          <div class="treatment-desc">
+            単なるダイエット薬ではない「4つの効果」で人生を変える薬。筋肉を守り、寿命を延ばし、がんを防ぎ、腸から整える。
           </div>
-          <a href="treatments/metformin.html" class="menu-btn">詳しく見る</a>
+          <a href="medical-diet/treatments/metformin.html" class="treatment-btn">詳しく見る</a>
         </div>
       </div>
     </div>
   </section>
-
-  <section class="testimonials-section">
-    <div class="service-container">
-      <div class="section-badge">TESTIMONIALS</div>
-      <h2 class="section-title">お客様の声</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            「更年期に入ってから、何をしても痩せなくなりました。でも、マンジャロを始めて2週間で変化が...異常な食欲がスーッと収まったんです。3ヶ月経った今、体重は12kg減。何より嬉しいのは、健康診断の数値がすべて正常値になったことです。」
-          </div>
-          <div class="testimonial-author">M.Kさん（52歳・女性・会社員）</div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            「仕事が忙しくて運動する時間がなく、リベルサスで治療を始めました。注射が苦手だったので、経口薬で治療できるのが嬉しかったです。半年で8kg減量でき、血糖値も改善しました。」
-          </div>
-          <div class="testimonial-author">T.Sさん（45歳・男性・営業職）</div>
-        </div>
-        
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            「糖尿病の治療と減量を同時にしたいと思い、SGLT2阻害薬を選択しました。副作用も少なく、自然に体重が減っていく感じです。医師の先生も親身になってサポートしてくださり、安心して治療を続けられています。」
-          </div>
-          <div class="testimonial-author">H.Yさん（38歳・女性・事務職）</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="faq-container">
-      <div class="section-badge">FAQ</div>
-      <h2 class="section-title">よくある質問</h2>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          本当に効果があるの？
-        </div>
-        <div class="faq-answer">
-          NEJM掲載の臨床試験で、平均20.9%の減量効果が証明されています。個人差はありますが、多くの方が効果を実感されています。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          副作用が心配...
-        </div>
-        <div class="faq-answer">
-          軽い吐き気が31.5%の方に見られますが、多くは一時的です。医師が適切に管理し、副作用が出た場合は調整いたします。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          リバウンドしない？
-        </div>
-        <div class="faq-answer">
-          適切な指導のもとでは、リバウンド率は従来のダイエットより大幅に低いです。継続的なサポートで、リバウンドを防ぎます。
-        </div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFAQ(this)">
-          どのくらいの期間で効果が出る？
-        </div>
-        <div class="faq-answer">
-          個人差がありますが、通常2-4週間で変化を実感される方が多いです。継続的な治療で、より大きな効果が期待できます。
-        </div>
-      </div>
-    </div>
-  </section>
-
+  
   <section class="cta-section">
     <div class="cta-container">
-      <h2 class="cta-title">医療ダイエットを始めませんか？</h2>
+      <h2 class="cta-title">あなたに最適な治療法を見つけませんか？</h2>
       <p class="cta-desc">
-        医学的根拠に基づいた安全で効果的なダイエット治療で、あなたの理想の体型を実現しましょう。まずは無料相談からお気軽にご連絡ください。
+        医師があなたの体質や生活習慣に合わせて、最適な治療プランをご提案。無理なく、安全に、理想の体型を実現します。
       </p>
       <div class="cta-buttons">
         <a href="../../contact.html" class="cta-btn primary">無料相談を予約</a>
@@ -802,7 +556,7 @@
       </div>
     </div>
   </section>
-
+  
   <footer>
     <div class="footer-content">
       <div class="footer-links">
@@ -818,26 +572,5 @@
       <div class="footer-copy">©️2021 Ronshoal.llc</div>
     </div>
   </footer>
-
-  <script>
-    function toggleFAQ(element) {
-      const answer = element.nextElementSibling;
-      const isActive = answer.classList.contains('active');
-      
-      // 他のFAQを閉じる
-      document.querySelectorAll('.faq-answer').forEach(item => {
-        item.classList.remove('active');
-      });
-      document.querySelectorAll('.faq-question').forEach(item => {
-        item.classList.remove('active');
-      });
-      
-      // クリックされたFAQを開く
-      if (!isActive) {
-        answer.classList.add('active');
-        element.classList.add('active');
-      }
-    }
-  </script>
 </body>
-</html> 
+</html>
