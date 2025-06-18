@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | ロンショール合同会社</title>
+  <meta name="description" content="ロンショール合同会社へのお問い合わせ。事業内容についてのご相談、アライアンス契約のご検討など、お気軽にお問い合わせください。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    a { color: #1a237e; text-decoration: none; }
+    header {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+    }
+    .logo {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.12em;
+      color: #1a237e;
+      display: flex;
+      align-items: center;
+    }
+    .logo svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li { font-weight: 600; }
+    nav a { font-size: 1.08rem; position: relative; }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #1a237e;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0; bottom: -2px;
+    }
+    nav a:hover::after { width: 100%; }
+    .page-hero {
+      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.3;
+      filter: blur(1px);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .contact-form-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-form-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .section-title {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1.5rem;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group label {
+      font-weight: 600;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .form-group .required {
+      color: #d32f2f;
+      font-size: 0.9rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 0.8rem;
+      border: 2px solid #e3e9f2;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #f8fafc;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: #3e8ed0;
+      background: #fff;
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-group .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .form-group .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+    .form-group .checkbox-group label {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .submit-btn {
+      background: linear-gradient(90deg, #1a237e 60%, #3e8ed0 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 1rem;
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(30,40,80,0.15);
+    }
+    .contact-info-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-info-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .contact-info-item {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, #f8fafc 0%, #e3e9f2 100%);
+      border-radius: 12px;
+      border-left: 4px solid #3e8ed0;
+    }
+    .contact-info-item h4 {
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .contact-info-item p {
+      color: #333;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .faq-section {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .faq-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .faq-item {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #e3e9f2;
+      padding-bottom: 1.5rem;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-question {
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .faq-answer {
+      color: #333;
+      line-height: 1.7;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, #fffbe7 0%, #f0f4c3 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid #f57c00;
+    }
+    .highlight-box h4 {
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .highlight-box p {
+      color: #333;
+      margin: 0;
+      line-height: 1.6;
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 1rem;
+      font-size: 1.05rem;
+      text-decoration: underline;
+    }
+    .footer-copy {
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="index.html#philosophy">理念</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="about.html">会社情報</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1>お問い合わせ</h1>
+      <p>弊社事業とのアライアンス契約をご希望の法人様、お気軽にお問い合わせ下さい</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="contact-grid">
+      <div class="contact-form-section">
+        <div class="section-title">お問い合わせフォーム</div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">お名前 <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="company">会社名</label>
+            <input type="text" id="company" name="company">
+          </div>
+          
+          <div class="form-group">
+            <label for="email">メールアドレス <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel">
+          </div>
+          
+          <div class="form-group">
+            <label for="inquiry-type">お問い合わせ種別</label>
+            <select id="inquiry-type" name="inquiry-type">
+              <option value="">選択してください</option>
+              <option value="健診プラス">健診プラスについて</option>
+              <option value="健康パスポート">健康パスポートについて</option>
+              <option value="職場deクリニック">職場 de クリニックについて</option>
+              <option value="AGIステップ">AGIステップについて</option>
+              <option value="医療介護経営コンサルティング">医療介護経営コンサルティングについて</option>
+              <option value="アライアンス契約">アライアンス契約について</option>
+              <option value="その他">その他</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+            <textarea id="message" name="message" required placeholder="詳細をお聞かせください"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <div class="checkbox-group">
+              <input type="checkbox" id="agree" name="agree" required>
+              <label for="agree"><a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する <span class="required">*</span></label>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-btn">送信する</button>
+        </form>
+      </div>
+
+      <div class="contact-info-section">
+        <div class="section-title">連絡先情報</div>
+        
+        <div class="contact-info-item">
+          <h4>メールアドレス</h4>
+          <p>info@ronshoal.com</p>
+        </div>
+        
+        <div class="contact-info-item">
+          <h4>対応時間</h4>
+          <p>平日 9:00〜18:00（日本時間）<br>
+          ※土日祝日は休業</p>
+        </div>
+        
+        <div class="contact-info-item">
+          <h4>会社情報</h4>
+          <p>会社名：Ronshoal.llc<br>
+          代表：瀬島 和樹<br>
+          創業：2021年1月26日</p>
+        </div>
+
+        <div class="highlight-box">
+          <h4>お急ぎの方は</h4>
+          <p>メールでのお問い合わせが最も確実です。通常2営業日以内にご返信いたします。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <div class="section-title">よくある質問</div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q. どのような企業様が対象ですか？</div>
+        <div class="faq-answer">A. 労災保険の適用事業場であれば、企業規模に関係なくご利用いただけます。特に健康経営に取り組みたい企業様、従業員の健康管理を強化したい企業様におすすめです。</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q. 導入までの期間はどのくらいですか？</div>
+        <div class="faq-answer">A. サービスによって異なりますが、通常2-4週間で導入可能です。詳細はお問い合わせ時にご案内いたします。</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q. アライアンス契約とはどのようなものですか？</div>
+        <div class="faq-answer">A. 弊社のサービスを代理店として販売していただく契約です。詳細な条件や報酬体系については、個別にご相談させていただきます。</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q. オンライン診療はどのような病気に対応していますか？</div>
+        <div class="faq-answer">A. 生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）に対応しています。詳細は「健康パスポート」のページをご確認ください。</div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">Q. 海外在住ですが利用できますか？</div>
+        <div class="faq-answer">A. 弊社代表もマレーシア在住のため、海外からのお問い合わせも歓迎いたします。時差を考慮した対応も可能です。</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>｜
+      <a href="index.html#philosophy">目指す社会</a>｜
+      <a href="business.html">事業内容</a>｜
+      <a href="about.html">会社情報</a>｜
+      <a href="contact.html">お問い合わせ</a>｜
+      Good Small Company
+      ｜ <a href="privacy.html">プライバシーポリシー</a> |
+    </div>
+    <div class="footer-copy">©️2021 Ronshoal.llc</div>
+  </footer>
+
+  <script>
+    // フォーム送信処理
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // フォームデータの取得
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // 送信確認
+      if (confirm('お問い合わせを送信しますか？')) {
+        // 実際の送信処理（メール送信など）
+        alert('お問い合わせを送信しました。\n通常2営業日以内にご返信いたします。');
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会社情報 | ロンショール合同会社</title>
+  <meta name="description" content="すべての人々に後悔のない人生を。代表瀬島和樹の人生観・理念・ストーリー。マレーシア在住の医師が目指す医療の未来。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    a { color: #1a237e; text-decoration: none; }
+    header {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+    }
+    .logo {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.12em;
+      color: #1a237e;
+      display: flex;
+      align-items: center;
+    }
+    .logo svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li { font-weight: 600; }
+    nav a { font-size: 1.08rem; position: relative; }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #1a237e;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0; bottom: -2px;
+    }
+    nav a:hover::after { width: 100%; }
+    .page-hero {
+      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.3;
+      filter: blur(1px);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem; }
+    .section {
+      margin-bottom: 4rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .section-title {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    .section-title .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 1rem;
+      background: linear-gradient(45deg, #3e8ed0, #1a237e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .philosophy-content {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+    .philosophy-quote {
+      background: linear-gradient(135deg, #fffbe7 0%, #f0f4c3 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+      position: relative;
+      border-left: 4px solid #f57c00;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #333;
+      text-align: center;
+    }
+    .philosophy-quote::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 4rem;
+      color: #f57c00;
+      position: absolute;
+      left: 1rem; top: 0.5rem;
+      opacity: 0.3;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .profile-image {
+      text-align: center;
+    }
+    .profile-image img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3e8ed0;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.15);
+    }
+    .profile-info {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    .profile-info h3 {
+      color: #1a237e;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+    .profile-info p {
+      margin-bottom: 1rem;
+    }
+    .profile-info .highlight {
+      background: linear-gradient(135deg, #e3e9f2 0%, #f8fafc 100%);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      border-left: 4px solid #3e8ed0;
+    }
+    .company-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .info-item {
+      background: linear-gradient(135deg, #f8fafc 0%, #e3e9f2 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #3e8ed0;
+    }
+    .info-item h4 {
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .info-item p {
+      color: #444;
+      margin: 0;
+    }
+    .story-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .story-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+      padding-left: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: #3e8ed0;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(30,40,80,0.2);
+    }
+    .timeline-year {
+      font-weight: 700;
+      color: #1a237e;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .timeline-content {
+      color: #333;
+      line-height: 1.7;
+    }
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, #1a237e 0%, #3e8ed0 100%);
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-top: 3rem;
+    }
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .cta-btn {
+      background: #fff;
+      color: #1a237e;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 1rem;
+      font-size: 1.05rem;
+      text-decoration: underline;
+    }
+    .footer-copy {
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+    @media (max-width: 800px) {
+      .profile-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .company-info {
+        grid-template-columns: 1fr;
+      }
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="index.html#philosophy">理念</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="about.html">会社情報</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1>会社情報</h1>
+      <p>すべての人々に後悔のない人生を。代表瀬島和樹の人生観と理念</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">💭</div>
+        私たちの理念
+      </div>
+      <div class="philosophy-content">
+        "すべての人々に後悔のない人生を"<br><br>
+        これが私の人生理念です。<br><br>
+        ヒトが死を恐れる理由の1つとして「人生でやり残したことがまだ残っている」という理由があります。<br><br>
+        私の周りの人々が後悔のない人生を送れる意思決定のお手伝いや微力ながら、すべての人々が自分の人生を終える瞬間、「自分の人生、最高に楽しかった」と心から思える社会を目指しています。
+      </div>
+      
+      <div class="philosophy-quote">
+        こども達に負の遺産を残さない。<br>
+        医療費削減への挑戦。
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">👨‍⚕️</div>
+        代表プロフィール
+      </div>
+      <div class="profile-grid">
+        <div class="profile-image">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="瀬島和樹">
+        </div>
+        <div class="profile-info">
+          <h3>瀬島 和樹（セジマール）</h3>
+          <p><strong>出身：</strong>神戸（北川景子と幼稚園幼なじみ）</p>
+          <p><strong>現在：</strong>息子の教育のためマレーシアに在住</p>
+          <p><strong>学歴：</strong>奈良県立医大　医学部修士課程 臨床実証医学講座所属</p>
+          <p><strong>資格：</strong>生田流箏曲中伝/柳川流三線中伝/剣道初段/調理師　等々</p>
+          <p><strong>趣味：</strong>育児、教育、作曲</p>
+          
+          <div class="highlight">
+            <strong>最近嬉しかったこと：</strong><br>
+            マレーシアで牛タン1kg1,200円で買えるので、かなりの頻度で牛タン料理作ってます。
+          </div>
+          
+          <h3>人生の転機</h3>
+          <div class="story-timeline">
+            <div class="timeline-item">
+              <div class="timeline-year">2021年</div>
+              <div class="timeline-content">ロンショール合同会社を創業。医療の未来を変えるべく、新しい挑戦を開始。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2022年</div>
+              <div class="timeline-content">息子の教育のためマレーシア移住を決断。グローバルな視点で医療事業を展開。</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-year">2023年</div>
+              <div class="timeline-content">オンライン診療プラットフォーム「健康パスポート」を本格展開。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">🏢</div>
+        会社概要
+      </div>
+      <div class="company-info">
+        <div class="info-item">
+          <h4>会社名</h4>
+          <p>Ronshoal.llc</p>
+        </div>
+        <div class="info-item">
+          <h4>代表者</h4>
+          <p>瀬島 和樹</p>
+        </div>
+        <div class="info-item">
+          <h4>創業</h4>
+          <p>2021年1月26日</p>
+        </div>
+        <div class="info-item">
+          <h4>連絡先</h4>
+          <p>info@ronshoal.com</p>
+        </div>
+        <div class="info-item">
+          <h4>事業内容</h4>
+          <p>労災二次健診・健康経営・オンライン診療・AI活用・医療介護経営コンサルティング</p>
+        </div>
+        <div class="info-item">
+          <h4>理念</h4>
+          <p>すべての人々に後悔のない人生を</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">🎯</div>
+        目指す社会
+      </div>
+      <div class="philosophy-content">
+        私たちが目指すのは、誰もが健康で幸せに生きられる社会です。<br><br>
+        現在の医療システムでは、多くの人が「通院か仕事か」という選択を迫られています。この状況を変えるために、私たちは以下の3つの価値を提供します：
+      </div>
+      
+      <div class="company-info">
+        <div class="info-item">
+          <h4>アクセシビリティ</h4>
+          <p>いつでもどこでも医療を受けられる環境を整備</p>
+        </div>
+        <div class="info-item">
+          <h4>予防医療</h4>
+          <p>病気になる前の予防と早期発見を重視</p>
+        </div>
+        <div class="info-item">
+          <h4>持続可能性</h4>
+          <p>医療費削減と社会保障の持続可能な未来を構築</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>一緒に医療の未来を創りませんか？</h2>
+      <p>弊社事業とのアライアンス契約をご希望の法人様、お気軽にお問い合わせ下さい。</p>
+      <a href="index.html#contact" class="cta-btn">お問い合わせ</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>｜
+      <a href="index.html#philosophy">目指す社会</a>｜
+      <a href="business.html">事業内容</a>｜
+      <a href="about.html">会社情報</a>｜
+      <a href="index.html#contact">お問い合わせ</a>｜
+      Good Small Company
+      ｜ <a href="privacy.html">プライバシーポリシー</a> |
+    </div>
+    <div class="footer-copy">©️2021 Ronshoal.llc</div>
+  </footer>
+</body>
+</html> 

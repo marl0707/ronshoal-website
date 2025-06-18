@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事業内容 | ロンショール合同会社</title>
+  <meta name="description" content="労災二次健診・オンライン診療・健康経営・AI活用・医療介護経営コンサルティング。体験談と事例で伝える、私たちの仕事。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    a { color: #1a237e; text-decoration: none; }
+    header {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+    }
+    .logo {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.12em;
+      color: #1a237e;
+      display: flex;
+      align-items: center;
+    }
+    .logo svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li { font-weight: 600; }
+    nav a { font-size: 1.08rem; position: relative; }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #1a237e;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0; bottom: -2px;
+    }
+    nav a:hover::after { width: 100%; }
+    .page-hero {
+      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
+      padding: 4rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.3;
+      filter: blur(1px);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      font-size: 1.2rem;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem; }
+    .business-section {
+      margin-bottom: 4rem;
+      background: #fff;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .business-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .business-title {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    .business-title .icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      margin-right: 1rem;
+      background: linear-gradient(45deg, #3e8ed0, #1a237e);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+    .business-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+    .business-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .feature-item {
+      background: linear-gradient(135deg, #f8fafc 0%, #e3e9f2 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #3e8ed0;
+    }
+    .feature-title {
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .feature-desc {
+      color: #444;
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+    .testimonial {
+      background: linear-gradient(135deg, #fffbe7 0%, #f0f4c3 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      position: relative;
+      border-left: 4px solid #f57c00;
+    }
+    .testimonial::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 3rem;
+      color: #f57c00;
+      position: absolute;
+      left: 1rem; top: 0.5rem;
+      opacity: 0.3;
+    }
+    .testimonial-content {
+      margin-left: 2rem;
+      font-style: italic;
+      color: #333;
+      line-height: 1.7;
+    }
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: 700;
+      color: #1a237e;
+      text-align: right;
+    }
+    .faq-section {
+      margin-top: 2rem;
+    }
+    .faq-item {
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .faq-question {
+      background: #e3e9f2;
+      padding: 1rem 1.5rem;
+      font-weight: 700;
+      color: #1a237e;
+      cursor: pointer;
+      position: relative;
+    }
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+    .faq-question.active::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .faq-answer.active {
+      padding: 1rem 1.5rem;
+      max-height: 200px;
+    }
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, #1a237e 0%, #3e8ed0 100%);
+      color: #fff;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-top: 3rem;
+    }
+    .cta-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .cta-btn {
+      background: #fff;
+      color: #1a237e;
+      border: none;
+      border-radius: 30px;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 1rem;
+      font-size: 1.05rem;
+      text-decoration: underline;
+    }
+    .footer-copy {
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+    @media (max-width: 800px) {
+      .business-features {
+        grid-template-columns: 1fr;
+      }
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="index.html#philosophy">理念</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="index.html#about">会社情報</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1>私たちの仕事</h1>
+      <p>体験談と事例で伝える、医療の未来を変える5つの事業</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="business-section">
+      <div class="business-title">
+        <div class="icon">1</div>
+        健診プラス
+      </div>
+      <div class="business-description">
+        二次健康診断等給付という制度を活用した無料訪問健康診断事業。定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。
+      </div>
+      
+      <div class="business-features">
+        <div class="feature-item">
+          <div class="feature-title">コストゼロ</div>
+          <div class="feature-desc">企業様の負担なしで健康経営の推進や福利厚生の拡充が可能</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">訪問対応</div>
+          <div class="feature-desc">企業様のオフィスに直接訪問し、従業員の負担を最小限に</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">早期発見</div>
+          <div class="feature-desc">重症化を防ぎ、従業員の健康と企業の生産性を守る</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「従業員の健康管理に悩んでいましたが、健診プラスの導入で従業員の満足度が大幅に向上しました。コストもかからず、本当にありがたいサービスです。」
+        </div>
+        <div class="testimonial-author">- 製造業A社 人事部長</div>
+      </div>
+
+      <div class="faq-section">
+        <h3>よくある質問</h3>
+        <div class="faq-item">
+          <div class="faq-question">対象となる企業は？</div>
+          <div class="faq-answer">労災保険の適用事業場であれば、規模に関係なくご利用いただけます。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">申し込みから実施までどのくらい？</div>
+          <div class="faq-answer">通常、申し込みから2-3週間で実施可能です。</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="business-title">
+        <div class="icon">2</div>
+        健康パスポート
+      </div>
+      <div class="business-description">
+        仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。
+      </div>
+      
+      <div class="business-features">
+        <div class="feature-item">
+          <div class="feature-title">24時間対応</div>
+          <div class="feature-desc">いつでもどこでもスマホで診療を受けられる</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">生活習慣病対応</div>
+          <div class="feature-desc">糖尿病、高血圧症、脂質異常症など幅広く対応</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">継続管理</div>
+          <div class="feature-desc">定期的なフォローアップで健康状態を継続管理</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「忙しい仕事の合間に通院するのが大変でしたが、健康パスポートで自宅で診療を受けられるようになり、とても助かっています。」
+        </div>
+        <div class="testimonial-author">- IT企業B社 エンジニア</div>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="business-title">
+        <div class="icon">3</div>
+        職場 de クリニック
+      </div>
+      <div class="business-description">
+        健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。
+      </div>
+      
+      <div class="business-features">
+        <div class="feature-item">
+          <div class="feature-title">生産性向上</div>
+          <div class="feature-desc">プレゼンティーイズム対策で労働生産性を向上</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">福利厚生強化</div>
+          <div class="feature-desc">従業員満足度向上につながる新しい福利厚生</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">健康経営</div>
+          <div class="feature-desc">企業の健康経営認定取得をサポート</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="business-title">
+        <div class="icon">4</div>
+        AGIステップ
+      </div>
+      <div class="business-description">
+        大規模言語モデルを用いたビジネス支援事業。今やビジネスを構築する上で避けて通れないと言われている大規模言語モデルを用いたAI技術で「あなたの分身」を作り出します。
+      </div>
+      
+      <div class="business-features">
+        <div class="feature-item">
+          <div class="feature-title">24時間対応</div>
+          <div class="feature-desc">AIが24時間体制でビジネスをサポート</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">業務効率化</div>
+          <div class="feature-desc">コスト削減と業務効率化を同時実現</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">カスタマイズ</div>
+          <div class="feature-desc">企業の業務に特化したAIを構築</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「AGIステップの導入で、顧客対応の効率が格段に向上しました。24時間対応が可能になり、顧客満足度も大幅に改善しています。」
+        </div>
+        <div class="testimonial-author">- サービス業C社 営業部長</div>
+      </div>
+    </section>
+
+    <section class="business-section">
+      <div class="business-title">
+        <div class="icon">5</div>
+        医療介護経営コンサルティング
+      </div>
+      <div class="business-description">
+        ドクター向けに睡眠時無呼吸症候群の検査/治療導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
+      </div>
+      
+      <div class="business-features">
+        <div class="feature-item">
+          <div class="feature-title">専門知識</div>
+          <div class="feature-desc">医療・介護分野の豊富な経験と専門知識</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">カスタマイズ</div>
+          <div class="feature-desc">各施設の状況に合わせた最適な提案</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-title">継続サポート</div>
+          <div class="feature-desc">導入後の継続的なサポート体制</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>あなたの未来を相談しませんか？</h2>
+      <p>弊社事業とのアライアンス契約をご希望の法人様、お気軽にお問い合わせ下さい。</p>
+      <a href="index.html#contact" class="cta-btn">お問い合わせ</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>｜
+      <a href="index.html#philosophy">目指す社会</a>｜
+      <a href="business.html">事業内容</a>｜
+      <a href="index.html#contact">お問い合わせ</a>｜
+      Good Small Company
+      ｜ <a href="privacy.html">プライバシーポリシー</a> |
+    </div>
+    <div class="footer-copy">©️2021 Ronshoal.llc</div>
+  </footer>
+
+  <script>
+    // FAQ アコーディオン機能
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // 他のFAQを閉じる
+        document.querySelectorAll('.faq-question').forEach(q => {
+          q.classList.remove('active');
+          q.nextElementSibling.classList.remove('active');
+        });
+        
+        // クリックされたFAQを開く
+        if (!isActive) {
+          question.classList.add('active');
+          answer.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html> 

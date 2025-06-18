@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー | ロンショール合同会社</title>
+  <meta name="description" content="ロンショール合同会社のプライバシーポリシー。個人情報の取り扱いについて詳しく説明しています。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
+      color: #222;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    a { color: #1a237e; text-decoration: none; }
+    header {
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1.5rem;
+    }
+    .logo {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-weight: 700;
+      font-size: 2.1rem;
+      letter-spacing: 0.12em;
+      color: #1a237e;
+      display: flex;
+      align-items: center;
+    }
+    .logo svg {
+      width: 2.2rem;
+      height: 2.2rem;
+      margin-right: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav li { font-weight: 600; }
+    nav a { font-size: 1.08rem; position: relative; }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #1a237e;
+      transition: width 0.3s;
+      position: absolute;
+      left: 0; bottom: -2px;
+    }
+    nav a:hover::after { width: 100%; }
+    .page-hero {
+      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
+      padding: 3rem 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      opacity: 0.2;
+      filter: blur(1px);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: #333;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    main { max-width: 900px; margin: 0 auto; padding: 3rem 1rem; }
+    .privacy-content {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .privacy-content::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+    }
+    .privacy-section {
+      margin-bottom: 2.5rem;
+    }
+    .privacy-section:last-child {
+      margin-bottom: 0;
+    }
+    .section-title {
+      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a237e;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e3e9f2;
+    }
+    .section-content {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    .section-content p {
+      margin-bottom: 1rem;
+    }
+    .section-content ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+    .section-content li {
+      margin-bottom: 0.5rem;
+    }
+    .highlight-box {
+      background: linear-gradient(135deg, #fffbe7 0%, #f0f4c3 100%);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #f57c00;
+    }
+    .highlight-box h4 {
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .contact-info {
+      background: linear-gradient(135deg, #e3e9f2 0%, #f8fafc 100%);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid #3e8ed0;
+    }
+    .contact-info h4 {
+      color: #1a237e;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .back-btn {
+      background: linear-gradient(90deg, #1a237e 60%, #3e8ed0 100%);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+    }
+    footer {
+      background: #1a237e;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: #fff;
+      margin: 0 1rem;
+      font-size: 1.05rem;
+      text-decoration: underline;
+    }
+    .footer-copy {
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+    @media (max-width: 800px) {
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+      .privacy-content {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="index.html#philosophy">理念</a></li>
+          <li><a href="business.html">事業内容</a></li>
+          <li><a href="about.html">会社情報</a></li>
+          <li><a href="index.html#contact">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <h1>プライバシーポリシー</h1>
+      <p>個人情報の取り扱いについて</p>
+    </div>
+  </section>
+
+  <main>
+    <div class="privacy-content">
+      <div class="privacy-section">
+        <div class="section-title">1. 基本方針</div>
+        <div class="section-content">
+          <p>ロンショール合同会社（以下「当社」）は、個人情報の重要性を認識し、個人情報の保護に関する法律（以下「個人情報保護法」）を遵守するとともに、適切な個人情報の取得、利用、管理を行います。</p>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">2. 個人情報の取得</div>
+        <div class="section-content">
+          <p>当社は、以下の目的で個人情報を取得いたします：</p>
+          <ul>
+            <li>お問い合わせへの対応</li>
+            <li>サービス提供のため</li>
+            <li>事業内容のご案内</li>
+            <li>アライアンス契約の検討・締結</li>
+            <li>その他、当社事業の遂行に必要な業務</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">3. 取得する個人情報の項目</div>
+        <div class="section-content">
+          <p>当社が取得する個人情報には、以下の項目が含まれます：</p>
+          <ul>
+            <li>氏名</li>
+            <li>会社名</li>
+            <li>メールアドレス</li>
+            <li>電話番号</li>
+            <li>お問い合わせ内容</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">4. 個人情報の利用目的</div>
+        <div class="section-content">
+          <p>取得した個人情報は、以下の目的で利用いたします：</p>
+          <ul>
+            <li>お問い合わせへの回答</li>
+            <li>サービス提供のため</li>
+            <li>事業内容のご案内</li>
+            <li>アライアンス契約の検討・締結</li>
+            <li>当社事業の改善・開発</li>
+            <li>法令に基づく対応</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">5. 個人情報の管理</div>
+        <div class="section-content">
+          <p>当社は、個人情報の正確性及び安全性を確保するために、セキュリティ対策を実施し、個人情報の漏洩、滅失または毀損の防止に努めます。</p>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">6. 個人情報の第三者提供</div>
+        <div class="section-content">
+          <p>当社は、以下の場合を除き、個人情報を第三者に提供いたしません：</p>
+          <ul>
+            <li>ご本人の同意がある場合</li>
+            <li>法令に基づく場合</li>
+            <li>人の生命、身体または財産の保護のために必要な場合</li>
+            <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要な場合</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">7. 個人情報の開示・訂正・利用停止</div>
+        <div class="section-content">
+          <p>ご本人からの個人情報の開示、訂正、利用停止のご要望については、法令に基づき適切に対応いたします。</p>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">8. お問い合わせ</div>
+        <div class="section-content">
+          <p>個人情報の取り扱いに関するお問い合わせは、以下の連絡先までお願いいたします：</p>
+          
+          <div class="contact-info">
+            <h4>ロンショール合同会社</h4>
+            <p>メールアドレス：info@ronshoal.com</p>
+            <p>※個人情報の取り扱いに関するお問い合わせの際は、件名に「個人情報について」とご記載ください。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">9. プライバシーポリシーの改定</div>
+        <div class="section-content">
+          <p>当社は、必要に応じて本プライバシーポリシーを改定することがあります。改定があった場合は、当社ウェブサイトにてお知らせいたします。</p>
+        </div>
+      </div>
+
+      <div class="privacy-section">
+        <div class="section-title">10. 制定日・改定日</div>
+        <div class="section-content">
+          <p>制定日：2021年1月26日<br>
+          最終改定日：2024年1月1日</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <h4>お客様の安心・安全を最優先に</h4>
+        <p>当社は、お客様の個人情報を大切に扱い、安心してサービスをご利用いただけるよう、適切な管理と保護に努めてまいります。</p>
+      </div>
+
+      <div class="back-link">
+        <a href="index.html" class="back-btn">ホームに戻る</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">ホーム</a>｜
+      <a href="index.html#philosophy">目指す社会</a>｜
+      <a href="business.html">事業内容</a>｜
+      <a href="about.html">会社情報</a>｜
+      <a href="index.html#contact">お問い合わせ</a>｜
+      Good Small Company
+      ｜ <a href="privacy.html">プライバシーポリシー</a> |
+    </div>
+    <div class="footer-copy">©️2021 Ronshoal.llc</div>
+  </footer>
+</body>
+</html> 
