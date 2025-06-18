@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メトホルミン治療 | 医療ダイエット | ロンショール合同会社</title>
+    <meta name="description" content="安全性が高く、長年使用されている糖尿病治療薬メトホルミン。インスリン抵抗性を改善し、減量をサポートします。月額5,000円で始められます。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --accent: #7c3aed;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8fafc;
+            --gray-dark: #64748b;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        a { color: var(--primary); text-decoration: none; }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--light);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li { font-weight: 600; }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::before {
+            width: 80%;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+        
+        .service-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=2000&q=80') center/cover;
+            opacity: 0.1;
+            animation: heroParallax 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes heroParallax {
+            0% { transform: scale(1.1) translateY(-10px); }
+            100% { transform: scale(1.1) translateY(10px); }
+        }
+        
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+        
+        .service-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+            box-shadow: var(--shadow-soft);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-10px); }
+        }
+        
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+        }
+        
+        .service-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-dark);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-overview {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+        
+        .overview-image {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .overview-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .overview-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+        }
+        
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            background: var(--gradient-accent);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .stats-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover .stat-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover .step-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .step-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .step-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Montserrat', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            opacity: 0.3;
+        }
+        
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .faq-question:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-desc {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn.primary {
+            background: var(--gradient-primary);
+            color: var(--light);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-btn.primary:hover {
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .cta-btn.secondary:hover {
+            background: var(--primary);
+            color: var(--light);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-title {
+                font-size: 2.5rem;
+            }
+            .overview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">R</div>
+                ロンショール合同会社
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../../index.html">TOP</a></li>
+                    <li><a href="../../../index.html#story">ストーリー</a></li>
+                    <li><a href="../../../index.html#mission">ミッション</a></li>
+                    <li><a href="../../../index.html#services">サービス</a></li>
+                    <li><a href="../../../about.html">会社情報</a></li>
+                    <li><a href="../../../contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <div class="service-badge">METFORMIN</div>
+            <h1 class="service-title">メトホルミン</h1>
+            <p class="service-subtitle">単なるダイエット薬を超えた、全身の健康改善を実現する多面的効果を持つ薬剤。月額5,000円で始められます。</p>
+        </div>
+    </section>
+    
+    <section class="service-overview">
+        <div class="service-container">
+            <div class="section-badge">OVERVIEW</div>
+            <h2 class="section-title">メトホルミンとは</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p>メトホルミンは、安全性が高く、長年使用されている糖尿病治療薬です。インスリン抵抗性を改善し、減量をサポートします。単なるダイエット薬を超えた、全身の健康改善を実現する多面的効果を持つ薬剤です。</p>
+                    <p>筋肉の質を向上させ、長寿効果が期待でき、がんリスクを下げる可能性もあります。腸内環境を改善し、月額5,000円で始められる経済的な治療法です。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" alt="メトホルミン治療">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="service-container">
+            <div class="section-badge">FEATURES</div>
+            <h2 class="section-title">メトホルミンの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <div class="feature-title">筋肉の質を向上</div>
+                    <div class="feature-desc">
+                        インスリン抵抗性を改善することで、筋肉の質が向上します。運動効果も高まり、より効率的な減量が可能です。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <div class="feature-title">長寿効果が期待</div>
+                    <div class="feature-desc">
+                        長年の研究で、メトホルミンには長寿効果があることが示唆されています。健康寿命の延伸が期待できます。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <div class="feature-title">がんリスクを下げる</div>
+                    <div class="feature-desc">
+                        一部の研究で、メトホルミンががんリスクを下げる可能性があることが報告されています。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🦠</div>
+                    <div class="feature-title">腸内環境を改善</div>
+                    <div class="feature-desc">
+                        腸内細菌叢に良い影響を与え、腸内環境を改善します。全身の健康にプラスの効果があります。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">経済的な治療費</div>
+                    <div class="feature-desc">
+                        月額5,000円で始められ、長年使用されている安全性の高い薬剤です。保険適用される場合もあります。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-title">医師による継続サポート</div>
+                    <div class="feature-desc">
+                        オンライン診療で24時間いつでも相談可能。医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats-section">
+        <div class="service-container">
+            <div class="section-badge">STATISTICS</div>
+            <h2 class="section-title">臨床試験の結果</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50年+</div>
+                    <div class="stat-label">使用実績</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">安全性</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1日2回</div>
+                    <div class="stat-label">服用頻度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">月5,000円</div>
+                    <div class="stat-label">治療費用</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="service-container">
+            <div class="section-badge">HOW IT WORKS</div>
+            <h2 class="section-title">作用機序</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-title">インスリン抵抗性を改善</div>
+                    <div class="step-desc">
+                        メトホルミンは、肝臓での糖の産生を抑制し、インスリン抵抗性を改善します。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-title">血糖値を安定化</div>
+                    <div class="step-desc">
+                        血糖値が安定し、糖尿病の治療効果も期待できます。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-title">筋肉の質が向上</div>
+                    <div class="step-desc">
+                        インスリン感受性が改善され、筋肉の質が向上します。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-title">全身の健康改善</div>
+                    <div class="step-desc">
+                        腸内環境の改善や長寿効果など、全身の健康改善が期待できます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="service-container">
+            <div class="section-badge">TESTIMONIALS</div>
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「糖尿病の治療でメトホルミンを始めましたが、体重も自然に減って、筋肉もつきやすくなりました。50年以上使われている薬なので安心感があります。」
+                    </div>
+                    <div class="testimonial-author">60歳男性・会社員</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「月5,000円で始められて、副作用も少ないので続けやすいです。血糖値も安定し、全体的に体調が良くなりました。」
+                    </div>
+                    <div class="testimonial-author">55歳女性・主婦</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「運動の効果も高まった感じで、同じ運動量でも筋肉がつきやすくなりました。長寿効果も期待できるというので、長く続けたいと思います。」
+                    </div>
+                    <div class="testimonial-author">48歳男性・自営業</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-badge">FAQ</div>
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    副作用は大丈夫？
+                </div>
+                <div class="faq-answer">
+                    軽い胃の不快感や下痢が10-20%の方に見られますが、多くは一時的です。50年以上使用されている安全性の高い薬剤で、医師が適切に管理いたします。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    糖尿病でなくても使えるの？
+                </div>
+                <div class="faq-answer">
+                    現在、メトホルミンは糖尿病の治療薬として承認されています。糖尿病の治療と減量を同時に実現したい方に最適です。医師の診断により、適切に処方されます。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    どのくらいで効果が出る？
+                </div>
+                <div class="faq-answer">
+                    個人差がありますが、通常2-4週間で変化を実感される方が多いです。継続的な治療で、より大きな効果が期待できます。長期的な健康改善が期待できる薬剤です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    費用はどれくらい？
+                </div>
+                <div class="faq-answer">
+                    月額5,000円です。糖尿病の治療薬として保険適用される場合もあります。50年以上使用されている安全性の高い薬剤で、経済的にも続けやすい治療法です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    長寿効果は本当？
+                </div>
+                <div class="faq-answer">
+                    一部の研究で、メトホルミンに長寿効果があることが示唆されています。ただし、これは研究段階の結果であり、確定的な効果ではありません。継続的な研究が行われています。
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">メトホルミンで全身の健康改善を実現しませんか？</h2>
+            <p class="cta-desc">
+                50年以上使用されている安全性の高い薬剤。単なるダイエット薬を超えた、全身の健康改善を実現する多面的効果を持つ薬剤です。
+            </p>
+            <div class="cta-buttons">
+                <a href="../../../contact.html" class="cta-btn primary">無料相談を予約</a>
+                <a href="../medical-diet.html" class="cta-btn secondary">医療ダイエットに戻る</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../../index.html">ホーム</a>｜
+                <a href="../../../index.html#story">ストーリー</a>｜
+                <a href="../../../index.html#mission">ミッション</a>｜
+                <a href="../../../index.html#services">サービス</a>｜
+                <a href="../../../about.html">会社情報</a>｜
+                <a href="../../../contact.html">お問い合わせ</a>｜
+                Good Small Company
+                ｜ <a href="../../../privacy.html">プライバシーポリシー</a>
+            </div>
+            <div class="footer-copy">©️2021 Ronshoal.llc</div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // 他のFAQを閉じる
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // クリックされたFAQを開く
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html> 

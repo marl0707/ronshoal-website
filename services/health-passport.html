@@ -4,44 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>健康パスポート | ロンショール合同会社</title>
-  <meta name="description" content="スマホ1つで生活習慣病の治療・検査が可能なオンライン診療プラットフォーム。24時間対応でいつでもどこでも医療を受けられます。">
+  <meta name="description" content="スマホ1つで生活習慣病の治療が可能な健康パスポート。医療ダイエット、睡眠時無呼吸症候群検査、男性ヘルスケアなど、忙しい方でも継続的な健康管理が実現できます。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
+      background: var(--light);
+      color: var(--dark);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       line-height: 1.6;
     }
     
-    :root {
-      --primary: #00d4ff;
-      --secondary: #ff6b35;
-      --accent: #ffd700;
-      --dark: #0a0a0a;
-      --light: #ffffff;
-      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
-      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
-
+    a { color: var(--primary); text-decoration: none; }
+    
     header {
-      background: rgba(10, 10, 10, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
     }
     
     .header-inner {
@@ -75,9 +81,15 @@
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      color: var(--dark);
+      color: var(--light);
       font-size: 1.5rem;
       box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
     }
     
     nav ul {
@@ -88,38 +100,45 @@
       padding: 0;
     }
     
+    nav li { font-weight: 600; }
+    
     nav a {
-      color: var(--light);
+      color: var(--dark);
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       position: relative;
       transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
     }
     
     nav a::before {
       content: '';
       position: absolute;
-      bottom: -5px;
-      left: 0;
+      bottom: 0;
+      left: 50%;
       width: 0;
       height: 2px;
       background: var(--gradient-primary);
-      transition: width 0.3s ease;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
     
     nav a:hover::before {
-      width: 100%;
+      width: 80%;
     }
     
     nav a:hover {
       color: var(--primary);
       transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
     }
-
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    
+    .service-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -128,7 +147,7 @@
       padding-top: 80px;
     }
     
-    .hero::before {
+    .service-hero::before {
       content: '';
       position: absolute;
       top: 0;
@@ -136,7 +155,7 @@
       right: 0;
       bottom: 0;
       background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
-      opacity: 0.15;
+      opacity: 0.1;
       animation: heroParallax 20s ease-in-out infinite alternate;
     }
     
@@ -145,7 +164,7 @@
       100% { transform: scale(1.1) translateY(10px); }
     }
     
-    .hero-content {
+    .service-hero-content {
       position: relative;
       z-index: 2;
       text-align: center;
@@ -156,15 +175,35 @@
     .service-badge {
       display: inline-block;
       background: var(--gradient-accent);
-      color: var(--dark);
-      padding: 0.5rem 1.5rem;
+      color: var(--light);
+      padding: 0.8rem 2rem;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
       transform: rotate(-2deg);
       box-shadow: var(--shadow-soft);
       animation: float 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
     }
     
     @keyframes float {
@@ -172,13 +211,13 @@
       50% { transform: rotate(-2deg) translateY(-10px); }
     }
     
-    .hero-title {
+    .service-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 4rem;
       line-height: 1.1;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -186,71 +225,27 @@
     }
     
     @keyframes titleGlow {
-      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
-      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
     }
     
-    .hero-subtitle {
+    .service-subtitle {
       font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--gray-dark);
       margin-bottom: 3rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    .hero-cta {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
+    .service-overview {
+      padding: 6rem 2rem;
+      background: var(--light);
     }
     
-    .cta-btn {
-      padding: 1.2rem 2.5rem;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .cta-btn.primary {
-      background: var(--gradient-primary);
-      color: var(--dark);
-      box-shadow: var(--shadow-glow);
-    }
-    
-    .cta-btn.secondary {
-      background: transparent;
-      color: var(--light);
-      border: 2px solid var(--primary);
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    .cta-btn.primary:hover {
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
-    }
-    
-    .cta-btn.secondary:hover {
-      background: var(--primary);
-      color: var(--dark);
-    }
-
-    main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
-    
-    .section {
-      margin-bottom: 6rem;
-      position: relative;
+    .service-container {
+      max-width: 1200px;
+      margin: 0 auto;
     }
     
     .section-badge {
@@ -275,7 +270,7 @@
       background-clip: text;
     }
     
-    .intro-grid {
+    .overview-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4rem;
@@ -283,59 +278,55 @@
       margin-bottom: 4rem;
     }
     
-    .intro-content {
+    .overview-text {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--gray-dark);
     }
     
-    .intro-image {
+    .overview-image {
       position: relative;
+      transition: all 0.3s ease;
     }
     
-    .intro-image img {
+    .overview-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .overview-image img {
       width: 100%;
       height: 400px;
       object-fit: cover;
       border-radius: 20px;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-card);
     }
     
-    .intro-image::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--gradient-primary);
-      border-radius: 20px;
-      opacity: 0.2;
-      z-index: -1;
+    .services-menu {
+      padding: 6rem 2rem;
+      background: var(--gray);
     }
     
-    .services-grid {
+    .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin: 3rem 0;
+      margin-top: 3rem;
     }
     
-    .service-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .menu-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 20px;
       padding: 2.5rem;
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-card);
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      text-decoration: none;
-      color: inherit;
+      text-align: center;
     }
     
-    .service-card::before {
+    .menu-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -343,184 +334,184 @@
       right: 0;
       height: 3px;
       background: var(--gradient-primary);
+      transition: all 0.3s ease;
     }
     
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    .menu-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     }
     
-    .service-icon {
-      width: 4rem;
-      height: 4rem;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+    .menu-card:hover::before {
+      background: var(--gradient-accent);
+    }
+    
+    .menu-icon {
+      font-size: 3rem;
       margin-bottom: 1rem;
-      color: var(--dark);
-      font-weight: 900;
+      transition: all 0.3s ease;
     }
     
-    .service-title {
+    .menu-card:hover .menu-icon {
+      transform: scale(1.2) rotate(360deg);
+    }
+    
+    .menu-title {
       font-weight: 700;
       font-size: 1.3rem;
       margin-bottom: 1rem;
-      color: var(--light);
+      color: var(--dark);
     }
     
-    .service-desc {
-      color: rgba(255, 255, 255, 0.8);
+    .menu-desc {
+      color: var(--gray-dark);
       line-height: 1.7;
       margin-bottom: 1.5rem;
     }
     
-    .service-features {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    .menu-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--gradient-primary);
+      color: var(--light);
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s ease;
     }
     
-    .service-features li {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 0.5rem;
-      padding-left: 1.5rem;
-      position: relative;
+    .menu-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
     }
     
-    .service-features li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: 700;
+    .features-section {
+      padding: 6rem 2rem;
+      background: var(--light);
     }
     
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
-      margin: 3rem 0;
+      margin-top: 3rem;
     }
     
     .feature-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
       padding: 2rem;
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-card);
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
+      text-align: center;
     }
     
     .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
     
     .feature-icon {
-      width: 4rem;
-      height: 4rem;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: var(--dark);
-      font-weight: 900;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon {
+      transform: scale(1.1);
     }
     
     .feature-title {
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--light);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
     }
     
     .feature-desc {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.7;
-    }
-    
-    .testimonial {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .testimonial::before {
-      content: '"';
-      font-family: 'Montserrat', serif;
-      font-size: 6rem;
-      color: var(--primary);
-      position: absolute;
-      top: -1rem;
-      left: 2rem;
-      opacity: 0.2;
-    }
-    
-    .testimonial-content {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-    
-    .testimonial-author {
-      font-weight: 700;
-      color: var(--primary);
-      font-size: 1.1rem;
+      color: var(--gray-dark);
+      font-size: 0.9rem;
     }
     
     .cta-section {
+      padding: 6rem 2rem;
+      background: var(--gray);
       text-align: center;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 4rem 2rem;
-      margin-top: 4rem;
     }
     
-    .cta-section h2 {
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
       font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     
-    .cta-section p {
-      font-size: 1.2rem;
+    .cta-desc {
+      font-size: 1.1rem;
+      color: var(--gray-dark);
       margin-bottom: 2rem;
-      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
     }
     
     footer {
       background: var(--dark);
       padding: 4rem 2rem 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 4rem;
     }
     
     .footer-content {
@@ -550,25 +541,23 @@
     }
     
     @media (max-width: 768px) {
-      .hero-title {
+      .service-title {
         font-size: 2.5rem;
       }
-      
-      .intro-grid {
+      .overview-content {
         grid-template-columns: 1fr;
         gap: 2rem;
       }
-      
-      .services-grid,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
       .features-grid {
         grid-template-columns: 1fr;
       }
-      
-      .hero-cta {
+      .cta-buttons {
         flex-direction: column;
         align-items: center;
       }
-      
       nav ul {
         gap: 1.5rem;
       }
@@ -594,125 +583,127 @@
       </nav>
     </div>
   </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="service-badge">SERVICE 02</div>
-      <h1 class="hero-title">健康パスポート</h1>
-      <p class="hero-subtitle">スマホ1つで生活習慣病の治療・検査が可能な<br>オンライン診療プラットフォーム</p>
-      <div class="hero-cta">
-        <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
-        <a href="#services" class="cta-btn secondary">診療科目を見る</a>
+  
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <div class="service-badge">HEALTH PASSPORT</div>
+      <h1 class="service-title">健康パスポート</h1>
+      <p class="service-subtitle">スマホ1つで生活習慣病の治療が可能。忙しい方でも継続的な健康管理が実現できます。</p>
+    </div>
+  </section>
+  
+  <section class="service-overview">
+    <div class="service-container">
+      <div class="section-badge">OVERVIEW</div>
+      <h2 class="section-title">サービス概要</h2>
+      <div class="overview-content">
+        <div class="overview-text">
+          <p>仕事で忙しく、なかなかクリニックや病院に通院できない方のために開発されたサービスです。スマートフォン1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療・検査が可能です。</p>
+          <p>オンライン診療により、通院の手間を省きながら、専門医による適切な治療を受けることができます。24時間いつでも相談可能で、あなたのライフスタイルに合わせた柔軟な健康管理を実現します。</p>
+        </div>
+        <div class="overview-image">
+          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="健康パスポート">
+        </div>
       </div>
     </div>
   </section>
-
-  <main>
-    <section class="section">
-      <div class="section-badge">ABOUT</div>
-      <h2 class="section-title">健康パスポートとは</h2>
-      <div class="intro-grid">
-        <div class="intro-content">
-          <p>仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。</p>
-          <p>24時間いつでもどこでも、専門医による診療を受けられます。通院の手間を省き、継続的な健康管理をサポートします。</p>
-        </div>
-        <div class="intro-image">
-          <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=800&q=80" alt="オンライン診療">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
+  
+  <section class="services-menu">
+    <div class="service-container">
       <div class="section-badge">SERVICES</div>
-      <h2 class="section-title">診療科目</h2>
-      <div class="services-grid">
-        <a href="health-passport/medical-diet.html" class="service-card">
-          <div class="service-icon">⚖️</div>
-          <div class="service-title">医療ダイエット</div>
-          <div class="service-desc">
-            医師監修のもと、個人の体質に合わせた科学的なダイエットプログラムを提供します。
+      <h2 class="section-title">サービスメニュー</h2>
+      <div class="menu-grid">
+        <div class="menu-card" onclick="window.location.href='medical-diet.html'">
+          <div class="menu-icon">⚖️</div>
+          <div class="menu-title">医療ダイエット</div>
+          <div class="menu-desc">
+            医学的根拠に基づいた安全で効果的なダイエット治療。マンジャロ、リベルサス、SGLT2、メトホルミンなど、最新の治療薬を活用します。
           </div>
-          <ul class="service-features">
-            <li>個人の体質に合わせたプログラム</li>
-            <li>医師による継続的なサポート</li>
-            <li>科学的根拠に基づく指導</li>
-          </ul>
-        </a>
+          <a href="medical-diet.html" class="menu-btn">詳しく見る</a>
+        </div>
         
-        <a href="health-passport/sleep-apnea.html" class="service-card">
-          <div class="service-icon">😴</div>
-          <div class="service-title">睡眠・無呼吸検査</div>
-          <div class="service-desc">
-            睡眠時無呼吸症候群の検査と治療を自宅で行えます。
+        <div class="menu-card" onclick="window.location.href='sleep-apnea.html'">
+          <div class="menu-icon">😴</div>
+          <div class="menu-title">睡眠時無呼吸症候群検査</div>
+          <div class="menu-desc">
+            自宅で簡単にできる睡眠時無呼吸症候群の検査。いびきや日中の眠気でお悩みの方に最適です。
           </div>
-          <ul class="service-features">
-            <li>自宅で簡単検査</li>
-            <li>専門医による診断</li>
-            <li>CPAP療法の導入サポート</li>
-          </ul>
-        </a>
+          <a href="sleep-apnea.html" class="menu-btn">詳しく見る</a>
+        </div>
         
-        <a href="health-passport/mens-health.html" class="service-card">
-          <div class="service-icon">👨‍⚕️</div>
-          <div class="service-title">男性ヘルスケア</div>
-          <div class="service-desc">
-            AGA治療、ED治療など男性特有の健康問題を専門的にサポートします。
+        <div class="menu-card" onclick="window.location.href='examination-treatment.html'">
+          <div class="menu-icon">🔬</div>
+          <div class="menu-title">検査・治療</div>
+          <div class="menu-desc">
+            生活習慣病の検査から治療まで、包括的な医療サービス。定期的な健康管理で病気の早期発見・治療を実現します。
           </div>
-          <ul class="service-features">
-            <li>AGA治療（薄毛治療）</li>
-            <li>ED治療（勃起不全治療）</li>
-            <li>プライバシーに配慮した診療</li>
-          </ul>
-        </a>
+          <a href="examination-treatment.html" class="menu-btn">詳しく見る</a>
+        </div>
+        
+        <div class="menu-card" onclick="window.location.href='mens-health.html'">
+          <div class="menu-icon">💪</div>
+          <div class="menu-title">男性ヘルスケア</div>
+          <div class="menu-desc">
+            男性特有の健康問題に特化したサービス。AGA治療、ED治療など、専門的な治療を提供します。
+          </div>
+          <a href="mens-health.html" class="menu-btn">詳しく見る</a>
+        </div>
       </div>
-    </section>
-
-    <section class="section">
+    </div>
+  </section>
+  
+  <section class="features-section">
+    <div class="service-container">
       <div class="section-badge">FEATURES</div>
-      <h2 class="section-title">3つの特徴</h2>
+      <h2 class="section-title">サービスの特徴</h2>
       <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">スマホ完結</div>
+          <div class="feature-desc">スマートフォン1つで診療から処方まで完結</div>
+        </div>
         <div class="feature-card">
           <div class="feature-icon">🕐</div>
           <div class="feature-title">24時間対応</div>
-          <div class="feature-desc">
-            いつでもどこでもスマホで診療を受けられる。忙しい方でも安心して利用できます。
-          </div>
+          <div class="feature-desc">いつでもどこでも相談可能</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🏥</div>
-          <div class="feature-title">生活習慣病対応</div>
-          <div class="feature-desc">
-            糖尿病、高血圧症、脂質異常症など幅広く対応。継続的な管理で健康をサポートします。
-          </div>
+          <div class="feature-icon">👨‍⚕️</div>
+          <div class="feature-title">専門医診療</div>
+          <div class="feature-desc">経験豊富な専門医による診療</div>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📱</div>
+          <div class="feature-icon">💊</div>
+          <div class="feature-title">自宅配送</div>
+          <div class="feature-desc">処方薬を自宅まで配送</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
           <div class="feature-title">継続管理</div>
-          <div class="feature-desc">
-            定期的なフォローアップで健康状態を継続管理。データに基づく科学的なアプローチ。
-          </div>
+          <div class="feature-desc">定期的なフォローアップで健康管理</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">プライバシー保護</div>
+          <div class="feature-desc">個人情報を厳重に保護</div>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section-badge">TESTIMONIAL</div>
-      <h2 class="section-title">お客様の声</h2>
-      <div class="testimonial">
-        <div class="testimonial-content">
-          「忙しい仕事の合間に通院するのが大変でしたが、健康パスポートで自宅で診療を受けられるようになり、とても助かっています。医師の先生も親身になって相談に乗ってくださり、安心して治療を続けられています。」
-        </div>
-        <div class="testimonial-author">- IT企業B社 エンジニア</div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">今すぐ始めませんか？</h2>
+      <p class="cta-desc">
+        健康パスポートで、あなたの健康管理をスマートに。忙しい毎日でも、継続的な健康管理が実現できます。
+      </p>
+      <div class="cta-buttons">
+        <a href="../contact.html" class="cta-btn primary">無料相談を予約</a>
+        <a href="../index.html" class="cta-btn secondary">ホームに戻る</a>
       </div>
-    </section>
-
-    <section class="cta-section">
-      <h2>あなたも健康パスポートを始めませんか？</h2>
-      <p>24時間いつでもどこでも、専門医による診療を受けられます。まずはお気軽にご相談ください。</p>
-      <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
-    </section>
-  </main>
-
+    </div>
+  </section>
+  
   <footer>
     <div class="footer-content">
       <div class="footer-links">

@@ -3,45 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>睡眠・無呼吸検査 | 健康パスポート | ロンショール合同会社</title>
-  <meta name="description" content="睡眠時無呼吸症候群の検査と治療を自宅で行えます。専門医による診断とCPAP療法の導入サポートを提供。">
+  <title>睡眠時無呼吸症候群検査 | 健康パスポート | ロンショール合同会社</title>
+  <meta name="description" content="自宅で簡単にできる睡眠時無呼吸症候群検査。いびきや日中の眠気でお悩みの方に。CPAP治療で睡眠の質を改善し、健康寿命を延ばします。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
+      background: var(--light);
+      color: var(--dark);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       line-height: 1.6;
     }
     
-    :root {
-      --primary: #00d4ff;
-      --secondary: #ff6b35;
-      --accent: #ffd700;
-      --dark: #0a0a0a;
-      --light: #ffffff;
-      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
-      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
-    }
-
+    a { color: var(--primary); text-decoration: none; }
+    
     header {
-      background: rgba(10, 10, 10, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
       transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
     }
     
     .header-inner {
@@ -75,9 +81,15 @@
       align-items: center;
       justify-content: center;
       font-weight: 900;
-      color: var(--dark);
+      color: var(--light);
       font-size: 1.5rem;
       box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
     }
     
     nav ul {
@@ -88,43 +100,51 @@
       padding: 0;
     }
     
+    nav li { font-weight: 600; }
+    
     nav a {
-      color: var(--light);
+      color: var(--dark);
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
       position: relative;
       transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
     }
     
     nav a::before {
       content: '';
       position: absolute;
-      bottom: -5px;
-      left: 0;
+      bottom: 0;
+      left: 50%;
       width: 0;
       height: 2px;
       background: var(--gradient-primary);
-      transition: width 0.3s ease;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
     
     nav a:hover::before {
-      width: 100%;
+      width: 80%;
     }
     
     nav a:hover {
       color: var(--primary);
       transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
     }
-
+    
     .service-hero {
       min-height: 60vh;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       position: relative;
       overflow: hidden;
+      padding-top: 80px;
     }
     
     .service-hero::before {
@@ -134,8 +154,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=2000&q=80') center/cover;
-      opacity: 0.15;
+      background: url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.1;
       animation: heroParallax 20s ease-in-out infinite alternate;
     }
     
@@ -152,18 +172,38 @@
       padding: 0 2rem;
     }
     
-    .hero-badge {
+    .service-badge {
       display: inline-block;
       background: var(--gradient-accent);
-      color: var(--dark);
-      padding: 0.5rem 1.5rem;
+      color: var(--light);
+      padding: 0.8rem 2rem;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 2rem;
       transform: rotate(-2deg);
       box-shadow: var(--shadow-soft);
       animation: float 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
     }
     
     @keyframes float {
@@ -171,287 +211,462 @@
       50% { transform: rotate(-2deg) translateY(-10px); }
     }
     
-    .service-hero-title {
+    .service-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 4rem;
       line-height: 1.1;
       margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
     }
     
-    .service-hero-subtitle {
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+    }
+    
+    .service-subtitle {
       font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--gray-dark);
       margin-bottom: 3rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
     
-    .risk-section {
+    .service-overview {
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+      background: var(--light);
     }
     
-    .risk-container {
+    .service-container {
       max-width: 1200px;
       margin: 0 auto;
     }
     
-    .risk-grid {
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .overview-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .overview-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-dark);
+    }
+    
+    .overview-image {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .overview-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .overview-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    
+    .features-section {
+      padding: 6rem 2rem;
+      background: var(--gray);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .feature-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .feature-card:hover::before {
+      background: var(--gradient-accent);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon {
+      transform: scale(1.2) rotate(360deg);
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .feature-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .stats-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover .stat-number {
+      transform: scale(1.2);
+      color: var(--accent);
+    }
+    
+    .stat-label {
+      font-weight: 600;
+      color: var(--dark);
+      font-size: 1.1rem;
+    }
+    
+    .how-it-works {
+      padding: 6rem 2rem;
+      background: var(--gray);
+    }
+    
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .step-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      text-align: center;
+    }
+    
+    .step-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .step-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .step-card:hover .step-number {
+      transform: scale(1.2);
+      color: var(--accent);
+    }
+    
+    .step-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .step-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .testimonials-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
     
-    .risk-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .testimonial-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .risk-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
-    }
-    
-    .risk-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    
-    .risk-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    
-    .risk-title {
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--light);
-    }
-    
-    .risk-desc {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    
-    .risk-stats {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 1rem;
-      margin-top: 1rem;
-    }
-    
-    .risk-stat {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .checklist-section {
-      padding: 6rem 2rem;
-      background: var(--dark);
-    }
-    
-    .checklist-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .checklist-item {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .checklist-item:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-    
-    .checklist-checkbox {
-      width: 20px;
-      height: 20px;
-      border: 2px solid var(--primary);
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    
-    .checklist-text {
-      color: rgba(255, 255, 255, 0.9);
-      font-weight: 500;
-    }
-    
-    .checklist-result {
-      text-align: center;
-      margin-top: 2rem;
       padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      display: none;
-    }
-    
-    .checklist-result.show {
-      display: block;
-    }
-    
-    .treatment-section {
-      padding: 6rem 2rem;
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    }
-    
-    .treatment-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .treatment-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow-card);
       transition: all 0.3s ease;
       position: relative;
-      overflow: hidden;
-      margin-bottom: 2rem;
     }
     
-    .treatment-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
-    }
-    
-    .treatment-card:hover {
+    .testimonial-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     }
     
-    .treatment-title {
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--light);
-    }
-    
-    .treatment-desc {
-      color: rgba(255, 255, 255, 0.8);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    
-    .treatment-benefits {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .treatment-benefits li {
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 0.5rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    
-    .treatment-benefits li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 4rem;
       color: var(--primary);
-      font-weight: bold;
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      opacity: 0.3;
     }
     
-    .cost-section {
+    .testimonial-content {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray-dark);
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--dark);
+      font-size: 0.9rem;
+    }
+    
+    .faq-section {
       padding: 6rem 2rem;
-      background: var(--dark);
-      text-align: center;
+      background: var(--gray);
     }
     
-    .cost-container {
+    .faq-container {
       max-width: 800px;
       margin: 0 auto;
     }
     
-    .cost-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 2rem 0;
+    .faq-item {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
     }
     
-    .cost-amount {
+    .faq-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+      background: rgba(0, 212, 255, 0.05);
+      padding: 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .faq-question:hover {
+      background: rgba(0, 212, 255, 0.1);
+      color: var(--primary);
+    }
+    
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question.active::after {
+      transform: translateY(-50%) rotate(45deg);
+    }
+    
+    .faq-answer {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--gray-dark);
+      line-height: 1.6;
+    }
+    
+    .faq-answer.active {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+    
+    .cta-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 3rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    .cost-detail {
-      color: rgba(255, 255, 255, 0.8);
+    .cta-desc {
       font-size: 1.1rem;
+      color: var(--gray-dark);
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
     
-    .cost-comparison {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     
-    .comparison-item {
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 10px;
-      padding: 1rem;
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
     
-    .comparison-label {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    .comparison-value {
+    .cta-btn.primary {
+      background: var(--gradient-primary);
       color: var(--light);
-      font-weight: 600;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
     }
     
     footer {
       background: var(--dark);
       padding: 4rem 2rem 2rem;
       border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 4rem;
     }
     
     .footer-content {
@@ -481,14 +696,29 @@
     }
     
     @media (max-width: 768px) {
-      .service-hero-title {
+      .service-title {
         font-size: 2.5rem;
       }
-      
-      .risk-grid {
+      .overview-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .features-grid {
         grid-template-columns: 1fr;
       }
-      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
       nav ul {
         gap: 1.5rem;
       }
@@ -505,8 +735,10 @@
       <nav>
         <ul>
           <li><a href="../../index.html">TOP</a></li>
+          <li><a href="../../index.html#story">ストーリー</a></li>
+          <li><a href="../../index.html#mission">ミッション</a></li>
+          <li><a href="../../index.html#services">サービス</a></li>
           <li><a href="../../about.html">会社情報</a></li>
-          <li><a href="../../business.html">事業内容</a></li>
           <li><a href="../../contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
@@ -515,175 +747,234 @@
 
   <section class="service-hero">
     <div class="service-hero-content">
-      <div class="hero-badge">睡眠時無呼吸症候群</div>
-      <h1 class="service-hero-title">毎晩300回の呼吸停止<br>脳への影響を止める</h1>
-      <p class="service-hero-subtitle">睡眠時無呼吸症候群（SAS）は、一晩平均300回の呼吸停止により脳が酸欠状態になる疾患。放置すると健康寿命が8.3年短縮する恐ろしい病気です。</p>
+      <div class="service-badge">SLEEP APNEA</div>
+      <h1 class="service-title">睡眠時無呼吸症候群検査</h1>
+      <p class="service-subtitle">自宅で簡単にできる睡眠時無呼吸症候群検査。いびきや日中の眠気でお悩みの方に。CPAP治療で睡眠の質を改善し、健康寿命を延ばします。</p>
     </div>
   </section>
 
-  <section class="risk-section">
-    <div class="risk-container">
-      <div class="section-badge">RISKS</div>
-      <h2 class="section-title">放置するリスク</h2>
-      <div class="risk-grid">
-        <div class="risk-card">
-          <div class="risk-icon">🧠</div>
-          <div class="risk-title">脳機能の低下</div>
-          <div class="risk-desc">
-            海馬（記憶中枢）が15%縮小し、前頭前野の血流が30%低下。認知機能テストでは重症SAS患者の平均スコアが19.3点（26点未満は認知障害の疑い）になります。
-          </div>
-          <div class="risk-stats">
-            <div class="risk-stat">• 海馬：15%縮小</div>
-            <div class="risk-stat">• 前頭前野血流：30%低下</div>
-            <div class="risk-stat">• 認知機能スコア：19.3点</div>
-          </div>
+  <section class="service-overview">
+    <div class="service-container">
+      <div class="section-badge">OVERVIEW</div>
+      <h2 class="section-title">睡眠時無呼吸症候群とは</h2>
+      <div class="overview-content">
+        <div class="overview-text">
+          <p>睡眠時無呼吸症候群は、睡眠中に呼吸が止まる病気です。いびきや日中の眠気、集中力の低下などの症状が現れます。放置すると、高血圧や心臓病、脳卒中のリスクが高まります。</p>
+          <p>自宅で簡単に検査ができ、CPAP治療により睡眠の質を大幅に改善できます。多くの方が治療後、日中の眠気がなくなり、集中力が向上し、健康寿命が延びたと実感しています。</p>
         </div>
-        <div class="risk-card">
-          <div class="risk-icon">💰</div>
-          <div class="risk-title">経済的損失</div>
-          <div class="risk-desc">
-            生涯損失額は3,847万円。収入減少1,800万円、医療費増加446万円、早期退職リスク1,601万円。治療費は月5,070円（1日169円）で投資収益率3,154%です。
-          </div>
-          <div class="risk-stats">
-            <div class="risk-stat">• 生涯損失：3,847万円</div>
-            <div class="risk-stat">• 年収減少：15-28%</div>
-            <div class="risk-stat">• 投資収益率：3,154%</div>
-          </div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-icon">❤️</div>
-          <div class="risk-title">健康寿命の短縮</div>
-          <div class="risk-desc">
-            WHO発表によると、未治療のSAS患者の健康寿命は健常者より平均8.3年短い。年齢とともに死亡リスクが急上昇し、60代では5.2倍になります。
-          </div>
-          <div class="risk-stats">
-            <div class="risk-stat">• 健康寿命：-8.3年</div>
-            <div class="risk-stat">• 40代死亡リスク：2.4倍</div>
-            <div class="risk-stat">• 60代死亡リスク：5.2倍</div>
-          </div>
-        </div>
-        <div class="risk-card">
-          <div class="risk-icon">👨‍👩‍👧‍👦</div>
-          <div class="risk-title">家族への影響</div>
-          <div class="risk-desc">
-            パートナーの平均睡眠時間は5.1時間（推奨7-8時間）、中途覚醒は1晩8.3回。高血圧1.9倍、うつ病2.4倍、慢性疲労3.2倍のリスクがあります。
-          </div>
-          <div class="risk-stats">
-            <div class="risk-stat">• パートナー睡眠：5.1時間</div>
-            <div class="risk-stat">• 中途覚醒：8.3回/晩</div>
-            <div class="risk-stat">• うつ病リスク：2.4倍</div>
-          </div>
+        <div class="overview-image">
+          <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80" alt="睡眠時無呼吸症候群検査">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="checklist-section">
-    <div class="checklist-container">
-      <div class="section-badge">CHECKLIST</div>
-      <h2 class="section-title">あなたのSASリスクを診断</h2>
-      <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem; text-align: center;">
-        以下の項目にチェックを入れてください。3つ以上該当するとSAS可能性70%以上です。
-      </p>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">いびきを指摘されたことがある</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">日中の強い眠気がある</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">朝の頭痛がある</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">夜間トイレに2回以上起きる</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">BMI 25以上</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">首周り40cm以上（男性）/35cm以上（女性）</div>
-      </div>
-      <div class="checklist-item">
-        <div class="checklist-checkbox" onclick="toggleCheckbox(this)"></div>
-        <div class="checklist-text">高血圧がある</div>
-      </div>
-      <div class="checklist-result" id="checklistResult">
-        <h3 style="color: var(--primary); margin-bottom: 1rem;">診断結果</h3>
-        <p style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem;" id="resultText"></p>
-        <a href="../../contact.html" class="cta-btn primary">睡眠検査を予約する</a>
+  <section class="features-section">
+    <div class="service-container">
+      <div class="section-badge">FEATURES</div>
+      <h2 class="section-title">検査・治療の特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <div class="feature-title">自宅で簡単検査</div>
+          <div class="feature-desc">
+            病院に行く必要がなく、自宅で簡単に検査できます。小さなセンサーを装着するだけで、睡眠中の呼吸状態を詳しく調べられます。
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">😴</div>
+          <div class="feature-title">睡眠の質を改善</div>
+          <div class="feature-desc">
+            CPAP治療により、睡眠の質が大幅に改善されます。日中の眠気がなくなり、集中力が向上します。
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">❤️</div>
+          <div class="feature-title">健康リスクを軽減</div>
+          <div class="feature-desc">
+            高血圧や心臓病、脳卒中のリスクを軽減できます。健康寿命を延ばし、より健康的な生活を送れます。
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">👨‍⚕️</div>
+          <div class="feature-title">専門医による診断</div>
+          <div class="feature-desc">
+            睡眠専門医が検査結果を詳しく分析し、最適な治療プランを提案します。継続的なサポートで安心して治療を続けられます。
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <div class="feature-title">保険適用可能</div>
+          <div class="feature-desc">
+            検査と治療が保険適用される場合があります。自己負担額を抑えて治療を受けられます。
+          </div>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <div class="feature-title">オンライン診療対応</div>
+          <div class="feature-desc">
+            オンライン診療で24時間いつでも相談可能。忙しい方でも安心して治療を続けられます。
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="treatment-section">
-    <div class="treatment-container">
-      <div class="section-badge">TREATMENT</div>
-      <h2 class="section-title">CPAP治療で人生が変わる</h2>
-      <div class="treatment-card">
-        <div class="treatment-title">CPAP治療の効果</div>
-        <div class="treatment-desc">
-          CPAP（Continuous Positive Airway Pressure）は、睡眠時無呼吸症候群の最も効果的な治療法です。鼻マスクから空気を送り込むことで、気道を開いた状態に保ち、無呼吸を防ぎます。
+  <section class="stats-section">
+    <div class="service-container">
+      <div class="section-badge">STATISTICS</div>
+      <h2 class="section-title">睡眠時無呼吸症候群の実態</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">200万人</div>
+          <div class="stat-label">推定患者数</div>
         </div>
-        <ul class="treatment-benefits">
-          <li>無呼吸・低呼吸の完全解消</li>
-          <li>日中の眠気の改善</li>
-          <li>血圧の正常化</li>
-          <li>認知機能の回復</li>
-          <li>心臓病・脳卒中のリスク低下</li>
-          <li>睡眠の質の向上</li>
-          <li>パートナーの睡眠改善</li>
-        </ul>
-      </div>
-      <div class="treatment-card">
-        <div class="treatment-title">治療後の変化</div>
-        <div class="treatment-desc">
-          当院の実績（2019-2023）では、診療患者数8,439名、治療継続率91.3%、健康改善率94.7%を達成しています。
+        <div class="stat-card">
+          <div class="stat-number">90%</div>
+          <div class="stat-label">未診断率</div>
         </div>
-        <ul class="treatment-benefits">
-          <li>1ヶ月：血流20%改善</li>
-          <li>3ヶ月：認知スコア正常化</li>
-          <li>1年：健常者レベルに回復</li>
-          <li>死亡率：62%減少</li>
-          <li>心血管死亡：83%減少</li>
-        </ul>
+        <div class="stat-card">
+          <div class="stat-number">3倍</div>
+          <div class="stat-label">心臓病リスク</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95%</div>
+          <div class="stat-label">治療満足度</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cost-section">
-    <div class="cost-container">
-      <div class="section-badge">COST</div>
-      <h2 class="section-title">治療費は1日169円</h2>
-      <div class="cost-card">
-        <div class="cost-amount">月5,070円</div>
-        <div class="cost-detail">保険適用（3割負担）で、1日あたり約169円</div>
-        <div class="cost-comparison">
-          <div class="comparison-item">
-            <div class="comparison-label">缶コーヒー1本</div>
-            <div class="comparison-value">150円</div>
+  <section class="how-it-works">
+    <div class="service-container">
+      <div class="section-badge">HOW IT WORKS</div>
+      <h2 class="section-title">検査・治療の流れ</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <div class="step-title">オンライン診療</div>
+          <div class="step-desc">
+            スマートフォンで簡単に医師と相談。症状や生活習慣を詳しく聞き取り、検査の必要性を判断します。
           </div>
-          <div class="comparison-item">
-            <div class="comparison-label">昼食1回</div>
-            <div class="comparison-value">800円</div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <div class="step-title">検査機器の配送</div>
+          <div class="step-desc">
+            検査機器を自宅まで配送。小さなセンサーを装着するだけで、睡眠中の呼吸状態を詳しく調べられます。
           </div>
-          <div class="comparison-item">
-            <div class="comparison-label">飲み会1回</div>
-            <div class="comparison-value">5,000円</div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <div class="step-title">自宅で検査</div>
+          <div class="step-desc">
+            1-2晩、自宅で検査を行います。普段通りの睡眠を取るだけで、詳細なデータが取得できます。
+          </div>
+        </div>
+        
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <div class="step-title">結果診断・治療開始</div>
+          <div class="step-desc">
+            専門医が結果を詳しく分析し、必要に応じてCPAP治療を開始。継続的なサポートで安心して治療を続けられます。
           </div>
         </div>
       </div>
-      <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 2rem;">
-        この金額で得られるもの：8.3年の健康寿命、3,847万円の損失回避、家族の笑顔、仕事での成功
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="service-container">
+      <div class="section-badge">TESTIMONIALS</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            「いびきがひどくて、妻に迷惑をかけていました。検査を受けてCPAP治療を始めたら、いびきがなくなり、日中の眠気もなくなりました。妻も喜んでいます。」
+          </div>
+          <div class="testimonial-author">45歳男性・会社員</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            「仕事中に居眠りしてしまい、上司に注意されることが多かったです。CPAP治療を始めてから、集中力が向上し、仕事の効率も上がりました。」
+          </div>
+          <div class="testimonial-author">38歳女性・事務職</div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            「自宅で検査できるのが便利でした。病院に行く時間がなくて諦めていましたが、これなら続けられます。睡眠の質が改善され、体調も良くなりました。」
+          </div>
+          <div class="testimonial-author">52歳男性・自営業</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくある質問</h2>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          検査は痛くないの？
+        </div>
+        <div class="faq-answer">
+          痛みはありません。小さなセンサーを指や鼻、胸に装着するだけです。普段通りの睡眠を取るだけで、詳細なデータが取得できます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          CPAP治療は難しい？
+        </div>
+        <div class="faq-answer">
+          最初は少し慣れるまで時間がかかりますが、多くの方が1-2週間で慣れます。専門スタッフが丁寧に使い方を説明し、継続的なサポートを提供します。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          費用はどれくらい？
+        </div>
+        <div class="faq-answer">
+          検査と治療が保険適用される場合があります。自己負担額は症状の程度により異なりますが、多くの方が月額1,000-3,000円程度で治療を受けられています。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          どのくらいで効果が出る？
+        </div>
+        <div class="faq-answer">
+          多くの方が治療開始後1-2週間で効果を実感されています。日中の眠気がなくなり、集中力が向上し、いびきも改善されます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          旅行時も使える？
+        </div>
+        <div class="faq-answer">
+          はい、CPAP機器は持ち運び可能です。旅行時も使用でき、継続的な治療が可能です。海外旅行時も使用できます。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">睡眠の質を改善し、健康寿命を延ばしませんか？</h2>
+      <p class="cta-desc">
+        自宅で簡単に検査ができ、CPAP治療で睡眠の質を大幅に改善。日中の眠気がなくなり、集中力が向上し、健康寿命を延ばせます。
       </p>
       <div class="cta-buttons">
-        <a href="../../contact.html" class="cta-btn primary">睡眠検査を予約</a>
-        <a href="../../contact.html" class="cta-btn secondary">無料相談</a>
+        <a href="../../contact.html" class="cta-btn primary">無料相談を予約</a>
+        <a href="health-passport.html" class="cta-btn secondary">健康パスポートに戻る</a>
       </div>
     </div>
   </section>
@@ -692,42 +983,35 @@
     <div class="footer-content">
       <div class="footer-links">
         <a href="../../index.html">ホーム</a>｜
+        <a href="../../index.html#story">ストーリー</a>｜
+        <a href="../../index.html#mission">ミッション</a>｜
+        <a href="../../index.html#services">サービス</a>｜
         <a href="../../about.html">会社情報</a>｜
-        <a href="../../business.html">事業内容</a>｜
         <a href="../../contact.html">お問い合わせ</a>｜
-        <a href="../../privacy.html">プライバシーポリシー</a>
+        Good Small Company
+        ｜ <a href="../../privacy.html">プライバシーポリシー</a>
       </div>
       <div class="footer-copy">©️2021 Ronshoal.llc</div>
     </div>
   </footer>
 
   <script>
-    function toggleCheckbox(element) {
-      element.classList.toggle('checked');
-      if (element.classList.contains('checked')) {
-        element.innerHTML = '✓';
-        element.style.background = 'var(--primary)';
-        element.style.color = 'var(--dark)';
-      } else {
-        element.innerHTML = '';
-        element.style.background = 'transparent';
-      }
-      checkResult();
-    }
-
-    function checkResult() {
-      const checkboxes = document.querySelectorAll('.checklist-checkbox.checked');
-      const result = document.getElementById('checklistResult');
-      const resultText = document.getElementById('resultText');
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const isActive = answer.classList.contains('active');
       
-      if (checkboxes.length >= 3) {
-        resultText.innerHTML = `<strong style="color: var(--primary);">SAS可能性70%以上</strong><br>早期検査をお勧めします。放置すると健康寿命が8.3年短縮する可能性があります。`;
-        result.classList.add('show');
-      } else if (checkboxes.length > 0) {
-        resultText.innerHTML = `<strong style="color: #ffa726;">SASの可能性あり</strong><br>定期的なチェックをお勧めします。`;
-        result.classList.add('show');
-      } else {
-        result.classList.remove('show');
+      // 他のFAQを閉じる
+      document.querySelectorAll('.faq-answer').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.querySelectorAll('.faq-question').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // クリックされたFAQを開く
+      if (!isActive) {
+        answer.classList.add('active');
+        element.classList.add('active');
       }
     }
   </script>
