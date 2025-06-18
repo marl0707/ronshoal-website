@@ -4,80 +4,197 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ | ロンショール合同会社</title>
-  <meta name="description" content="ロンショール合同会社へのお問い合わせ。事業内容についてのご相談、アライアンス契約のご検討など、お気軽にお問い合わせください。">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <meta name="description" content="ロンショール合同会社へのお問い合わせはこちらから。お気軽にご連絡ください。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
-      color: #222;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--dark);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      line-height: 1.6;
     }
-    a { color: #1a237e; text-decoration: none; }
+    
+    a { color: var(--primary); text-decoration: none; }
+    
     header {
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #eee;
-      position: sticky;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: fixed;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
-      backdrop-filter: blur(6px);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
     }
+    
     .header-inner {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.7rem 1.5rem;
+      padding: 1rem 2rem;
     }
+    
     .logo {
-      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-      font-weight: 700;
-      font-size: 2.1rem;
-      letter-spacing: 0.12em;
-      color: #1a237e;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       display: flex;
       align-items: center;
+      gap: 0.8rem;
     }
-    .logo svg {
-      width: 2.2rem;
-      height: 2.2rem;
-      margin-right: 0.5rem;
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--light);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
     }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+    }
+    
     nav ul {
       display: flex;
-      gap: 2.2rem;
+      gap: 3rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
+    
     nav li { font-weight: 600; }
-    nav a { font-size: 1.08rem; position: relative; }
-    nav a::after {
+    
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    
+    nav a::before {
       content: '';
-      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
       width: 0;
       height: 2px;
-      background: #1a237e;
-      transition: width 0.3s;
-      position: absolute;
-      left: 0; bottom: -2px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
-    nav a:hover::after { width: 100%; }
-    .page-hero {
-      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
-      padding: 4rem 1rem;
+    
+    nav a:hover::before {
+      width: 80%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+    
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.1;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--light);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
       position: relative;
       overflow: hidden;
     }
-    .page-hero::before {
+    
+    .hero-badge::before {
       content: '';
       position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
       top: 0; left: 0; width: 100%; height: 100%;
       background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
       opacity: 0.3;

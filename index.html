@@ -7,29 +7,49 @@
     <meta name="description" content="医療の未来を変える。ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --accent: #7c3aed;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8fafc;
+            --gray-dark: #64748b;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
-            background: #0a0a0a;
-            color: #ffffff;
+            background: var(--light);
+            color: var(--dark);
             margin: 0;
             padding: 0;
             overflow-x: hidden;
             line-height: 1.6;
         }
-        a { color: #1a237e; text-decoration: none; }
+        
+        a { color: var(--primary); text-decoration: none; }
+        
         header {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
         }
+        
         .header-inner {
             max-width: 1400px;
             margin: 0 auto;
@@ -38,6 +58,7 @@
             justify-content: space-between;
             padding: 1rem 2rem;
         }
+        
         .logo {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -50,6 +71,7 @@
             align-items: center;
             gap: 0.8rem;
         }
+        
         .logo-icon {
             width: 3rem;
             height: 3rem;
@@ -59,10 +81,17 @@
             align-items: center;
             justify-content: center;
             font-weight: 900;
-            color: var(--dark);
+            color: var(--light);
             font-size: 1.5rem;
             box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
         }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+        
         nav ul {
             display: flex;
             gap: 3rem;
@@ -70,41 +99,54 @@
             margin: 0;
             padding: 0;
         }
+        
         nav li { font-weight: 600; }
+        
         nav a {
-            color: var(--light);
+            color: var(--dark);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             position: relative;
             transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
         }
+        
         nav a::before {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
             width: 0;
             height: 2px;
             background: var(--gradient-primary);
-            transition: width 0.3s ease;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
+        
         nav a:hover::before {
-            width: 100%;
+            width: 80%;
         }
+        
         nav a:hover {
             color: var(--primary);
             transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
         }
+        
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
+        
         .hero::before {
             content: '';
             position: absolute;
@@ -113,13 +155,15 @@
             right: 0;
             bottom: 0;
             background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
-            opacity: 0.15;
+            opacity: 0.1;
             animation: heroParallax 20s ease-in-out infinite alternate;
         }
+        
         @keyframes heroParallax {
             0% { transform: scale(1.1) translateY(-10px); }
             100% { transform: scale(1.1) translateY(10px); }
         }
+        
         .hero-content {
             position: relative;
             z-index: 2;
@@ -127,53 +171,80 @@
             max-width: 1000px;
             padding: 0 2rem;
         }
+        
         .hero-badge {
             display: inline-block;
             background: var(--gradient-accent);
-            color: var(--dark);
-            padding: 0.5rem 1.5rem;
+            color: var(--light);
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 2rem;
             transform: rotate(-2deg);
             box-shadow: var(--shadow-soft);
             animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
         @keyframes float {
             0%, 100% { transform: rotate(-2deg) translateY(0px); }
             50% { transform: rotate(-2deg) translateY(-10px); }
         }
+        
         .hero-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: 4.5rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             animation: titleGlow 2s ease-in-out infinite alternate;
         }
+        
         @keyframes titleGlow {
-            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
-            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
         }
+        
         .hero-subtitle {
             font-size: 1.4rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-dark);
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
+        
         .hero-cta {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
+        
         .cta-btn {
             padding: 1.2rem 2.5rem;
             border: none;
@@ -187,32 +258,40 @@
             position: relative;
             overflow: hidden;
         }
+        
         .cta-btn.primary {
             background: var(--gradient-primary);
-            color: var(--dark);
+            color: var(--light);
             box-shadow: var(--shadow-glow);
         }
+        
         .cta-btn.secondary {
             background: transparent;
-            color: var(--light);
+            color: var(--dark);
             border: 2px solid var(--primary);
         }
+        
         .cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
+        
         .cta-btn.primary:hover {
             box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
         }
+        
         .cta-btn.secondary:hover {
             background: var(--primary);
-            color: var(--dark);
+            color: var(--light);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
         }
+        
         .story-section {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: var(--light);
             position: relative;
         }
+        
         .story-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -221,9 +300,11 @@
             gap: 4rem;
             align-items: center;
         }
+        
         .story-content {
             position: relative;
         }
+        
         .section-badge {
             display: inline-block;
             background: var(--gradient-secondary);
@@ -234,6 +315,7 @@
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
         }
+        
         .section-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -244,17 +326,25 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+        
         .story-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
-            background: rgba(255, 255, 255, 0.05);
+            color: var(--dark);
+            background: var(--light);
             padding: 2rem;
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-card);
             position: relative;
+            transition: all 0.3s ease;
         }
+        
+        .story-text:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
         .story-text::before {
             content: '"';
             font-family: 'Montserrat', serif;
@@ -265,16 +355,24 @@
             left: 1rem;
             opacity: 0.3;
         }
+        
         .story-image {
             position: relative;
+            transition: all 0.3s ease;
         }
+        
+        .story-image:hover {
+            transform: scale(1.05);
+        }
+        
         .story-image img {
             width: 100%;
             height: 500px;
             object-fit: cover;
             border-radius: 20px;
-            box-shadow: var(--shadow-soft);
+            box-shadow: var(--shadow-card);
         }
+        
         .story-image::after {
             content: '';
             position: absolute;
@@ -284,34 +382,40 @@
             bottom: 0;
             background: var(--gradient-primary);
             border-radius: 20px;
-            opacity: 0.2;
+            opacity: 0.1;
             z-index: -1;
         }
+        
         .mission-section {
             padding: 8rem 2rem;
-            background: var(--dark);
+            background: var(--gray);
         }
+        
         .mission-container {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
+        
         .mission-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
+        
         .mission-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 2.5rem;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-card);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
+        
         .mission-card::before {
             content: '';
             position: absolute;
@@ -321,113 +425,183 @@
             height: 3px;
             background: var(--gradient-primary);
         }
+        
         .mission-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
         }
+        
+        .mission-card:hover::before {
+            background: var(--gradient-accent);
+        }
+        
         .mission-number {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
         }
+        
+        .mission-card:hover .mission-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
         .mission-title {
             font-weight: 700;
             font-size: 1.3rem;
             margin-bottom: 1rem;
-            color: var(--light);
+            color: var(--dark);
         }
+        
         .mission-desc {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-dark);
             line-height: 1.7;
         }
+        
         .services-section {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            background: var(--light);
         }
+        
         .services-container {
             max-width: 1200px;
             margin: 0 auto;
         }
+        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
-        .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 300px;
+            perspective: 1000px;
             cursor: pointer;
         }
-        .service-card::before {
-            content: '';
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .flip-card-front {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .flip-card-back {
             background: var(--gradient-primary);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            color: var(--light);
+            transform: rotateY(180deg);
+            box-shadow: var(--shadow-glow);
         }
-        .service-card:hover::before {
-            opacity: 0.1;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
+        
         .service-number {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: 2rem;
             color: var(--primary);
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
         }
+        
+        .flip-card:hover .service-number {
+            transform: scale(1.2);
+        }
+        
         .service-title {
             font-weight: 700;
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .flip-card-back .service-title {
             color: var(--light);
         }
+        
         .service-desc {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--gray-dark);
             line-height: 1.6;
         }
+        
+        .flip-card-back .service-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .flip-card-back .cta-btn {
+            margin-top: 1rem;
+            background: var(--light);
+            color: var(--primary);
+        }
+        
+        .flip-card-back .cta-btn:hover {
+            background: var(--secondary);
+            color: var(--light);
+        }
+        
         footer {
             background: var(--dark);
             padding: 4rem 2rem 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+        
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
         }
+        
         .footer-links {
             margin-bottom: 2rem;
         }
+        
         .footer-links a {
             color: rgba(255, 255, 255, 0.8);
             margin: 0 1rem;
             text-decoration: none;
             transition: color 0.3s ease;
         }
+        
         .footer-links a:hover {
             color: var(--primary);
         }
+        
         .footer-copy {
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
         }
+        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 3rem;
@@ -448,6 +622,9 @@
             }
             nav ul {
                 gap: 1.5rem;
+            }
+            .flip-card {
+                height: 250px;
             }
         }
     </style>
@@ -471,6 +648,7 @@
             </nav>
         </div>
     </header>
+    
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge">未来を変えるのは、あなたの「選択」</div>
@@ -482,6 +660,7 @@
             </div>
         </div>
     </section>
+    
     <section class="story-section" id="story">
         <div class="story-container">
             <div class="story-content">
@@ -513,6 +692,7 @@
             </div>
         </div>
     </section>
+    
     <section class="mission-section" id="mission">
         <div class="mission-container">
             <div class="section-badge">MISSION</div>
@@ -535,49 +715,110 @@
             </div>
         </div>
     </section>
+    
     <section class="services-section" id="services">
         <div class="services-container">
             <div class="section-badge">SERVICES</div>
             <h2 class="section-title">私たちの仕事</h2>
             <div class="services-grid">
-                <div class="service-card" onclick="window.location.href='services/kenko-plus.html'">
-                    <div class="service-number">01</div>
-                    <div class="service-title">健診プラス</div>
-                    <div class="service-desc">
-                        労災二次健診給付制度を活用した無料訪問健康診断事業。二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。
+                <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-number">01</div>
+                            <div class="service-title">健診プラス</div>
+                            <div class="service-desc">
+                                労災二次健診給付制度を活用した無料訪問健康診断事業。二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="service-title">健診プラス</div>
+                            <div class="service-desc">
+                                無料で受けられる二次健康診断で、あなたの健康リスクを早期発見。働きながらでも安心して健康管理ができます。
+                            </div>
+                            <a href="services/kenko-plus.html" class="cta-btn">詳しく見る</a>
+                        </div>
                     </div>
                 </div>
-                <div class="service-card" onclick="window.location.href='services/health-passport.html'">
-                    <div class="service-number">02</div>
-                    <div class="service-title">健康パスポート</div>
-                    <div class="service-desc">
-                        仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。
+                
+                <div class="flip-card" onclick="window.location.href='services/health-passport.html'">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-number">02</div>
+                            <div class="service-title">健康パスポート</div>
+                            <div class="service-desc">
+                                仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="service-title">健康パスポート</div>
+                            <div class="service-desc">
+                                スマホ1つで生活習慣病の治療が可能。忙しいあなたでも継続的な健康管理が実現できます。
+                            </div>
+                            <a href="services/health-passport.html" class="cta-btn">詳しく見る</a>
+                        </div>
                     </div>
                 </div>
-                <div class="service-card" onclick="window.location.href='services/workplace-clinic.html'">
-                    <div class="service-number">03</div>
-                    <div class="service-title">職場 de クリニック</div>
-                    <div class="service-desc">
-                        健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。
+                
+                <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-number">03</div>
+                            <div class="service-title">職場 de クリニック</div>
+                            <div class="service-desc">
+                                健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="service-title">職場 de クリニック</div>
+                            <div class="service-desc">
+                                職場で医療サービスを提供。従業員の健康と企業の生産性向上を同時に実現します。
+                            </div>
+                            <a href="services/workplace-clinic.html" class="cta-btn">詳しく見る</a>
+                        </div>
                     </div>
                 </div>
-                <div class="service-card" onclick="window.location.href='services/agi-step.html'">
-                    <div class="service-number">04</div>
-                    <div class="service-title">AGIステップ</div>
-                    <div class="service-desc">
-                        大規模言語モデルを用いたビジネス支援事業。今やビジネスを構築する上で避けて通れないと言われている大規模言語モデルを用いたAI技術で「あなたの分身」を作り出します。
+                
+                <div class="flip-card" onclick="window.location.href='services/agi-step.html'">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-number">04</div>
+                            <div class="service-title">AGIステップ</div>
+                            <div class="service-desc">
+                                大規模言語モデルを用いたビジネス支援事業。今やビジネスを構築する上で避けて通れないと言われている大規模言語モデルを用いたAI技術で「あなたの分身」を作り出します。
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="service-title">AGIステップ</div>
+                            <div class="service-desc">
+                                AI技術で「あなたの分身」を作成。ビジネス効率化と生産性向上を実現します。
+                            </div>
+                            <a href="services/agi-step.html" class="cta-btn">詳しく見る</a>
+                        </div>
                     </div>
                 </div>
-                <div class="service-card" onclick="window.location.href='services/consulting.html'">
-                    <div class="service-number">05</div>
-                    <div class="service-title">医療介護経営コンサルティング</div>
-                    <div class="service-desc">
-                        ドクター向けに睡眠時無呼吸症候群の検査/治療導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
+                
+                <div class="flip-card" onclick="window.location.href='services/consulting.html'">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="service-number">05</div>
+                            <div class="service-title">医療介護経営コンサルティング</div>
+                            <div class="service-desc">
+                                ドクター向けに睡眠時無呼吸症候群の検査/治療導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="service-title">医療介護経営コンサルティング</div>
+                            <div class="service-desc">
+                                医療・介護事業者の経営支援。最新の知見と技術で、あなたの事業を成功に導きます。
+                            </div>
+                            <a href="services/consulting.html" class="cta-btn">詳しく見る</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
     <footer>
         <div class="footer-content">
             <div class="footer-links">

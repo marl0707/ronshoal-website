@@ -4,326 +4,643 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>会社情報 | ロンショール合同会社</title>
-  <meta name="description" content="すべての人々に後悔のない人生を。代表瀬島和樹の人生観・理念・ストーリー。マレーシア在住の医師が目指す医療の未来。">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <meta name="description" content="ロンショール合同会社の会社情報、代表プロフィール、企業理念をご紹介します。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: linear-gradient(180deg, #f8fafc 0%, #e3e9f2 100%);
-      color: #222;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--dark);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      line-height: 1.6;
     }
-    a { color: #1a237e; text-decoration: none; }
+    
+    a { color: var(--primary); text-decoration: none; }
+    
     header {
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid #eee;
-      position: sticky;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: fixed;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 16px rgba(30,40,80,0.04);
-      backdrop-filter: blur(6px);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
     }
+    
     .header-inner {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.7rem 1.5rem;
+      padding: 1rem 2rem;
     }
+    
     .logo {
-      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-      font-weight: 700;
-      font-size: 2.1rem;
-      letter-spacing: 0.12em;
-      color: #1a237e;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       display: flex;
       align-items: center;
+      gap: 0.8rem;
     }
-    .logo svg {
-      width: 2.2rem;
-      height: 2.2rem;
-      margin-right: 0.5rem;
-    }
-    nav ul {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    nav li { font-weight: 600; }
-    nav a { font-size: 1.08rem; position: relative; }
-    nav a::after {
-      content: '';
-      display: block;
-      width: 0;
-      height: 2px;
-      background: #1a237e;
-      transition: width 0.3s;
-      position: absolute;
-      left: 0; bottom: -2px;
-    }
-    nav a:hover::after { width: 100%; }
-    .page-hero {
-      background: linear-gradient(120deg, #e3e9f2 60%, #f8fafc 100%);
-      padding: 4rem 1rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-      opacity: 0.3;
-      filter: blur(1px);
-    }
-    .page-hero-content {
-      position: relative;
-      z-index: 1;
-    }
-    .page-hero h1 {
-      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #1a237e;
-      margin-bottom: 1rem;
-    }
-    .page-hero p {
-      font-size: 1.2rem;
-      color: #333;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    main { max-width: 1000px; margin: 0 auto; padding: 3rem 1rem; }
-    .section {
-      margin-bottom: 4rem;
-      background: #fff;
-      border-radius: 16px;
-      padding: 2.5rem;
-      box-shadow: 0 4px 20px rgba(30,40,80,0.08);
-      position: relative;
-      overflow: hidden;
-    }
-    .section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 6px; height: 100%;
-      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
-    }
-    .section-title {
-      font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #1a237e;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-    }
-    .section-title .icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      margin-right: 1rem;
-      background: linear-gradient(45deg, #3e8ed0, #1a237e);
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.2rem;
+      font-weight: 900;
+      color: var(--light);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
     }
-    .philosophy-content {
-      font-size: 1.1rem;
-      line-height: 1.9;
-      color: #333;
-      margin-bottom: 2rem;
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
     }
-    .philosophy-quote {
-      background: linear-gradient(135deg, #fffbe7 0%, #f0f4c3 100%);
-      border-radius: 12px;
-      padding: 2rem;
-      margin: 2rem 0;
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav li { font-weight: 600; }
+    
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
       position: relative;
-      border-left: 4px solid #f57c00;
-      font-style: italic;
-      font-size: 1.2rem;
-      color: #333;
-      text-align: center;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
     }
-    .philosophy-quote::before {
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    nav a:hover::before {
+      width: 80%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+    
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
+      opacity: 0.1;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--light);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-badge::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--gray-dark);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .company-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .company-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .company-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .company-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
+    }
+    
+    .company-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .company-card:hover::before {
+      background: var(--gradient-accent);
+    }
+    
+    .company-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .company-card:hover .company-icon {
+      transform: scale(1.2) rotate(360deg);
+    }
+    
+    .company-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .company-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .company-info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .company-info li {
+      color: var(--gray-dark);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .company-info li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .ceo-section {
+      padding: 6rem 2rem;
+      background: var(--gray);
+    }
+    
+    .ceo-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .ceo-content {
+      position: relative;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .ceo-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .ceo-title {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .ceo-desc {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--gray-dark);
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: var(--shadow-card);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .ceo-desc:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .ceo-desc::before {
       content: '"';
       font-family: 'Montserrat', serif;
       font-size: 4rem;
-      color: #f57c00;
+      color: var(--primary);
       position: absolute;
-      left: 1rem; top: 0.5rem;
+      top: -1rem;
+      left: 1rem;
       opacity: 0.3;
     }
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-      align-items: start;
+    
+    .ceo-image {
+      position: relative;
+      transition: all 0.3s ease;
     }
-    .profile-image {
+    
+    .ceo-image:hover {
+      transform: scale(1.05);
+    }
+    
+    .ceo-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    
+    .ceo-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      opacity: 0.1;
+      z-index: -1;
+    }
+    
+    .values-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .values-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .value-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
       text-align: center;
     }
-    .profile-image img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #3e8ed0;
-      box-shadow: 0 4px 20px rgba(30,40,80,0.15);
-    }
-    .profile-info {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #333;
-    }
-    .profile-info h3 {
-      color: #1a237e;
-      margin-bottom: 1rem;
-      font-size: 1.3rem;
-    }
-    .profile-info p {
-      margin-bottom: 1rem;
-    }
-    .profile-info .highlight {
-      background: linear-gradient(135deg, #e3e9f2 0%, #f8fafc 100%);
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-      border-left: 4px solid #3e8ed0;
-    }
-    .company-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .info-item {
-      background: linear-gradient(135deg, #f8fafc 0%, #e3e9f2 100%);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border-left: 4px solid #3e8ed0;
-    }
-    .info-item h4 {
-      color: #1a237e;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .info-item p {
-      color: #444;
-      margin: 0;
-    }
-    .story-timeline {
-      position: relative;
-      padding-left: 2rem;
-    }
-    .story-timeline::before {
+    
+    .value-card::before {
       content: '';
       position: absolute;
-      left: 0.5rem;
       top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #3e8ed0 0%, #1a237e 100%);
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transition: all 0.3s ease;
     }
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-      padding-left: 2rem;
+    
+    .value-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
     }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -1.5rem;
-      top: 0.5rem;
-      width: 12px;
-      height: 12px;
-      background: #3e8ed0;
-      border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 2px 8px rgba(30,40,80,0.2);
+    
+    .value-card:hover::before {
+      background: var(--gradient-accent);
     }
-    .timeline-year {
+    
+    .value-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .value-card:hover .value-icon {
+      transform: scale(1.2) rotate(360deg);
+    }
+    
+    .value-title {
       font-weight: 700;
-      color: #1a237e;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
     }
-    .timeline-content {
-      color: #333;
+    
+    .value-desc {
+      color: var(--gray-dark);
       line-height: 1.7;
     }
+    
     .cta-section {
+      padding: 6rem 2rem;
+      background: var(--gray);
       text-align: center;
-      background: linear-gradient(135deg, #1a237e 0%, #3e8ed0 100%);
-      color: #fff;
-      padding: 3rem 2rem;
-      border-radius: 16px;
-      margin-top: 3rem;
     }
-    .cta-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
     }
-    .cta-section p {
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-desc {
       font-size: 1.1rem;
+      color: var(--gray-dark);
       margin-bottom: 2rem;
-      opacity: 0.9;
+      line-height: 1.6;
     }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
     .cta-btn {
-      background: #fff;
-      color: #1a237e;
+      padding: 1.2rem 2.5rem;
       border: none;
-      border-radius: 30px;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
+      border-radius: 50px;
       font-weight: 700;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+    }
+    
     .cta-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--light);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    }
+    
     footer {
-      background: #1a237e;
-      color: #fff;
-      padding: 2rem 1rem 1rem 1rem;
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
       text-align: center;
-      margin-top: 3rem;
     }
+    
     .footer-links {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
+    
     .footer-links a {
-      color: #fff;
+      color: rgba(255, 255, 255, 0.8);
       margin: 0 1rem;
-      font-size: 1.05rem;
-      text-decoration: underline;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
     .footer-copy {
-      font-size: 1rem;
-      color: #cfd8dc;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
     }
-    @media (max-width: 800px) {
-      .profile-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
       }
-      .company-info {
+      .ceo-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .company-grid,
+      .values-grid {
         grid-template-columns: 1fr;
       }
-      .page-hero h1 {
-        font-size: 2rem;
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul {
+        gap: 1.5rem;
       }
     }
   </style>
@@ -332,165 +649,168 @@
   <header>
     <div class="header-inner">
       <div class="logo">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
+        <div class="logo-icon">R</div>
         ロンショール合同会社
       </div>
       <nav>
         <ul>
           <li><a href="index.html">TOP</a></li>
-          <li><a href="index.html#philosophy">理念</a></li>
-          <li><a href="business.html">事業内容</a></li>
+          <li><a href="index.html#story">ストーリー</a></li>
+          <li><a href="index.html#mission">ミッション</a></li>
+          <li><a href="index.html#services">サービス</a></li>
           <li><a href="about.html">会社情報</a></li>
-          <li><a href="index.html#contact">お問い合わせ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
     </div>
   </header>
-
-  <section class="page-hero">
-    <div class="page-hero-content">
-      <h1>会社情報</h1>
-      <p>すべての人々に後悔のない人生を。代表瀬島和樹の人生観と理念</p>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">ABOUT US</div>
+      <h1 class="hero-title">会社情報</h1>
+      <p class="hero-subtitle">ロンショール合同会社の企業理念、代表プロフィール、会社概要をご紹介します。</p>
     </div>
   </section>
-
-  <main>
-    <section class="section">
-      <div class="section-title">
-        <div class="icon">💭</div>
-        私たちの理念
-      </div>
-      <div class="philosophy-content">
-        "すべての人々に後悔のない人生を"<br><br>
-        これが私の人生理念です。<br><br>
-        ヒトが死を恐れる理由の1つとして「人生でやり残したことがまだ残っている」という理由があります。<br><br>
-        私の周りの人々が後悔のない人生を送れる意思決定のお手伝いや微力ながら、すべての人々が自分の人生を終える瞬間、「自分の人生、最高に楽しかった」と心から思える社会を目指しています。
-      </div>
-      
-      <div class="philosophy-quote">
-        こども達に負の遺産を残さない。<br>
-        医療費削減への挑戦。
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <div class="icon">👨‍⚕️</div>
-        代表プロフィール
-      </div>
-      <div class="profile-grid">
-        <div class="profile-image">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="瀬島和樹">
+  
+  <section class="company-section">
+    <div class="company-container">
+      <div class="section-badge">COMPANY</div>
+      <h2 class="section-title">会社概要</h2>
+      <div class="company-grid">
+        <div class="company-card">
+          <div class="company-icon">🏢</div>
+          <div class="company-title">基本情報</div>
+          <ul class="company-info">
+            <li>会社名：ロンショール合同会社</li>
+            <li>設立：2021年</li>
+            <li>代表者：瀬島和樹</li>
+            <li>事業内容：健康経営・医療DX</li>
+            <li>所在地：東京都</li>
+          </ul>
         </div>
-        <div class="profile-info">
-          <h3>瀬島 和樹（セジマール）</h3>
-          <p><strong>出身：</strong>神戸（北川景子と幼稚園幼なじみ）</p>
-          <p><strong>現在：</strong>息子の教育のためマレーシアに在住</p>
-          <p><strong>学歴：</strong>奈良県立医大　医学部修士課程 臨床実証医学講座所属</p>
-          <p><strong>資格：</strong>生田流箏曲中伝/柳川流三線中伝/剣道初段/調理師　等々</p>
-          <p><strong>趣味：</strong>育児、教育、作曲</p>
-          
-          <div class="highlight">
-            <strong>最近嬉しかったこと：</strong><br>
-            マレーシアで牛タン1kg1,200円で買えるので、かなりの頻度で牛タン料理作ってます。
-          </div>
-          
-          <h3>人生の転機</h3>
-          <div class="story-timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">2021年</div>
-              <div class="timeline-content">ロンショール合同会社を創業。医療の未来を変えるべく、新しい挑戦を開始。</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2022年</div>
-              <div class="timeline-content">息子の教育のためマレーシア移住を決断。グローバルな視点で医療事業を展開。</div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-year">2023年</div>
-              <div class="timeline-content">オンライン診療プラットフォーム「健康パスポート」を本格展開。</div>
-            </div>
-          </div>
+        <div class="company-card">
+          <div class="company-icon">🎯</div>
+          <div class="company-title">事業内容</div>
+          <ul class="company-info">
+            <li>健診プラス事業</li>
+            <li>健康パスポート事業</li>
+            <li>職場deクリニック事業</li>
+            <li>AGIステップ事業</li>
+            <li>医療介護経営コンサルティング</li>
+          </ul>
+        </div>
+        <div class="company-card">
+          <div class="company-icon">🌟</div>
+          <div class="company-title">企業理念</div>
+          <ul class="company-info">
+            <li>すべての人々に後悔のない人生を</li>
+            <li>医療の未来を変える</li>
+            <li>健康経営の促進</li>
+            <li>社会保障費の削減</li>
+            <li>働きやすい社会の実現</li>
+          </ul>
         </div>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <div class="icon">🏢</div>
-        会社概要
-      </div>
-      <div class="company-info">
-        <div class="info-item">
-          <h4>会社名</h4>
-          <p>Ronshoal.llc</p>
-        </div>
-        <div class="info-item">
-          <h4>代表者</h4>
-          <p>瀬島 和樹</p>
-        </div>
-        <div class="info-item">
-          <h4>創業</h4>
-          <p>2021年1月26日</p>
-        </div>
-        <div class="info-item">
-          <h4>連絡先</h4>
-          <p>info@ronshoal.com</p>
-        </div>
-        <div class="info-item">
-          <h4>事業内容</h4>
-          <p>労災二次健診・健康経営・オンライン診療・AI活用・医療介護経営コンサルティング</p>
-        </div>
-        <div class="info-item">
-          <h4>理念</h4>
-          <p>すべての人々に後悔のない人生を</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-title">
-        <div class="icon">🎯</div>
-        目指す社会
-      </div>
-      <div class="philosophy-content">
-        私たちが目指すのは、誰もが健康で幸せに生きられる社会です。<br><br>
-        現在の医療システムでは、多くの人が「通院か仕事か」という選択を迫られています。この状況を変えるために、私たちは以下の3つの価値を提供します：
-      </div>
-      
-      <div class="company-info">
-        <div class="info-item">
-          <h4>アクセシビリティ</h4>
-          <p>いつでもどこでも医療を受けられる環境を整備</p>
-        </div>
-        <div class="info-item">
-          <h4>予防医療</h4>
-          <p>病気になる前の予防と早期発見を重視</p>
-        </div>
-        <div class="info-item">
-          <h4>持続可能性</h4>
-          <p>医療費削減と社会保障の持続可能な未来を構築</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section">
-      <h2>一緒に医療の未来を創りませんか？</h2>
-      <p>弊社事業とのアライアンス契約をご希望の法人様、お気軽にお問い合わせ下さい。</p>
-      <a href="index.html#contact" class="cta-btn">お問い合わせ</a>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-links">
-      <a href="index.html">ホーム</a>｜
-      <a href="index.html#philosophy">目指す社会</a>｜
-      <a href="business.html">事業内容</a>｜
-      <a href="about.html">会社情報</a>｜
-      <a href="index.html#contact">お問い合わせ</a>｜
-      Good Small Company
-      ｜ <a href="privacy.html">プライバシーポリシー</a> |
     </div>
-    <div class="footer-copy">©️2021 Ronshoal.llc</div>
+  </section>
+  
+  <section class="ceo-section">
+    <div class="ceo-container">
+      <div class="ceo-content">
+        <div class="section-badge">CEO</div>
+        <h2 class="section-title">代表プロフィール</h2>
+        <div class="ceo-name">瀬島和樹</div>
+        <div class="ceo-title">ロンショール合同会社 代表社員</div>
+        <div class="ceo-desc">
+          医療の未来を変えるために、日々奮闘しています。すべての人々が健康で幸せな人生を送れる社会の実現を目指し、革新的な医療サービスを提供しています。私たちの使命は、仕事が忙しい方でも継続的な医療提供を可能にし、健康経営を促進することで働きやすい社会を作ることです。
+        </div>
+      </div>
+      <div class="ceo-image">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" alt="代表 瀬島和樹">
+      </div>
+    </div>
+  </section>
+  
+  <section class="values-section">
+    <div class="values-container">
+      <div class="section-badge">VALUES</div>
+      <h2 class="section-title">私たちの価値観</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <div class="value-title">イノベーション</div>
+          <div class="value-desc">
+            最新のテクノロジーを活用し、医療の未来を創造します。常に新しい可能性を追求し、革新的なソリューションを提供します。
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <div class="value-title">パートナーシップ</div>
+          <div class="value-desc">
+            お客様、パートナー企業、医療機関との信頼関係を大切にし、共に成長していく関係を築きます。
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <div class="value-title">結果重視</div>
+          <div class="value-desc">
+            明確な目標設定と実行力で、お客様に確実な価値を提供します。成果にこだわり、継続的な改善を行います。
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">❤️</div>
+          <div class="value-title">思いやり</div>
+          <div class="value-desc">
+            お客様一人ひとりの状況を理解し、心のこもったサービスを提供します。人を思いやる心を大切にします。
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <div class="value-title">持続可能性</div>
+          <div class="value-desc">
+            長期的な視点で事業を展開し、社会と環境に配慮した持続可能な成長を目指します。
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <div class="value-title">挑戦</div>
+          <div class="value-desc">
+            困難な課題にも果敢に挑戦し、不可能を可能にする精神で新しい価値を創造します。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">一緒に未来を創りませんか？</h2>
+      <p class="cta-desc">
+        私たちの理念に共感していただける方、一緒に医療の未来を変えていきたい方を募集しています。<br>
+        お気軽にお問い合わせください。
+      </p>
+      <div class="cta-buttons">
+        <a href="contact.html" class="cta-btn primary">お問い合わせ</a>
+        <a href="index.html" class="cta-btn secondary">ホームに戻る</a>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">ホーム</a>｜
+        <a href="index.html#story">ストーリー</a>｜
+        <a href="index.html#mission">ミッション</a>｜
+        <a href="index.html#services">サービス</a>｜
+        <a href="about.html">会社情報</a>｜
+        <a href="contact.html">お問い合わせ</a>｜
+        Good Small Company
+        ｜ <a href="privacy.html">プライバシーポリシー</a>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+    </div>
   </footer>
 </body>
 </html> 
