@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ねむりナビ | 健康管理の総合サポート</title>
+    <meta name="description" content="労災二次健診、オンライン診療、子どもの足の健康、睡眠外来支援など、健康管理の総合サポートを提供">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafbfc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 36px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            color: #666;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-right: 1.5rem;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.7rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="logo-icon">😴</span>
+                    ねむりナビ
+                </a>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#services">サービス</a></li>
+                        <li><a href="#features">特徴</a></li>
+                        <li><a href="#about">会社概要</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>健康管理の総合サポート<br>ねむりナビ</h1>
+            <p>労災二次健診からオンライン診療まで、企業と従業員の健康をトータルでサポート。<br>睡眠の質向上、子どもの足の健康、専門外来の紹介まで、あなたの健康を守ります。</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">無料相談を申し込む</a>
+                <a href="#services" class="btn btn-secondary">サービス詳細</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">提供サービス</h2>
+            <p class="section-subtitle">企業の健康経営と従業員の健康管理を総合的にサポートするサービスをご提供しています</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">🏥</div>
+                        <h3>検診プラス</h3>
+                    </div>
+                    <p>労災二次健診給付制度を活用した、企業・従業員負担ゼロの健康診断サービス</p>
+                    <ul class="service-features">
+                        <li>心臓・頸動脈エコー検査</li>
+                        <li>専門医による保健指導</li>
+                        <li>健康経営優良法人認定サポート</li>
+                        <li>完全無料（労災保険給付）</li>
+                        <li>突然死リスクの早期発見</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">📱</div>
+                        <h3>健康パスポート</h3>
+                    </div>
+                    <p>オンライン診療による健康管理サービス。いつでもどこでも専門医に相談できます</p>
+                    <ul class="service-features">
+                        <li>24時間オンライン診療</li>
+                        <li>専門医による健康相談</li>
+                        <li>健康データの一元管理</li>
+                        <li>処方箋のオンライン発行</li>
+                        <li>セキュアな個人情報保護</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👶</div>
+                        <h3>子どもの足の健康</h3>
+                    </div>
+                    <p>子どもの成長期における足の健康を守る専門サイトの運営とサポート</p>
+                    <ul class="service-features">
+                        <li>足の成長に関する情報提供</li>
+                        <li>専門医による相談サービス</li>
+                        <li>予防ケアのアドバイス</li>
+                        <li>成長期の足のトラブル解決</li>
+                        <li>親御さん向け教育コンテンツ</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">😴</div>
+                        <h3>睡眠重補給外来支援</h3>
+                    </div>
+                    <p>クリニック向けの睡眠時無呼吸症候群診療の導入・運営サポート</p>
+                    <ul class="service-features">
+                        <li>睡眠外来の立ち上げ支援</li>
+                        <li>検査機器の導入サポート</li>
+                        <li>医師・スタッフ研修</li>
+                        <li>患者紹介システム</li>
+                        <li>継続的な運営サポート</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-header">
+                        <div class="service-icon">👟</div>
+                        <h3>インソール外来支援</h3>
+                    </div>
+                    <p>足のトラブル解決のためのインソール外来の導入・運営サポート</p>
+                    <ul class="service-features">
+                        <li>インソール外来の設立支援</li>
+                        <li>専門機器の導入サポート</li>
+                        <li>技術者研修プログラム</li>
+                        <li>患者ケアシステム</li>
+                        <li>継続的な技術サポート</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">選ばれる理由</h2>
+            <p class="section-subtitle">豊富な経験と専門知識で、お客様の健康管理をトータルサポート</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>専門性</h3>
+                    <p>医療・健康管理の専門知識を持つチームが、最適なソリューションを提案します</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>継続サポート</h3>
+                    <p>導入後も継続的にサポートし、長期的な健康管理を実現します</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>データ活用</h3>
+                    <p>健康データを活用した効果的な健康管理と経営改善をサポート</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>セキュリティ</h3>
+                    <p>個人情報保護とセキュリティを最優先に、安全なサービスを提供</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1000+</h3>
+                    <p>健診実施件数</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>顧客満足度</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>導入企業数</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24/7</h3>
+                    <p>サポート体制</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2>健康管理の新しい選択肢を<br>始めませんか？</h2>
+                <p>企業の健康経営、従業員の健康管理、専門外来の導入など、お客様のニーズに合わせた最適なソリューションをご提案いたします。まずはお気軽にご相談ください。</p>
+                <a href="#" class="btn btn-primary">無料相談を申し込む</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ねむりナビ</h3>
+                    <p>健康管理の総合サポート企業として、企業と従業員の健康をトータルでサポートしています。労災二次健診からオンライン診療まで、幅広いサービスをご提供。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>主要サービス</h3>
+                    <ul>
+                        <li><a href="#">検診プラス（労災二次健診）</a></li>
+                        <li><a href="#">健康パスポート（オンライン診療）</a></li>
+                        <li><a href="#">子どもの足の健康</a></li>
+                        <li><a href="#">睡眠重補給外来支援</a></li>
+                        <li><a href="#">インソール外来支援</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>会社情報</h3>
+                    <ul>
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">利用規約</a></li>
+                        <li><a href="#">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>お問い合わせ</h3>
+                    <p>Email: info@nemuri-navi.com<br>
+                    Tel: 03-XXXX-XXXX<br>
+                    受付時間: 平日 9:00-18:00</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ねむりナビ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
