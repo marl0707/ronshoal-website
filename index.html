@@ -505,7 +505,7 @@
             transform-style: preserve-3d;
         }
         
-        .flip-card:hover .flip-card-inner {
+        .flip-card.flipped .flip-card-inner {
             transform: rotateY(180deg);
         }
         
@@ -750,7 +750,7 @@
             <div class="section-badge">SERVICES</div>
             <h2 class="section-title">私たちの仕事</h2>
             <div class="services-grid">
-                <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'">
+                <div class="flip-card" data-href="services/kenko-plus.html">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="images/health-checkup.jpg" alt="健診プラス" class="service-image">
@@ -770,7 +770,7 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/health-passport.html'">
+                <div class="flip-card" data-href="services/health-passport.html">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="images/digital-health.jpg" alt="健康パスポート" class="service-image">
@@ -790,7 +790,7 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'">
+                <div class="flip-card" data-href="services/workplace-clinic.html">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="images/workplace-health.jpg" alt="職場 de クリニック" class="service-image">
@@ -810,7 +810,7 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/agi-step.html'">
+                <div class="flip-card" data-href="services/agi-step.html">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="images/ai-technology.jpg" alt="AGIステップ" class="service-image">
@@ -830,7 +830,7 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/consulting.html'">
+                <div class="flip-card" data-href="services/consulting.html">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <img src="images/medical-consulting.jpg" alt="医療介護経営コンサルティング" class="service-image">
@@ -868,5 +868,68 @@
             <div class="footer-copy">©️2021 Ronshoal.llc</div>
         </div>
     </footer>
+    
+    <script>
+        // Handle flip card animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const flipCards = document.querySelectorAll('.flip-card');
+            
+            flipCards.forEach(card => {
+                let isFlipped = false;
+                let clickTimer = null;
+                
+                // Handle mouse enter - flip the card
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('flipped');
+                    isFlipped = true;
+                });
+                
+                // Handle mouse leave - unflip the card
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('flipped');
+                    isFlipped = false;
+                });
+                
+                // Handle click on the back of the card
+                card.addEventListener('click', function(e) {
+                    // Check if the card is flipped and if the click is on the button
+                    if (isFlipped && e.target.classList.contains('cta-btn')) {
+                        // Allow the link to work normally
+                        return;
+                    }
+                    
+                    // Otherwise prevent default and handle the flip
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (!isFlipped) {
+                        // If not flipped, just flip it
+                        this.classList.add('flipped');
+                        isFlipped = true;
+                    } else {
+                        // If already flipped and not clicking the button, navigate to the page
+                        const href = this.getAttribute('data-href');
+                        if (href && !e.target.classList.contains('cta-btn')) {
+                            window.location.href = href;
+                        }
+                    }
+                });
+                
+                // Handle touch devices
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    if (!this.classList.contains('flipped')) {
+                        this.classList.add('flipped');
+                        isFlipped = true;
+                    } else {
+                        const href = this.getAttribute('data-href');
+                        if (href && !e.target.classList.contains('cta-btn')) {
+                            window.location.href = href;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
