@@ -154,7 +154,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: url('../images/medical-background.jpg') center/cover;
+      background: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=2000&q=80') center/cover;
       opacity: 0.1;
       animation: heroParallax 20s ease-in-out infinite alternate;
     }
@@ -214,19 +214,13 @@
     .service-title {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 4rem;
+      font-size: 3.5rem;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: titleGlow 2s ease-in-out infinite alternate;
-    }
-    
-    @keyframes titleGlow {
-      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
-      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
     }
     
     .service-subtitle {
@@ -238,146 +232,7 @@
       margin-right: auto;
     }
     
-    .treatments-section {
-      padding: 6rem 2rem;
-      background: var(--light);
-    }
-    
-    .service-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .section-badge {
-      display: inline-block;
-      background: var(--gradient-secondary);
-      color: var(--light);
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .treatments-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .treatment-card {
-      background: var(--light);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    
-    .treatment-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
-      transition: all 0.3s ease;
-    }
-    
-    .treatment-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    }
-    
-    .treatment-card:hover::before {
-      background: var(--gradient-accent);
-    }
-    
-    .treatment-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .treatment-card:hover .treatment-icon {
-      transform: scale(1.2);
-    }
-    
-    .treatment-title {
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--dark);
-    }
-    
-    .treatment-desc {
-      color: var(--gray-dark);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    
-    .treatment-btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: var(--gradient-primary);
-      color: var(--light);
-      border-radius: 25px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    
-    .treatment-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
-    }
-    
-    .cta-section {
-      padding: 6rem 2rem;
-      background: var(--gray);
-      text-align: center;
-    }
-    
-    .cta-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .cta-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .cta-desc {
-      font-size: 1.1rem;
-      color: var(--gray-dark);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-    
-    .cta-buttons {
+    .service-cta {
       display: flex;
       gap: 1.5rem;
       justify-content: center;
@@ -394,6 +249,8 @@
       transition: all 0.3s ease;
       text-decoration: none;
       display: inline-block;
+      position: relative;
+      overflow: hidden;
     }
     
     .cta-btn.primary {
@@ -421,6 +278,312 @@
       background: var(--primary);
       color: var(--light);
       box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+    }
+    
+    .content-section {
+      padding: 6rem 2rem;
+      background: var(--light);
+    }
+    
+    .content-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .info-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .info-card h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .info-card p {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .stat-card {
+      background: var(--gradient-primary);
+      color: var(--light);
+      padding: 2rem;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px) scale(1.05);
+    }
+    
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    
+    .medication-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .medication-card {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .medication-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-accent);
+    }
+    
+    .medication-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .medication-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .medication-subtitle {
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .medication-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .medication-stats {
+      background: var(--gray);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    
+    .medication-stats h4 {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+    
+    .medication-stats ul {
+      margin: 0;
+      padding-left: 1.5rem;
+      color: var(--gray-dark);
+    }
+    
+    .faq-section {
+      background: var(--gray);
+      padding: 6rem 2rem;
+    }
+    
+    .faq-item {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    
+    .faq-question {
+      background: var(--gradient-primary);
+      color: var(--light);
+      padding: 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+      background: var(--gradient-accent);
+    }
+    
+    .faq-answer {
+      padding: 1.5rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+      display: none;
+    }
+    
+    .faq-answer.active {
+      display: block;
+    }
+    
+    .process-section {
+      background: var(--light);
+      padding: 6rem 2rem;
+    }
+    
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .process-step {
+      background: var(--light);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+    }
+    
+    .process-step::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+    
+    .process-step:nth-child(1)::before { content: '1'; }
+    .process-step:nth-child(2)::before { content: '2'; }
+    .process-step:nth-child(3)::before { content: '3'; }
+    .process-step:nth-child(4)::before { content: '4'; }
+    .process-step:nth-child(5)::before { content: '5'; }
+    
+    .process-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .process-step h3 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      color: var(--dark);
+    }
+    
+    .process-step p {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .warning-box {
+      background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      color: var(--light);
+      padding: 2rem;
+      border-radius: 20px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .warning-box h3 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .warning-box ul {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+    
+    .warning-box li {
+      margin-bottom: 0.5rem;
     }
     
     footer {
@@ -459,10 +622,16 @@
       .service-title {
         font-size: 2.5rem;
       }
-      .treatments-grid {
+      .section-title {
+        font-size: 2rem;
+      }
+      .info-grid, .medication-grid, .process-steps {
         grid-template-columns: 1fr;
       }
-      .cta-buttons {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .service-cta {
         flex-direction: column;
         align-items: center;
       }
@@ -494,65 +663,2212 @@
   
   <section class="service-hero">
     <div class="service-hero-content">
-      <div class="service-badge">MEDICAL DIET</div>
+      <div class="service-badge">科学的根拠に基づく治療</div>
       <h1 class="service-title">医療ダイエット</h1>
-      <p class="service-subtitle">医学的根拠に基づいた安全で効果的なダイエット治療。最新の治療薬で、無理なく理想の体型を実現します。</p>
+      <p class="service-subtitle">医師の診断と処方に基づく、安全で効果的な肥満治療。<br>マンジャロ、リベルサス、SGLT2阻害薬など、最新の医薬品を活用して科学的に体重減少を実現します。</p>
+      <div class="service-cta">
+        <a href="#pricing-guide" class="cta-btn primary">今すぐ始める</a>
+        <a href="#mounjaro-detail" class="cta-btn secondary">マンジャロについて</a>
+      </div>
     </div>
   </section>
   
-  <section class="treatments-section">
-    <div class="service-container">
-      <div class="section-badge">TREATMENTS</div>
-      <h2 class="section-title">治療薬一覧</h2>
-      <div class="treatments-grid">
-        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/mounjaro.html'">
-          <div class="treatment-icon">💉</div>
-          <div class="treatment-title">マンジャロ（Mounjaro）</div>
-          <div class="treatment-desc">
-            最新のGLP-1受容体作動薬。NEJM掲載の臨床試験で平均20.9%の減量効果が証明。96%の人が減量に成功しています。
-          </div>
-          <a href="medical-diet/treatments/mounjaro.html" class="treatment-btn">詳しく見る</a>
+  <section class="content-section" id="overview">
+    <div class="content-container">
+      <div class="section-badge">OVERVIEW</div>
+      <h2 class="section-title">医療ダイエットとは</h2>
+      <p style="font-size: 1.2rem; color: var(--gray-dark); margin-bottom: 3rem; text-align: center;">
+        従来の食事制限や運動療法とは異なり、体内のホルモンバランスに働きかけることで、科学的に体重減少を実現する治療法です。
+      </p>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>科学的根拠</h3>
+          <p>大規模臨床試験で効果が実証された医薬品を使用。WHO（世界保健機関）は肥満を治療すべき疾患として認定しています。</p>
         </div>
-        
-        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/rybelsus.html'">
-          <div class="treatment-icon">💊</div>
-          <div class="treatment-title">リベルサス（Rybelsus）</div>
-          <div class="treatment-desc">
-            世界初の経口GLP-1受容体作動薬。注射が苦手な方でも安心。食欲を自然に抑制し、無理なく減量をサポートします。
-          </div>
-          <a href="medical-diet/treatments/rybelsus.html" class="treatment-btn">詳しく見る</a>
+        <div class="info-card">
+          <h3>医師の管理下</h3>
+          <p>安全性を確保しながら治療を進めます。定期的な診察と血液検査で、あなたの体調を常にモニタリングします。</p>
         </div>
-        
-        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/sglt2.html'">
-          <div class="treatment-icon">🍬</div>
-          <div class="treatment-title">SGLT2阻害薬</div>
-          <div class="treatment-desc">
-            余分な糖を「なかったことに」できる画期的な治療法。1日200-400kcalの糖を体外へ排出。医師の92%が支持する治療法です。
-          </div>
-          <a href="medical-diet/treatments/sglt2.html" class="treatment-btn">詳しく見る</a>
+        <div class="info-card">
+          <h3>持続可能</h3>
+          <p>リバウンド率が従来法より大幅に低く、身についた食習慣により体重を維持しやすくなります。</p>
         </div>
-        
-        <div class="treatment-card" onclick="window.location.href='medical-diet/treatments/metformin.html'">
-          <div class="treatment-icon">⚕️</div>
-          <div class="treatment-title">メトホルミン</div>
-          <div class="treatment-desc">
-            単なるダイエット薬ではない「4つの効果」で人生を変える薬。筋肉を守り、寿命を延ばし、がんを防ぎ、腸から整える。
-          </div>
-          <a href="medical-diet/treatments/metformin.html" class="treatment-btn">詳しく見る</a>
+        <div class="info-card">
+          <h3>全身の健康改善</h3>
+          <p>体重減少に伴い、血圧、血糖値、コレステロール値など、各種健康指標も同時に改善されます。</p>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5%</div>
+          <div class="stat-label">従来ダイエットの成功率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">70%</div>
+          <div class="stat-label">医療ダイエットの維持率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20.9%</div>
+          <div class="stat-label">マンジャロの平均減量率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">91%</div>
+          <div class="stat-label">5%以上減量達成率</div>
         </div>
       </div>
     </div>
   </section>
   
-  <section class="cta-section">
-    <div class="cta-container">
-      <h2 class="cta-title">あなたに最適な治療法を見つけませんか？</h2>
-      <p class="cta-desc">
-        医師があなたの体質や生活習慣に合わせて、最適な治療プランをご提案。無理なく、安全に、理想の体型を実現します。
-      </p>
-      <div class="cta-buttons">
-        <a href="../../contact.html" class="cta-btn primary">無料相談を予約</a>
-        <a href="../health-passport.html" class="cta-btn secondary">健康パスポートに戻る</a>
+  <section class="content-section" id="why-needed">
+    <div class="content-container">
+      <div class="section-badge">WHY NEEDED</div>
+      <h2 class="section-title">なぜ医療ダイエットが必要か</h2>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>加齢による代謝変化</h3>
+          <p>40代以降、基礎代謝が低下し、ホルモンバランスが変化します。従来のダイエット法では効果が得られにくくなります。</p>
+        </div>
+        <div class="info-card">
+          <h3>従来のダイエットの限界</h3>
+          <p>生活習慣改善のみでの長期的成功率は5%未満。多くの方がリバウンドを繰り返し、挫折感を味わっています。</p>
+        </div>
+        <div class="info-card">
+          <h3>肥満は慢性疾患</h3>
+          <p>WHO（世界保健機関）は肥満を治療すべき疾患として認定。放置すると糖尿病、高血圧、心臓病などのリスクが大幅に上昇します。</p>
+        </div>
+      </div>
+      
+      <div class="warning-box">
+        <h3>肥満の健康リスク（WHO 2024年データ）</h3>
+        <ul>
+          <li><strong>2型糖尿病：</strong>標準体重との比較で8.1倍のリスク</li>
+          <li><strong>冠動脈疾患：</strong>3.6倍のリスク</li>
+          <li><strong>脳卒中：</strong>2.8倍のリスク</li>
+          <li><strong>睡眠時無呼吸症候群：</strong>6.8倍のリスク</li>
+          <li><strong>変形性膝関節症：</strong>4.2倍のリスク</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="medications">
+    <div class="content-container">
+      <div class="section-badge">MEDICATIONS</div>
+      <h2 class="section-title">取り扱い薬剤の詳細</h2>
+      
+      <div class="medication-grid">
+        <div class="medication-card">
+          <div class="medication-title">マンジャロ（チルゼパチド）</div>
+          <div class="medication-subtitle">世界初のGIP/GLP-1デュアルアゴニスト</div>
+          <div class="medication-desc">
+            週1回の皮下注射で、食欲抑制と脂肪分解促進の両方の効果を発揮します。2023年11月にFDA承認された最新の肥満治療薬です。
+          </div>
+          <div class="medication-stats">
+            <h4>臨床試験データ（SURMOUNT-1試験）</h4>
+            <ul>
+              <li>平均体重減少率：20.9%（15mg群）</li>
+              <li>5%以上減量達成率：91.0%</li>
+              <li>10%以上減量達成率：83.5%</li>
+              <li>15%以上減量達成率：57.0%</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">リベルサス（セマグルチド経口薬）</div>
+          <div class="medication-subtitle">世界初の経口GLP-1受容体作動薬</div>
+          <div class="medication-desc">
+            1日1回の服用で、注射が苦手な方にも適しています。GLP-1受容体に結合し、食欲を抑制します。
+          </div>
+          <div class="medication-stats">
+            <h4>臨床試験データ（PIONEER試験）</h4>
+            <ul>
+              <li>平均体重減少率：6.5%</li>
+              <li>HbA1c改善：1.5%低下</li>
+              <li>服薬継続率：71.8%</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">SGLT2阻害薬</div>
+          <div class="medication-subtitle">余分な糖を尿中に排出</div>
+          <div class="medication-desc">
+            ナトリウム・グルコース共輸送体2を阻害し、1日約70-100gの糖を尿中に排出します。カロリーにして約280-400kcal相当です。
+          </div>
+          <div class="medication-stats">
+            <h4>主な薬剤と効果</h4>
+            <ul>
+              <li>カナグリフロジン（カナグル）</li>
+              <li>ダパグリフロジン（フォシーガ）</li>
+              <li>エンパグリフロジン（ジャディアンス）</li>
+              <li>平均体重減少率：3.5%</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">メトホルミン</div>
+          <div class="medication-subtitle">50年以上の使用実績</div>
+          <div class="medication-desc">
+            安価で入手しやすいビグアナイド系薬剤です。肝臓での糖新生を抑制し、インスリン感受性を改善します。
+          </div>
+          <div class="medication-stats">
+            <h4>臨床試験データ（DPP研究）</h4>
+            <ul>
+              <li>平均体重減少率：2.1%</li>
+              <li>糖尿病発症リスク：31%減少</li>
+              <li>長期安全性データが豊富</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="mounjaro-detail">
+    <div class="content-container">
+      <div class="section-badge">MOUNJARO</div>
+      <h2 class="section-title">マンジャロ完全ガイド</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 2rem 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">医療現場で最も推奨される肥満治療薬</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 0;">
+          マンジャロ（チルゼパチド）は、2022年9月に日本で2型糖尿病治療薬として承認され、2023年4月18日に発売開始された最新の治療薬です。<br>
+          世界中の医療現場で「<strong>現在最も効果的な減量薬</strong>」として認められています。
+        </p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>画期的な作用メカニズム</h3>
+          <p><strong>世界初のデュアルアゴニスト（2つのホルモン受容体に同時作用）</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>GLP-1受容体：</strong>満腹感を高め、食欲を抑制</li>
+            <li><strong>GIP受容体：</strong>脂肪燃焼を促進し、代謝を改善</li>
+          </ul>
+          <p>この「デュアルアゴニスト」という仕組みにより、従来のGLP-1薬単独では実現できなかった強力な減量効果を実現しています。</p>
+        </div>
+        
+        <div class="info-card">
+          <h3>マンジャロの3つの効果</h3>
+          <ol style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>自然な食欲抑制：</strong>脳の満腹中枢に作用し、少量で満足感を得られる</li>
+            <li><strong>血糖値の安定化：</strong>食後の血糖値上昇を抑制し、インスリン分泌を最適化</li>
+            <li><strong>代謝の改善：</strong>基礎代謝の向上、脂肪燃焼の促進、リバウンドしにくい体質への変化</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">なぜマンジャロが選ばれるのか</h3>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">15-22.5%</div>
+            <div class="stat-label">平均体重減少率（従来薬の約2倍）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">96%</div>
+            <div class="stat-label">使用者の減量成功率</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">週1回</div>
+            <div class="stat-label">簡単な投与頻度</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5-10秒</div>
+            <div class="stat-label">注射にかかる時間</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-detail">
+    <div class="content-container">
+      <div class="section-badge">SGLT2 INHIBITORS</div>
+      <h2 class="section-title">SGLT2阻害薬完全ガイド</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 2rem 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">食事で摂った余分な糖を体外に排出する画期的な薬</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 0;">
+          SGLT2阻害薬は、腎臓での糖の再吸収を阻害し、1日あたり約200〜400kcal分（ご飯茶碗1.5杯分）の糖を尿と一緒に排出します。<br>
+          インスリンに依存しない新しいメカニズムで、安全に体重減少を実現します。
+        </p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>SGLT2阻害薬とは</h3>
+          <p><strong>正式名称：</strong>ナトリウム・グルコース共輸送体2阻害薬</p>
+          <p><strong>主な製品：</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>フォシーガ（ダパグリフロジン）</li>
+            <li>ジャディアンス（エンパグリフロジン）</li>
+            <li>カナグル（カナグリフロジン）</li>
+            <li>スーグラ（イプラグリフロジン）</li>
+            <li>ルセフィ（ルセオグリフロジン）</li>
+            <li>デベルザ（トホグリフロジン）</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>どのような仕組みで痩せるのか</h3>
+          <p><strong>通常：</strong>腎臓で糖の90%以上が再吸収される</p>
+          <p><strong>SGLT2阻害薬使用時：</strong></p>
+          <ol style="color: var(--gray-dark); line-height: 1.7;">
+            <li>SGLT2の働きを選択的に阻害</li>
+            <li>60〜100gの糖が尿へ排出</li>
+            <li>体内の余分な糖が減少</li>
+            <li>脂肪の蓄積を防ぐ</li>
+          </ol>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">体重減少のプロセス</h3>
+        
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>第1段階（1〜2週間）</h3>
+            <p>余分な糖の排出開始<br>水分も一緒に排出されるため体重減少</p>
+          </div>
+          <div class="process-step">
+            <h3>第2段階（2週間〜3ヶ月）</h3>
+            <p>脂肪の蓄積が抑制される<br>エネルギー不足を補うため脂肪が分解</p>
+          </div>
+          <div class="process-step">
+            <h3>第3段階（3ヶ月以降）</h3>
+            <p>体重減少が緩やかになる<br>主に脂肪組織が減少</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">期待できる効果</h3>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">2-3kg</div>
+          <div class="stat-label">平均体重減少（3ヶ月）</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">4-5kg</div>
+          <div class="stat-label">最大効果（6ヶ月〜1年）</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">0.5-1.0%</div>
+          <div class="stat-label">HbA1c低下</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2-4mmHg</div>
+          <div class="stat-label">収縮期血圧低下</div>
+        </div>
+      </div>
+      
+      <div class="info-grid" style="margin-top: 3rem;">
+        <div class="info-card">
+          <h3>その他の効果</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>むくみの改善（軽度の利尿作用）</li>
+            <li>内臓脂肪の減少</li>
+            <li>心臓への保護効果</li>
+            <li>腎臓への保護効果</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>効果に影響する要因</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>BMI：</strong>肥満度が高いほど効果が出やすい</li>
+            <li><strong>年齢：</strong>比較的若い年代で効果が高い</li>
+            <li><strong>生活習慣：</strong>食事・運動療法との併用で効果増大</li>
+            <li><strong>他の薬剤：</strong>GLP-1受容体作動薬との併用で相乗効果</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>注意すべき点</h3>
+          <p style="color: var(--secondary); font-weight: 600;">薬を服用する前よりも過食になる可能性があります。</p>
+          <p>脳がブドウ糖の排泄を「糖質欠乏」と勘違いし、より多くの糖質摂取を促すためです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-safety">
+    <div class="content-container">
+      <div class="section-badge">SAFETY & SIDE EFFECTS</div>
+      <h2 class="section-title">副作用と対処法</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">症状</th>
+            <th style="padding: 1rem; text-align: center;">頻度</th>
+            <th style="padding: 1rem; text-align: left;">対処法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">頻尿</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約30%</td>
+            <td style="padding: 1rem;">1日2〜3回増は正常範囲。就寝前の水分を控える</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">口渇</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約20%</td>
+            <td style="padding: 1rem;">こまめな水分補給（1日1.5〜2L目安）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">多尿</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約15%</td>
+            <td style="padding: 1rem;">日中の活動に支障がなければ経過観察</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">尿路感染症</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約8%</td>
+            <td style="padding: 1rem;">排尿後の清潔保持、症状時は早期受診</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">性器感染症（女性）</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約7%</td>
+            <td style="padding: 1rem;">通気性の良い下着、陰部の清潔保持</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">めまい・ふらつき</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">約5%</td>
+            <td style="padding: 1rem;">ゆっくり立ち上がる、水分補給を増やす</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="warning-box">
+        <h3>まれだが重篤な副作用（1%未満）</h3>
+        <div class="info-grid" style="margin-top: 1.5rem;">
+          <div>
+            <h4 style="color: var(--light);">ケトアシドーシス</h4>
+            <p><strong>症状：</strong>吐き気、腹痛、呼吸困難</p>
+            <p><strong>対処：</strong>直ちに医療機関を受診</p>
+          </div>
+          <div>
+            <h4 style="color: var(--light);">脱水症</h4>
+            <p><strong>症状：</strong>強い口渇、皮膚の乾燥、意識障害</p>
+            <p><strong>対処：</strong>十分な水分補給、必要時は点滴</p>
+          </div>
+          <div>
+            <h4 style="color: var(--light);">低血糖（他剤併用時）</h4>
+            <p><strong>症状：</strong>冷汗、動悸、手の震え</p>
+            <p><strong>対処：</strong>ブドウ糖や砂糖を摂取</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="info-card" style="max-width: 800px; margin: 3rem auto;">
+        <h3 style="text-align: center; color: var(--primary);">副作用を最小限にするポイント</h3>
+        <ul style="color: var(--gray-dark); line-height: 1.7;">
+          <li>✓ <strong>水分摂取：</strong>1日1.5〜2リットルを目安に</li>
+          <li>✓ <strong>清潔保持：</strong>特に女性は陰部の清潔を心がける</li>
+          <li>✓ <strong>定期チェック：</strong>尿検査で感染症の早期発見</li>
+          <li>✓ <strong>体調管理：</strong>発熱時や下痢時は一時中断を検討</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-target">
+    <div class="content-container">
+      <div class="section-badge">TARGET PATIENTS</div>
+      <h2 class="section-title">こんな方におすすめ</h2>
+      
+      <div class="info-grid">
+        <div class="info-card" style="border-top: 3px solid var(--primary);">
+          <h3 style="color: var(--primary);">特におすすめの方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>BMI 25以上の方</li>
+            <li>食事制限が苦手な方</li>
+            <li>糖質（炭水化物）が好きな方</li>
+            <li>運動する時間が限られている方</li>
+            <li>健康診断で血糖値や中性脂肪を指摘された方</li>
+            <li>むくみやすい体質の方</li>
+            <li>GLP-1受容体作動薬で効果が不十分な方</li>
+          </ul>
+        </div>
+        
+        <div class="info-card" style="border-top: 3px solid var(--secondary);">
+          <h3 style="color: var(--secondary);">処方できない方（禁忌）</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>妊娠中・授乳中の方</li>
+            <li>1型糖尿病の方</li>
+            <li>重度の腎機能障害（eGFR 30未満）</li>
+            <li>尿路感染症を繰り返している方</li>
+            <li>75歳以上の高齢者（原則）</li>
+            <li>ケトアシドーシスの既往がある方</li>
+          </ul>
+        </div>
+        
+        <div class="info-card" style="border-top: 3px solid var(--accent);">
+          <h3 style="color: var(--accent);">慎重に検討が必要な方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>他の糖尿病薬を服用中の方</li>
+            <li>利尿薬を服用中の方</li>
+            <li>低血圧の方（収縮期血圧100mmHg未満）</li>
+            <li>痩せ型の方（BMI 22未満）</li>
+            <li>65歳以上の方</li>
+            <li>激しい運動をする方</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-comparison">
+    <div class="content-container">
+      <div class="section-badge">COMPARISON</div>
+      <h2 class="section-title">他の医療ダイエット薬との比較</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">項目</th>
+            <th style="padding: 1rem; text-align: center;">SGLT2阻害薬</th>
+            <th style="padding: 1rem; text-align: center;">GLP-1受容体作動薬</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">作用機序</td>
+            <td style="padding: 1rem; text-align: center;">糖を尿中に排出</td>
+            <td style="padding: 1rem; text-align: center;">食欲抑制・胃排出遅延</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">投与方法</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">飲み薬（1日1回）</td>
+            <td style="padding: 1rem; text-align: center;">飲み薬or注射</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">体重減少</td>
+            <td style="padding: 1rem; text-align: center;">2〜3kg（3ヶ月）</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">3〜5kg（3ヶ月）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">食欲への影響</td>
+            <td style="padding: 1rem; text-align: center;">なし〜軽度増加</td>
+            <td style="padding: 1rem; text-align: center;">明確な食欲抑制</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">主な副作用</td>
+            <td style="padding: 1rem; text-align: center;">頻尿・尿路感染</td>
+            <td style="padding: 1rem; text-align: center;">吐き気・便秘</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">費用</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">比較的安価</td>
+            <td style="padding: 1rem; text-align: center;">やや高価</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 1.5rem;">併用療法について</h3>
+        <p style="text-align: center; font-size: 1.2rem;">
+          SGLT2阻害薬とGLP-1受容体作動薬を併用したグループの方が、<br>
+          単独使用よりも<strong style="font-size: 1.4rem;">5%以上の体重減少</strong>がみられた患者さんの割合が多かったことがわかっています。
+        </p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3 style="color: var(--primary);">SGLT2阻害薬が向いている方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>副作用を最小限にしたい</li>
+            <li>コストを抑えたい</li>
+            <li>糖質制限的なアプローチを好む</li>
+            <li>注射に抵抗がある</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3 style="color: var(--secondary);">GLP-1受容体作動薬が向いている方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>より大きな体重減少を期待</li>
+            <li>食欲のコントロールが難しい</li>
+            <li>頻尿が困る環境にいる</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-usage">
+    <div class="content-container">
+      <div class="section-badge">HOW TO USE</div>
+      <h2 class="section-title">服用方法と注意点</h2>
+      
+      <div style="background: var(--gradient-secondary); color: var(--light); padding: 2rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">各薬剤の用法・用量</h3>
+      </div>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card);">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">薬剤名</th>
+            <th style="padding: 1rem; text-align: center;">開始用量</th>
+            <th style="padding: 1rem; text-align: center;">最大用量</th>
+            <th style="padding: 1rem; text-align: center;">服用タイミング</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">フォシーガ</td>
+            <td style="padding: 1rem; text-align: center;">5mg</td>
+            <td style="padding: 1rem; text-align: center;">10mg</td>
+            <td style="padding: 1rem; text-align: center;">朝1回</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">ジャディアンス</td>
+            <td style="padding: 1rem; text-align: center;">10mg</td>
+            <td style="padding: 1rem; text-align: center;">25mg</td>
+            <td style="padding: 1rem; text-align: center;">朝1回</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">カナグル</td>
+            <td style="padding: 1rem; text-align: center;">100mg</td>
+            <td style="padding: 1rem; text-align: center;">100mg</td>
+            <td style="padding: 1rem; text-align: center;">朝食前または朝食後</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">スーグラ</td>
+            <td style="padding: 1rem; text-align: center;">50mg</td>
+            <td style="padding: 1rem; text-align: center;">100mg</td>
+            <td style="padding: 1rem; text-align: center;">朝食前または朝食後</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="info-grid" style="margin-top: 3rem;">
+        <div class="info-card">
+          <h3>服用時の注意点</h3>
+          <ol style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>飲み忘れた場合</strong>
+              <ul>
+                <li>同日中なら気づいた時点で服用</li>
+                <li>翌日になったら1回分スキップ</li>
+                <li>2回分を一度に飲まない</li>
+              </ul>
+            </li>
+            <li><strong>中止・休薬が必要な場合</strong>
+              <ul>
+                <li>発熱・下痢・嘔吐時</li>
+                <li>手術前後</li>
+                <li>造影剤使用前後</li>
+                <li>激しい運動の前</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+        
+        <div class="info-card">
+          <h3>併用注意薬</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>利尿薬：</strong>脱水リスク増加</li>
+            <li><strong>血圧降下薬：</strong>過度の血圧低下</li>
+            <li><strong>インスリン・SU薬：</strong>低血糖リスク</li>
+          </ul>
+          <p style="margin-top: 1rem; color: var(--secondary);">必ず医師に現在服用中の薬をお伝えください</p>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">治療中の検査とモニタリング</h3>
+        <div class="process-steps">
+          <div class="process-step">
+            <h3>開始前の検査</h3>
+            <p>血液検査：血糖値、HbA1c、腎機能、電解質<br>尿検査：尿糖、尿蛋白、尿潜血</p>
+          </div>
+          <div class="process-step">
+            <h3>定期モニタリング</h3>
+            <p>体重測定：毎日同じ時間に<br>血圧測定：特に開始1ヶ月は注意</p>
+          </div>
+          <div class="process-step">
+            <h3>効果判定</h3>
+            <p>1ヶ月後：1kg程度の体重減少<br>3ヶ月後：2〜3kgの体重減少</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-lifestyle">
+    <div class="content-container">
+      <div class="section-badge">LIFESTYLE ADVICE</div>
+      <h2 class="section-title">生活習慣のアドバイス</h2>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>食事について</h3>
+          <p><strong>推奨事項</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>バランスの良い食事を心がける</li>
+            <li>野菜を先に食べる（ベジファースト）</li>
+            <li>よく噛んでゆっくり食べる</li>
+            <li>間食は控えめに</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>注意事項</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>極端な糖質制限は避ける（ケトアシドーシスリスク）</li>
+            <li>アルコールは控えめに（脱水リスク）</li>
+            <li>過食に走らないよう意識する</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>水分摂取</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>1日1.5〜2リットルを目安に</li>
+            <li>カフェインの多い飲み物は控えめに</li>
+            <li>運動時は追加で水分補給</li>
+            <li>就寝2時間前からは控える</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>運動について</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>有酸素運動を週3回、30分程度</li>
+            <li>筋トレで筋肉量維持</li>
+            <li>激しい運動時は水分・糖分補給</li>
+            <li>体調不良時は無理をしない</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>日常生活の注意</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>トイレの場所を把握しておく</li>
+            <li>外出時も水分補給できるよう準備</li>
+            <li>低血糖対策の糖分を携帯（他剤併用時）</li>
+            <li>体重・体調の記録をつける</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="faq-section" id="sglt2-faq">
+    <div class="content-container">
+      <div class="section-badge">SGLT2 FAQ</div>
+      <h2 class="section-title">SGLT2阻害薬のよくある質問</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: どのくらい痩せますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 個人差はありますが、3ヶ月で平均2〜3kgの体重減少が期待できます。長期間飲み続けると、脂肪組織の方が多く減ることが報告されています。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: リバウンドしませんか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 薬をやめると徐々に元の体重に戻る可能性があります。服薬前よりも過食になり、体重が増えてしまう場合も珍しくありません。目標達成後は医師と相談しながら維持療法を検討します。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 食事制限は必要ですか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> SGLT2阻害薬は、食欲そのものを抑える効果はありません。食欲が出て食べ過ぎてしまったなどという場合には体重減少は望めません。バランスの良い食事を心がけることが大切です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 運動はしなくてもいいですか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 運動なしでも一定の効果は期待できますが、筋肉量の減少や基礎代謝の低下を招く可能性があるため、適度な運動を組み合わせることをおすすめします。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: いつまで飲み続けるのですか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 目標達成後、医師と相談して継続・減量・中止を決定します。急な中止は避け、段階的に調整することが重要です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 他の薬と一緒に飲めますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 多くの薬と併用可能ですが、利尿薬や糖尿病薬との併用は注意が必要です。必ず医師に現在服用中の薬をお伝えください。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 保険は適用されますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 美容目的の場合は自費診療となります。2型糖尿病、心不全、慢性腎臓病の診断がある場合は保険適用の可能性があります。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: GLP-1受容体作動薬と併用できますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 併用により、単独使用よりも高い体重減少効果が報告されています。医師の判断により併用処方も可能です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 筋肉は落ちませんか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 短期的には筋肉、脂肪の両方が減少しますが、長期間飲み続けると脂肪組織の方が多く減ることが報告されています。適度な運動と蛋白質摂取で筋肉量維持を心がけましょう。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: どの薬剤を選べばいいですか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 各薬剤の効果に大きな差はありません。副作用の出方や服用のしやすさなどを考慮し、医師と相談して決定します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="sglt2-start">
+    <div class="content-container">
+      <div class="section-badge">GET STARTED</div>
+      <h2 class="section-title">SGLT2阻害薬を始める</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1rem;">SGLT2阻害薬治療費</h3>
+        <p style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">月額10,000円</p>
+        <p style="font-size: 1.2rem;">お薬代・診察料・配送料 全て込み<br>※追加料金は一切ありません</p>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">オンライン診療の流れ</h3>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>STEP 1: 予約（3分）</h3>
+          <p>健康パスポートの公式LINEに登録<br>予約ボタンから希望日時を選択<br>カード決済</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 2: 問診票記入（5分）</h3>
+          <p>現在の体調<br>既往歴<br>服用中の薬<br>アレルギーの有無等</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 3: オンライン診察（10分）</h3>
+          <p>ビデオ通話で医師と面談<br>薬の説明を受ける</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 4: 処方・配送</h3>
+          <p>最短翌日に自宅へ配送</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 5: フォローアップ</h3>
+          <p>定期的な診察（1ヶ月ごと）<br>体調変化の確認<br>用量調整の相談</p>
+        </div>
+      </div>
+      
+      <div class="info-card" style="max-width: 800px; margin: 3rem auto;">
+        <h3 style="text-align: center; color: var(--primary);">医師からのメッセージ</h3>
+        <h4 style="color: var(--dark); margin-bottom: 1rem;">医療ダイエットについて</h4>
+        <p style="color: var(--gray-dark); line-height: 1.7;">
+          「体重管理は意志の強さだけの問題ではありません。現代の食環境では、どんなに努力しても痩せにくい方がいらっしゃいます。そんな方々に、医学的根拠に基づいた安全な方法をご提供したいと考えています。」
+        </p>
+        
+        <h4 style="color: var(--dark); margin: 1.5rem 0 1rem;">SGLT2阻害薬の位置づけ</h4>
+        <p style="color: var(--gray-dark); line-height: 1.7;">
+          「SGLT2阻害薬は本来、2型糖尿病の治療を目的として開発された医療用医薬品です。その過程で体重減少効果が確認され、現在では適切な医療管理下で肥満治療にも使用されています。」
+        </p>
+        
+        <h4 style="color: var(--dark); margin: 1.5rem 0 1rem;">総合的なアプローチ</h4>
+        <p style="color: var(--gray-dark); line-height: 1.7;">
+          「薬だけに頼るのではなく、食事・運動・生活習慣の改善と組み合わせることで、より健康的で持続的な体重管理が実現できます。一人ひとりに合った最適な方法を一緒に見つけていきましょう。」
+        </p>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <p style="font-size: 1.3rem; color: var(--gray-dark); margin-bottom: 2rem;">
+          SGLT2阻害薬は、余分な糖を体外に排出することで、<br>
+          無理なく体重減少を目指せる医療ダイエット薬です。
+        </p>
+        <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-btn primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
+          今すぐオンライン診療を予約する
+        </a>
+        <p style="margin-top: 1rem; color: var(--gray-dark);">
+          健康パスポート公式LINE<br>
+          <a href="https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs" style="color: var(--primary);">https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="mounjaro-data">
+    <div class="content-container">
+      <div class="section-badge">CLINICAL DATA</div>
+      <h2 class="section-title">驚異的な効果とデータ</h2>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">実際の減量データ</h3>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card);">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">期間</th>
+            <th style="padding: 1rem; text-align: center;">平均減量</th>
+            <th style="padding: 1rem; text-align: center;">成功率</th>
+            <th style="padding: 1rem; text-align: left;">具体的な効果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">1ヶ月</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">3-5kg</td>
+            <td style="padding: 1rem; text-align: center;">92%</td>
+            <td style="padding: 1rem;">食欲の変化を実感</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">3ヶ月</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">10-12kg</td>
+            <td style="padding: 1rem; text-align: center;">94%</td>
+            <td style="padding: 1rem;">服のサイズダウン</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">6ヶ月</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">15-20kg</td>
+            <td style="padding: 1rem; text-align: center;">96%</td>
+            <td style="padding: 1rem;">見た目の大きな変化</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">12ヶ月</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">20-30kg</td>
+            <td style="padding: 1rem; text-align: center;">93%</td>
+            <td style="padding: 1rem;">体質の根本的改善</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="info-grid" style="margin-top: 3rem;">
+        <div class="info-card">
+          <h3>日本人での減量効果（SURPASS J-mono試験）</h3>
+          <p>日本人2型糖尿病患者での結果：</p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>マンジャロ5mg：</strong>-7.0kg</li>
+            <li><strong>マンジャロ10mg：</strong>-9.5kg</li>
+            <li><strong>マンジャロ15mg：</strong>-11.2kg（HbA1c -2.83%）</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>体重別の期待効果</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>70kgの方：</strong>10.5-14kg減（3-6ヶ月）</li>
+            <li><strong>80kgの方：</strong>12-16kg減（3-6ヶ月）</li>
+            <li><strong>90kgの方：</strong>13.5-18kg減（3-6ヶ月）</li>
+            <li><strong>100kgの方：</strong>15-20kg減（3-6ヶ月）</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>他の効果</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>ウエスト：</strong>平均10-15cm減少</li>
+            <li><strong>体脂肪率：</strong>5-10%減少</li>
+            <li><strong>内臓脂肪：</strong>30-40%減少</li>
+            <li>心血管リスクの改善</li>
+            <li>腎機能保護作用</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 1.5rem;">オゼンピックとの直接比較（SURMOUNT-5試験）</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+          <div>
+            <h4 style="font-size: 2rem; margin-bottom: 0.5rem;">マンジャロ</h4>
+            <p style="font-size: 2.5rem; font-weight: 900;">20.2%</p>
+            <p>体重減少</p>
+          </div>
+          <div>
+            <h4 style="font-size: 2rem; margin-bottom: 0.5rem;">オゼンピック</h4>
+            <p style="font-size: 2.5rem; font-weight: 900;">13.7%</p>
+            <p>体重減少</p>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 1.2rem;">
+          <strong>マンジャロはオゼンピックの約1.5倍の効果</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="benefits">
+    <div class="content-container">
+      <div class="section-badge">BENEFITS</div>
+      <h2 class="section-title">体重減少による健康改善効果</h2>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>10%の体重減少で期待される効果</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>糖尿病リスク：58%減少</li>
+            <li>心血管疾患リスク：42%減少</li>
+            <li>血圧：収縮期10mmHg、拡張期20mmHg低下</li>
+            <li>総コレステロール：10%低下</li>
+            <li>LDLコレステロール：15%低下</li>
+            <li>中性脂肪：30%低下</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>20%の体重減少で期待される効果</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>糖尿病リスク：86%減少</li>
+            <li>心血管疾患リスク：71%減少</li>
+            <li>睡眠時無呼吸の改善率：85%</li>
+            <li>変形性関節症の症状改善：90%</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">420万円</div>
+          <div class="stat-label">10%減量による生涯医療費削減</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">780万円</div>
+          <div class="stat-label">20%減量による生涯医療費削減</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3.2年</div>
+          <div class="stat-label">10%減量による健康寿命延長</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5.8年</div>
+          <div class="stat-label">20%減量による健康寿命延長</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="mounjaro-usage">
+    <div class="content-container">
+      <div class="section-badge">HOW TO USE</div>
+      <h2 class="section-title">使用方法と安全性</h2>
+      
+      <div style="background: var(--gradient-secondary); color: var(--light); padding: 2rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">専用注入器「アテオス」での簡単3ステップ</h3>
+        <p style="font-size: 1.1rem;">所要時間：約5-10秒</p>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>灰色のキャップを外す</h3>
+          <p>ペン型注射器のキャップを取る<br>緑色の目印がロックの位置にあることを確認</p>
+        </div>
+        <div class="process-step">
+          <h3>お腹に当ててロックを解除</h3>
+          <p>清潔な皮膚に垂直に当てる<br>紫色のボタンが見えるまで押し込む</p>
+        </div>
+        <div class="process-step">
+          <h3>注入ボタンを押す</h3>
+          <p>カチッと音がするまで押し込む<br>5-10秒間そのまま待つ</p>
+        </div>
+      </div>
+      
+      <div class="info-grid" style="margin-top: 3rem;">
+        <div class="info-card">
+          <h3>注射部位</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>お腹（へその周り5cm以外）</li>
+            <li>太もも（外側）</li>
+            <li>二の腕（外側）※他者による投与時</li>
+          </ul>
+          <p style="margin-top: 1rem; color: var(--secondary);">※毎回場所を変えることを推奨（同じ場所への連続投与は避ける）</p>
+        </div>
+        
+        <div class="info-card">
+          <h3>用法・用量</h3>
+          <ol style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>開始用量：</strong>週1回2.5mgを4週間</li>
+            <li><strong>維持用量：</strong>週1回5mgに増量</li>
+            <li><strong>必要に応じて増量：</strong>4週間以上経過後、2.5mgずつ段階的に増量可能（最大15mg）</li>
+          </ol>
+        </div>
+        
+        <div class="info-card">
+          <h3>投与タイミング</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>週1回、同じ曜日に投与</li>
+            <li>朝昼晩いつでも可能</li>
+            <li>食事のタイミングは問わない</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">保管方法</h3>
+        <div class="info-grid" style="margin: 0;">
+          <div style="text-align: center;">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">未使用時</h4>
+            <p>冷蔵庫（2～8℃）で遮光保存</p>
+          </div>
+          <div style="text-align: center;">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">使用開始後</h4>
+            <p>室温保存可能（30℃以下、21日以内）</p>
+          </div>
+          <div style="text-align: center;">
+            <h4 style="color: var(--secondary); margin-bottom: 1rem;">凍結厳禁</h4>
+            <p>凍結すると薬効が失われ、注入器が破損する可能性</p>
+          </div>
+          <div style="text-align: center;">
+            <h4 style="color: var(--primary); margin-bottom: 1rem;">旅行時</h4>
+            <p>保冷バッグの使用を推奨</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">副作用と対処法</h3>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card);">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">症状</th>
+            <th style="padding: 1rem; text-align: center;">発生率</th>
+            <th style="padding: 1rem; text-align: left;">対処法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">吐き気</td>
+            <td style="padding: 1rem; text-align: center;">30%</td>
+            <td style="padding: 1rem;">少量ずつ食事、冷たい水を飲む</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">便秘</td>
+            <td style="padding: 1rem; text-align: center;">25%</td>
+            <td style="padding: 1rem;">水分を多めに、食物繊維を摂取</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">下痢</td>
+            <td style="padding: 1rem; text-align: center;">15%</td>
+            <td style="padding: 1rem;">脂っこい食事を避ける</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">倦怠感</td>
+            <td style="padding: 1rem; text-align: center;">10%</td>
+            <td style="padding: 1rem;">十分な睡眠、軽い運動</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p style="text-align: center; margin-top: 1rem; color: var(--gray-dark);">※初期に起こりうる症状（多くは2週間以内に改善）</p>
+      
+      <div class="warning-box" style="margin-top: 3rem;">
+        <h3>使用できない方</h3>
+        <ul>
+          <li>妊娠中・授乳中の方</li>
+          <li>18歳未満の方</li>
+          <li>膵炎の既往がある方（急性膵炎、慢性膵炎）</li>
+          <li>甲状腺髄様癌の既往・家族歴がある方</li>
+          <li>多発性内分泌腫瘍症2型（MEN2）の方</li>
+          <li>本剤成分にアレルギーがある方</li>
+          <li>重度の胃腸障害（胃潰瘍、炎症性腸疾患など）がある方</li>
+        </ul>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3>重大な副作用（頻度は低いが注意が必要）</h3>
+        <div class="info-grid" style="margin-top: 1.5rem;">
+          <div>
+            <h4>低血糖（他の糖尿病薬併用時）</h4>
+            <p><strong>症状：</strong>冷汗、動悸、手の震え、強い空腹感<br>
+            <strong>対処：</strong>ブドウ糖や砂糖を摂取</p>
+          </div>
+          <div>
+            <h4>急性膵炎（0.1%未満）</h4>
+            <p><strong>症状：</strong>激しい腹痛、背部痛、嘔吐<br>
+            <strong>対処：</strong>直ちに使用中止し医師に相談</p>
+          </div>
+          <div>
+            <h4>胆嚢炎・胆石症</h4>
+            <p><strong>症状：</strong>右上腹部痛、発熱<br>
+            <strong>対処：</strong>医師の診察を受ける</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="info-card" style="max-width: 800px; margin: 3rem auto;">
+        <h3 style="text-align: center; color: var(--primary);">注意事項</h3>
+        <ul style="color: var(--gray-dark); line-height: 1.7;">
+          <li>過度な食事制限は避ける（低血糖リスク）</li>
+          <li>アルコールは控えめに</li>
+          <li>車の運転時は低血糖に注意</li>
+          <li>定期的な医師の診察を受ける</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section class="process-section" id="process">
+    <div class="content-container">
+      <div class="section-badge">PROCESS</div>
+      <h2 class="section-title">治療の流れ</h2>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>初回カウンセリング</h3>
+          <p>オンラインで問診票を記入し、現在の健康状態を確認。治療目標を設定し、最適な薬剤を選択します。</p>
+        </div>
+        <div class="process-step">
+          <h3>医師診察</h3>
+          <p>詳細な問診と必要に応じて血液検査を実施。薬剤の説明と同意を得て、処方箋を発行します。</p>
+        </div>
+        <div class="process-step">
+          <h3>治療開始</h3>
+          <p>薬剤の受け取り（配送可）と使用方法の指導。副作用への対処法と緊急連絡先を確認します。</p>
+        </div>
+        <div class="process-step">
+          <h3>定期フォローアップ</h3>
+          <p>2週間後、1ヶ月後、3ヶ月毎に継続診察。随時オンライン相談も可能です。</p>
+        </div>
+        <div class="process-step">
+          <h3>維持期</h3>
+          <p>目標達成後の減薬と生活習慣の定着支援。リバウンド予防指導と定期的な健康チェックを行います。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="faq-section" id="faq">
+    <div class="content-container">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくある質問</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q1: 副作用はありますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 主な副作用と発生率（マンジャロの場合）</p>
+          <ul>
+            <li>軽度の吐き気：31.5%</li>
+            <li>便秘：16.7%</li>
+            <li>下痢：14.9%</li>
+            <li>注射部位反応：3.2%</li>
+          </ul>
+          <p>多くは投与開始初期に現れ、時間とともに改善します。重篤な副作用は稀（6.3%）で、プラセボ群と同程度です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q2: どのくらいで効果が出ますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 個人差はありますが、一般的な経過：</p>
+          <ul>
+            <li>1-2週間：食欲の変化を実感</li>
+            <li>1ヶ月：3-5kgの体重減少</li>
+            <li>3ヶ月：8-12kgの体重減少</li>
+            <li>6ヶ月：目標体重の達成（多くの場合）</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q3: リバウンドしませんか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 適切な管理下では、リバウンド率は大幅に低下します：</p>
+          <ul>
+            <li>従来のダイエット：1年後のリバウンド率80%以上</li>
+            <li>医療ダイエット：1年後の体重維持率70%以上</li>
+          </ul>
+          <p>薬物療法終了後も、身についた食習慣により体重を維持しやすくなります。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q4: 誰でも使えますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 以下の方は使用できない、または注意が必要です：</p>
+          <p><strong>使用できない方</strong></p>
+          <ul>
+            <li>妊娠中・授乳中の方</li>
+            <li>1型糖尿病の方</li>
+            <li>重度の腎機能障害がある方</li>
+            <li>膵炎の既往がある方（一部の薬剤）</li>
+          </ul>
+          <p><strong>注意が必要な方</strong></p>
+          <ul>
+            <li>甲状腺疾患の既往</li>
+            <li>消化器疾患がある方</li>
+            <li>他の薬を服用中の方</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q5: 保険は適用されますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 現在、肥満治療目的での保険適用はありません。ただし：</p>
+          <ul>
+            <li>糖尿病を合併している場合、一部保険適用の可能性</li>
+            <li>医療費控除の対象になる場合があります</li>
+            <li>将来的な医療費削減を考えると費用対効果は高い</li>
+          </ul>
+          <p>現在、美容目的での使用は自費診療となります。2型糖尿病の診断がある場合は保険適用の可能性がありますが、肥満治療やダイエット目的で使用する場合は自費となります。</p>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem; color: var(--primary);">マンジャロに関するよくある質問</h3>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q6: マンジャロの注射は本当に痛くないの？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> はい、ほとんど痛みを感じません。使用者の89%が「痛みをほとんど感じない」と回答。針は髪の毛より細く（0.23mm）、長さも短い（4mm）ため、蚊に刺される程度かそれ以下です。また、針が見えない設計なので、注射が苦手な方でも安心です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q7: マンジャロを使ってもリバウンドしない？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> マンジャロは体質改善効果があるため、リバウンドしにくいのが特徴です。GLP-1受容体作動薬は基礎代謝を上げ、脂肪の分解を促進します。ただし、治療終了後も適度な食事管理は必要です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q8: マンジャロはどのくらいで効果が出る？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 多くの方が2-4週間で食欲の変化を実感。体重減少は1ヶ月目から始まり、3-6ヶ月で大きな変化が現れます。3ヶ月で平均10-12kg減少、6ヶ月で平均15-20kg減少という臨床データがあります。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q9: マンジャロ使用中も運動は必要？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 激しい運動は不要です。日常的な活動で十分。ただし、軽い運動を併用するとより効果的です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q10: マンジャロを打ち忘れた場合はどうする？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 次回投与までの期間が3日間（72時間）以上であれば、気づいた時点で直ちに投与し、その後はあらかじめ定めた曜日に投与すること。次回投与までの期間が3日間（72時間）未満であれば投与せず、次のあらかじめ定めた曜日に投与すること。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q11: 他の薬と併用できる？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 多くの薬と併用可能ですが、糖尿病治療薬との併用時は低血糖に注意が必要です。必ず医師に現在服用中の薬を伝えてください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="success-stories">
+    <div class="content-container">
+      <div class="section-badge">SUCCESS STORIES</div>
+      <h2 class="section-title">マンジャロ成功事例</h2>
+      
+      <div class="medication-grid">
+        <div class="medication-card">
+          <div class="medication-title">45歳女性 Aさん</div>
+          <div class="medication-subtitle">開始前：75kg → 3ヶ月後：63kg（-12kg）</div>
+          <div class="medication-desc">
+            「3ヶ月で12kg減った！今まで何をしても痩せなかったのに、マンジャロを始めて人生が変わりました。食欲が自然に落ち着いて、無理なく痩せられました。」
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">52歳男性 Bさん</div>
+          <div class="medication-subtitle">開始前：95kg → 6ヶ月後：75kg（-20kg）</div>
+          <div class="medication-desc">
+            「半年で20kg。人生が変わりました。健康診断の数値が全て正常値に。医者から『別人みたい』と言われました。月36,000円は決して高くない投資でした。」
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">48歳女性 Cさん</div>
+          <div class="medication-subtitle">開始前：82kg → 4ヶ月後：67kg（-15kg）</div>
+          <div class="medication-desc">
+            「4ヶ月で15kg減。無理してないのに。注射は思ったより簡単。最初は不安でしたが、説明書通りにやれば問題なし。娘から『お母さん若返った』と言われて嬉しいです。」
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">58歳女性 Dさん</div>
+          <div class="medication-subtitle">開始前：70kg → 5ヶ月後：56kg（-14kg）</div>
+          <div class="medication-desc">
+            「更年期で太りやすくなっていましたが、マンジャロのおかげで20代の体重に戻れました。膝の痛みもなくなり、毎日が楽しいです。」
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">61歳女性 Eさん</div>
+          <div class="medication-subtitle">開始前：68kg → 3ヶ月後：54kg（-14kg）</div>
+          <div class="medication-desc">
+            「血を見るのが苦手な私でもできました。針が見えないから怖くない。そして3ヶ月で14kg減！」
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">54歳女性 Fさん（他剤からの切り替え）</div>
+          <div class="medication-subtitle">サクセンダからマンジャロへ</div>
+          <div class="medication-desc">
+            「サクセンダ3.0mgを使っていましたが、マンジャロ5mgの方が食欲抑制効果を感じます。」
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="pricing-guide">
+    <div class="content-container">
+      <div class="section-badge">PRICING & START GUIDE</div>
+      <h2 class="section-title">料金と始め方ガイド</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1rem;">マンジャロ治療費</h3>
+        <p style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">月額36,000円</p>
+        <p style="font-size: 1.2rem;">薬剤費・診察料・配送料 全て込み<br>※追加料金は一切ありません</p>
+      </div>
+      
+      <div class="info-card" style="max-width: 800px; margin: 0 auto 3rem;">
+        <h3 style="text-align: center; color: var(--primary); margin-bottom: 1.5rem;">実質的な経済負担は？</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 0.8rem;">食事量半減による食費削減</td>
+            <td style="padding: 0.8rem; text-align: right; font-weight: 700; color: var(--primary);">15,000-20,000円</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 0.8rem;">間食・デザート代</td>
+            <td style="padding: 0.8rem; text-align: right; font-weight: 700; color: var(--primary);">5,000-10,000円</td>
+          </tr>
+          <tr style="border-bottom: 2px solid var(--primary);">
+            <td style="padding: 0.8rem;">外食費の削減</td>
+            <td style="padding: 0.8rem; text-align: right; font-weight: 700; color: var(--primary);">10,000-15,000円</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.8rem; font-weight: 700;">合計削減額</td>
+            <td style="padding: 0.8rem; text-align: right; font-weight: 900; color: var(--secondary); font-size: 1.2rem;">30,000-45,000円</td>
+          </tr>
+        </table>
+        <p style="text-align: center; margin-top: 1.5rem; font-size: 1.3rem; color: var(--primary); font-weight: 700;">
+          実質負担額：月額0〜6,000円程度
+        </p>
+      </div>
+      
+      <div class="stats-grid" style="margin-bottom: 3rem;">
+        <div class="stat-card">
+          <div class="stat-number">健康改善</div>
+          <div class="stat-label">医療費削減効果</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">洋服代削減</div>
+          <div class="stat-label">サイズダウン効果</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">生活の質向上</div>
+          <div class="stat-label">プライスレス</div>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">オンライン診療の流れ</h3>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>予約（3分）</h3>
+          <p>健康パスポートの公式LINEに登録<br>予約ボタンから希望日時を選択<br>カード決済で予約完了</p>
+        </div>
+        <div class="process-step">
+          <h3>問診票記入（5分）</h3>
+          <p>現在の体調<br>既往歴・服用中の薬<br>アレルギーの有無等</p>
+        </div>
+        <div class="process-step">
+          <h3>オンライン診察（10分）</h3>
+          <p>ビデオ通話で医師と面談<br>薬の説明を受ける<br>質問や不安な点を相談</p>
+        </div>
+        <div class="process-step">
+          <h3>処方・配送</h3>
+          <p>最短翌日に自宅へ配送<br>わかりやすい説明書付き</p>
+        </div>
+        <div class="process-step">
+          <h3>フォローアップ</h3>
+          <p>定期的な診察（1ヶ月ごと）<br>体調変化の確認<br>用量調整の相談</p>
+        </div>
+      </div>
+      
+      <div style="background: var(--gradient-accent); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 1.5rem;">今すぐ始めるべき3つの理由</h3>
+        <div class="info-grid" style="margin: 0;">
+          <div>
+            <h4>1. 医学的エビデンスの確立</h4>
+            <ul>
+              <li>世界中での豊富な使用実績</li>
+              <li>日本人を対象とした臨床試験でも高い効果を確認</li>
+              <li>早期開始により生活習慣病の予防効果も期待</li>
+            </ul>
+          </div>
+          <div>
+            <h4>2. 他剤を圧倒する効果</h4>
+            <ul>
+              <li>オゼンピックの約1.5倍の減量効果</li>
+              <li>サクセンダ3mgよりマンジャロ5mgの方が効果的</li>
+              <li>既存のGLP-1薬で効果不十分な方にも有効</li>
+            </ul>
+          </div>
+          <div>
+            <h4>3. 総合的な健康改善</h4>
+            <ul>
+              <li>体重減少だけでなく血糖値、血圧、脂質も改善</li>
+              <li>心血管リスクの低減</li>
+              <li>健康寿命の延伸</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <p style="font-size: 1.3rem; color: var(--gray-dark); margin-bottom: 2rem;">
+          もう失敗続きのダイエットは終わりにしませんか？<br>
+          医学の力を借りて、確実に、健康的に、理想の体型を手に入れましょう。
+        </p>
+        <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-btn primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
+          今すぐオンライン診療を予約する
+        </a>
+        <p style="margin-top: 1rem; color: var(--gray-dark);">※予約は24時間受付中　※キャンセルも可能です</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-detail">
+    <div class="content-container">
+      <div class="section-badge">METFORMIN</div>
+      <h2 class="section-title">メトホルミン完全ガイド</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 2rem 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">60年以上の実績を持つ、最も安全で経済的な医療ダイエット薬</h3>
+        <p style="font-size: 1.1rem; margin-bottom: 0;">
+          メトホルミンは1957年に開発され、WHO必須医薬品にも掲載される信頼性の高い薬剤です。<br>
+          体重減少だけでなく、筋肉保護、腸内環境改善、抗老化効果など多面的な健康効果が期待できます。
+        </p>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>メトホルミンとは</h3>
+          <p><strong>薬品名：</strong>メトホルミン塩酸塩</p>
+          <p><strong>分類：</strong>ビグアナイド系経口血糖降下薬</p>
+          <p><strong>歴史：</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>1957年：開発</li>
+            <li>1961年：日本での承認</li>
+            <li>WHO必須医薬品リスト掲載</li>
+            <li>世界で最も使用される糖尿病治療薬の一つ</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>主な作用機序</h3>
+          <ol style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>肝臓での糖新生抑制</strong>
+              <ul>
+                <li>グルコース産生を約30%抑制</li>
+                <li>AMPKの活性化</li>
+              </ul>
+            </li>
+            <li><strong>筋肉での糖取り込み促進</strong>
+              <ul>
+                <li>インスリン感受性改善</li>
+                <li>GLUT4の細胞膜移行促進</li>
+              </ul>
+            </li>
+            <li><strong>消化管での糖吸収遅延</strong>
+              <ul>
+                <li>GLP-1分泌促進作用</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">メトホルミンの多面的な効果</h3>
+        
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">2-3kg</div>
+            <div class="stat-label">平均体重減少（6ヶ月）</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">30%</div>
+            <div class="stat-label">肝臓での糖産生抑制</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">60年以上</div>
+            <div class="stat-label">使用実績</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5,000円</div>
+            <div class="stat-label">月額費用（診察料込）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-effects">
+    <div class="content-container">
+      <div class="section-badge">MULTIPLE EFFECTS</div>
+      <h2 class="section-title">メトホルミンの驚くべき効果</h2>
+      
+      <div class="medication-grid">
+        <div class="medication-card">
+          <div class="medication-title">ダイエット・体重管理効果</div>
+          <div class="medication-subtitle">DPP研究（3,234名対象）</div>
+          <div class="medication-desc">
+            平均2.1kgの体重減少を実現。特に内臓脂肪の減少に効果的です。
+          </div>
+          <div class="medication-stats">
+            <h4>体重減少のメカニズム</h4>
+            <ul>
+              <li>食欲抑制効果（GLP-1分泌促進）</li>
+              <li>エネルギー消費増加</li>
+              <li>脂肪蓄積抑制</li>
+              <li>3-6ヶ月で体重の5-7%減少</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">筋肉保護・サルコペニア予防</div>
+          <div class="medication-subtitle">高齢者の筋肉量維持に効果</div>
+          <div class="medication-desc">
+            筋タンパク質合成を維持し、筋肉の質的改善（筋内脂肪の減少）を促進します。
+          </div>
+          <div class="medication-stats">
+            <h4>筋肉への効果</h4>
+            <ul>
+              <li>筋タンパク質合成の維持</li>
+              <li>筋肉の炎症抑制</li>
+              <li>ミトコンドリア機能改善</li>
+              <li>筋力低下の抑制</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">長寿・抗老化効果</div>
+          <div class="medication-subtitle">18万人の大規模研究</div>
+          <div class="medication-desc">
+            メトホルミン使用者の生存率が非糖尿病対照群と同等以上という驚きの結果が報告されています。
+          </div>
+          <div class="medication-stats">
+            <h4>抗老化メカニズム</h4>
+            <ul>
+              <li>AMPK活性化（カロリー制限模倣）</li>
+              <li>サーチュイン活性化</li>
+              <li>慢性炎症の抑制</li>
+              <li>細胞老化の遅延</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">がん予防効果</div>
+          <div class="medication-subtitle">複数のメタ解析で確認</div>
+          <div class="medication-desc">
+            大腸がん、肝臓がん、膵臓がん、乳がんのリスク減少傾向が報告されています。
+          </div>
+          <div class="medication-stats">
+            <h4>がん抑制メカニズム</h4>
+            <ul>
+              <li>mTOR経路の抑制</li>
+              <li>ワールブルグ効果の阻害</li>
+              <li>免疫系の活性化</li>
+              <li>血管新生の抑制</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">腸内環境改善効果</div>
+          <div class="medication-subtitle">痩せ菌の増加</div>
+          <div class="medication-desc">
+            アッカーマンシア・ムシニフィラ（痩せ菌）が増加し、腸内細菌の多様性が向上します。
+          </div>
+          <div class="medication-stats">
+            <h4>腸内環境への影響</h4>
+            <ul>
+              <li>有益菌の増加</li>
+              <li>短鎖脂肪酸の産生促進</li>
+              <li>腸管バリア機能改善</li>
+              <li>リーキーガット症候群の予防</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="medication-card">
+          <div class="medication-title">最新研究：健康寿命延長</div>
+          <div class="medication-subtitle">41,000人・9年間の追跡研究</div>
+          <div class="medication-desc">
+            認知症リスク4%減、うつ病16%減、心血管疾患19%減、虚弱24%減という結果が出ています。
+          </div>
+          <div class="medication-stats">
+            <h4>TAME研究（進行中）</h4>
+            <ul>
+              <li>FDA承認の大規模臨床試験</li>
+              <li>3,000名の非糖尿病高齢者対象</li>
+              <li>老化関連疾患の発症遅延を検証</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-safety">
+    <div class="content-container">
+      <div class="section-badge">SAFETY PROFILE</div>
+      <h2 class="section-title">安全性と副作用</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">副作用</th>
+            <th style="padding: 1rem; text-align: center;">頻度</th>
+            <th style="padding: 1rem; text-align: left;">対処法</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">下痢</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">40.5%</td>
+            <td style="padding: 1rem;">少量から開始、食後服用、整腸剤併用</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">悪心（吐き気）</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">15.4%</td>
+            <td style="padding: 1rem;">食事を小分け、脂っこい食事を避ける</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">食欲不振</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">11.8%</td>
+            <td style="padding: 1rem;">通常は一過性、2-4週間で改善</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">腹痛</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">11.5%</td>
+            <td style="padding: 1rem;">服用タイミングの調整</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">乳酸アシドーシス</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--secondary);">&lt;0.01%</td>
+            <td style="padding: 1rem;">極めてまれ、脱水時注意</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>副作用への対処法</h3>
+          <p><strong>予防策</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>少量（250mg）から開始</li>
+            <li>食後すぐに服用</li>
+            <li>2-4週間ごとに漸増</li>
+            <li>十分な水分摂取</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>症状出現時</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>多くは体が慣れて改善</li>
+            <li>整腸剤（ビオフェルミン等）併用</li>
+            <li>一時的に減量も検討</li>
+          </ul>
+        </div>
+        
+        <div class="info-card" style="border-top: 3px solid var(--secondary);">
+          <h3 style="color: var(--secondary);">禁忌・慎重投与</h3>
+          <p><strong>禁忌</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>重度腎機能障害（eGFR&lt;30）</li>
+            <li>重度肝機能障害</li>
+            <li>重度心不全</li>
+            <li>アルコール依存症</li>
+          </ul>
+          <p style="margin-top: 1rem;"><strong>慎重投与</strong></p>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>中等度腎機能障害（eGFR 30-60）</li>
+            <li>高齢者（75歳以上）</li>
+            <li>造影剤使用前後</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="warning-box">
+        <h3>服薬上の注意点</h3>
+        <ul>
+          <li>アルコールとの同時摂取は厳禁（乳酸アシドーシスリスク）</li>
+          <li>脱水に注意（1日1.5L以上の水分摂取）</li>
+          <li>発熱・下痢時は一時休薬を検討</li>
+          <li>造影剤検査時は事前に休薬</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-comparison">
+    <div class="content-container">
+      <div class="section-badge">COMPARISON</div>
+      <h2 class="section-title">他のダイエット薬との比較</h2>
+      
+      <table style="width: 100%; border-collapse: collapse; background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+        <thead>
+          <tr style="background: var(--gradient-primary); color: var(--light);">
+            <th style="padding: 1rem; text-align: left;">項目</th>
+            <th style="padding: 1rem; text-align: center;">メトホルミン</th>
+            <th style="padding: 1rem; text-align: center;">GLP-1製剤</th>
+            <th style="padding: 1rem; text-align: center;">SGLT2阻害薬</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">体重減少効果</td>
+            <td style="padding: 1rem; text-align: center;">2-3kg（6ヶ月）</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">7kg以上（3ヶ月）</td>
+            <td style="padding: 1rem; text-align: center;">3-4kg（6ヶ月）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">月額費用</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">5,000円</td>
+            <td style="padding: 1rem; text-align: center;">15,000-40,000円</td>
+            <td style="padding: 1rem; text-align: center;">10,000-15,000円</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">投与方法</td>
+            <td style="padding: 1rem; text-align: center;">内服（1日1-3回）</td>
+            <td style="padding: 1rem; text-align: center;">注射or内服</td>
+            <td style="padding: 1rem; text-align: center;">内服（1日1回）</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">主な副作用</td>
+            <td style="padding: 1rem; text-align: center;">消化器症状</td>
+            <td style="padding: 1rem; text-align: center;">吐き気・便秘</td>
+            <td style="padding: 1rem; text-align: center;">頻尿・尿路感染</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(0,0,0,0.1);">
+            <td style="padding: 1rem;">使用実績</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">60年以上</td>
+            <td style="padding: 1rem; text-align: center;">10年程度</td>
+            <td style="padding: 1rem; text-align: center;">10年程度</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem;">その他の効果</td>
+            <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--primary);">多面的健康効果</td>
+            <td style="padding: 1rem; text-align: center;">食欲抑制強い</td>
+            <td style="padding: 1rem; text-align: center;">心血管保護</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 1.5rem;">マンジャロとの併用効果</h3>
+        <p style="text-align: center; font-size: 1.2rem;">
+          メトホルミンとマンジャロの併用により、<br>
+          単独使用よりも<strong style="font-size: 1.4rem;">より強力な体重減少効果</strong>と<strong style="font-size: 1.4rem;">長期的な体重維持</strong>が期待できます。
+        </p>
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <p style="font-size: 1.8rem; font-weight: 900;">併用特別価格</p>
+          <p style="font-size: 2.5rem; font-weight: 900;">月額2,500円</p>
+          <p style="font-size: 1rem;">（通常5,000円の50%OFF）</p>
+        </div>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3 style="color: var(--primary);">メトホルミンが適している方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>費用を抑えたい</li>
+            <li>ゆっくり確実に減量したい</li>
+            <li>長期的な健康管理を重視</li>
+            <li>副作用を最小限にしたい</li>
+            <li>多面的な健康効果を期待</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>併用療法のメリット</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>作用機序の相補性</li>
+            <li>より強力な体重減少</li>
+            <li>血糖管理の最適化</li>
+            <li>長期的な体重維持</li>
+            <li>費用対効果の向上</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-usage">
+    <div class="content-container">
+      <div class="section-badge">HOW TO USE</div>
+      <h2 class="section-title">服用方法と効果発現</h2>
+      
+      <div style="background: var(--gradient-secondary); color: var(--light); padding: 2rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">標準的な服用スケジュール</h3>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>第1-2週</h3>
+          <p>250mg×1回/日（夕食後）<br>副作用の確認期間</p>
+        </div>
+        <div class="process-step">
+          <h3>第3-4週</h3>
+          <p>250mg×2回/日（朝夕食後）<br>徐々に体を慣らす</p>
+        </div>
+        <div class="process-step">
+          <h3>第5週以降</h3>
+          <p>500mg×2回/日（朝夕食後）<br>維持用量として継続</p>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">効果発現までの経過</h3>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>開始～2週間</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>消化器症状が出やすい時期</li>
+            <li>食欲の変化を感じ始める</li>
+            <li>体重変化はまだ少ない</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>2週間～1ヶ月</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>副作用が落ち着く</li>
+            <li>食後の満足感が持続</li>
+            <li>間食欲求の減少</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>1～3ヶ月</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>体重減少が明確に（1-3kg程度）</li>
+            <li>血糖値の改善</li>
+            <li>体調の良さを実感</li>
+          </ul>
+        </div>
+        
+        <div class="info-card">
+          <h3>3ヶ月以降</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>安定した体重管理</li>
+            <li>腸内環境の改善効果</li>
+            <li>長期的な健康効果の蓄積</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="background: var(--gray); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 2rem;">効果を最大化するポイント</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">規則正しい服薬</div>
+            <div class="stat-label">飲み忘れを防ぐ</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">食事記録</div>
+            <div class="stat-label">効果を可視化</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">適度な運動</div>
+            <div class="stat-label">筋肉量維持</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">水分摂取</div>
+            <div class="stat-label">1日1.5L以上</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="faq-section" id="metformin-faq">
+    <div class="content-container">
+      <div class="section-badge">METFORMIN FAQ</div>
+      <h2 class="section-title">メトホルミンのよくある質問</h2>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: リベルサスとメトホルミン、どちらが効果的？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 短期的な体重減少効果はリベルサスが優れています（3ヶ月で5-7kg減）。一方、メトホルミンは体重減少は緩やか（6ヶ月で2-3kg減）ですが、安価で長期的な健康効果（筋肉保護、腸内環境改善等）が期待できます。併用することで相乗効果も期待できます。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 運動しなくても痩せますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> ある程度の効果は期待できますが、運動を併用することで筋肉量を維持しながら健康的に痩せることができます。週2-3回の軽い運動からでも始めましょう。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 飲み忘れた場合はどうすれば？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 次の服用時間が近い場合は、飲み忘れた分は飛ばして次回から通常通り服用してください。2回分を一度に服用してはいけません。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: お酒は飲んでも大丈夫？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 少量であれば問題ありませんが、大量飲酒は乳酸アシドーシスのリスクを高めるため避けてください。週2-3回、1回2杯程度までが目安です。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 妊娠希望ですが服用できますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 妊娠を希望する場合は事前に医師に相談し、計画的に休薬する必要があります。妊娠中の服用は原則避けるべきです。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 効果が感じられない場合は？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 3ヶ月服用しても効果がない場合は、用量調整や他剤への変更、併用療法を検討します。医師と相談して最適な治療法を見つけましょう。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 健常者が飲んでも大丈夫？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 糖尿病でない方への効果や安全性は完全には確立されていません。医師の診察を受け、適応を慎重に判断する必要があります。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: 下痢がひどい場合の対処法は？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 整腸剤（ビオフェルミン等）の併用で改善することがあります。それでも改善しない場合は減量や一時休薬を検討します。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: いつまで飲み続ける必要がありますか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> 目標体重達成後も、医師と相談しながら継続・減量・中止を決定します。急な中止は避け、段階的に調整します。長期的な健康効果を考えると、維持量での継続も選択肢の一つです。</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">
+          Q: なぜこんなに安いのですか？
+        </div>
+        <div class="faq-answer">
+          <p><strong>A:</strong> メトホルミンは60年以上の歴史があり、ジェネリック医薬品も多数存在するため、薬剤費自体が安価です。健康パスポートでは診察料・配送料込みで月額5,000円、マンジャロ併用なら2,500円でご提供しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="metformin-start">
+    <div class="content-container">
+      <div class="section-badge">GET STARTED</div>
+      <h2 class="section-title">メトホルミンを始める</h2>
+      
+      <div style="background: var(--gradient-primary); color: var(--light); padding: 3rem; border-radius: 20px; margin-bottom: 3rem; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1rem;">メトホルミン治療費</h3>
+        <p style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem;">月額5,000円</p>
+        <p style="font-size: 1.2rem;">診察料・薬剤費・配送料 全て込み<br>※追加料金は一切ありません</p>
+        <div style="margin-top: 2rem; padding: 1rem; background: rgba(255,255,255,0.2); border-radius: 15px;">
+          <p style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">マンジャロ併用キャンペーン</p>
+          <p style="font-size: 2rem; font-weight: 900;">50%OFF → 月額2,500円</p>
+        </div>
+      </div>
+      
+      <h3 style="text-align: center; margin: 3rem 0; font-size: 1.8rem;">オンライン診療の流れ</h3>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <h3>STEP 1: 予約（3分）</h3>
+          <p>健康パスポートの公式LINEに登録<br>予約ボタンから希望日時を選択<br>カード決済</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 2: 問診票記入（5分）</h3>
+          <p>現在の体調<br>既往歴<br>服用中の薬<br>アレルギーの有無等</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 3: オンライン診察（10分）</h3>
+          <p>ビデオ通話で医師と面談<br>薬の説明を受ける<br>質問や不安な点を相談</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 4: 処方・配送</h3>
+          <p>最短翌日に自宅へ配送<br>説明書同封<br>服薬指導書付き</p>
+        </div>
+        <div class="process-step">
+          <h3>STEP 5: フォローアップ</h3>
+          <p>定期的な診察（1ヶ月ごと）<br>体調変化の確認<br>用量調整の相談</p>
+        </div>
+      </div>
+      
+      <div style="background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%); color: var(--light); padding: 2rem; border-radius: 20px; margin: 3rem 0;">
+        <h3 style="text-align: center; margin-bottom: 1.5rem;">メトホルミンダイエット成功のポイント</h3>
+        <div class="info-grid" style="margin: 0;">
+          <div>
+            <h4>継続性</h4>
+            <ul>
+              <li>最低3ヶ月は継続</li>
+              <li>効果を焦らない</li>
+              <li>長期的視点で</li>
+            </ul>
+          </div>
+          <div>
+            <h4>生活習慣</h4>
+            <ul>
+              <li>バランスの良い食事</li>
+              <li>適度な運動</li>
+              <li>十分な睡眠</li>
+            </ul>
+          </div>
+          <div>
+            <h4>現実的な目標</h4>
+            <ul>
+              <li>月1-2kgの減量</li>
+              <li>体脂肪率に注目</li>
+              <li>健康的な体づくり</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="info-card" style="max-width: 800px; margin: 3rem auto;">
+        <h3 style="text-align: center; color: var(--primary);">医師からのメッセージ</h3>
+        <p style="color: var(--gray-dark); line-height: 1.7;">
+          「メトホルミンは60年以上の使用実績があり、WHO必須医薬品にも掲載される信頼性の高い薬剤です。体重減少効果は穏やかですが、筋肉保護、腸内環境改善、抗老化効果など、他のダイエット薬にはない多面的な健康効果が期待できます。」
+        </p>
+        <p style="color: var(--gray-dark); line-height: 1.7; margin-top: 1rem;">
+          「特に、長期的な健康管理を重視される方や、コストを抑えながら確実に効果を出したい方に適しています。マンジャロとの併用により、より強力な効果も期待できます。」
+        </p>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <p style="font-size: 1.3rem; color: var(--gray-dark); margin-bottom: 2rem;">
+          60年以上の実績と最新の研究に基づく、<br>
+          最も安全で経済的な医療ダイエットを始めませんか？
+        </p>
+        <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-btn primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
+          今すぐオンライン診療を予約する
+        </a>
+        <p style="margin-top: 1rem; color: var(--gray-dark);">
+          健康パスポート公式LINE<br>
+          <a href="https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs" style="color: var(--primary);">https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs</a>
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="content-section" id="consultation">
+    <div class="content-container">
+      <div class="section-badge">CONSULTATION</div>
+      <h2 class="section-title">対象者と適応</h2>
+      
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>BMIによる判定</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li><strong>BMI 30以上：</strong>積極的適応</li>
+            <li><strong>BMI 27以上＋合併症：</strong>適応</li>
+            <li><strong>BMI 25以上：</strong>要相談</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>合併症がある方</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>2型糖尿病</li>
+            <li>高血圧</li>
+            <li>脂質異常症</li>
+            <li>睡眠時無呼吸症候群</li>
+            <li>非アルコール性脂肪肝</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>その他の適応</h3>
+          <ul style="color: var(--gray-dark); line-height: 1.7;">
+            <li>従来のダイエットで失敗を繰り返している</li>
+            <li>医学的な体重減少が必要</li>
+            <li>健康診断で指摘を受けた</li>
+            <li>関節への負担を減らしたい</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="../../contact.html" class="cta-btn primary">無料カウンセリングを申し込む</a>
       </div>
     </div>
   </section>
@@ -572,5 +2888,22 @@
       <div class="footer-copy">©️2021 Ronshoal.llc</div>
     </div>
   </footer>
+  
+  <script>
+    function toggleFAQ(element) {
+      const answer = element.nextElementSibling;
+      const isActive = answer.classList.contains('active');
+      
+      // 他のFAQを閉じる
+      document.querySelectorAll('.faq-answer').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // クリックされたFAQを開く/閉じる
+      if (!isActive) {
+        answer.classList.add('active');
+      }
+    }
+  </script>
 </body>
 </html>
