@@ -154,7 +154,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('/images/hero-medical.jpg') center/cover;
+            background: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80') center/cover;
             opacity: 0.1;
             animation: heroParallax 20s ease-in-out infinite alternate;
         }
@@ -365,22 +365,12 @@
             transform: scale(1.05);
         }
         
-        .story-image img,
-        .image-placeholder {
+        .story-image img {
             width: 100%;
             height: 500px;
             object-fit: cover;
             border-radius: 20px;
             box-shadow: var(--shadow-card);
-        }
-        
-        .image-placeholder {
-            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
         }
         
         .story-image::after {
@@ -505,7 +495,7 @@
             transform-style: preserve-3d;
         }
         
-        .flip-card.flipped .flip-card-inner {
+        .flip-card:hover .flip-card-inner {
             transform: rotateY(180deg);
         }
         
@@ -527,19 +517,6 @@
             background: var(--light);
             border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: var(--shadow-card);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .service-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.15;
-            z-index: 0;
         }
         
         .flip-card-back {
@@ -556,8 +533,6 @@
             color: var(--primary);
             margin-bottom: 1rem;
             transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
         }
         
         .flip-card:hover .service-number {
@@ -569,8 +544,6 @@
             font-size: 1.2rem;
             margin-bottom: 1rem;
             color: var(--dark);
-            position: relative;
-            z-index: 1;
         }
         
         .flip-card-back .service-title {
@@ -580,8 +553,6 @@
         .service-desc {
             color: var(--gray-dark);
             line-height: 1.6;
-            position: relative;
-            z-index: 1;
         }
         
         .flip-card-back .service-desc {
@@ -717,7 +688,7 @@
                 </div>
             </div>
             <div class="story-image">
-                <img src="/images/story-hospital.jpg" alt="医療現場">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療現場">
             </div>
         </div>
     </section>
@@ -738,7 +709,7 @@
                     <div class="mission-number">02</div>
                     <div class="mission-title">健康経営を促進させ、働きやすい社会を作る</div>
                     <div class="mission-desc">
-                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠です。病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する前の対策を、健康経営というキーワードを軸に企業様へご提案してまいります。
+                        多くの方の疾病予防や早期治療介入を実現するには、企業単位での取り組みが必要不可欠になります。病気が重症化してからの治療ではなく、病気を起こす前、病気が重症化する対策を健康経営というキーワードを軸に企業様にご提案していきます。
                     </div>
                 </div>
             </div>
@@ -750,10 +721,10 @@
             <div class="section-badge">SERVICES</div>
             <h2 class="section-title">私たちの仕事</h2>
             <div class="services-grid">
-                <div class="flip-card" data-href="services/kenko-plus.html">
+                <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/health-checkup.jpg" alt="健診プラス" class="service-image">
+                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/kenko-plus-main.jpg" alt="健診プラス" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;">
                             <div class="service-number">01</div>
                             <div class="service-title">健診プラス</div>
                             <div class="service-desc">
@@ -770,10 +741,9 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" data-href="services/health-passport.html">
+                <div class="flip-card" onclick="window.location.href='services/health-passport.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/digital-health.jpg" alt="健康パスポート" class="service-image">
                             <div class="service-number">02</div>
                             <div class="service-title">健康パスポート</div>
                             <div class="service-desc">
@@ -790,10 +760,10 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" data-href="services/workplace-clinic.html">
+                <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/workplace-health.jpg" alt="職場 de クリニック" class="service-image">
+                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/workplace-clinic-main.jpg" alt="職場deクリニック" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;">
                             <div class="service-number">03</div>
                             <div class="service-title">職場 de クリニック</div>
                             <div class="service-desc">
@@ -810,10 +780,9 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" data-href="services/agi-step.html">
+                <div class="flip-card" onclick="window.location.href='services/agi-step.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/ai-technology.jpg" alt="AGIステップ" class="service-image">
                             <div class="service-number">04</div>
                             <div class="service-title">AGIステップ</div>
                             <div class="service-desc">
@@ -830,10 +799,9 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" data-href="services/consulting.html">
+                <div class="flip-card" onclick="window.location.href='services/consulting.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="/images/medical-consulting.jpg" alt="医療介護経営コンサルティング" class="service-image">
                             <div class="service-number">05</div>
                             <div class="service-title">医療介護経営コンサルティング</div>
                             <div class="service-desc">
@@ -868,68 +836,5 @@
             <div class="footer-copy">©️2021 Ronshoal.llc</div>
         </div>
     </footer>
-    
-    <script>
-        // Handle flip card animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const flipCards = document.querySelectorAll('.flip-card');
-            
-            flipCards.forEach(card => {
-                let isFlipped = false;
-                let clickTimer = null;
-                
-                // Handle mouse enter - flip the card
-                card.addEventListener('mouseenter', function() {
-                    this.classList.add('flipped');
-                    isFlipped = true;
-                });
-                
-                // Handle mouse leave - unflip the card
-                card.addEventListener('mouseleave', function() {
-                    this.classList.remove('flipped');
-                    isFlipped = false;
-                });
-                
-                // Handle click on the back of the card
-                card.addEventListener('click', function(e) {
-                    // Check if the card is flipped and if the click is on the button
-                    if (isFlipped && e.target.classList.contains('cta-btn')) {
-                        // Allow the link to work normally
-                        return;
-                    }
-                    
-                    // Otherwise prevent default and handle the flip
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    if (!isFlipped) {
-                        // If not flipped, just flip it
-                        this.classList.add('flipped');
-                        isFlipped = true;
-                    } else {
-                        // If already flipped and not clicking the button, navigate to the page
-                        const href = this.getAttribute('data-href');
-                        if (href && !e.target.classList.contains('cta-btn')) {
-                            window.location.href = href;
-                        }
-                    }
-                });
-                
-                // Handle touch devices
-                card.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    if (!this.classList.contains('flipped')) {
-                        this.classList.add('flipped');
-                        isFlipped = true;
-                    } else {
-                        const href = this.getAttribute('data-href');
-                        if (href && !e.target.classList.contains('cta-btn')) {
-                            window.location.href = href;
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
