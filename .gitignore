@@ -20,3 +20,8 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp 
+
+# insole-src specific
+/insole-src/node_modules
+/insole-src/.next
+/insole-src/out
