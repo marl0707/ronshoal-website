@@ -1,0 +1,376 @@
+/* レスポンシブデザインテンプレート - 全ページ共通 */
+
+/* ハンバーガーメニュー */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark, #1a1a2e);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* タブレット対応 (1024px) */
+@media (max-width: 1024px) {
+    /* ヘッダー調整 */
+    .header-inner {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 1.8rem;
+    }
+    
+    .logo-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+    }
+    
+    nav ul {
+        gap: 2rem;
+    }
+    
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* テキストサイズ調整 */
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    /* コンテナの余白調整 */
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* スマートフォン対応 (768px) */
+@media (max-width: 768px) {
+    /* ヘッダー */
+    .header-inner {
+        padding: 0.6rem 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        gap: 0.5rem;
+    }
+    
+    .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+    
+    /* モバイルナビゲーション */
+    nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: white;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    nav.active {
+        left: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem 0;
+    }
+    
+    nav li {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    nav a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 0;
+    }
+    
+    nav a:hover {
+        background: var(--gray, #f8fafc);
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    /* ヒーローセクション */
+    .hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 60px;
+        padding-bottom: 3rem;
+    }
+    
+    .hero-content {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+    }
+    
+    /* ボタン */
+    .cta-btn,
+    .btn-primary,
+    .btn-secondary {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem auto;
+    }
+    
+    /* グリッドレイアウト */
+    .services-grid,
+    .features-grid,
+    .benefits-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    /* カード */
+    .flip-card,
+    .feature-card,
+    .benefit-card,
+    .service-card {
+        height: auto;
+        min-height: 280px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    /* セクション余白 */
+    section {
+        padding: 4rem 1rem;
+    }
+    
+    /* フォントサイズ */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+/* iPhone Pro Max対応 (430px) */
+@media (max-width: 430px) {
+    /* ヘッダー最小化 */
+    header {
+        padding: 0;
+    }
+    
+    .header-inner {
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .logo {
+        font-size: 1.3rem;
+    }
+    
+    .logo-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* ヒーロー最適化 */
+    .hero {
+        min-height: calc(100vh - 50px);
+        padding-top: 50px;
+    }
+    
+    .hero-content {
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* ボタンサイズ調整 */
+    .cta-btn,
+    .btn-primary,
+    .btn-secondary {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+        min-height: 44px; /* タッチターゲット最小サイズ */
+    }
+    
+    /* セクション余白削減 */
+    section {
+        padding: 3rem 0.8rem;
+    }
+    
+    .container {
+        padding: 0 0.8rem;
+    }
+    
+    /* テキストサイズ最適化 */
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* カードの余白調整 */
+    .flip-card,
+    .feature-card,
+    .benefit-card,
+    .service-card {
+        padding: 1.5rem 1.2rem;
+        min-height: 260px;
+    }
+    
+    /* フッター調整 */
+    footer {
+        padding: 3rem 0.8rem 2rem;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+}
+
+/* 小型スマートフォン対応 (375px) */
+@media (max-width: 375px) {
+    /* さらに小さい画面用の微調整 */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    p {
+        font-size: 0.9rem;
+    }
+    
+    .cta-btn,
+    .btn-primary,
+    .btn-secondary {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* 超小型デバイス対応 (320px) */
+@media (max-width: 320px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .logo {
+        font-size: 1.1rem;
+    }
+}
+
+/* 横向き対応 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: calc(100vh - 50px);
+    }
+    
+    .hero-content {
+        padding: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* アクセシビリティ: モーション設定を尊重 */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    /* 必要に応じてダークモードスタイルを追加 */
+}
