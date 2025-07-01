@@ -1,0 +1,161 @@
+/* Simple Text Fix - Remove gradients and use gray text for better visibility */
+
+/* ========================================
+   Hero Section - Simple Gray Text
+   ======================================== */
+
+/* 個人事業主・フリーランス必見 - グレー文字 */
+body .hero-badge,
+.hero-badge,
+.hero .hero-badge {
+    background: transparent !important;
+    color: #666666 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+    text-align: center !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* 毎月の保険料が高すぎる... - グレー文字 */
+body .hero-title,
+.hero-title,
+.hero .hero-title {
+    background: none !important;
+    color: #333333 !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 2.2rem !important;
+    line-height: 1.4 !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #333333 !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+}
+
+/* 社会保険料を年間100万円以上削減！ - グレー文字（少し濃いめ） */
+body .hero-highlight,
+.hero-highlight,
+.hero .hero-highlight,
+body .hero .hero-content .hero-highlight,
+body .hero-content .hero-highlight,
+.hero .container .hero-highlight {
+    background: transparent !important;
+    color: #222222 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 1.8rem !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    text-align: center !important;
+    margin-bottom: 2rem !important;
+    animation: none !important;
+    -webkit-text-fill-color: #222222 !important;
+    text-shadow: none !important;
+}
+
+/* サブタイトルもシンプルに */
+body .hero-subtitle,
+.hero-subtitle,
+.hero .hero-subtitle {
+    color: #555555 !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 1.2rem !important;
+    text-shadow: none !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+}
+
+/* Hero全体の背景をシンプルに */
+body .hero,
+.hero {
+    background: #f8f9fa !important;
+}
+
+/* すべての装飾的な要素を削除 */
+body .hero::before,
+.hero::before,
+body .hero::after,
+.hero::after,
+body .hero-bg,
+.hero-bg,
+.hero-badge::before,
+.hero-badge::after,
+.hero-highlight::before,
+.hero-highlight::after {
+    display: none !important;
+}
+
+/* グラデーション背景を持つ要素をリセット */
+* {
+    -webkit-text-fill-color: unset !important;
+}
+
+/* 具体的なテキスト要素の色を確実に設定 */
+.hero-badge,
+.hero-badge * {
+    color: #666666 !important;
+    -webkit-text-fill-color: #666666 !important;
+}
+
+.hero-title,
+.hero-title * {
+    color: #333333 !important;
+    -webkit-text-fill-color: #333333 !important;
+}
+
+.hero-highlight,
+.hero-highlight * {
+    color: #222222 !important;
+    -webkit-text-fill-color: #222222 !important;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+    body .hero-title,
+    .hero-title {
+        font-size: 1.8rem !important;
+    }
+    
+    body .hero-highlight,
+    .hero-highlight {
+        font-size: 1.4rem !important;
+    }
+    
+    body .hero-badge,
+    .hero-badge {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* アクセシビリティ - ハイコントラストモード */
+@media (prefers-contrast: high) {
+    .hero-badge {
+        color: #444444 !important;
+        -webkit-text-fill-color: #444444 !important;
+    }
+    
+    .hero-title {
+        color: #111111 !important;
+        -webkit-text-fill-color: #111111 !important;
+    }
+    
+    .hero-highlight {
+        color: #000000 !important;
+        -webkit-text-fill-color: #000000 !important;
+        font-weight: 900 !important;
+    }
+}
