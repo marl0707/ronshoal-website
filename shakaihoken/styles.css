@@ -91,14 +91,14 @@ body {
 /* メインビジュアル */
 .hero {
     position: relative;
-    min-height: 400px;
+    min-height: 500px;
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -117,10 +117,11 @@ body {
     text-align: center;
     color: white;
     z-index: 1;
-    padding: 30px 15px;
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    position: relative;
 }
 
 .hero-title {
@@ -159,7 +160,7 @@ body {
     flex-wrap: wrap;
     position: relative;
     z-index: 2;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .price-box {
@@ -170,9 +171,10 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     color: #2c3e50;
-    max-width: 280px;
+    width: 280px;
+    min-width: 250px;
     z-index: 1;
 }
 
@@ -209,14 +211,13 @@ body {
     content: 'おすすめ';
     position: absolute;
     top: 10px;
-    right: -25px;
+    right: -30px;
     background: #e53935;
     color: white;
     padding: 5px 40px;
     transform: rotate(45deg);
     font-size: 12px;
     font-weight: bold;
-    overflow: hidden;
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
@@ -600,7 +601,6 @@ body {
     line-height: 1.8;
     word-wrap: break-word;
     word-break: keep-all;
-    padding-right: 20px;
     letter-spacing: 0.05em;
 }
 
@@ -612,7 +612,6 @@ body {
     font-weight: 400;
     word-wrap: break-word;
     word-break: keep-all;
-    padding: 0 10px;
 }
 
 .benefit-box {
@@ -653,7 +652,7 @@ body {
     word-wrap: break-word;
     word-break: keep-all;
     margin-bottom: 10px;
-    padding: 0 15px;
+    padding: 0 20px;
 }
 
 .big-text {
@@ -1020,17 +1019,19 @@ body {
 
 /* テキストの重なり防止のための追加スタイル */
 .description-content {
-    align-items: flex-start;
+    align-items: center;
 }
 
 .description-text {
-    padding-top: 20px;
+    padding: 20px;
 }
 
 /* すべてのテキスト要素に適用 */
 h1, h2, h3, h4, h5, h6, p, .section-title {
     overflow-wrap: break-word;
     word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
     hyphens: auto;
 }
 
