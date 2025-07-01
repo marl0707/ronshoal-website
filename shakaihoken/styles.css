@@ -908,6 +908,137 @@ section {
     border-left: 4px solid var(--primary-color);
 }
 
+/* 追加の削減例 */
+.additional-cases {
+    background: var(--bg-light);
+    padding: 80px 0;
+}
+
+.case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-bottom: 60px;
+}
+
+.case-item {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.case-header {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px 24px;
+}
+
+.case-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.case-content {
+    padding: 32px 24px;
+}
+
+.case-before,
+.case-after {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.case-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.case-detail {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.case-total {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.case-arrow {
+    text-align: center;
+    font-size: 24px;
+    color: var(--primary-color);
+    margin: 20px 0;
+}
+
+.case-save {
+    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    text-align: center;
+}
+
+.case-save p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.case-save-amount {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    margin-top: 4px !important;
+}
+
+/* さらに嬉しいメリット */
+.additional-benefits {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-md);
+}
+
+.additional-benefits-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.benefits-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.benefit-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: var(--success-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
 /* FAQ */
 .faq {
     background: white;
@@ -1174,6 +1305,14 @@ section {
     }
     
     .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .benefits-list {
         grid-template-columns: 1fr;
     }
 }
