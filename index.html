@@ -481,14 +481,15 @@
         .story-container {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
         
         .story-content {
             position: relative;
+            width: 100%;
+            max-width: 900px;
         }
         
         .section-badge {
@@ -542,35 +543,6 @@
             opacity: 0.3;
         }
         
-        .story-image {
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .story-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .story-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: var(--shadow-card);
-        }
-        
-        .story-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--gradient-primary);
-            border-radius: 20px;
-            opacity: 0.1;
-            z-index: -1;
-        }
         
         .mission-section {
             padding: 8rem 2rem;
@@ -948,8 +920,8 @@
             }
             
             .story-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                display: flex;
+                justify-content: center;
             }
             
             .section-badge {
@@ -968,13 +940,6 @@
                 line-height: 1.7;
             }
             
-            .story-image {
-                order: -1;
-            }
-            
-            .story-image img {
-                height: 300px;
-            }
             
             /* ミッションセクション */
             .mission-section {
@@ -1257,7 +1222,7 @@
         <div class="hero-content">
             <div class="hero-badge" role="text">未来を変えるのは、あなたの「選択」</div>
             <h1 class="hero-title">すべての人々に<br>後悔のない人生を</h1>
-            <p class="hero-subtitle">こども達に負の遺産を残さない。医療費削減への挑戦。<br>ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。</p>
+            <p class="hero-subtitle">未来を変える、健康経営・医療DXのパイオニア</p>
             <div class="hero-cta">
                 <a href="contact.html" class="cta-btn primary">あなたの未来を相談する</a>
                 <a href="#story" class="cta-btn secondary">ストーリーを見る</a>
@@ -1290,9 +1255,6 @@
                     会社を辞めるのか、通院を辞めるのか<br><br>
                     答えは明らかだ。
                 </div>
-            </div>
-            <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療現場で患者の診察を行う医師と看護師" loading="lazy">
             </div>
         </div>
     </section>
