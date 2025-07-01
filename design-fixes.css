@@ -1,0 +1,426 @@
+/* Design Fixes - Contrast, FAQ, and Card Height Issues */
+
+/* ========================================
+   1. Text Contrast Fixes
+   ======================================== */
+
+/* Hero Section Text Contrast */
+.hero-section .hero-title,
+.hero-section .hero-subtitle,
+.hero .hero-title,
+.hero .hero-subtitle {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+                 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure white text on gradient backgrounds */
+.hero-content,
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Add dark overlay for better text contrast */
+.hero-section::after,
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Fix gradient text visibility */
+.text-gradient,
+h2.text-gradient,
+.section-title.text-gradient {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+/* Ensure proper contrast for light backgrounds */
+.story-section,
+.mission-section,
+.about-section {
+    color: var(--neutral-800, #27272a);
+}
+
+.story-section h2,
+.mission-section h2,
+.about-section h2 {
+    color: var(--neutral-900, #18181b);
+}
+
+/* Fix badge contrast */
+.section-badge,
+.hero-badge {
+    background: linear-gradient(135deg, var(--primary-700, #0369a1), var(--primary-800, #075985));
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   2. FAQ Section Fixes
+   ======================================== */
+
+/* Reset FAQ styles */
+.faq-section {
+    padding: var(--space-4xl, 6rem) 0;
+    background: var(--neutral-50, #fafafa);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl, 2rem);
+}
+
+.faq-item {
+    background: white;
+    border-radius: var(--radius-lg, 0.75rem);
+    margin-bottom: var(--space-md, 1rem);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.faq-question {
+    padding: 1.5rem 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--neutral-800, #27272a);
+    background: white;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: var(--primary-50, #f0f9ff);
+    color: var(--primary-700, #0369a1);
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--primary-600, #0284c7);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.faq-item.active .faq-question {
+    background: var(--primary-50, #f0f9ff);
+    color: var(--primary-700, #0369a1);
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: white;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    padding: 0 2rem 1.5rem;
+}
+
+.faq-answer p {
+    line-height: 1.8;
+    color: var(--neutral-600, #52525b);
+    margin: 0;
+}
+
+/* ========================================
+   3. Card Height Uniformity
+   ======================================== */
+
+/* Service Cards - Equal Height */
+.service-grid,
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl, 2rem);
+    align-items: stretch;
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card .service-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .service-description {
+    flex: 1;
+    margin-bottom: var(--space-lg, 1.5rem);
+}
+
+.service-card .service-link {
+    margin-top: auto;
+}
+
+/* Problem/Solution/Benefit Cards - Equal Height */
+.problem-grid,
+.solution-grid,
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl, 2rem);
+    align-items: stretch;
+}
+
+.problem-card,
+.solution-card,
+.benefit-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.problem-card h3,
+.solution-card h3,
+.benefit-card h3 {
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.problem-card p,
+.solution-card p,
+.benefit-card p {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Mission Cards - Equal Height */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl, 2rem);
+    align-items: stretch;
+}
+
+.mission-card {
+    background: white;
+    border-radius: var(--radius-xl, 1rem);
+    padding: var(--space-2xl, 3rem);
+    box-shadow: var(--shadow-md, 0 4px 16px rgba(0,0,0,0.1));
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,0.12));
+}
+
+.mission-card h3 {
+    color: var(--primary-700, #0369a1);
+    margin-bottom: var(--space-md, 1rem);
+}
+
+.mission-card p {
+    flex: 1;
+    color: var(--neutral-600, #52525b);
+    line-height: 1.8;
+    margin-bottom: 0;
+}
+
+/* Feature Grid - Equal Height */
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl, 3rem);
+    align-items: stretch;
+}
+
+.feature-item {
+    display: flex;
+    gap: var(--space-lg, 1.5rem);
+    align-items: flex-start;
+    height: 100%;
+}
+
+.feature-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-content p {
+    flex: 1;
+}
+
+/* Stats Grid - Equal Height */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl, 2rem);
+    align-items: stretch;
+}
+
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+    height: 100%;
+}
+
+/* ========================================
+   4. Additional Contrast Improvements
+   ======================================== */
+
+/* Buttons on gradient backgrounds */
+.hero .cta-btn,
+.hero-section .cta-btn,
+.cta-section .btn-cta {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero .cta-btn.primary,
+.hero-section .cta-btn.primary {
+    background: white;
+    color: var(--primary-700, #0369a1);
+    font-weight: 700;
+}
+
+.hero .cta-btn.secondary,
+.hero-section .cta-btn.secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-weight: 600;
+}
+
+.hero .cta-btn.secondary:hover,
+.hero-section .cta-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+/* Table contrast improvements */
+.price-table thead {
+    background: var(--primary-700, #0369a1);
+}
+
+.price-table th {
+    color: white;
+    font-weight: 700;
+}
+
+.price-table tbody tr:hover td {
+    background: var(--primary-50, #f0f9ff);
+}
+
+/* Highlight row contrast */
+.highlight-row {
+    background: linear-gradient(90deg, var(--accent-orange, #f97316), var(--accent-pink, #ec4899));
+    color: white;
+}
+
+.highlight-row td {
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   5. Mobile Responsive Fixes
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* FAQ mobile fixes */
+    .faq-question {
+        padding: 1.25rem 1.5rem;
+        font-size: var(--text-base, 1rem);
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 0 1.5rem 1.25rem;
+    }
+    
+    /* Card grids on mobile */
+    .service-grid,
+    .services-grid,
+    .problem-grid,
+    .solution-grid,
+    .benefit-grid,
+    .mission-grid,
+    .feature-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg, 1.5rem);
+    }
+    
+    /* Text contrast on mobile */
+    .hero-title,
+    .hero-subtitle {
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    }
+}
+
+/* ========================================
+   6. Accessibility Improvements
+   ======================================== */
+
+/* Focus styles for FAQ */
+.faq-question:focus {
+    outline: 3px solid var(--primary-400, #38bdf8);
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .hero-section::after,
+    .hero::after {
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .section-badge,
+    .hero-badge {
+        background: var(--primary-800, #075985);
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .faq-answer {
+        transition: none;
+    }
+    
+    .faq-question::after {
+        transition: none;
+    }
+    
+    .service-card,
+    .problem-card,
+    .solution-card,
+    .benefit-card,
+    .mission-card,
+    .stat-card {
+        transition: none;
+    }
+}
