@@ -2,10 +2,194 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" as="style">
+    <link rel="preload" href="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=2000&q=80" as="image" type="image/jpeg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cache control -->
+    <meta http-equiv="Cache-Control" content="public, max-age=31536000">
+    <meta http-equiv="Pragma" content="cache">
     <title>ロンショール合同会社 | すべての人々に後悔のない人生を</title>
     <meta name="description" content="医療の未来を変える。ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap"></noscript>
+    
+    <!-- 構造化データ（Schema.org）- Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ロンショール合同会社",
+      "alternateName": "Ronshoal LLC",
+      "url": "https://ronshoal.com",
+      "logo": "https://ronshoal.com/images/logo.png",
+      "description": "医療の未来を変える健康経営・医療DXカンパニー。すべての人々に後悔のない人生を提供します。",
+      "foundingDate": "2021",
+      "founder": {
+        "@type": "Person",
+        "name": "瀬島和樹",
+        "jobTitle": "代表社員"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["Japanese", "English"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "東京都",
+        "addressCountry": "JP"
+      },
+      "sameAs": [
+        "https://twitter.com/ronshoal",
+        "https://www.facebook.com/ronshoal"
+      ],
+      "knowsAbout": ["健康経営", "医療DX", "予防医療", "オンライン診療", "健康管理"],
+      "slogan": "すべての人々に後悔のない人生を",
+      "makesOffer": [
+        {
+          "@type": "Service",
+          "name": "健診プラス",
+          "description": "労災二次健診給付制度を活用した無料訪問健康診断サービス"
+        },
+        {
+          "@type": "Service",
+          "name": "健康パスポート",
+          "description": "スマートフォンで生活習慣病を管理できるデジタルヘルスケアサービス"
+        },
+        {
+          "@type": "Service",
+          "name": "職場deクリニック",
+          "description": "企業向け健康経営サポートと福利厚生サービス"
+        },
+        {
+          "@type": "Service",
+          "name": "時短AI Web制作",
+          "description": "AIを活用した高速・低価格のWeb制作サービス"
+        },
+        {
+          "@type": "Service",
+          "name": "個人事業主向け社会保険",
+          "description": "月額38,500円からの個人事業主向け社会保険サービス"
+        },
+        {
+          "@type": "Service",
+          "name": "医療介護経営コンサルティング",
+          "description": "医師・医療機関向けの集患対策と経営支援サービス"
+        }
+      ]
+    }
+    </script>
+
+    <!-- 構造化データ（Schema.org）- LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ロンショール合同会社",
+      "alternateName": "Ronshoal LLC",
+      "description": "医療の未来を変える健康経営・医療DXカンパニー。すべての人々に後悔のない人生を提供します。",
+      "url": "https://ronshoal.com",
+      "logo": "https://ronshoal.com/images/logo.png",
+      "priceRange": "¥¥",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "東京都",
+        "addressCountry": "JP"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 35.6762,
+        "longitude": 139.6503
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "telephone": "+81-3-0000-0000",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Japan"
+      }
+    }
+    </script>
+
+    <!-- 構造化データ（Schema.org）- WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ロンショール合同会社",
+      "alternateName": "Ronshoal LLC",
+      "url": "https://ronshoal.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ronshoal.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- 構造化データ（Schema.org）- BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://ronshoal.com"
+      }]
+    }
+    </script>
+    
+    <!-- Font Loading Optimization -->
+    <script>
+    // Optimize font loading
+    if ('fonts' in document) {
+        Promise.all([
+            document.fonts.load('400 1em Inter'),
+            document.fonts.load('700 1em Inter'),
+            document.fonts.load('400 1em Noto Sans JP'),
+            document.fonts.load('700 1em Noto Sans JP'),
+            document.fonts.load('700 1em Montserrat'),
+            document.fonts.load('900 1em Montserrat')
+        ]).then(function () {
+            document.documentElement.classList.add('fonts-loaded');
+        });
+    }
+    </script>
+    
+    <!-- メタタグの最適化 -->
+    <meta property="og:title" content="ロンショール合同会社 | すべての人々に後悔のない人生を">
+    <meta property="og:description" content="医療の未来を変える。ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ronshoal.com">
+    <meta property="og:image" content="https://ronshoal.com/images/ogp.jpg">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ronshoal">
+    <meta name="keywords" content="健康経営,医療DX,予防医療,オンライン診療,健診プラス,健康パスポート,職場deクリニック,個人事業主社会保険">
+    <meta name="author" content="ロンショール合同会社">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ronshoal.com">
+    <link rel="stylesheet" href="accessibility.css">
     <style>
         :root {
             --primary: #00d4ff;
@@ -1003,13 +1187,15 @@
     </style>
 </head>
 <body>
-    <header>
+    <!-- Skip to content link -->
+    <a href="#main-content" class="skip-navigation">メインコンテンツへスキップ</a>
+    <header role="banner">
         <div class="header-inner">
-            <div class="logo">
-                <div class="logo-icon">R</div>
-                ロンショール合同会社
-            </div>
-            <nav id="navigation">
+            <a href="/" class="logo" aria-label="ロンショール合同会社 ホームページ">
+                <div class="logo-icon" aria-hidden="true">R</div>
+                <span>ロンショール合同会社</span>
+            </a>
+            <nav id="navigation" role="navigation" aria-label="メインナビゲーション">
                 <ul>
                     <li><a href="#home">TOP</a></li>
                     <li><a href="#story">ストーリー</a></li>
@@ -1019,17 +1205,18 @@
                     <li><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="navigation">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
         </div>
     </header>
     
-    <section class="hero" id="home">
+    <main id="main-content" role="main">
+    <section class="hero" id="home" aria-label="ヒーローセクション">
         <div class="hero-content">
-            <div class="hero-badge">未来を変えるのは、あなたの「選択」</div>
+            <div class="hero-badge" role="text">未来を変えるのは、あなたの「選択」</div>
             <h1 class="hero-title">すべての人々に<br>後悔のない人生を</h1>
             <p class="hero-subtitle">こども達に負の遺産を残さない。医療費削減への挑戦。<br>ストーリーと体験で伝える、唯一無二の健康経営・医療DXカンパニー。</p>
             <div class="hero-cta">
@@ -1039,7 +1226,7 @@
         </div>
     </section>
     
-    <section class="story-section" id="story">
+    <section class="story-section" id="story" aria-label="ストーリーセクション">
         <div class="story-container">
             <div class="story-content">
                 <div class="section-badge">STORY</div>
@@ -1066,12 +1253,12 @@
                 </div>
             </div>
             <div class="story-image">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療現場">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=800&q=80" alt="医療現場で患者の診察を行う医師と看護師" loading="lazy">
             </div>
         </div>
     </section>
     
-    <section class="mission-section" id="mission">
+    <section class="mission-section" id="mission" aria-label="ミッションセクション">
         <div class="mission-container">
             <div class="section-badge">MISSION</div>
             <h2 class="section-title">私たちの使命</h2>
@@ -1094,23 +1281,23 @@
         </div>
     </section>
     
-    <section class="services-section" id="services">
+    <section class="services-section" id="services" aria-label="サービスセクション">
         <div class="services-container">
             <div class="section-badge">SERVICES</div>
             <h2 class="section-title">私たちの仕事</h2>
             <div class="services-grid">
-                <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'">
+                <div class="flip-card" onclick="window.location.href='services/kenko-plus.html'" tabindex="0" role="button" aria-label="健診プラス サービス詳細へ" onkeypress="if(event.key === 'Enter') window.location.href='services/kenko-plus.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/kenko-plus-main.jpg" alt="健診プラス" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;">
-                            <div class="service-number">01</div>
-                            <div class="service-title">健診プラス</div>
+                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/kenko-plus-main.jpg" alt="健診プラス - 無料訪問健康診断サービス" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;" loading="lazy">
+                            <div class="service-number" aria-hidden="true">01</div>
+                            <h3 class="service-title">健診プラス</h3>
                             <div class="service-desc">
                                 労災二次健診給付制度を活用した無料訪問健康診断事業。二次健康診断等給付は、定期健診の結果を元に脳梗塞や心筋梗塞の発症リスクを把握するための二次健康診断等を１年度内に１回、無料で受診することができる制度です。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">健診プラス</div>
+                            <h3 class="service-title">健診プラス</h3>
                             <div class="service-desc">
                                 無料で受けられる二次健康診断で、あなたの健康リスクを早期発見。働きながらでも安心して健康管理ができます。
                             </div>
@@ -1119,17 +1306,17 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/health-passport.html'">
+                <div class="flip-card" onclick="window.location.href='services/health-passport.html'" tabindex="0" role="button" aria-label="健康パスポート サービス詳細へ" onkeypress="if(event.key === 'Enter') window.location.href='services/health-passport.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <div class="service-number">02</div>
-                            <div class="service-title">健康パスポート</div>
+                            <div class="service-number" aria-hidden="true">02</div>
+                            <h3 class="service-title">健康パスポート</h3>
                             <div class="service-desc">
                                 仕事で忙しく、なかなかクリニックや病院に通院できない方のためにスマホ1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療／検査が可能なサービスです。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">健康パスポート</div>
+                            <h3 class="service-title">健康パスポート</h3>
                             <div class="service-desc">
                                 スマホ1つで生活習慣病の治療が可能。忙しいあなたでも継続的な健康管理が実現できます。
                             </div>
@@ -1138,18 +1325,18 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'">
+                <div class="flip-card" onclick="window.location.href='services/workplace-clinic.html'" tabindex="0" role="button" aria-label="職場 de クリニック サービス詳細へ" onkeypress="if(event.key === 'Enter') window.location.href='services/workplace-clinic.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/workplace-clinic-main.jpg" alt="職場deクリニック" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;">
-                            <div class="service-number">03</div>
-                            <div class="service-title">職場 de クリニック</div>
+                            <img src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/workplace-clinic-main.jpg" alt="職場deクリニック - 企業向け健康経営サポート" style="width:80px; height:80px; border-radius:12px; margin-bottom:1rem; object-fit:cover;" loading="lazy">
+                            <div class="service-number" aria-hidden="true">03</div>
+                            <h3 class="service-title">職場 de クリニック</h3>
                             <div class="service-desc">
                                 健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">職場 de クリニック</div>
+                            <h3 class="service-title">職場 de クリニック</h3>
                             <div class="service-desc">
                                 職場で医療サービスを提供。従業員の健康と企業の生産性向上を同時に実現します。
                             </div>
@@ -1158,17 +1345,17 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/ai-web-development.html'">
+                <div class="flip-card" onclick="window.location.href='services/ai-web-development.html'" tabindex="0" role="button" aria-label="時短AI Web制作 サービス詳細へ" onkeypress="if(event.key === 'Enter') window.location.href='services/ai-web-development.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <div class="service-number">04</div>
-                            <div class="service-title">時短AI Web制作</div>
+                            <div class="service-number" aria-hidden="true">04</div>
+                            <h3 class="service-title">時短AI Web制作</h3>
                             <div class="service-desc">
                                 他社見積もりより20%お得（今ならキャンペーンで半額）・納期半分で高品質なWebサイト、LP、AIチャットボットを開発。AI技術で常識を覆すコストパフォーマンスを実現。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">時短AI Web制作</div>
+                            <h3 class="service-title">時短AI Web制作</h3>
                             <div class="service-desc">
                                 そのお見積書、20%お安くします（今なら半額キャンペーン中）。高品質なWebサイト・アプリ開発を、常識を覆すコストとスピードで実現します。
                             </div>
@@ -1177,17 +1364,17 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='shakaihoken/'">
+                <div class="flip-card" onclick="window.location.href='shakaihoken/'" tabindex="0" role="button" aria-label="個人事業主向け社会保険 サービス詳細へ" onkeypress="if(event.key === 'Enter') window.location.href='shakaihoken/'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <div class="service-number">05</div>
-                            <div class="service-title">個人事業主向け社会保険</div>
+                            <div class="service-number" aria-hidden="true">05</div>
+                            <h3 class="service-title">個人事業主向け社会保険</h3>
                             <div class="service-desc">
                                 個人事業主・フリーランスでも社会保険に加入可能。月額38,500円〜（扶養家族の保険料0円）で、国民健康保険から切り替えることで年間100万円以上の節約も可能です。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">個人事業主向け社会保険</div>
+                            <h3 class="service-title">個人事業主向け社会保険</h3>
                             <div class="service-desc">
                                 フリーランスの方も安心の社会保険。扶養家族の保険料が0円になり、将来の年金も約2倍に。一般社団法人事業主共生連の正規代理店です。
                             </div>
@@ -1196,17 +1383,17 @@
                     </div>
                 </div>
                 
-                <div class="flip-card" onclick="window.location.href='services/consulting.html'">
+                <div class="flip-card" onclick="window.location.href='services/consulting.html'" tabindex="0" role="button" aria-label="医療介護経営コンサルティング サービス詳絰へ" onkeypress="if(event.key === 'Enter') window.location.href='services/consulting.html'">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <div class="service-number">05</div>
-                            <div class="service-title">医療介護経営コンサルティング</div>
+                            <div class="service-number" aria-hidden="true">06</div>
+                            <h3 class="service-title">医療介護経営コンサルティング</h3>
                             <div class="service-desc">
                                 ドクター向けに睡眠時無呼吸症候群の検査/治療導入支援や産業医の先生向けの労災二次健診事業の導入支援事業、オンライン診療の導入サポート、介護事業や障害福祉サービスへの展開、最新の知見を用いた集患対策等、状況に合わせ堅実に利益を上げていくご提案をさせて頂いております。
                             </div>
                         </div>
                         <div class="flip-card-back">
-                            <div class="service-title">医療介護経営コンサルティング</div>
+                            <h3 class="service-title">医療介護経営コンサルティング</h3>
                             <div class="service-desc">
                                 医療・介護事業者の経営支援。最新の知見と技術で、あなたの事業を成功に導きます。
                             </div>
@@ -1217,20 +1404,28 @@
             </div>
         </div>
     </section>
+    </main>
     
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-content">
-            <div class="footer-links">
-                <a href="#home">ホーム</a>｜
-                <a href="#story">ストーリー</a>｜
-                <a href="#mission">ミッション</a>｜
-                <a href="#services">サービス</a>｜
-                <a href="about.html">会社情報</a>｜
-                <a href="contact.html">お問い合わせ</a>｜
-                Good Small Company
-                ｜ <a href="privacy.html">プライバシーポリシー</a>
-            </div>
-            <div class="footer-copy">©️2021 Ronshoal.llc</div>
+            <nav class="footer-links" aria-label="フッターナビゲーション">
+                <a href="#home">ホーム</a>
+                <span aria-hidden="true">｜</span>
+                <a href="#story">ストーリー</a>
+                <span aria-hidden="true">｜</span>
+                <a href="#mission">ミッション</a>
+                <span aria-hidden="true">｜</span>
+                <a href="#services">サービス</a>
+                <span aria-hidden="true">｜</span>
+                <a href="about.html">会社情報</a>
+                <span aria-hidden="true">｜</span>
+                <a href="contact.html">お問い合わせ</a>
+                <span aria-hidden="true">｜</span>
+                <span>Good Small Company</span>
+                <span aria-hidden="true">｜</span>
+                <a href="privacy.html">プライバシーポリシー</a>
+            </nav>
+            <div class="footer-copy"><small>©️2021 Ronshoal.llc</small></div>
         </div>
     </footer>
     
@@ -1238,13 +1433,42 @@
         // モバイルメニューの開閉
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navigation = document.getElementById('navigation');
+        let lastFocusedElement = null;
         
-        mobileMenuBtn.addEventListener('click', function() {
-            navigation.classList.toggle('active');
+        // フォーストラップ用の要素を取得
+        function getFocusableElements() {
+            return navigation.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+        }
+        
+        // モバイルメニューの開閉処理
+        function toggleMobileMenu(isOpen) {
+            if (isOpen) {
+                navigation.classList.add('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                mobileMenuBtn.setAttribute('aria-label', 'メニューを閉じる');
+                lastFocusedElement = document.activeElement;
+                
+                // フォーカスをメニュー内に移動
+                setTimeout(() => {
+                    const focusableElements = getFocusableElements();
+                    if (focusableElements.length > 0) {
+                        focusableElements[0].focus();
+                    }
+                }, 100);
+            } else {
+                navigation.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.setAttribute('aria-label', 'メニューを開く');
+                
+                // フォーカスを元の要素に戻す
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                }
+            }
             
             // ハンバーガーメニューのアニメーション
-            const spans = this.querySelectorAll('span');
-            if (navigation.classList.contains('active')) {
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            if (isOpen) {
                 spans[0].style.transform = 'rotate(45deg) translateY(7px)';
                 spans[1].style.opacity = '0';
                 spans[2].style.transform = 'rotate(-45deg) translateY(-7px)';
@@ -1253,17 +1477,44 @@
                 spans[1].style.opacity = '1';
                 spans[2].style.transform = 'none';
             }
+        }
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isOpen = navigation.classList.contains('active');
+            toggleMobileMenu(!isOpen);
+        });
+        
+        // ESCキーでメニューを閉じる
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navigation.classList.contains('active')) {
+                toggleMobileMenu(false);
+            }
+        });
+        
+        // フォーカストラップ
+        navigation.addEventListener('keydown', function(event) {
+            if (!navigation.classList.contains('active')) return;
+            
+            if (event.key === 'Tab') {
+                const focusableElements = Array.from(getFocusableElements());
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+                
+                if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
         });
         
         // メニューリンクをクリックしたら閉じる
         const navLinks = navigation.querySelectorAll('a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navigation.classList.remove('active');
-                const spans = mobileMenuBtn.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
+                toggleMobileMenu(false);
             });
         });
         
@@ -1282,6 +1533,17 @@
             }
             
             lastScroll = currentScroll;
+        });
+        
+        // キーボードフォーカスインジケーター
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Tab') {
+                document.body.classList.add('keyboard-focus-visible');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-focus-visible');
         });
     </script>
 </body>

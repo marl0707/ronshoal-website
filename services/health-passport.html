@@ -6,6 +6,189 @@
   <title>健康パスポート | ロンショール合同会社</title>
   <meta name="description" content="スマホ1つで生活習慣病の治療が可能な健康パスポート。医療ダイエット、睡眠時無呼吸症候群検査、男性ヘルスケアなど、忙しい方でも継続的な健康管理が実現できます。">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- 構造化データ（Schema.org）- Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "オンライン診療サービス",
+    "name": "健康パスポート",
+    "provider": {
+      "@type": "Organization",
+      "name": "ロンショール合同会社",
+      "url": "https://ronshoal.com",
+      "logo": "https://ronshoal.com/images/logo.png"
+    },
+    "description": "スマホ1つで生活習慣病の治療が可能なデジタルヘルスケアサービス。オンライン診療で忙しい方でも継続的な健康管理を実現。",
+    "areaServed": {
+      "@type": "Country",
+      "name": "日本"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "健康パスポートサービス一覧",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "医療ダイエット",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "医療ダイエット",
+            "description": "GLP-1受容体作動薬を使用した医学的根拠に基づくダイエット治療"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "JPY",
+            "price": "月額制"
+          },
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "睡眠時無呼吸症候群検査・治療",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "睡眠時無呼吸症候群検査・治療",
+            "description": "自宅で可能な睡眠時無呼吸症候群の検査とCPAP治療"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "JPY",
+            "price": "保険適用可"
+          },
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "男性ヘルスケア",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "男性ヘルスケア",
+            "description": "AGA治療、ED治療などの男性特有の健康問題に対応"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "JPY",
+            "price": "要相談"
+          },
+          "availability": "https://schema.org/InStock"
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "ratingCount": "230",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ronshoal.com/contact.html",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      }
+    },
+    "category": "医療・健康サービス",
+    "isRelatedTo": [
+      {
+        "@type": "MedicalCondition",
+        "name": "生活習慣病"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "糖尿病"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "高血圧症"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "脂質異常症"
+      },
+      {
+        "@type": "MedicalCondition",
+        "name": "睡眠時無呼吸症候群"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 構造化データ（Schema.org）- BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://ronshoal.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "サービス",
+        "item": "https://ronshoal.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "健康パスポート",
+        "item": "https://ronshoal.com/services/health-passport.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- 構造化データ（Schema.org）- FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "健康パスポートとは何ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "健康パスポートは、スマートフォンを使って生活習慣病の治療や健康管理ができるオンライン診療サービスです。通院することなく、医師の診察を受けて適切な治療を受けることができます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "どのような病気の治療ができますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群などの生活習慣病に加え、医療ダイエット、AGA治療、ED治療などにも対応しています。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "保険は適用されますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "睡眠時無呼吸症候群の検査・治療については保険適用が可能です。その他の治療については自由診療となりますが、詳細はお問い合わせください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "薬はどのように受け取れますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "処方された薬は、ご自宅や職場など、ご指定の住所に直接配送いたします。薬局に行く必要はありません。"
+        }
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --primary: #00d4ff;
@@ -540,26 +723,392 @@
       font-size: 0.9rem;
     }
     
-    @media (max-width: 768px) {
-      .service-title {
-        font-size: 2.5rem;
+    /* ハンバーガーメニュー */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* タブレット対応 (1024px) */
+    @media (max-width: 1024px) {
+      /* ヘッダー調整 */
+      .header-inner {
+        padding: 0.8rem 1.5rem;
       }
-      .overview-content {
-        grid-template-columns: 1fr;
+      
+      .logo {
+        font-size: 1.8rem;
+      }
+      
+      .logo-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+      }
+      
+      nav ul {
         gap: 2rem;
       }
-      .menu-grid {
-        grid-template-columns: 1fr;
+      
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
       }
-      .features-grid {
-        grid-template-columns: 1fr;
+      
+      /* テキストサイズ調整 */
+      .service-title {
+        font-size: 3.5rem;
       }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      /* コンテナの余白調整 */
+      .service-container {
+        padding: 0 2rem;
+      }
+    }
+
+    /* スマートフォン対応 (768px) */
+    @media (max-width: 768px) {
+      /* ヘッダー */
+      .header-inner {
+        padding: 0.6rem 1rem;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+        gap: 0.5rem;
+      }
+      
+      .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+      }
+      
+      /* モバイルナビゲーション */
+      nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: white;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        overflow-y: auto;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem 0;
+      }
+      
+      nav li {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      
+      nav a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 0;
+      }
+      
+      nav a:hover {
+        background: var(--gray);
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      /* ヒーローセクション */
+      .service-hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 60px;
+        padding-bottom: 3rem;
+      }
+      
+      .service-hero-content {
+        padding: 2rem 1rem;
+      }
+      
+      .service-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      
+      .service-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+      }
+      
+      /* ボタン */
+      .cta-button,
+      .btn-primary,
+      .btn-secondary {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem auto;
+      }
+
       .cta-buttons {
         flex-direction: column;
         align-items: center;
       }
-      nav ul {
-        gap: 1.5rem;
+      
+      /* グリッドレイアウト */
+      .overview-content,
+      .menu-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      /* カード */
+      .menu-card,
+      .feature-card {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      /* セクション余白 */
+      section {
+        padding: 4rem 1rem;
+      }
+      
+      .service-container {
+        padding: 0 1rem;
+      }
+      
+      /* フォントサイズ */
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+    }
+
+    /* iPhone Pro Max対応 (430px) */
+    @media (max-width: 430px) {
+      /* ヘッダー最小化 */
+      header {
+        padding: 0;
+      }
+      
+      .header-inner {
+        padding: 0.5rem 0.8rem;
+      }
+      
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      .logo-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+      }
+      
+      /* ヒーロー最適化 */
+      .service-hero {
+        min-height: calc(100vh - 50px);
+        padding-top: 50px;
+      }
+      
+      .service-hero-content {
+        padding: 1.5rem 1rem;
+      }
+      
+      .service-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+      }
+      
+      .service-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+      
+      /* ボタンサイズ調整 */
+      .cta-button,
+      .btn-primary,
+      .btn-secondary {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+        min-height: 44px;
+      }
+      
+      /* セクション余白削減 */
+      section {
+        padding: 3rem 0.8rem;
+      }
+      
+      .service-container {
+        padding: 0 0.8rem;
+      }
+      
+      /* テキストサイズ最適化 */
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      
+      /* カードの余白調整 */
+      .menu-card,
+      .feature-card {
+        padding: 1.5rem 1.2rem;
+      }
+      
+      /* フッター調整 */
+      footer {
+        padding: 3rem 0.8rem 2rem;
+      }
+      
+      .footer-links {
+        font-size: 0.9rem;
+        line-height: 2;
+      }
+    }
+
+    /* 小型スマートフォン対応 (375px) */
+    @media (max-width: 375px) {
+      /* さらに小さい画面用の微調整 */
+      .service-title {
+        font-size: 1.8rem;
+      }
+      
+      .service-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      h3 {
+        font-size: 1.2rem;
+      }
+      
+      p {
+        font-size: 0.9rem;
+      }
+      
+      .cta-button,
+      .btn-primary,
+      .btn-secondary {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      .service-badge,
+      .section-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+      }
+    }
+
+    /* 超小型デバイス対応 (320px) */
+    @media (max-width: 320px) {
+      .service-container {
+        padding: 0 0.5rem;
+      }
+      
+      .service-title {
+        font-size: 1.6rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .logo {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* 横向き対応 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .service-hero {
+        min-height: calc(100vh - 50px);
+      }
+      
+      .service-hero-content {
+        padding: 1rem;
+      }
+      
+      .service-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .service-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* アクセシビリティ: モーション設定を尊重 */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
@@ -581,6 +1130,11 @@
           <li><a href="../contact.html">お問い合わせ</a></li>
         </ul>
       </nav>
+      <button class="mobile-menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
   
@@ -710,5 +1264,35 @@
       <div class="footer-copy">©️2021 Ronshoal.llc</div>
     </div>
   </footer>
+  <script>
+    // モバイルメニュー機能
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    const body = document.body;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      nav.classList.toggle('active');
+      body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // ナビゲーションリンクをクリックしたらメニューを閉じる
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        nav.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+
+    // 画面サイズが変更されたときにメニューを閉じる
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        mobileMenuBtn.classList.remove('active');
+        nav.classList.remove('active');
+        body.style.overflow = '';
+      }
+    });
+  </script>
 </body>
 </html> 
