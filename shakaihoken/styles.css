@@ -910,133 +910,223 @@ section {
 
 /* 追加の削減例 */
 .additional-cases {
-    background: var(--bg-light);
+    background: white;
     padding: 80px 0;
 }
 
 .case-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: 24px;
     margin-bottom: 60px;
 }
 
 .case-item {
     background: white;
+    border: 2px solid #e0e0e0;
     border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.case-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
 }
 
 .case-header {
-    background: var(--primary-color);
-    color: white;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
     padding: 20px 24px;
+    border-bottom: 2px solid #e0e0e0;
 }
 
 .case-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
+    color: var(--text-primary);
 }
 
 .case-content {
-    padding: 32px 24px;
+    padding: 24px;
+    background: white;
 }
 
 .case-before,
 .case-after {
-    text-align: center;
-    margin-bottom: 20px;
+    padding: 16px;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+}
+
+.case-before {
+    background: #f8f9fa;
+    border-left: 4px solid #dc3545;
+}
+
+.case-after {
+    background: #e8f5e9;
+    border-left: 4px solid var(--success-color);
 }
 
 .case-label {
-    font-size: 14px;
-    color: var(--text-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 8px;
+    display: block;
+}
+
+.case-before .case-label {
+    color: #dc3545;
+}
+
+.case-after .case-label {
+    color: var(--success-color);
 }
 
 .case-detail {
-    font-size: 14px;
-    color: var(--text-primary);
-    margin-bottom: 4px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.5;
 }
 
 .case-total {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 900;
     color: var(--text-primary);
+    margin-top: 4px;
 }
 
 .case-arrow {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     color: var(--primary-color);
-    margin: 20px 0;
+    margin: 16px 0;
+    position: relative;
+}
+
+.case-arrow::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background: var(--primary-color);
 }
 
 .case-save {
-    background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #ff8a50 100%);
+    color: white;
     border-radius: var(--border-radius);
-    padding: 16px;
+    padding: 20px;
     text-align: center;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.case-save::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
 }
 
 .case-save p {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
-    color: var(--accent-color);
+    position: relative;
+    z-index: 1;
 }
 
 .case-save-amount {
-    font-size: 14px !important;
+    font-size: 16px !important;
     font-weight: 400 !important;
     margin-top: 4px !important;
+    opacity: 0.95;
 }
 
 /* さらに嬉しいメリット */
 .additional-benefits {
-    background: white;
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
     border-radius: var(--border-radius-lg);
-    padding: 40px;
-    box-shadow: var(--shadow-md);
+    padding: 48px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.additional-benefits::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
 }
 
 .additional-benefits-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: white;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .benefits-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .benefit-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 16px;
-    color: var(--text-primary);
+    gap: 16px;
+    font-size: 17px;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    padding: 16px 20px;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateX(4px);
 }
 
 .benefit-check {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: var(--success-color);
-    color: white;
+    width: 32px;
+    height: 32px;
+    background: white;
+    color: var(--primary-color);
     border-radius: 50%;
     font-weight: bold;
     flex-shrink: 0;
+    font-size: 18px;
 }
 
 /* FAQ */
@@ -1621,5 +1711,39 @@ section {
     
     .cta-title-main {
         font-size: 28px;
+    }
+    
+    /* 追加の削減例モバイル対応 */
+    .case-title {
+        font-size: 14px;
+    }
+    
+    .case-content {
+        padding: 20px;
+    }
+    
+    .case-total {
+        font-size: 18px;
+    }
+    
+    .case-save p {
+        font-size: 16px;
+    }
+    
+    .case-save-amount {
+        font-size: 14px !important;
+    }
+    
+    .additional-benefits {
+        padding: 32px 24px;
+    }
+    
+    .additional-benefits-title {
+        font-size: 22px;
+    }
+    
+    .benefit-item {
+        font-size: 15px;
+        padding: 12px 16px;
     }
 }
