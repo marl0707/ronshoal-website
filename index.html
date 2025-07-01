@@ -2,6 +2,10 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <!-- Force refresh to clear cache -->
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -432,12 +436,6 @@
             margin-right: auto;
         }
         
-        .hero-cta {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
         
         .cta-btn {
             padding: 1.2rem 2.5rem;
@@ -910,11 +908,6 @@
                 margin-bottom: 2rem;
             }
             
-            .hero-cta {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: stretch;
-            }
             
             .cta-btn {
                 font-size: 1rem;
