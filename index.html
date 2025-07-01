@@ -480,8 +480,11 @@
         
         .story-section {
             padding: 8rem 2rem;
-            background: var(--light);
+            background: 
+                linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.85)),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2000&q=80') center/cover fixed;
             position: relative;
+            color: var(--light);
         }
         
         .story-container {
@@ -500,7 +503,9 @@
         
         .section-badge {
             display: inline-block;
-            background: var(--gradient-secondary);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: var(--light);
             padding: 0.5rem 1rem;
             border-radius: 25px;
@@ -514,39 +519,38 @@
             font-weight: 900;
             font-size: 3rem;
             margin-bottom: 1.5rem;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--light);
+            text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
         }
         
         .story-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--dark);
-            background: var(--light);
-            padding: 2rem;
+            color: var(--light);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
             border-radius: 20px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             position: relative;
             transition: all 0.3s ease;
         }
         
         .story-text:hover {
             transform: translateY(-5px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         .story-text::before {
             content: '"';
             font-family: 'Montserrat', serif;
             font-size: 4rem;
-            color: var(--primary);
+            color: rgba(255, 255, 255, 0.3);
             position: absolute;
             top: -1rem;
             left: 1rem;
-            opacity: 0.3;
         }
         
         

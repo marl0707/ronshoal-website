@@ -1,0 +1,262 @@
+/* Reduction Example Section Redesign */
+/* Professional and Eye-catching Design */
+
+/* ========================================
+   削減例セクション - プロフェッショナルデザイン
+   ======================================== */
+
+/* セクション全体のデザイン */
+.reduction-examples {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%) !important;
+    padding: 4rem 2rem !important;
+    margin: 4rem 0 !important;
+    border-radius: 24px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* セクションタイトル */
+.reduction-examples::before {
+    content: '実際の削減例' !important;
+    display: block !important;
+    text-align: center !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: #0c4a6e !important;
+    margin-bottom: 3rem !important;
+    position: relative !important;
+}
+
+/* 削減例カードのグリッド */
+.reduction-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+    gap: 2.5rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 各削減例カード */
+.reduction-card,
+.example-card,
+.reduction-example {
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid transparent !important;
+}
+
+/* カードのホバー効果 */
+.reduction-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+    border-color: #0ea5e9 !important;
+}
+
+/* カードの装飾ライン */
+.reduction-card::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 6px !important;
+    background: linear-gradient(90deg, #0ea5e9 0%, #0284c7 100%) !important;
+}
+
+/* ケースタイトル */
+.reduction-title,
+.example-title {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    margin-bottom: 2rem !important;
+    padding-bottom: 1rem !important;
+    border-bottom: 2px solid #f1f5f9 !important;
+}
+
+/* 現在の金額表示 */
+.reduction-before,
+.example-before {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    font-size: 0.875rem !important;
+    color: #64748b !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.reduction-before::before {
+    content: '現在' !important;
+    background: #f1f5f9 !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+}
+
+/* 現在の金額（大きく表示） */
+.reduction-before::after {
+    content: attr(data-amount) !important;
+    display: block !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    color: #475569 !important;
+}
+
+/* 矢印のデザイン改善 */
+.reduction-arrow,
+.example-arrow {
+    display: block !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 1.5rem auto !important;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%) !important;
+    border-radius: 50% !important;
+    position: relative !important;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3) !important;
+}
+
+.reduction-arrow::after,
+.example-arrow::after {
+    content: '▼' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+
+/* 加入後の金額表示 */
+.reduction-after,
+.example-after {
+    position: relative !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.reduction-after::before {
+    content: '加入後' !important;
+    display: block !important;
+    background: #fef3c7 !important;
+    color: #92400e !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 20px !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* 加入後の金額（大きく赤で表示） */
+.reduction-after {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    color: #dc2626 !important;
+    text-align: center !important;
+}
+
+/* 削減額の表示 */
+.reduction-save,
+.example-save {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    color: white !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* 削減額の詳細 */
+.reduction-save::before {
+    content: '💰' !important;
+    font-size: 1.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+.reduction-save .amount {
+    display: block !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+.reduction-save .yearly {
+    display: block !important;
+    font-size: 1.125rem !important;
+    opacity: 0.9 !important;
+}
+
+/* 特別な強調表示（年間100万円以上） */
+.reduction-card:has(.yearly:contains("100万円以上")),
+.reduction-card:has(.yearly:contains("102万円")) {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+    border-color: #fbbf24 !important;
+}
+
+/* 背景の装飾パターン */
+.reduction-examples::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -50% !important;
+    right: -25% !important;
+    width: 50% !important;
+    height: 200% !important;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%) !important;
+    pointer-events: none !important;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .reduction-examples {
+        padding: 3rem 1rem !important;
+        margin: 2rem -1rem !important;
+        border-radius: 0 !important;
+    }
+    
+    .reduction-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .reduction-card {
+        padding: 2rem !important;
+    }
+    
+    .reduction-after {
+        font-size: 2rem !important;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reduction-card {
+    animation: fadeInUp 0.6s ease-out !important;
+}
+
+.reduction-card:nth-child(2) {
+    animation-delay: 0.1s !important;
+}
+
+.reduction-card:nth-child(3) {
+    animation-delay: 0.2s !important;
+}
