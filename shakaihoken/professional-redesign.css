@@ -1,0 +1,468 @@
+/* Professional Redesign for Shakaihoken Page */
+/* Enhanced by Senior Web Designer */
+
+/* ========================================
+   1. Hero Section Text Visibility Fix
+   ======================================== */
+
+/* 年間100万円削減テキストを黒色で強調 */
+.hero-highlight {
+    background: #FFD700;
+    color: #000000 !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 900;
+    font-size: 1.25rem;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    position: relative;
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); }
+    50% { box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6); }
+}
+
+.hero-highlight::before {
+    content: '★';
+    position: absolute;
+    left: 0.5rem;
+    animation: star-rotate 3s linear infinite;
+}
+
+@keyframes star-rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   2. Premium Reduction Examples Panel
+   ======================================== */
+
+/* 削減例カードの完全リデザイン */
+.reduction-examples {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.reduction-examples::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float-bg 20s ease-in-out infinite;
+}
+
+@keyframes float-bg {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, -30px) scale(1.1); }
+}
+
+.reduction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.reduction-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.reduction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+}
+
+.reduction-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.reduction-title {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.reduction-before {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.reduction-arrow {
+    font-size: 2rem;
+    color: #667eea;
+    margin: 1rem 0;
+    animation: bounce-arrow 1.5s ease-in-out infinite;
+}
+
+@keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+.reduction-after {
+    font-size: 1.75rem;
+    color: #e53e3e;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.reduction-save {
+    display: inline-block;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4);
+}
+
+/* ========================================
+   3. Solution Section Premium Design
+   ======================================== */
+
+/* 解決セクションのプレミアムデザイン */
+.solution-section {
+    background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+    padding: 5rem 0;
+    position: relative;
+}
+
+.solution-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.solution-title {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+}
+
+.solution-subtitle {
+    font-size: 1.5rem;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.solution-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.solution-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+    transition: all 0.6s;
+}
+
+.solution-card:hover::before {
+    top: -50%;
+    left: -50%;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.solution-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.solution-card-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.solution-card-text {
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+}
+
+/* ========================================
+   4. FAQ Section Complete Redesign
+   ======================================== */
+
+/* FAQ セクションの完全可視化 */
+.faq-section {
+    background: #ffffff;
+    padding: 5rem 0;
+    position: relative;
+}
+
+.faq-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.faq-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1a202c;
+    margin-bottom: 1rem;
+}
+
+.faq-subtitle {
+    font-size: 1.2rem;
+    color: #4a5568;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
+}
+
+.faq-question {
+    padding: 1.75rem 2rem;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a202c;
+    transition: all 0.3s ease;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.faq-question:hover {
+    background: #f0f4ff;
+    color: #667eea;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 28px;
+    font-weight: 400;
+    color: #667eea;
+    transition: transform 0.3s ease;
+    line-height: 1;
+}
+
+.faq-item.active .faq-question {
+    background: #667eea;
+    color: white;
+}
+
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg);
+    color: white;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: white;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.faq-answer p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin: 0;
+}
+
+/* ========================================
+   5. Additional Enhancements
+   ======================================== */
+
+/* 問題提起カードの改善 */
+.problem-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #e53e3e, #f56565);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.problem-card:hover {
+    border-color: #feb2b2;
+    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.15);
+}
+
+.problem-card:hover::after {
+    transform: scaleX(1);
+}
+
+.problem-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #feb2b2, #fc8181);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 1.5rem;
+}
+
+/* ベネフィットカードの改善 */
+.benefit-card {
+    background: linear-gradient(135deg, #f0fff4, #f7fafc);
+    border-radius: 15px;
+    padding: 2.5rem;
+    border: 2px solid #9ae6b4;
+    box-shadow: 0 5px 20px rgba(72, 187, 120, 0.1);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(72, 187, 120, 0.2);
+}
+
+.benefit-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #48bb78, #38a169);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(72, 187, 120, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .hero-highlight {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .solution-title {
+        font-size: 2rem;
+    }
+    
+    .reduction-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .solution-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-question {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .faq-item.active .faq-answer {
+        padding: 1.5rem;
+    }
+}
