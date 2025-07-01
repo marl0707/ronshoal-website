@@ -1311,6 +1311,33 @@ h1, h2, h3, h4, h5, h6, p, .section-title {
         max-width: 300px;
         justify-content: center;
     }
+
+    /* テーブルの重なり防止 */
+    .comparison-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .table-header, .table-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .cell {
+        display: block;
+        width: 100%;
+        text-align: left;
+        white-space: normal;
+        word-break: break-word;
+        box-sizing: border-box;
+        padding: 12px 10px;
+    }
+    /* カードの重なり防止 */
+    .concern-cards, .points-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1615,5 +1642,32 @@ h1, h2, h3, h4, h5, h6, p, .section-title {
         font-size: 14px;
         padding: 0 10px;
         margin-bottom: 10px;
+    }
+
+    /* テーブルの重なり防止 */
+    .comparison-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .table-header, .table-row {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .cell {
+        display: block;
+        width: 100%;
+        text-align: left;
+        white-space: normal;
+        word-break: break-word;
+        box-sizing: border-box;
+        padding: 10px 6px;
+    }
+    /* カードの重なり防止 */
+    .concern-cards, .points-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
 }
