@@ -4,7 +4,9 @@
 ページの編集方法をご案内します📝
 
 ▼編集ツールはこちら
-https://ronshoal.com/minecraft-lp/editor.html
+簡易版：https://ronshoal.com/minecraft-lp/editor.html
+完全版：https://ronshoal.com/minecraft-lp/editor-full.html
+※完全版では全ての文章を編集できます
 
 ━━━━━━━━━━━
 📱 スマホでの編集方法
