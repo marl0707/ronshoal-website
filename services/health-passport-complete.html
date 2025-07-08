@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康パスポート - 登録完了</title>
+    <link rel="stylesheet" href="health-passport-complete.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>健康パスポート</h1>
+            <nav>
+                <a href="/services/health-passport.html">トップ</a>
+                <a href="#" onclick="printPassport()" class="print-btn">印刷する</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="completion-message">
+                <div class="success-icon">✓</div>
+                <h2>健康パスポートの登録が完了しました！</h2>
+                <p>以下の内容で健康パスポートが作成されました。</p>
+            </div>
+
+            <div class="passport-card" id="passportCard">
+                <div class="passport-header">
+                    <h3>健康パスポート</h3>
+                    <p class="issue-date">発行日: <span id="issueDate"></span></p>
+                </div>
+
+                <div class="passport-body">
+                    <section class="info-section">
+                        <h4>基本情報</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>お名前:</label>
+                                <span id="displayName"></span>
+                            </div>
+                            <div class="info-item">
+                                <label>生年月日:</label>
+                                <span id="displayBirthDate"></span>
+                            </div>
+                            <div class="info-item">
+                                <label>性別:</label>
+                                <span id="displayGender"></span>
+                            </div>
+                            <div class="info-item">
+                                <label>血液型:</label>
+                                <span id="displayBloodType"></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="info-section">
+                        <h4>身体情報</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>身長:</label>
+                                <span id="displayHeight"></span>
+                            </div>
+                            <div class="info-item">
+                                <label>体重:</label>
+                                <span id="displayWeight"></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="info-section">
+                        <h4>健康情報</h4>
+                        <div class="health-info">
+                            <div class="health-item">
+                                <label>アレルギー:</label>
+                                <p id="displayAllergies"></p>
+                            </div>
+                            <div class="health-item">
+                                <label>服用中の薬:</label>
+                                <p id="displayMedications"></p>
+                            </div>
+                            <div class="health-item">
+                                <label>既往歴:</label>
+                                <p id="displayMedicalHistory"></p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="info-section">
+                        <h4>保護者・緊急連絡先</h4>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <label>保護者氏名:</label>
+                                <span id="displayParentName"></span>
+                            </div>
+                            <div class="contact-item">
+                                <label>電話番号:</label>
+                                <span id="displayParentPhone"></span>
+                            </div>
+                            <div class="contact-item">
+                                <label>緊急連絡先:</label>
+                                <span id="displayEmergencyContact"></span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="qr-code-section">
+                        <div class="qr-placeholder">
+                            <p>QRコード</p>
+                            <small>（医療機関で読み取り可能）</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button onclick="window.location.href='/services/health-passport.html'" class="btn-secondary">
+                    トップへ戻る
+                </button>
+                <button onclick="downloadPassport()" class="btn-primary">
+                    PDFダウンロード
+                </button>
+                <button onclick="editPassport()" class="btn-primary">
+                    情報を編集
+                </button>
+            </div>
+
+            <div class="next-steps">
+                <h3>次のステップ</h3>
+                <ol>
+                    <li>健康パスポートを印刷またはPDFで保存してください</li>
+                    <li>緊急時にすぐ取り出せる場所に保管してください</li>
+                    <li>定期的に情報を更新することをお勧めします</li>
+                    <li>医療機関受診時にご提示ください</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 健康パスポート. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="health-passport-complete.js"></script>
+</body>
+</html>

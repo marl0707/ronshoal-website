@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>健康パスポート - 新規登録</title>
+    <link rel="stylesheet" href="health-passport-new.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>健康パスポート</h1>
+            <nav>
+                <a href="/services/health-passport.html">トップ</a>
+                <a href="/services/health-passport-new.html" class="active">新規登録</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form-container">
+                <h2>健康パスポート新規登録</h2>
+                <p class="description">お子様の健康情報を登録して、健康管理を始めましょう。</p>
+
+                <form id="healthPassportForm">
+                    <section class="form-section">
+                        <h3>基本情報</h3>
+                        <div class="form-group">
+                            <label for="childName">お子様のお名前 <span class="required">*</span></label>
+                            <input type="text" id="childName" name="childName" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="birthDate">生年月日 <span class="required">*</span></label>
+                                <input type="date" id="birthDate" name="birthDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">性別 <span class="required">*</span></label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">選択してください</option>
+                                    <option value="male">男の子</option>
+                                    <option value="female">女の子</option>
+                                    <option value="other">その他</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h3>身体情報</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="height">身長（cm）</label>
+                                <input type="number" id="height" name="height" step="0.1" min="50" max="200">
+                            </div>
+                            <div class="form-group">
+                                <label for="weight">体重（kg）</label>
+                                <input type="number" id="weight" name="weight" step="0.1" min="5" max="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="bloodType">血液型</label>
+                            <select id="bloodType" name="bloodType">
+                                <option value="">選択してください</option>
+                                <option value="A">A型</option>
+                                <option value="B">B型</option>
+                                <option value="O">O型</option>
+                                <option value="AB">AB型</option>
+                                <option value="unknown">不明</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h3>健康情報</h3>
+                        <div class="form-group">
+                            <label for="allergies">アレルギー</label>
+                            <textarea id="allergies" name="allergies" rows="3" placeholder="食物アレルギー、薬物アレルギーなど"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="medications">服用中の薬</label>
+                            <textarea id="medications" name="medications" rows="3" placeholder="定期的に服用している薬があれば記入"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalHistory">既往歴</label>
+                            <textarea id="medicalHistory" name="medicalHistory" rows="3" placeholder="過去の病気や手術歴など"></textarea>
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h3>保護者情報</h3>
+                        <div class="form-group">
+                            <label for="parentName">保護者氏名 <span class="required">*</span></label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="parentPhone">電話番号 <span class="required">*</span></label>
+                            <input type="tel" id="parentPhone" name="parentPhone" required placeholder="090-1234-5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="parentEmail">メールアドレス</label>
+                            <input type="email" id="parentEmail" name="parentEmail" placeholder="example@email.com">
+                        </div>
+                    </section>
+
+                    <section class="form-section">
+                        <h3>緊急連絡先</h3>
+                        <div class="form-group">
+                            <label for="emergencyName">緊急連絡先氏名</label>
+                            <input type="text" id="emergencyName" name="emergencyName">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyRelation">続柄</label>
+                            <input type="text" id="emergencyRelation" name="emergencyRelation" placeholder="祖父母、親戚など">
+                        </div>
+                        <div class="form-group">
+                            <label for="emergencyPhone">緊急連絡先電話番号</label>
+                            <input type="tel" id="emergencyPhone" name="emergencyPhone" placeholder="090-1234-5678">
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="history.back()">戻る</button>
+                        <button type="submit" class="btn-primary">登録する</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 健康パスポート. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('healthPassportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // フォームデータを収集
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // ローカルストレージに保存
+            localStorage.setItem('healthPassportData', JSON.stringify(data));
+            
+            // 完成ページへリダイレクト
+            window.location.href = '/services/health-passport-complete.html';
+        });
+    </script>
+</body>
+</html>
