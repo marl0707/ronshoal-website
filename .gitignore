@@ -24,4 +24,4 @@ Thumbs.db
 # insole-src specific
 /insole-src/node_modules
 /insole-src/.next
-/insole-src/out
+/insole-src/outMinecraft LP/node_modules/

@@ -3,1327 +3,803 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>健康パスポート | ロンショール合同会社</title>
-  <meta name="description" content="スマホ1つで生活習慣病の治療が可能な健康パスポート。医療ダイエット、睡眠時無呼吸症候群検査、男性ヘルスケアなど、忙しい方でも継続的な健康管理が実現できます。">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <meta http-equiv="refresh" content="0; url=health-passport-complete.html">
+  <title>健康パスポート｜オンライン診療で医療ダイエット・AGA・ED・睡眠治療｜ロンショール合同会社</title>
+  <meta name="description" content="健康パスポートは通院不要のオンライン診療プラットフォーム。医療ダイエット（マンジャロ）、AGA治療、ED治療、睡眠時無呼吸症候群の検査・治療に対応。診察料・配送料込みの明朗会計。24時間LINE予約受付中。">
+  <meta name="keywords" content="オンライン診療, 医療ダイエット, マンジャロ, AGA治療, ED治療, 睡眠時無呼吸症候群, 健康パスポート, ロンショール">
   
-  <!-- 構造化データ（Schema.org）- Service -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "オンライン診療サービス",
-    "name": "健康パスポート",
-    "provider": {
-      "@type": "Organization",
-      "name": "ロンショール合同会社",
-      "url": "https://ronshoal.com",
-      "logo": "https://ronshoal.com/images/logo.png"
-    },
-    "description": "スマホ1つで生活習慣病の治療が可能なデジタルヘルスケアサービス。オンライン診療で忙しい方でも継続的な健康管理を実現。",
-    "areaServed": {
-      "@type": "Country",
-      "name": "日本"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "健康パスポートサービス一覧",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "医療ダイエット",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "医療ダイエット",
-            "description": "GLP-1受容体作動薬を使用した医学的根拠に基づくダイエット治療"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "JPY",
-            "price": "月額制"
-          },
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "睡眠時無呼吸症候群検査・治療",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "睡眠時無呼吸症候群検査・治療",
-            "description": "自宅で可能な睡眠時無呼吸症候群の検査とCPAP治療"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "JPY",
-            "price": "保険適用可"
-          },
-          "availability": "https://schema.org/InStock"
-        },
-        {
-          "@type": "Offer",
-          "name": "男性ヘルスケア",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "男性ヘルスケア",
-            "description": "AGA治療、ED治療などの男性特有の健康問題に対応"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "priceCurrency": "JPY",
-            "price": "要相談"
-          },
-          "availability": "https://schema.org/InStock"
-        }
-      ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "ratingCount": "230",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "potentialAction": {
-      "@type": "OrderAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://ronshoal.com/contact.html",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      }
-    },
-    "category": "医療・健康サービス",
-    "isRelatedTo": [
-      {
-        "@type": "MedicalCondition",
-        "name": "生活習慣病"
-      },
-      {
-        "@type": "MedicalCondition",
-        "name": "糖尿病"
-      },
-      {
-        "@type": "MedicalCondition",
-        "name": "高血圧症"
-      },
-      {
-        "@type": "MedicalCondition",
-        "name": "脂質異常症"
-      },
-      {
-        "@type": "MedicalCondition",
-        "name": "睡眠時無呼吸症候群"
-      }
-    ]
-  }
-  </script>
-
-  <!-- 構造化データ（Schema.org）- BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "ホーム",
-        "item": "https://ronshoal.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "サービス",
-        "item": "https://ronshoal.com/services"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "健康パスポート",
-        "item": "https://ronshoal.com/services/health-passport.html"
-      }
-    ]
-  }
-  </script>
-
-  <!-- 構造化データ（Schema.org）- FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "健康パスポートとは何ですか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "健康パスポートは、スマートフォンを使って生活習慣病の治療や健康管理ができるオンライン診療サービスです。通院することなく、医師の診察を受けて適切な治療を受けることができます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "どのような病気の治療ができますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群などの生活習慣病に加え、医療ダイエット、AGA治療、ED治療などにも対応しています。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "保険は適用されますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "睡眠時無呼吸症候群の検査・治療については保険適用が可能です。その他の治療については自由診療となりますが、詳細はお問い合わせください。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "薬はどのように受け取れますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "処方された薬は、ご自宅や職場など、ご指定の住所に直接配送いたします。薬局に行く必要はありません。"
-        }
-      }
-    ]
-  }
-  </script>
-  <style>
-    :root {
-      --primary: #00d4ff;
-      --secondary: #ff6b35;
-      --accent: #7c3aed;
-      --light: #ffffff;
-      --dark: #1a1a2e;
-      --gray: #f8fafc;
-      --gray-dark: #64748b;
-      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
-      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
-      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
-      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
-    }
-    
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', 'Noto Sans JP', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-    
-    a { color: var(--primary); text-decoration: none; }
-    
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
-    }
-    
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-    }
-    
-    .logo {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.2rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    
-    .logo-icon {
-      width: 3rem;
-      height: 3rem;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: var(--light);
-      font-size: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      transition: all 0.3s ease;
-    }
-    
-    .logo:hover .logo-icon {
-      transform: rotate(360deg) scale(1.1);
-      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
-    }
-    
-    nav ul {
-      display: flex;
-      gap: 3rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    nav li { font-weight: 600; }
-    
-    nav a {
-      color: var(--dark);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      position: relative;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-    }
-    
-    nav a::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: var(--gradient-primary);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-    }
-    
-    nav a:hover::before {
-      width: 80%;
-    }
-    
-    nav a:hover {
-      color: var(--primary);
-      transform: translateY(-2px);
-      background: rgba(0, 212, 255, 0.1);
-      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
-    }
-    
-    .service-hero {
-      min-height: 60vh;
-      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-    
-    .service-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('../images/medical-background.jpg') center/cover;
-      opacity: 0.1;
-      animation: heroParallax 20s ease-in-out infinite alternate;
-    }
-    
-    @keyframes heroParallax {
-      0% { transform: scale(1.1) translateY(-10px); }
-      100% { transform: scale(1.1) translateY(10px); }
-    }
-    
-    .service-hero-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 1000px;
-      padding: 0 2rem;
-    }
-    
-    .service-badge {
-      display: inline-block;
-      background: var(--gradient-accent);
-      color: var(--light);
-      padding: 0.8rem 2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      transform: rotate(-2deg);
-      box-shadow: var(--shadow-soft);
-      animation: float 3s ease-in-out infinite;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .service-badge::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transform: rotate(45deg);
-      animation: shine 3s ease-in-out infinite;
-    }
-    
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-      100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: rotate(-2deg) translateY(0px); }
-      50% { transform: rotate(-2deg) translateY(-10px); }
-    }
-    
-    .service-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 4rem;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: titleGlow 2s ease-in-out infinite alternate;
-    }
-    
-    @keyframes titleGlow {
-      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
-      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
-    }
-    
-    .service-subtitle {
-      font-size: 1.3rem;
-      color: var(--gray-dark);
-      margin-bottom: 3rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .service-overview {
-      padding: 6rem 2rem;
-      background: var(--light);
-    }
-    
-    .service-container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    
-    .section-badge {
-      display: inline-block;
-      background: var(--gradient-secondary);
-      color: var(--light);
-      padding: 0.5rem 1rem;
-      border-radius: 25px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .section-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .overview-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-bottom: 4rem;
-    }
-    
-    .overview-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--gray-dark);
-    }
-    
-    .overview-image {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .overview-image:hover {
-      transform: scale(1.05);
-    }
-    
-    .overview-image img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 20px;
-      box-shadow: var(--shadow-card);
-    }
-    
-    .services-menu {
-      padding: 6rem 2rem;
-      background: var(--gray);
-    }
-    
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .menu-card {
-      background: var(--light);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-    
-    .menu-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--gradient-primary);
-      transition: all 0.3s ease;
-    }
-    
-    .menu-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-    }
-    
-    .menu-card:hover::before {
-      background: var(--gradient-accent);
-    }
-    
-    .menu-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .menu-card:hover .menu-icon {
-      transform: scale(1.2);
-    }
-    
-    .menu-title {
-      font-weight: 700;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      color: var(--dark);
-    }
-    
-    .menu-desc {
-      color: var(--gray-dark);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-    
-    .menu-btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: var(--gradient-primary);
-      color: var(--light);
-      border-radius: 25px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-    
-    .menu-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
-    }
-    
-    .features-section {
-      padding: 6rem 2rem;
-      background: var(--light);
-    }
-    
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-    
-    .feature-card {
-      background: var(--light);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 15px;
-      padding: 2rem;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    }
-    
-    .feature-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      transition: all 0.3s ease;
-    }
-    
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1);
-    }
-    
-    .feature-title {
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-      color: var(--dark);
-    }
-    
-    .feature-desc {
-      color: var(--gray-dark);
-      font-size: 0.9rem;
-    }
-    
-    .cta-section {
-      padding: 6rem 2rem;
-      background: var(--gray);
-      text-align: center;
-    }
-    
-    .cta-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .cta-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .cta-desc {
-      font-size: 1.1rem;
-      color: var(--gray-dark);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    .cta-btn {
-      padding: 1.2rem 2.5rem;
-      border: none;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .cta-btn.primary {
-      background: var(--gradient-primary);
-      color: var(--light);
-      box-shadow: var(--shadow-glow);
-    }
-    
-    .cta-btn.secondary {
-      background: transparent;
-      color: var(--dark);
-      border: 2px solid var(--primary);
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    }
-    
-    .cta-btn.primary:hover {
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
-    }
-    
-    .cta-btn.secondary:hover {
-      background: var(--primary);
-      color: var(--light);
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-    }
-    
-    footer {
-      background: var(--dark);
-      padding: 4rem 2rem 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .footer-links {
-      margin-bottom: 2rem;
-    }
-    
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.8);
-      margin: 0 1rem;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    
-    .footer-links a:hover {
-      color: var(--primary);
-    }
-    
-    .footer-copy {
-      color: rgba(255, 255, 255, 0.6);
-      font-size: 0.9rem;
-    }
-    
-    /* ハンバーガーメニュー */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem;
-      position: relative;
-      z-index: 1001;
-    }
-
-    .mobile-menu-btn span {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background: var(--dark);
-      margin: 5px 0;
-      transition: all 0.3s ease;
-    }
-
-    .mobile-menu-btn.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .mobile-menu-btn.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .mobile-menu-btn.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    /* タブレット対応 (1024px) */
-    @media (max-width: 1024px) {
-      /* ヘッダー調整 */
-      .header-inner {
-        padding: 0.8rem 1.5rem;
-      }
-      
-      .logo {
-        font-size: 1.8rem;
-      }
-      
-      .logo-icon {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1.2rem;
-      }
-      
-      nav ul {
-        gap: 2rem;
-      }
-      
-      nav a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.8rem;
-      }
-      
-      /* テキストサイズ調整 */
-      .service-title {
-        font-size: 3.5rem;
-      }
-      
-      .section-title {
-        font-size: 2.5rem;
-      }
-      
-      /* コンテナの余白調整 */
-      .service-container {
-        padding: 0 2rem;
-      }
-    }
-
-    /* スマートフォン対応 (768px) */
-    @media (max-width: 768px) {
-      /* ヘッダー */
-      .header-inner {
-        padding: 0.6rem 1rem;
-      }
-      
-      .logo {
-        font-size: 1.5rem;
-        gap: 0.5rem;
-      }
-      
-      .logo-icon {
-        width: 2rem;
-        height: 2rem;
-        font-size: 1rem;
-      }
-      
-      /* モバイルナビゲーション */
-      nav {
-        position: fixed;
-        top: 60px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background: white;
-        transition: left 0.3s ease;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-        z-index: 999;
-        overflow-y: auto;
-      }
-      
-      nav.active {
-        left: 0;
-      }
-      
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 2rem 0;
-      }
-      
-      nav li {
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-      }
-      
-      nav a {
-        display: block;
-        padding: 1rem 2rem;
-        font-size: 1rem;
-        border-radius: 0;
-      }
-      
-      nav a:hover {
-        background: var(--gray);
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      /* ヒーローセクション */
-      .service-hero {
-        min-height: calc(100vh - 60px);
-        padding-top: 60px;
-        padding-bottom: 3rem;
-      }
-      
-      .service-hero-content {
-        padding: 2rem 1rem;
-      }
-      
-      .service-title {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
-        line-height: 1.2;
-      }
-      
-      .service-subtitle {
-        font-size: 1.1rem;
-        margin-bottom: 2rem;
-        line-height: 1.5;
-      }
-      
-      /* ボタン */
-      .cta-button,
-      .btn-primary,
-      .btn-secondary {
-        font-size: 1rem;
-        padding: 1rem 2rem;
-        text-align: center;
-        width: 100%;
-        max-width: 300px;
-        margin: 0.5rem auto;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      /* グリッドレイアウト */
-      .overview-content,
-      .menu-grid,
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      
-      /* カード */
-      .menu-card,
-      .feature-card {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      
-      /* セクション余白 */
-      section {
-        padding: 4rem 1rem;
-      }
-      
-      .service-container {
-        padding: 0 1rem;
-      }
-      
-      /* フォントサイズ */
-      .section-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-      
-      p {
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-    }
-
-    /* iPhone Pro Max対応 (430px) */
-    @media (max-width: 430px) {
-      /* ヘッダー最小化 */
-      header {
-        padding: 0;
-      }
-      
-      .header-inner {
-        padding: 0.5rem 0.8rem;
-      }
-      
-      .logo {
-        font-size: 1.3rem;
-      }
-      
-      .logo-icon {
-        width: 1.8rem;
-        height: 1.8rem;
-        font-size: 0.9rem;
-      }
-      
-      /* ヒーロー最適化 */
-      .service-hero {
-        min-height: calc(100vh - 50px);
-        padding-top: 50px;
-      }
-      
-      .service-hero-content {
-        padding: 1.5rem 1rem;
-      }
-      
-      .service-title {
-        font-size: 2rem;
-        line-height: 1.2;
-        margin-bottom: 0.8rem;
-      }
-      
-      .service-subtitle {
-        font-size: 1rem;
-        line-height: 1.5;
-        margin-bottom: 1.5rem;
-      }
-      
-      /* ボタンサイズ調整 */
-      .cta-button,
-      .btn-primary,
-      .btn-secondary {
-        font-size: 0.95rem;
-        padding: 0.9rem 1.8rem;
-        min-height: 44px;
-      }
-      
-      /* セクション余白削減 */
-      section {
-        padding: 3rem 0.8rem;
-      }
-      
-      .service-container {
-        padding: 0 0.8rem;
-      }
-      
-      /* テキストサイズ最適化 */
-      .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 0.8rem;
-      }
-      
-      h3 {
-        font-size: 1.3rem;
-      }
-      
-      p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-      }
-      
-      /* カードの余白調整 */
-      .menu-card,
-      .feature-card {
-        padding: 1.5rem 1.2rem;
-      }
-      
-      /* フッター調整 */
-      footer {
-        padding: 3rem 0.8rem 2rem;
-      }
-      
-      .footer-links {
-        font-size: 0.9rem;
-        line-height: 2;
-      }
-    }
-
-    /* 小型スマートフォン対応 (375px) */
-    @media (max-width: 375px) {
-      /* さらに小さい画面用の微調整 */
-      .service-title {
-        font-size: 1.8rem;
-      }
-      
-      .service-subtitle {
-        font-size: 0.95rem;
-      }
-      
-      .section-title {
-        font-size: 1.6rem;
-      }
-      
-      h3 {
-        font-size: 1.2rem;
-      }
-      
-      p {
-        font-size: 0.9rem;
-      }
-      
-      .cta-button,
-      .btn-primary,
-      .btn-secondary {
-        font-size: 0.9rem;
-        padding: 0.8rem 1.5rem;
-      }
-
-      .service-badge,
-      .section-badge {
-        font-size: 0.8rem;
-        padding: 0.4rem 1.2rem;
-      }
-    }
-
-    /* 超小型デバイス対応 (320px) */
-    @media (max-width: 320px) {
-      .service-container {
-        padding: 0 0.5rem;
-      }
-      
-      .service-title {
-        font-size: 1.6rem;
-      }
-      
-      .section-title {
-        font-size: 1.4rem;
-      }
-      
-      .logo {
-        font-size: 1.1rem;
-      }
-    }
-
-    /* 横向き対応 */
-    @media (max-height: 500px) and (orientation: landscape) {
-      .service-hero {
-        min-height: calc(100vh - 50px);
-      }
-      
-      .service-hero-content {
-        padding: 1rem;
-      }
-      
-      .service-title {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
-      }
-      
-      .service-subtitle {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-      }
-    }
-
-    /* アクセシビリティ: モーション設定を尊重 */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="health-passport-redesign.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="健康パスポート｜オンライン診療プラットフォーム">
+  <meta property="og:description" content="通院不要で専門医の診察を受け、最短翌日にお薬をお届け。医療ダイエット・AGA・ED・睡眠治療に対応。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ronshoal.com/services/health-passport.html">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="health-passport-complete.css">
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <div class="logo-icon">R</div>
-        ロンショール合同会社
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="../index.html">ロンショール合同会社</a>
+        </div>
+        <nav class="nav">
+          <ul>
+            <li><a href="../index.html">ホーム</a></li>
+            <li><a href="#flow">診療の流れ</a></li>
+            <li><a href="#treatments">治療分野</a></li>
+              <li><a href="#faq">よくある質問</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-      <nav>
-        <ul>
-          <li><a href="../index.html">TOP</a></li>
-          <li><a href="../index.html#story">ストーリー</a></li>
-          <li><a href="../index.html#mission">ミッション</a></li>
-          <li><a href="../index.html#services">サービス</a></li>
-          <li><a href="../about.html">会社情報</a></li>
-          <li><a href="../contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-btn" aria-label="メニューを開く">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
-  
-  <section class="service-hero">
-    <div class="service-hero-content">
-      <div class="service-badge">HEALTH PASSPORT</div>
-      <h1 class="service-title">健康パスポート</h1>
-      <p class="service-subtitle">健康パスポートは、忙しい現代人のためのオンライン診療プラットフォーム。スマートフォンだけで、専門医による診察から処方薬の配送まで、すべてが完結します。医療ダイエット、AGA治療、ED治療、睡眠時無呼吸症候群の検査・治療など、幅広いニーズに対応。診察料・配送料込みの明朗会計で、安心してご利用いただけます。</p>
-      
-      <div class="hero-cta">
-        <a href="#services-menu" class="btn-primary">サービス一覧を見る</a>
-        <a href="../contact.html" class="btn-secondary">お問い合わせ</a>
-      </div>
-      
-      <div class="hero-features">
-        <div class="hero-feature">
-          <div class="hero-feature-icon">📱</div>
-          <div class="hero-feature-text">
-            <strong>スマホで完結</strong>
-            <span>24時間いつでもどこでも</span>
-          </div>
-        </div>
-        <div class="hero-feature">
-          <div class="hero-feature-icon">👨‍⚕️</div>
-          <div class="hero-feature-text">
-            <strong>専門医が対応</strong>
-            <span>安心の医療サービス</span>
-          </div>
-        </div>
-        <div class="hero-feature">
-          <div class="hero-feature-icon">💊</div>
-          <div class="hero-feature-text">
-            <strong>お薬は自宅へ</strong>
-            <span>通院の手間なし</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="service-overview">
-    <div class="service-container">
-      <div class="section-badge">OVERVIEW</div>
-      <h2 class="section-title">サービス概要</h2>
-      <div class="overview-content">
-        <div class="overview-text">
-          <p>仕事で忙しく、なかなかクリニックや病院に通院できない方のために開発されたサービスです。スマートフォン1つで生活習慣病（糖尿病、高血圧症、脂質異常症、睡眠時無呼吸症候群など）の治療・検査が可能です。</p>
-          <p>オンライン診療により、通院の手間を省きながら、専門医による適切な治療を受けることができます。24時間いつでも相談可能で、あなたのライフスタイルに合わせた柔軟な健康管理を実現します。</p>
-        </div>
-        <div class="overview-image">
-          <img src="../images/digital-health.jpg" alt="健康パスポート">
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="services-menu">
-    <div class="service-container">
-      <div class="section-badge">SERVICES</div>
-      <h2 class="section-title">サービスメニュー</h2>
-      <div class="menu-grid">
-        <div class="menu-card" onclick="window.location.href='health-passport/medical-diet.html'">
-          <div class="menu-icon">⚖️</div>
-          <div class="menu-title">医療ダイエット</div>
-          <div class="menu-desc">
-            医学的根拠に基づいた安全で効果的なダイエット治療。マンジャロ、リベルサス、SGLT2、メトホルミンなど、最新の治療薬を活用します。
-          </div>
-          <a href="health-passport/medical-diet.html" class="menu-btn">詳しく見る</a>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="../index.html">ホーム</a></li>
+      <li><a href="#flow">診療の流れ</a></li>
+      <li><a href="#treatments">治療分野</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="service-name">健康パスポート</div>
+        <h1 class="hero-title">自宅で完結、新しい医療のカタチ</h1>
+        <p class="hero-subtitle">
+          忙しい現代人のためのオンライン完結型診療プラットフォーム<br>
+          通院不要で専門医の診察を受け、最短翌日にお薬をお届けします。
+        </p>
+        
+        <div class="hero-badges">
+          <span class="badge"><i class="fas fa-check-circle"></i> 診察料・配送料すべて込み</span>
+          <span class="badge"><i class="fas fa-map-marker-alt"></i> 全国対応</span>
+          <span class="badge"><i class="fas fa-clock"></i> 24時間予約受付</span>
         </div>
         
-        <div class="menu-card" onclick="window.location.href='health-passport/sleep-apnea.html'">
-          <div class="menu-icon">😴</div>
-          <div class="menu-title">睡眠時無呼吸症候群検査</div>
-          <div class="menu-desc">
-            自宅で簡単にできる睡眠時無呼吸症候群の検査。いびきや日中の眠気でお悩みの方に最適です。
-          </div>
-          <a href="health-passport/sleep-apnea.html" class="menu-btn">詳しく見る</a>
-        </div>
-        
-        <div class="menu-card" onclick="window.location.href='health-passport/mens-health.html'">
-          <div class="menu-icon">💪</div>
-          <div class="menu-title">男性ヘルスケア</div>
-          <div class="menu-desc">
-            男性特有の健康問題に特化したサービス。AGA治療、ED治療など、専門的な治療を提供します。
-          </div>
-          <a href="health-passport/mens-health.html" class="menu-btn">詳しく見る</a>
+        <div class="hero-cta">
+          <a href="https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs" class="btn btn-primary btn-large">
+            <i class="fab fa-line"></i> 今すぐLINEで予約する
+          </a>
+          <a href="#pricing" class="btn btn-secondary btn-large">
+            料金プランを見る
+          </a>
         </div>
       </div>
     </div>
   </section>
-  
-  <section class="features-section">
-    <div class="service-container">
-      <div class="section-badge">FEATURES</div>
-      <h2 class="section-title">サービスの特徴</h2>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">健康パスポートが選ばれる理由</h2>
+      
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <div class="feature-title">スマホ完結</div>
-          <div class="feature-desc">スマートフォン1つで診療から処方まで完結</div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3>自宅から診察</h3>
+          <p>自宅から専門医の診察を受診可能。移動時間ゼロで、仕事や家事の合間に受診できます。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🕐</div>
-          <div class="feature-title">24時間対応</div>
-          <div class="feature-desc">いつでもどこでも相談可能</div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-yen-sign"></i>
+          </div>
+          <h3>追加費用一切なし</h3>
+          <p>診察料・配送料込みのオールインワン価格。表示価格以外の追加費用は一切かかりません。</p>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">👨‍⚕️</div>
-          <div class="feature-title">専門医診療</div>
-          <div class="feature-desc">経験豊富な専門医による診療</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💊</div>
-          <div class="feature-title">自宅配送</div>
-          <div class="feature-desc">処方薬を自宅まで配送</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <div class="feature-title">継続管理</div>
-          <div class="feature-desc">定期的なフォローアップで健康管理</div>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <div class="feature-title">プライバシー保護</div>
-          <div class="feature-desc">個人情報を厳重に保護</div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>誰にも知られず治療</h3>
+          <p>他の患者と顔を合わせることなく治療開始。配送も中身がわからない梱包でお届けします。</p>
         </div>
       </div>
     </div>
   </section>
-  
+
+  <!-- Flow Section -->
+  <section class="flow" id="flow">
+    <div class="container">
+      <h2 class="section-title">かんたん5ステップで診療完了</h2>
+      
+      <div class="flow-timeline">
+        <div class="flow-item">
+          <div class="flow-number">1</div>
+          <div class="flow-content">
+            <div class="flow-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h4>予約</h4>
+            <span class="flow-time">所要時間：3分</span>
+            <p>健康パスポートの公式LINEに登録し、希望日時を選択。クレジットカード決済で予約完了。</p>
+          </div>
+        </div>
+        
+        <div class="flow-item">
+          <div class="flow-number">2</div>
+          <div class="flow-content">
+            <div class="flow-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <h4>問診票記入</h4>
+            <span class="flow-time">所要時間：5分</span>
+            <p>現在の体調、既往歴、服用中の薬、アレルギーの有無などを入力。</p>
+          </div>
+        </div>
+        
+        <div class="flow-item">
+          <div class="flow-number">3</div>
+          <div class="flow-content">
+            <div class="flow-icon">
+              <i class="fas fa-video"></i>
+            </div>
+            <h4>オンライン診察</h4>
+            <span class="flow-time">所要時間：10-15分</span>
+            <p>ビデオ通話で医師と面談。症状の確認と治療方針を相談。</p>
+          </div>
+        </div>
+        
+        <div class="flow-item">
+          <div class="flow-number">4</div>
+          <div class="flow-content">
+            <div class="flow-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h4>処方・配送</h4>
+            <span class="flow-time">最短翌日</span>
+            <p>最短翌日に自宅へ配送。わかりやすい説明書付き、全国送料無料。</p>
+          </div>
+        </div>
+        
+        <div class="flow-item">
+          <div class="flow-number">5</div>
+          <div class="flow-content">
+            <div class="flow-icon">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <h4>フォローアップ</h4>
+            <span class="flow-time">定期的</span>
+            <p>定期的な診察で体調変化を確認。LINEでの相談も対応。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treatments Section -->
+  <section class="treatments" id="treatments">
+    <div class="container">
+      <h2 class="section-title">4つの専門治療に対応</h2>
+      
+      <div class="treatment-tabs">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="diet">
+            <i class="fas fa-weight"></i> 医療ダイエット
+          </button>
+          <button class="tab-btn" data-tab="aga">
+            <i class="fas fa-user"></i> AGA治療
+          </button>
+          <button class="tab-btn" data-tab="ed">
+            <i class="fas fa-heart"></i> ED治療
+          </button>
+          <button class="tab-btn" data-tab="sas">
+            <i class="fas fa-bed"></i> 睡眠時無呼吸症候群
+          </button>
+        </div>
+        
+        <div class="tab-content">
+          <!-- Medical Diet Tab -->
+          <div class="tab-pane active" id="diet">
+            <div class="treatment-header">
+              <h3>医療ダイエット</h3>
+              <p class="treatment-subtitle">科学的根拠に基づく確実な減量</p>
+            </div>
+            
+            <div class="problem-box">
+              <p>40代以降、基礎代謝が低下して痩せにくくなっていませんか？<br>
+              従来のダイエットの成功率はわずか5%未満。<br>
+              医療ダイエットなら、体内のホルモンバランスに働きかけて科学的に体重を減らせます。</p>
+            </div>
+            
+            <div class="product-highlight">
+              <div class="product-badge">イチオシ</div>
+              <h4>マンジャロ（チルゼパチド）</h4>
+              <p class="product-subtitle">世界初のGIP/GLP-1デュアルアゴニスト</p>
+              <ul class="product-features">
+                <li><i class="fas fa-check"></i> 平均体重減少率：20.9%（臨床試験データ）</li>
+                <li><i class="fas fa-check"></i> 3ヶ月で平均10-12kg減量</li>
+                <li><i class="fas fa-check"></i> 96%の使用者が減量に成功</li>
+              </ul>
+              <div class="price-tag">
+                月額36,000円<span class="price-note">（診察料・配送料込み）</span>
+              </div>
+            </div>
+            
+            <div class="other-options">
+              <h5>その他の選択肢</h5>
+              <div class="option-grid">
+                <div class="option-item">
+                  <h6>リベルサス（経口GLP-1薬）</h6>
+                  <p class="option-price">月額10,000円</p>
+                </div>
+                <div class="option-item">
+                  <h6>SGLT2阻害薬（糖質排出）</h6>
+                  <p class="option-price">月額10,000円</p>
+                </div>
+                <div class="option-item">
+                  <h6>メトホルミン（基礎代謝改善）</h6>
+                  <p class="option-price">月額5,000円</p>
+                </div>
+                <div class="option-item special">
+                  <div class="special-badge">50%OFF</div>
+                  <h6>メトホルミン（マンジャロ併用時）</h6>
+                  <p class="option-price">月額2,500円</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 料金表 -->
+            <div class="tab-pricing-section">
+              <h5>料金表（すべて診察料・配送料込み）</h5>
+              <div class="table-responsive">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th>薬剤名</th>
+                      <th>月額料金（税込）</th>
+                      <th>特徴</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="highlight">
+                      <td>マンジャロ（チルゼパチド）</td>
+                      <td class="price">36,000円</td>
+                      <td>最強の減量効果</td>
+                    </tr>
+                    <tr>
+                      <td>リベルサス（セマグルチド）</td>
+                      <td class="price">10,000円</td>
+                      <td>経口GLP-1薬</td>
+                    </tr>
+                    <tr>
+                      <td>SGLT2阻害薬</td>
+                      <td class="price">10,000円</td>
+                      <td>糖質排出タイプ</td>
+                    </tr>
+                    <tr>
+                      <td>メトホルミン</td>
+                      <td class="price">5,000円</td>
+                      <td>基礎代謝改善</td>
+                    </tr>
+                    <tr class="special-offer">
+                      <td>メトホルミン（併用時）</td>
+                      <td class="price">
+                        <span class="original-price">5,000円</span>
+                        <span class="sale-price">2,500円</span>
+                      </td>
+                      <td><span class="sale-badge">50%OFF</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="treatment-cta">
+              <a href="health-passport/medical-diet.html" class="btn btn-primary">
+                医療ダイエットを詳しく見る
+              </a>
+            </div>
+          </div>
+          
+          <!-- AGA Tab -->
+          <div class="tab-pane" id="aga">
+            <div class="treatment-header">
+              <h3>AGA治療</h3>
+              <p class="treatment-subtitle">薄毛の悩みを医学的にサポート</p>
+            </div>
+            
+            <div class="problem-box">
+              <p>日本人男性の3人に1人が生涯でAGAを発症。<br>
+              放置すると進行する薄毛も、医学的治療で改善可能です。<br>
+              日本皮膚科学会推奨度Aの治療薬を処方します。</p>
+            </div>
+            
+            <div class="medication-cards">
+              <div class="medication-card">
+                <h4>デュタステリド（最強のAGA治療薬）</h4>
+                <ul class="medication-features">
+                  <li><i class="fas fa-check"></i> DHT産生を約90%抑制</li>
+                  <li><i class="fas fa-check"></i> 有効率：約80-90%</li>
+                </ul>
+                <div class="price-tag">
+                  月額8,000円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+              
+              <div class="medication-card">
+                <h4>ミノキシジル外用薬（血行促進）</h4>
+                <ul class="medication-features">
+                  <li><i class="fas fa-check"></i> 日本皮膚科学会推奨度A</li>
+                  <li><i class="fas fa-check"></i> 女性も使用可能</li>
+                </ul>
+                <div class="price-tag">
+                  月額8,500円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-box">
+              <h5>効果のタイムライン</h5>
+              <div class="timeline-items">
+                <div class="timeline-item">
+                  <span class="timeline-period">1-2ヶ月</span>
+                  <span class="timeline-desc">初期脱毛の可能性</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-period">3-4ヶ月</span>
+                  <span class="timeline-desc">抜け毛の減少</span>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-period">6-12ヶ月</span>
+                  <span class="timeline-desc">明確な改善</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 料金表 -->
+            <div class="tab-pricing-section">
+              <h5>料金表（すべて診察料・配送料込み）</h5>
+              <div class="table-responsive">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th>薬剤名</th>
+                      <th>月額料金（税込）</th>
+                      <th>特徴</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>デュタステリド</td>
+                      <td class="price">8,000円</td>
+                      <td>強力な育毛効果</td>
+                    </tr>
+                    <tr>
+                      <td>ミノキシジル外用薬</td>
+                      <td class="price">8,500円</td>
+                      <td>血行促進タイプ</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="treatment-cta">
+              <a href="health-passport/mens-health/aga-treatment.html" class="btn btn-primary">
+                AGA治療を詳しく見る
+              </a>
+            </div>
+          </div>
+          
+          <!-- ED Tab -->
+          <div class="tab-pane" id="ed">
+            <div class="treatment-header">
+              <h3>ED治療</h3>
+              <p class="treatment-subtitle">男性の自信を取り戻すお手伝い</p>
+            </div>
+            
+            <div class="problem-box">
+              <p>日本人男性の4人に1人が経験するED。<br>
+              でも医療機関を受診する方はわずか10%。<br>
+              オンライン診療なら、誰にも知られず治療を始められます。</p>
+            </div>
+            
+            <div class="medication-cards">
+              <div class="medication-card featured">
+                <div class="featured-badge">最も選ばれている</div>
+                <h4>シアリス/タダラフィル</h4>
+                <ul class="medication-features">
+                  <li><i class="fas fa-check"></i> 最大36時間効果が持続</li>
+                  <li><i class="fas fa-check"></i> 食事の影響を受けにくい</li>
+                  <li><i class="fas fa-check"></i> 副作用が比較的少ない</li>
+                </ul>
+                <div class="price-tag">
+                  月額8,000円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+              
+              <div class="medication-card">
+                <h4>バイアグラ/シルデナフィル（即効性重視）</h4>
+                <ul class="medication-features">
+                  <li><i class="fas fa-check"></i> 30分～1時間で効果発現</li>
+                  <li><i class="fas fa-check"></i> 世界初のED治療薬</li>
+                </ul>
+                <div class="price-tag">
+                  月額8,000円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+              
+              <div class="medication-card">
+                <h4>ビガー2020（薬を使わない医療機器）</h4>
+                <ul class="medication-features">
+                  <li><i class="fas fa-check"></i> 根本的な改善を目指す</li>
+                  <li><i class="fas fa-check"></i> 継続費用なし</li>
+                </ul>
+                <div class="price-tag">
+                  88,000円<span class="price-note">（買取）</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="effectiveness-box">
+              <p><strong>効果：</strong> 有効率約80%</p>
+            </div>
+            
+            <!-- 料金表 -->
+            <div class="tab-pricing-section">
+              <h5>料金表（すべて診察料・配送料込み）</h5>
+              <div class="table-responsive">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th>薬剤名</th>
+                      <th>料金（税込）</th>
+                      <th>特徴</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>シアリス/タダラフィル</td>
+                      <td class="price">月額8,000円</td>
+                      <td>36時間持続</td>
+                    </tr>
+                    <tr>
+                      <td>バイアグラ/シルデナフィル</td>
+                      <td class="price">月額8,000円</td>
+                      <td>即効性重視</td>
+                    </tr>
+                    <tr>
+                      <td>ビガー2020</td>
+                      <td class="price">88,000円（買取）</td>
+                      <td>医療機器</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="treatment-cta">
+              <a href="health-passport/mens-health/ed-treatment.html" class="btn btn-primary">
+                ED治療を詳しく見る
+              </a>
+            </div>
+          </div>
+          
+          <!-- SAS Tab -->
+          <div class="tab-pane" id="sas">
+            <div class="treatment-header">
+              <h3>睡眠時無呼吸症候群</h3>
+              <p class="treatment-subtitle">自宅で精密検査が可能に</p>
+            </div>
+            
+            <div class="problem-box">
+              <p>推定患者500万人以上、でも治療率はわずか10%。<br>
+              従来は入院検査が必要でしたが、医療DXにより自宅で精密検査が可能になりました。<br>
+              放置すると心血管疾患リスクが3-4倍に。</p>
+            </div>
+            
+            <div class="test-options">
+              <div class="test-card">
+                <h4>簡易睡眠検査</h4>
+                <ul class="test-features">
+                  <li><i class="fas fa-check"></i> 自宅で普段通りの睡眠で検査</li>
+                  <li><i class="fas fa-check"></i> 通院不要</li>
+                </ul>
+                <div class="price-tag">
+                  5,690円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+              
+              <div class="test-card">
+                <h4>精密検査（PSG検査）</h4>
+                <ul class="test-features">
+                  <li><i class="fas fa-check"></i> 入院不要で自宅で実施</li>
+                  <li><i class="fas fa-check"></i> 最も正確な診断</li>
+                </ul>
+                <div class="price-tag">
+                  12,480円<span class="price-note">（診察料・配送料込み）</span>
+                </div>
+              </div>
+              
+              <div class="test-card">
+                <h4>CPAP継続治療</h4>
+                <ul class="test-features">
+                  <li><i class="fas fa-check"></i> AHI改善率95%以上</li>
+                  <li><i class="fas fa-check"></i> 機器レンタル・消耗品込み</li>
+                </ul>
+                <div class="price-tag">
+                  月額5,070円<span class="price-note">（保険適用3割負担）</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="risk-alert">
+              <h5>健康リスク</h5>
+              <div class="risk-items">
+                <div class="risk-item">
+                  <span class="risk-value">2.89倍</span>
+                  <span class="risk-name">高血圧発症リスク</span>
+                </div>
+                <div class="risk-item">
+                  <span class="risk-value">4.0倍</span>
+                  <span class="risk-name">心筋梗塞リスク</span>
+                </div>
+                <div class="risk-item">
+                  <span class="risk-value">3.3倍</span>
+                  <span class="risk-name">脳卒中リスク</span>
+                </div>
+                <div class="risk-item">
+                  <span class="risk-value">7倍</span>
+                  <span class="risk-name">交通事故リスク</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- 料金表 -->
+            <div class="tab-pricing-section">
+              <h5>料金表（すべて診察料・配送料込み）</h5>
+              <div class="table-responsive">
+                <table class="pricing-table">
+                  <thead>
+                    <tr>
+                      <th>検査・治療名</th>
+                      <th>料金（税込）</th>
+                      <th>特徴</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>簡易睡眠検査</td>
+                      <td class="price">5,690円</td>
+                      <td>自宅検査キット</td>
+                    </tr>
+                    <tr>
+                      <td>精密検査（PSG）</td>
+                      <td class="price">12,480円</td>
+                      <td>自宅精密検査</td>
+                    </tr>
+                    <tr>
+                      <td>CPAP継続治療</td>
+                      <td class="price">月額5,070円</td>
+                      <td>レンタル・管理費込み</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            
+            <div class="treatment-cta">
+              <a href="health-passport/sleep-apnea.html" class="btn btn-primary">
+                睡眠検査を詳しく見る
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title">よくあるご質問</h2>
+      
+      <div class="faq-categories">
+        <div class="faq-category">
+          <h3>全般について</h3>
+          
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                オンライン診療は安全ですか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>はい。経験豊富な医師が診察し、必要に応じて対面診療や専門医への紹介も行います。すべて国内正規品の医薬品を処方しています。</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question">
+                処方される薬は正規品ですか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>はい。すべて国内正規ルートで調達した医療用医薬品です。個人輸入品は一切取り扱っておりません。</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question">
+                保険は適用されますか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>美容・ダイエット目的の場合は自費診療となります。2型糖尿病、睡眠時無呼吸症候群などの診断がある場合は保険適用の可能性があります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3>料金について</h3>
+          
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                追加費用はかかりませんか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>一切かかりません。表示料金に診察料・配送料がすべて含まれています。</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question">
+                支払い方法は？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>クレジットカード決済のみとなります。予約時に決済完了するため、診察後の支払い手続きは不要です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3>配送について</h3>
+          
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                配送は目立ちませんか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>プライバシーに配慮した梱包で、外見からは内容物がわからないようになっています。</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question">
+                全国どこでも配送可能ですか？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>はい。日本全国どこでも配送料無料でお届けします。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3>治療について</h3>
+          
+          <div class="faq-accordion">
+            <div class="faq-item">
+              <button class="faq-question">
+                効果が出ない場合は？
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>個人差がありますが、医師と相談しながら用量調整や薬剤変更を検討します。定期的なフォローアップで最適な治療法を見つけます。</p>
+              </div>
+            </div>
+            
+            <div class="faq-item">
+              <button class="faq-question">
+                副作用が心配です
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="faq-answer">
+                <p>軽微で一時的な副作用はありますが、医師が適切にフォローします。重篤な副作用は稀で、安全性の高い治療法です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
   <section class="cta-section">
-    <div class="cta-container">
-      <h2 class="cta-title">今すぐ始めませんか？</h2>
-      <p class="cta-desc">
-        健康パスポートで、あなたの健康管理をスマートに。忙しい毎日でも、継続的な健康管理が実現できます。
-      </p>
-      <div class="cta-buttons">
-        <a href="../contact.html" class="cta-btn primary">無料相談を予約</a>
-        <a href="../index.html" class="cta-btn secondary">ホームに戻る</a>
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">まずは気軽にご予約ください</h2>
+        <p class="cta-text">
+          あなたの健康と未来のために、<br>
+          健康パスポートがサポートします。<br>
+          24時間いつでもLINEから予約可能です。
+        </p>
+        
+        <div class="cta-button">
+          <a href="https://s.lmes.jp/landing-qr/2003372490-bNv9pB1R?uLand=4MucXs" class="btn btn-primary btn-xlarge">
+            <i class="fab fa-line"></i> 公式LINEから予約する
+          </a>
+        </div>
+        
+        <div class="cta-links">
+          <h4>専門予約リンク</h4>
+          <div class="cta-link-grid">
+            <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-link">
+              <i class="fas fa-calendar-check"></i> オンライン診療予約
+            </a>
+            <a href="https://s.lmes.jp/landing-qr/2001303605-kaz38Gyw?uLand=kq2OR9" class="cta-link">
+              <i class="fas fa-bed"></i> 睡眠検査専用予約
+            </a>
+            <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2517&ts=1749447308" class="cta-link">
+              <i class="fas fa-heart"></i> ED治療専用予約
+            </a>
+          </div>
+        </div>
+        
+        <div class="cta-features">
+          <span><i class="fas fa-clock"></i> 24時間予約受付</span>
+          <span><i class="fas fa-calendar-alt"></i> 土日祝日も診療</span>
+          <span><i class="fas fa-exchange-alt"></i> キャンセル・変更可能</span>
+          <span><i class="fas fa-map-marker-alt"></i> 全国対応</span>
+        </div>
       </div>
     </div>
   </section>
-  
-  <footer>
-    <div class="footer-content">
-      <div class="footer-links">
-        <a href="../index.html">ホーム</a>｜
-        <a href="../index.html#story">ストーリー</a>｜
-        <a href="../index.html#mission">ミッション</a>｜
-        <a href="../index.html#services">サービス</a>｜
-        <a href="../about.html">会社情報</a>｜
-        <a href="../contact.html">お問い合わせ</a>｜
-        Good Small Company
-        ｜ <a href="../privacy.html">プライバシーポリシー</a>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>ロンショール合同会社</h3>
+          <p>健康パスポート - オンライン診療プラットフォーム</p>
+        </div>
+        
+        <div class="footer-disclaimer">
+          <p>※効果には個人差があります。医師の診察により処方可否を判断します。</p>
+          <p>※本サービスは医療機関と連携して提供しています。</p>
+        </div>
       </div>
-      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 ロンショール合同会社. All rights reserved.</p>
+      </div>
     </div>
   </footer>
-  <script>
-    // モバイルメニュー機能
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('nav');
-    const body = document.body;
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenuBtn.classList.toggle('active');
-      nav.classList.toggle('active');
-      body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
-    });
-
-    // ナビゲーションリンクをクリックしたらメニューを閉じる
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuBtn.classList.remove('active');
-        nav.classList.remove('active');
-        body.style.overflow = '';
-      });
-    });
-
-    // 画面サイズが変更されたときにメニューを閉じる
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        mobileMenuBtn.classList.remove('active');
-        nav.classList.remove('active');
-        body.style.overflow = '';
-      }
-    });
-  </script>
+  <script src="health-passport-complete.js"></script>
 </body>
-</html> 
+</html>
