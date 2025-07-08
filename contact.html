@@ -1142,55 +1142,16 @@
     <div class="contact-grid">
       <div class="contact-form-section">
         <div class="section-title">お問い合わせフォーム</div>
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">お名前 <span class="required">*</span></label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="company">会社名</label>
-            <input type="text" id="company" name="company">
-          </div>
-          
-          <div class="form-group">
-            <label for="email">メールアドレス <span class="required">*</span></label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="tel">電話番号</label>
-            <input type="tel" id="tel" name="tel">
-          </div>
-          
-          <div class="form-group">
-            <label for="inquiry-type">お問い合わせ種別</label>
-            <select id="inquiry-type" name="inquiry-type">
-              <option value="">選択してください</option>
-              <option value="健診プラス">健診プラスについて</option>
-              <option value="健康パスポート">健康パスポートについて</option>
-              <option value="職場deクリニック">職場 de クリニックについて</option>
-              <option value="AGIステップ">AGIステップについて</option>
-              <option value="医療介護経営コンサルティング">医療介護経営コンサルティングについて</option>
-              <option value="アライアンス契約">アライアンス契約について</option>
-              <option value="その他">その他</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-            <textarea id="message" name="message" required placeholder="詳細をお聞かせください"></textarea>
-          </div>
-          
-          <div class="form-group">
-            <div class="checkbox-group">
-              <input type="checkbox" id="agree" name="agree" required>
-              <label for="agree"><a href="privacy.html" target="_blank">プライバシーポリシー</a>に同意する <span class="required">*</span></label>
-            </div>
-          </div>
-          
-          <button type="submit" class="submit-btn">送信する</button>
-        </form>
+        <p style="margin-bottom: 1.5rem;">お問い合わせは以下のフォームからお願いします。</p>
+        <div style="text-align: center;">
+          <a href="https://forms.gle/fYBHDQo3qsA9W4FU8" target="_blank" class="submit-btn" style="display: inline-block; text-decoration: none;">
+            お問い合わせフォームを開く
+          </a>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">
+          ※ Googleフォームが開きます。<br>
+          ※ 通常2営業日以内にご返信いたします。
+        </p>
       </div>
 
       <div class="contact-info-section">
@@ -1265,21 +1226,6 @@
   </footer>
 
   <script>
-    // フォーム送信処理
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // フォームデータの取得
-      const formData = new FormData(this);
-      const data = Object.fromEntries(formData);
-      
-      // 送信確認
-      if (confirm('お問い合わせを送信しますか？')) {
-        // 実際の送信処理（メール送信など）
-        alert('お問い合わせを送信しました。\n通常2営業日以内にご返信いたします。');
-        this.reset();
-      }
-    });
 
     // モバイルメニュー機能
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
