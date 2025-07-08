@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マンジャロ（Mounjaro）治療 | 医療ダイエット | ロンショール合同会社</title>
+    <meta name="description" content="最新のGLP-1受容体作動薬マンジャロ（Mounjaro）。NEJM掲載の臨床試験で平均20.9%の減量効果が証明された、最も効果的な肥満治療薬です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --accent: #7c3aed;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8fafc;
+            --gray-dark: #64748b;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        a { color: var(--primary); text-decoration: none; }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--light);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li { font-weight: 600; }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::before {
+            width: 80%;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+        
+        .service-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../../../images/medical-background.jpg') center/cover;
+            opacity: 0.1;
+            animation: heroParallax 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes heroParallax {
+            0% { transform: scale(1.1) translateY(-10px); }
+            100% { transform: scale(1.1) translateY(10px); }
+        }
+        
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+        
+        .service-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+            box-shadow: var(--shadow-soft);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-10px); }
+        }
+        
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+        }
+        
+        .service-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-dark);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-overview {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+        
+        .overview-image {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .overview-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .overview-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+        }
+        
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            background: var(--gradient-accent);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .stats-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover .stat-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover .step-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .step-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .step-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Montserrat', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            opacity: 0.3;
+        }
+        
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .faq-question:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-desc {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn.primary {
+            background: var(--gradient-primary);
+            color: var(--light);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-btn.primary:hover {
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .cta-btn.secondary:hover {
+            background: var(--primary);
+            color: var(--light);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-title {
+                font-size: 2.5rem;
+            }
+            .overview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+        
+        .why-now-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .why-now-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-now-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .why-now-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .why-now-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .why-now-card:hover .why-now-icon {
+            transform: scale(1.2);
+        }
+        
+        .why-now-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .why-now-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">R</div>
+                ロンショール合同会社
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../../../index.html">TOP</a></li>
+                    <li><a href="../../../../index.html#story">ストーリー</a></li>
+                    <li><a href="../../../../index.html#mission">ミッション</a></li>
+                    <li><a href="../../../../index.html#services">サービス</a></li>
+                    <li><a href="../../../../about.html">会社情報</a></li>
+                    <li><a href="../../../../contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <div class="service-badge">MOUNJARO</div>
+            <h1 class="service-title">マンジャロ（Mounjaro）</h1>
+            <p class="service-subtitle">「運動も食事制限もかなり頑張ったのに、全然痩せない…」そんなあなたに。96%が成功した奇跡の薬。</p>
+        </div>
+    </section>
+    
+    <section class="service-overview">
+        <div class="service-container">
+            <div class="section-badge">OVERVIEW</div>
+            <h2 class="section-title">マンジャロとは</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p><strong>マンジャロは、世界最高峰の医学誌「NEJM」で認められた唯一の肥満治療薬です。</strong></p>
+                    <p>臨床試験では、72週間で<strong>平均20.9%の減量効果</strong>が証明されました。「これまでの何十年の苦労は何だったのか…」96%の人が減量に成功し、<strong>異常な食欲が「魔法のように」消えた</strong>と報告しています。</p>
+                    <p>本来食べなくてもいい量で満足できるため、<strong>食費が月で3万円以上減った</strong>という声も多く、実質的な負担は思ったより軽いと評判です。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="../../../../images/medical-background.jpg" alt="マンジャロ治療">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="service-container">
+            <div class="section-badge">FEATURES</div>
+            <h2 class="section-title">マンジャロの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">世界最高の減量効果：平均20.9%減</div>
+                    <div class="feature-desc">
+                        <strong>NEJMで証明されたダイエット効果は、もはや「奇跡」のレベル。</strong>72週間で70kgの人なら約15kg減。しかも、96%が成功し、リバウンド率も非常に低い。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💉</div>
+                    <div class="feature-title">週1回だけ：世界一簡単なダイエット</div>
+                    <div class="feature-desc">
+                        <strong>「注射が怖い」はもう古い！</strong>ペンをノックするだけ、痛みは蚊に刺される程度。94%が「こんなに簡単ならもっと早く始めればよかった」と後悔。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <div class="feature-title">自然な食欲抑制</div>
+                    <div class="feature-desc">
+                        異常な食欲が自然に収まり、無理なく食事量を減らせます。我慢する必要がなく、継続しやすい治療法です。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">食費で3万円節約：実質負担ゼロ</div>
+                    <div class="feature-desc">
+                        <strong>「薬代が高い」は幻想です。</strong>異常な食欲が収まり、本来の量で満足。多くの方が月2-3万円の食費削減を報告。健康と経済的メリットを両立。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🩺</div>
+                    <div class="feature-title">健康診断の数値が劇的改善</div>
+                    <div class="feature-desc">
+                        <strong>体重だけじゃない！</strong>血糖値、血圧、コレステロール値もすべて改善。「医者に『10歳若返った』と褒められた」「保険料が下がった」という声も続々。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-title">医師による継続サポート</div>
+                    <div class="feature-desc">
+                        オンライン診療で24時間いつでも相談可能。医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats-section">
+        <div class="service-container">
+            <div class="section-badge">STATISTICS</div>
+            <h2 class="section-title">臨床試験の結果</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20.9%</div>
+                    <div class="stat-label">平均減量率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">減量成功率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">簡単だったと回答</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">週1回</div>
+                    <div class="stat-label">注射頻度</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why-now-section">
+        <div class="service-container">
+            <div class="section-badge">URGENT</div>
+            <h2 class="section-title">なぜ「今」始めるべきなのか？</h2>
+            <div class="why-now-grid">
+                <div class="why-now-card">
+                    <div class="why-now-icon">⏰</div>
+                    <div class="why-now-title">1日遅れるごとに100g増える</div>
+                    <div class="why-now-desc">
+                        肥満は進行性の病気。<strong>今日始めれば1年後には20kgの差</strong>が生まれます。「明日から」の繰り返しが、あなたの人生を奪っています。
+                    </div>
+                </div>
+                
+                <div class="why-now-card">
+                    <div class="why-now-icon">📈</div>
+                    <div class="why-now-title">糖尿病リスクが急上昇</div>
+                    <div class="why-now-desc">
+                        BMI30以上の方は、<strong>5年以内に50%が糖尿病を発症</strong>。一度糖尿病になると、完治は不可能。今なら間に合います。
+                    </div>
+                </div>
+                
+                <div class="why-now-card">
+                    <div class="why-now-icon">💸</div>
+                    <div class="why-now-title">明日から値上げの可能性</div>
+                    <div class="why-now-desc">
+                        世界中で需要が急増中。<strong>供給不足による値上げの懸念</strong>があります。今の価格で始められる保証はありません。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="service-container">
+            <div class="section-badge">HOW IT WORKS</div>
+            <h2 class="section-title">治療の流れ</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-title">オンライン診療</div>
+                    <div class="step-desc">
+                        スマートフォンで簡単に医師と相談。あなたの体質や生活習慣に合わせて最適な治療プランを提案します。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-title">処方・配送</div>
+                    <div class="step-desc">
+                        医師の処方箋に基づいて、マンジャロを自宅まで配送。注射ペンも含めて、すべて自宅で受け取れます。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-title">週1回の注射</div>
+                    <div class="step-desc">
+                        ペンをノックするだけの簡単操作。痛みも蚊に刺される程度で、94%の人が簡単だったと回答しています。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-title">継続サポート</div>
+                    <div class="step-desc">
+                        定期的なフォローアップで、効果や副作用を確認。24時間いつでも相談可能で、安心して治療を続けられます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="service-container">
+            <div class="section-badge">TESTIMONIALS</div>
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>運動も食事制限もかなり頑張ったのに、全然痩せない…</strong>パーソナルジムに月6万円も使って。でもマンジャロを始めて2週間、異常な食欲がスーッと消えたんです。<strong>6ヶ月で-20kg！</strong>友人に会うたびに『若返った！』って驚かれます。」
+                    </div>
+                    <div class="testimonial-author">M.Kさん（52歳・女性・会社員）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「健康診断で<strong>『このままだと糖尿病になる』</strong>と宣告されて…子供のためにも長生きしたい。マンジャロを始めて3ヶ月、<strong>体重-18kg、HbA1cも6.8から5.4に！</strong>医者に『奇跡だ』と言われました。」
+                    </div>
+                    <div class="testimonial-author">45歳男性・会社員</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>パン一枚でお腹いっぱいになるんです！</strong>以前はラーメン大盛りでも足りなかったのに。食費が月4万円減って、薬代を引いてもプラス。<strong>半年で16kg減って、服のサイズがXLからMに！</strong>」
+                    </div>
+                    <div class="testimonial-author">38歳女性・主婦</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-badge">FAQ</div>
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    「20.9%減」って本当？誇張じゃないの？
+                </div>
+                <div class="faq-answer">
+                    <strong>これは世界最高峰の医学誌NEJMに掲載された結果です。</strong>1,961名を対象にした大規模臨床試験で、平均20.9%（70kgなら14.6kg）の減量が証明されました。96%が成功、これは「奇跡」と呼ばれるレベルです。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    注射って痛そう…絶対無理です
+                </div>
+                <div class="faq-answer">
+                    <strong>「注射が怖い」は10年前の話です！</strong>現在のペン型注射器は、ノックするだけで自動的に針が出て、一瞬で終わります。針は髪の毛より細く、<strong>94%の人が「こんなに簡単ならもっと早く始めればよかった」</strong>と後悔しています。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    副作用は大丈夫？
+                </div>
+                <div class="faq-answer">
+                    軽い吐き気が31.5%の方に見られますが、多くは一時的です。医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。副作用が出た場合は、すぐに調整いたします。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    月36,000円は高すぎませんか？
+                </div>
+                <div class="faq-answer">
+                    <strong>「薬代が高い」は幻想です。</strong>異常な食欲が収まり、平均で月2-3万円の食費が浮きます。実質負担は月数1万円程度。<strong>さらにジム代やエステ代も不要に。</strong>「もっと早く始めれば、無駄なお金を使わずに済んだ」という声が多数です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    リバウンドしない？
+                </div>
+                <div class="faq-answer">
+                    適切な指導のもとでは、リバウンド率は従来のダイエットより大幅に低いです。マンジャロは体質改善を目指すため、長期的な効果が期待できます。継続的なサポートで、リバウンドを防ぎます。
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">もう、ダイエットで失敗する必要はありません</h2>
+            <p class="cta-desc">
+                <strong>「運動も食事制限もかなり頑張ったのに、全然痩せない…」</strong><br>
+                そんなあなたに。96%が成功した奇跡の薬。<br>
+                世界最高峰の医学誌NEJMが認めたマンジャロで、<br>
+                <strong>あなたの「最後のダイエット」を始めませんか？</strong>
+            </p>
+            <div class="cta-buttons">
+                <a href="../../../../contact.html" class="cta-btn primary">無料相談を予約</a>
+                <a href="../medical-diet.html" class="cta-btn secondary">医療ダイエットに戻る</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../../../../index.html">ホーム</a>｜
+                <a href="../../../../index.html#story">ストーリー</a>｜
+                <a href="../../../../index.html#mission">ミッション</a>｜
+                <a href="../../../../index.html#services">サービス</a>｜
+                <a href="../../../../about.html">会社情報</a>｜
+                <a href="../../../../contact.html">お問い合わせ</a>｜
+                Good Small Company
+                ｜ <a href="../../../../privacy.html">プライバシーポリシー</a>
+            </div>
+            <div class="footer-copy">©️2021 Ronshoal.llc</div>
+        </div>
+    </footer>
+    
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // 他のFAQを閉じる
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // クリックされたFAQを開く
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html> 
