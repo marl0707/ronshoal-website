@@ -588,6 +588,84 @@ body {
 }
 
 /* ========================================
+   タブ内料金表
+   ======================================== */
+.tab-pricing-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--gray-100);
+  border-radius: 8px;
+}
+
+.tab-pricing-section h5 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.tab-pricing-section .pricing-table {
+  width: 100%;
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-pricing-section .pricing-table th,
+.tab-pricing-section .pricing-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.tab-pricing-section .pricing-table thead {
+  background: var(--primary-blue);
+  color: var(--white);
+}
+
+.tab-pricing-section .pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tab-pricing-section .pricing-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.tab-pricing-section .pricing-table .highlight {
+  background: #fff3e0;
+}
+
+.tab-pricing-section .pricing-table .special-offer {
+  background: #fff8e1;
+}
+
+.tab-pricing-section .original-price {
+  text-decoration: line-through;
+  color: var(--gray-600);
+  margin-right: 0.5rem;
+}
+
+.tab-pricing-section .sale-price {
+  color: #f44336;
+  font-weight: 700;
+}
+
+.tab-pricing-section .sale-badge {
+  background: #f44336;
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.treatment-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* ========================================
    レスポンシブデザイン
    ======================================== */
 @media (max-width: 768px) {
