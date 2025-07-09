@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マインクラフトLP編集画面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .section h2 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .field {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .item-group {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-save {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background: #45a049;
+        }
+        
+        .btn-preview {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-preview:hover {
+            background: #0b7dda;
+        }
+        
+        .btn-download {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background: #e68900;
+        }
+        
+        .status {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #90caf9;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 マインクラフトLP 編集画面</h1>
+        
+        <div class="instructions">
+            <h3>📝 編集方法</h3>
+            <ol>
+                <li>下記の各セクションで文章を編集してください</li>
+                <li>「プレビュー」ボタンで変更内容を確認できます</li>
+                <li>「保存」ボタンをクリックして変更を保存します</li>
+                <li>「JSONダウンロード」で編集内容をファイルとして保存できます</li>
+                <li>保存したJSONファイルを開発者に送付してください</li>
+            </ol>
+        </div>
+        
+        <form id="contentForm">
+            <!-- ヒーローセクション -->
+            <div class="section">
+                <h2>🌟 ヒーローセクション（トップ部分）</h2>
+                <div class="field">
+                    <label>メインタイトル</label>
+                    <textarea name="hero.title" id="hero-title"></textarea>
+                </div>
+                <div class="field">
+                    <label>サブタイトル</label>
+                    <input type="text" name="hero.subtitle" id="hero-subtitle">
+                </div>
+                <div class="field">
+                    <label>ボタンテキスト（メイン）</label>
+                    <input type="text" name="hero.cta.primary" id="hero-cta-primary">
+                </div>
+                <div class="field">
+                    <label>ボタンテキスト（サブ）</label>
+                    <input type="text" name="hero.cta.secondary" id="hero-cta-secondary">
+                </div>
+            </div>
+            
+            <!-- お悩みセクション -->
+            <div class="section">
+                <h2>😟 お悩みセクション</h2>
+                <div class="field">
+                    <label>セクションタイトル</label>
+                    <input type="text" name="problems.title" id="problems-title">
+                </div>
+                <div id="problems-items"></div>
+            </div>
+            
+            <!-- 将来への危機感セクション -->
+            <div class="section">
+                <h2>⚠️ 将来への危機感セクション</h2>
+                <div class="field">
+                    <label>セクションタイトル</label>
+                    <input type="text" name="futureRisk.title" id="futureRisk-title">
+                </div>
+                <div class="field">
+                    <label>衝撃的なデータ（本文）</label>
+                    <textarea name="futureRisk.shockingData.text" id="futureRisk-shockingData-text"></textarea>
+                </div>
+                <div class="field">
+                    <label>IT人材不足データ</label>
+                    <input type="text" name="futureRisk.itShortage.text" id="futureRisk-itShortage-text">
+                </div>
+                <div class="field">
+                    <label>メッセージ</label>
+                    <textarea name="futureRisk.message" id="futureRisk-message"></textarea>
+                </div>
+            </div>
+            
+            <!-- 講師紹介セクション -->
+            <div class="section">
+                <h2>👨‍🏫 講師紹介セクション</h2>
+                <div class="field">
+                    <label>講師名</label>
+                    <input type="text" name="instructor.name" id="instructor-name">
+                </div>
+                <div class="field">
+                    <label>肩書き</label>
+                    <input type="text" name="instructor.title" id="instructor-title">
+                </div>
+                <div class="field">
+                    <label>メッセージ</label>
+                    <textarea name="instructor.message" id="instructor-message"></textarea>
+                </div>
+            </div>
+            
+            <!-- 保護者の声セクション -->
+            <div class="section">
+                <h2>💬 保護者の声セクション</h2>
+                <div id="testimonials-items"></div>
+            </div>
+        </form>
+        
+        <div class="button-group">
+            <button type="button" class="btn-preview" onclick="previewChanges()">プレビュー</button>
+            <button type="button" class="btn-save" onclick="saveContent()">保存</button>
+            <button type="button" class="btn-download" onclick="downloadJSON()">JSONダウンロード</button>
+        </div>
+        
+        <div id="status" class="status"></div>
+    </div>
+    
+    <script>
+        // 初期データ
+        let contentData = {};
+        
+        // ページ読み込み時
+        window.onload = function() {
+            // ローカルストレージから読み込み
+            const savedData = localStorage.getItem('minecraftLPContent');
+            if (savedData) {
+                contentData = JSON.parse(savedData);
+            } else {
+                // デフォルトデータを読み込み
+                loadDefaultContent();
+            }
+            
+            // フォームに反映
+            populateForm();
+        };
+        
+        function loadDefaultContent() {
+            // content.jsonの内容をここに設定
+            contentData = {
+                "hero": {
+                    "title": "ゲームが学びに変わる\\n瞬間を、お子様に。",
+                    "subtitle": "マインクラフトで身につく論理的思考力とプログラミング思考",
+                    "cta": {
+                        "primary": "公式LINEで無料セミナーに申し込む",
+                        "secondary": "↓ たった30秒！友だち追加するだけ"
+                    }
+                },
+                "problems": {
+                    "title": "こんなお悩みありませんか？",
+                    "items": [
+                        {"icon": "🎮", "text": "ゲームばかりで勉強しない..."},
+                        {"icon": "💻", "text": "プログラミング教育が必要と聞くけど、何から始めれば..."},
+                        {"icon": "🧠", "text": "子どもの創造力や論理的思考力を伸ばしたい"},
+                        {"icon": "😊", "text": "楽しみながら学べる環境を探している"}
+                    ]
+                },
+                "futureRisk": {
+                    "title": "⚠️ ご存知ですか？お子様の将来に迫る変化",
+                    "shockingData": {
+                        "text": "「2011年にアメリカの小学校に入学した子供たちの65%は、大学卒業時には今存在していない職業に就く」",
+                        "source": "— ニューヨーク市立大学調査"
+                    },
+                    "itShortage": {
+                        "text": "2030年には最大79万人のIT人材が不足",
+                        "source": "— 経済産業省データ"
+                    },
+                    "message": "今、プログラミング思考を身につけることが、\\nお子様の将来の選択肢を大きく広げます"
+                },
+                "instructor": {
+                    "name": "川勝 英史（かわかつ ひでふみ）教授",
+                    "title": "東京情報大学 総合情報学部 教授",
+                    "message": "「小学生の頃、プログラミングに夢中になった経験が今の私を作りました。子どもたちの『ゲームが好き』という純粋な気持ちを、将来につながる本物の力に変えたい。マインクラフトのエージェントプログラミングは、まさにその理想を実現できる最高の教材です。」"
+                },
+                "testimonials": [
+                    {
+                        "grade": "小学4年生の保護者様",
+                        "text": "「ゲームの時間が学習時間に変わりました！毎回のステージクリアを楽しみにしていて、自分から『今日はプログラミングやる！』と言うようになりました」"
+                    },
+                    {
+                        "grade": "小学6年生の保護者様",
+                        "text": "「最初は難しいかなと心配でしたが、ゲーム感覚で進められるので全く問題ありませんでした。自分で考えて解決する力が明らかについています」"
+                    }
+                ]
+            };
+        }
+        
+        function populateForm() {
+            // ヒーローセクション
+            document.getElementById('hero-title').value = contentData.hero.title;
+            document.getElementById('hero-subtitle').value = contentData.hero.subtitle;
+            document.getElementById('hero-cta-primary').value = contentData.hero.cta.primary;
+            document.getElementById('hero-cta-secondary').value = contentData.hero.cta.secondary;
+            
+            // お悩みセクション
+            document.getElementById('problems-title').value = contentData.problems.title;
+            const problemsContainer = document.getElementById('problems-items');
+            problemsContainer.innerHTML = '';
+            contentData.problems.items.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item-group';
+                itemDiv.innerHTML = `
+                    <div class="field">
+                        <label>アイコン ${index + 1}</label>
+                        <input type="text" id="problem-icon-${index}" value="${item.icon}">
+                    </div>
+                    <div class="field">
+                        <label>テキスト ${index + 1}</label>
+                        <input type="text" id="problem-text-${index}" value="${item.text}">
+                    </div>
+                `;
+                problemsContainer.appendChild(itemDiv);
+            });
+            
+            // 将来への危機感セクション
+            document.getElementById('futureRisk-title').value = contentData.futureRisk.title;
+            document.getElementById('futureRisk-shockingData-text').value = contentData.futureRisk.shockingData.text;
+            document.getElementById('futureRisk-itShortage-text').value = contentData.futureRisk.itShortage.text;
+            document.getElementById('futureRisk-message').value = contentData.futureRisk.message;
+            
+            // 講師紹介
+            document.getElementById('instructor-name').value = contentData.instructor.name;
+            document.getElementById('instructor-title').value = contentData.instructor.title;
+            document.getElementById('instructor-message').value = contentData.instructor.message;
+            
+            // 保護者の声
+            const testimonialsContainer = document.getElementById('testimonials-items');
+            testimonialsContainer.innerHTML = '';
+            contentData.testimonials.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'item-group';
+                itemDiv.innerHTML = `
+                    <div class="field">
+                        <label>学年 ${index + 1}</label>
+                        <input type="text" id="testimonial-grade-${index}" value="${item.grade}">
+                    </div>
+                    <div class="field">
+                        <label>コメント ${index + 1}</label>
+                        <textarea id="testimonial-text-${index}">${item.text}</textarea>
+                    </div>
+                `;
+                testimonialsContainer.appendChild(itemDiv);
+            });
+        }
+        
+        function collectFormData() {
+            // フォームからデータを収集
+            const updatedData = {
+                hero: {
+                    title: document.getElementById('hero-title').value,
+                    subtitle: document.getElementById('hero-subtitle').value,
+                    cta: {
+                        primary: document.getElementById('hero-cta-primary').value,
+                        secondary: document.getElementById('hero-cta-secondary').value
+                    }
+                },
+                problems: {
+                    title: document.getElementById('problems-title').value,
+                    items: []
+                },
+                futureRisk: {
+                    title: document.getElementById('futureRisk-title').value,
+                    shockingData: {
+                        text: document.getElementById('futureRisk-shockingData-text').value,
+                        source: contentData.futureRisk.shockingData.source
+                    },
+                    itShortage: {
+                        text: document.getElementById('futureRisk-itShortage-text').value,
+                        source: contentData.futureRisk.itShortage.source
+                    },
+                    message: document.getElementById('futureRisk-message').value
+                },
+                instructor: {
+                    name: document.getElementById('instructor-name').value,
+                    title: document.getElementById('instructor-title').value,
+                    message: document.getElementById('instructor-message').value,
+                    achievements: contentData.instructor.achievements || []
+                },
+                testimonials: []
+            };
+            
+            // お悩みアイテム
+            contentData.problems.items.forEach((_, index) => {
+                updatedData.problems.items.push({
+                    icon: document.getElementById(`problem-icon-${index}`).value,
+                    text: document.getElementById(`problem-text-${index}`).value
+                });
+            });
+            
+            // 保護者の声
+            contentData.testimonials.forEach((_, index) => {
+                updatedData.testimonials.push({
+                    grade: document.getElementById(`testimonial-grade-${index}`).value,
+                    text: document.getElementById(`testimonial-text-${index}`).value
+                });
+            });
+            
+            return updatedData;
+        }
+        
+        function saveContent() {
+            const updatedData = collectFormData();
+            
+            // ローカルストレージに保存
+            localStorage.setItem('minecraftLPContent', JSON.stringify(updatedData));
+            
+            // 成功メッセージ
+            showStatus('保存しました！JSONファイルをダウンロードして開発者に送付してください。', 'success');
+            
+            // contentDataを更新
+            contentData = updatedData;
+        }
+        
+        function previewChanges() {
+            const updatedData = collectFormData();
+            
+            // プレビュー用のウィンドウを開く（実際のサイトを開く）
+            const previewWindow = window.open('/minecraft-lp/', '_blank');
+            
+            showStatus('プレビューウィンドウを開きました。実際のサイトで確認してください。', 'success');
+        }
+        
+        function downloadJSON() {
+            const updatedData = collectFormData();
+            
+            // JSONファイルとしてダウンロード
+            const dataStr = JSON.stringify(updatedData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'minecraft-lp-content.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showStatus('JSONファイルをダウンロードしました。このファイルを開発者に送付してください。', 'success');
+        }
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + type;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
