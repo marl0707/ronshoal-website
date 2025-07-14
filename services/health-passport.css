@@ -560,36 +560,88 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tab-nav {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   margin-bottom: 3rem;
-  overflow-x: auto;
-  padding-bottom: 1rem;
+  padding: 0 1rem;
 }
 
 .tab-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.5rem;
+  gap: 1rem;
+  padding: 2rem 3rem;
   background: white;
-  border: 2px solid var(--gray-medium);
-  border-radius: var(--radius);
-  font-weight: 600;
+  border: 3px solid var(--gray-medium);
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1.375rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  min-height: 100px;
+}
+
+.tab-btn i {
+  font-size: 2rem;
+}
+
+.tab-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(41, 128, 185, 0.1) 100%);
+  transition: width 0.3s ease;
 }
 
 .tab-btn:hover {
   border-color: var(--primary-color);
   color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(52, 152, 219, 0.2);
+}
+
+.tab-btn:hover::before {
+  width: 100%;
 }
 
 .tab-btn.active {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
   color: white;
   border-color: var(--primary-color);
+  transform: scale(1.02);
+  box-shadow: 0 16px 40px rgba(52, 152, 219, 0.3);
+}
+
+.tab-btn.active::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  animation: checkmark 0.3s ease;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0) rotate(-45deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 .tab-pane {
@@ -1125,6 +1177,48 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 1.5rem 1.5rem;
   line-height: 1.8;
   color: var(--gray-dark);
+}
+
+/* モバイル用のタブボタンスタイル */
+@media (max-width: 768px) {
+  .tab-nav {
+    gap: 0.75rem;
+    padding: 0 1rem 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+  }
+  
+  .tab-nav::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .tab-nav::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 2px;
+  }
+  
+  .tab-nav::-webkit-scrollbar-thumb {
+    background: var(--gray-medium);
+    border-radius: 2px;
+  }
+  
+  .tab-btn {
+    padding: 1.5rem 2rem;
+    font-size: 1.125rem;
+    min-width: fit-content;
+    flex-shrink: 0;
+    min-height: 80px;
+  }
+  
+  .tab-btn i {
+    font-size: 1.5rem;
+  }
+  
+  .tab-btn.active {
+    transform: scale(1);
+  }
 }
 
 /* ========================================
