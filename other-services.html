@@ -390,7 +390,68 @@
                 display: none;
             }
         }
-    </style>
+    
+    /* Footer Grid Layout */
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h4 {
+      color: #00d4ff;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .footer-section .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-section .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+    
+    .footer-section .footer-links a:hover {
+      color: #00d4ff;
+    }
+    
+    .footer-copy {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    @media (max-width: 768px) {
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-section {
+        text-align: center;
+      }
+      
+      .footer-section .footer-links {
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
     <!-- ヘッダーナビゲーション -->

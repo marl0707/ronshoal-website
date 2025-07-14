@@ -498,8 +498,9 @@ function startInteractiveExperience() {
         <!-- フェーズ3: 最後の日 -->
         <div class="last-day-phase" id="phase3">
             <div class="last-day-container">
-                <h2 class="last-day-title">もし明日がなかったら</h2>
-                <textarea class="last-day-input" id="lastDayInput" placeholder="誰に何を伝えたいですか？何をやり残していますか？"></textarea>
+                <h2 class="last-day-title">もし今日が人生最後の日だったら</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.8;">あなたは何をしますか？誰に何を伝えたいですか？</p>
+                <textarea class="last-day-input" id="lastDayInput" placeholder="大切な人に伝えたいこと、やり残したこと、感謝の気持ち...&#10;&#10;今日が最後だとしたら、あなたは何を選びますか？"></textarea>
                 <button class="last-day-submit" onclick="processLastDay()">次へ</button>
             </div>
         </div>
@@ -513,8 +514,8 @@ function startInteractiveExperience() {
                 </div>
                 
                 <div class="regret-categories">
-                    <div class="regret-category">
-                        <h3 class="category-title">自分らしさ・本音</h3>
+                    <div class="regret-category" style="animation-delay: 0.1s;">
+                        <h3 class="category-title">🎭 自分らしさ・本音</h3>
                         <div class="regret-items">
                             <div class="regret-item" onclick="toggleCheck(this)">
                                 <div class="regret-checkbox"></div>
@@ -527,6 +528,78 @@ function startInteractiveExperience() {
                             <div class="regret-item" onclick="toggleCheck(this)">
                                 <div class="regret-checkbox"></div>
                                 <span class="regret-text">自分の感情を素直に表現できていない</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regret-category" style="animation-delay: 0.2s;">
+                        <h3 class="category-title">💼 仕事・キャリア</h3>
+                        <div class="regret-items">
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">仕事ばかりで人生を楽しめていない</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">本当にやりたい仕事に挑戦していない</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">お金のためだけに働いている</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regret-category" style="animation-delay: 0.3s;">
+                        <h3 class="category-title">❤️ 人間関係</h3>
+                        <div class="regret-items">
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">大切な人に「ありがとう」を伝えていない</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">家族や友人との時間を大切にしていない</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">素直に謝れない関係がある</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regret-category" style="animation-delay: 0.4s;">
+                        <h3 class="category-title">🏃 健康・身体</h3>
+                        <div class="regret-items">
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">健康を当たり前だと思っている</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">運動や健康管理を後回しにしている</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">ストレスを溜め込んでいる</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="regret-category" style="animation-delay: 0.5s;">
+                        <h3 class="category-title">🚀 挑戦・成長</h3>
+                        <div class="regret-items">
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">失敗を恐れて挑戦していない</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">夢を「いつか」と先延ばしにしている</span>
+                            </div>
+                            <div class="regret-item" onclick="toggleCheck(this)">
+                                <div class="regret-checkbox"></div>
+                                <span class="regret-text">新しいことを学ぶのを止めている</span>
                             </div>
                         </div>
                     </div>
@@ -543,9 +616,17 @@ function startInteractiveExperience() {
                     <h2 class="letter-title">80歳のあなたからの手紙</h2>
                 </div>
                 <div class="letter-content" id="letterContent">
-                    <p>若い日の私へ</p>
-                    <p>人生はあっという間でした。後悔しないように、今を大切に生きてください。</p>
-                    <p>家族との時間、健康、そして自分らしく生きることを忘れずに。</p>
+                    <p style="font-size: 1.4rem; margin-bottom: 2rem;">80歳のあなたから、今のあなたへ</p>
+                    <p style="margin-bottom: 1.5rem;">こんにちは、若い日の私。</p>
+                    <p style="margin-bottom: 1.5rem;">人生はあっという間でした。振り返ると、一番後悔しているのは「やらなかったこと」です。</p>
+                    <p style="margin-bottom: 1.5rem;">仕事ばかりで家族との時間を犠牲にしたこと。<br>
+                    健康を当たり前だと思っていたこと。<br>
+                    「いつか」と先延ばしにした夢があったこと。</p>
+                    <p style="margin-bottom: 1.5rem;">でも、今のあなたにはまだ時間がある。</p>
+                    <p style="margin-bottom: 1.5rem;">大切な人に「ありがとう」と「愛してる」を伝えて。<br>
+                    自分の心に正直に生きて。<br>
+                    健康は何より大切な財産だと忘れないで。</p>
+                    <p style="font-weight: bold;">後悔のない人生を、今から始めてください。</p>
                 </div>
                 <button class="last-day-submit" onclick="showChoices()" style="margin-top: 2rem;">今すぐ行動を始める</button>
             </div>
@@ -708,6 +789,7 @@ function selectService(service) {
 }
 
 // グローバルスコープに関数を公開
+window.initializeInteractiveExperience = startInteractiveExperience;
 window.startInteractiveExperience = startInteractiveExperience;
 window.closeInteractiveExperience = closeInteractiveExperience;
 window.startJourney = startJourney;
