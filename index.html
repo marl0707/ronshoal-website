@@ -729,47 +729,43 @@
     
     
     <!-- フッター -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>会社情報</h4>
-                <ul class="footer-links">
-                    <li><a href="/about.html">会社概要</a></li>
-                    <li><a href="/contact.html">お問い合わせ</a></li>
-                    <li><a href="/privacy.html">プライバシーポリシー</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>医療サービス</h4>
-                <ul class="footer-links">
-                    <li><a href="/services/kenshin-plus.html">健診プラス</a></li>
-                    <li><a href="/services/health-passport.html">健康パスポート</a></li>
-                    <li><a href="/services/workplace-clinic.html">職場deクリニック</a></li>
-                    <li><a href="/ashisuku-navi/index.html">足育ナビ</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>その他サービス</h4>
-                <ul class="footer-links">
-                    <li><a href="/services/ai-web-development.html">AIバーガー</a></li>
-                    <li><a href="/services/social-insurance/index.html">社会保険サポート</a></li>
-                    <li><a href="/services/consulting.html">コンサルティング</a></li>
-                    <li><a href="/services/high-school-business.html">高校企業部</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>フォローする</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
+      <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          <a href="/services/health-passport/medical-diet.html">医療ダイエット</a>
+          <a href="/services/health-passport/sleep-apnea.html">睡眠時無呼吸症候群治療</a>
+          <a href="/services/health-passport/mens-health.html">男性ヘルスケア</a>
+          <a href="/services/health-passport/exosome-treatment.html">エクソソーム治療</a>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2021 Ronshoal.llc | Good Small Company</p>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          <a href="/services/agi-step.html">AGIステップ</a>
         </div>
-    </footer>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
     
     <!-- インタラクティブ体験（別画面） -->
     <div id="interactiveExperience">
@@ -793,132 +789,16 @@
         
         // インタラクティブ体験を開始
         function startInteractiveExperience() {
-            // インタラクティブコンテンツのHTMLを動的に挿入
-            const experienceDiv = document.getElementById('interactiveExperience');
-            experienceDiv.innerHTML = `
-                <style>
-                    /* インタラクティブ体験用のスタイル */
-                    #interactiveExperience {
-                        font-family: 'Noto Sans JP', sans-serif;
-                        background: #000;
-                        color: #fff;
-                    }
-                    
-                    .skip-experience {
-                        position: fixed;
-                        top: 20px;
-                        right: 20px;
-                        padding: 0.5rem 1.5rem;
-                        background: transparent;
-                        border: 1px solid rgba(255, 255, 255, 0.3);
-                        color: rgba(255, 255, 255, 0.7);
-                        font-size: 0.9rem;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                        z-index: 10000;
-                        border-radius: 25px;
-                    }
-                    
-                    .skip-experience:hover {
-                        border-color: rgba(255, 255, 255, 0.8);
-                        color: #fff;
-                        background: rgba(255, 255, 255, 0.1);
-                    }
-                    
-                    /* 各フェーズのスタイル（既存のものを流用） */
-                    .age-input-phase {
-                        position: fixed;
-                        width: 100%;
-                        height: 100vh;
-                        background: #000;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        z-index: 1000;
-                    }
-                    
-                    .age-box {
-                        text-align: center;
-                    }
-                    
-                    .age-box h1 {
-                        font-size: 2.5rem;
-                        font-weight: 300;
-                        margin-bottom: 2rem;
-                        opacity: 0.9;
-                    }
-                    
-                    .age-input {
-                        font-size: 4rem;
-                        background: transparent;
-                        border: none;
-                        border-bottom: 2px solid #fff;
-                        color: #fff;
-                        text-align: center;
-                        width: 200px;
-                        padding: 1rem;
-                        margin: 0 1rem;
-                    }
-                    
-                    .age-submit {
-                        display: block;
-                        margin: 3rem auto 0;
-                        padding: 1rem 3rem;
-                        background: transparent;
-                        border: 2px solid #fff;
-                        color: #fff;
-                        font-size: 1.2rem;
-                        cursor: pointer;
-                        transition: all 0.3s ease;
-                    }
-                    
-                    .age-submit:hover {
-                        background: #fff;
-                        color: #000;
-                        transform: scale(1.05);
-                    }
-                    
-                    .hidden {
-                        display: none !important;
-                    }
-                    
-                    .fade-out {
-                        opacity: 0 !important;
-                        pointer-events: none;
-                    }
-                </style>
-                
-                <!-- スキップボタン -->
-                <button class="skip-experience" onclick="closeInteractiveExperience()">閉じる</button>
-                
-                <!-- フェーズ1: 年齢入力 -->
-                <div class="age-input-phase" id="phase1">
-                    <div class="age-box">
-                        <h1>あなたの年齢を教えてください</h1>
-                        <input type="number" class="age-input" id="userAge" min="1" max="120" value="35">
-                        <span style="font-size: 2rem;">歳</span>
-                        <button class="age-submit" onclick="startJourney()">体験を始める</button>
-                    </div>
-                </div>
-                
-                <!-- 他のフェーズは実装済みのものを使用 -->
-            `;
-            
-            experienceDiv.style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // インタラクティブ体験を閉じる
-        function closeInteractiveExperience() {
-            document.getElementById('interactiveExperience').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        // インタラクティブ体験のロジック（簡略版）
-        function startJourney() {
-            alert('インタラクティブ体験の完全版は開発中です。');
-            closeInteractiveExperience();
+            // 外部JSファイルの関数を呼び出す
+            if (typeof window.initializeInteractiveExperience === 'function') {
+                window.initializeInteractiveExperience();
+            } else {
+                console.error('インタラクティブ体験の初期化関数が見つかりません');
+            }
         }
     </script>
+    
+    <!-- Load interactive experience script -->
+    <script src="js/interactive-experience.js"></script>
 </body>
 </html>
