@@ -138,30 +138,12 @@
         .main-hero {
             min-height: 100vh;
             padding-top: 80px;
-            background: var(--gradient-dark);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero-bg-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
-            animation: bgFloat 20s ease-in-out infinite;
-        }
-        
-        @keyframes bgFloat {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-20px) scale(1.05); }
         }
         
         .hero-content {
@@ -173,26 +155,37 @@
             z-index: 1;
         }
         
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.2);
-            color: var(--primary);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            animation: fadeInDown 1s ease-out;
+        .hero-company-name {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 3rem;
+            letter-spacing: 0.1em;
+            opacity: 0;
+            animation: fadeInSlow 3s ease-out 0.5s forwards;
+        }
+        
+        @keyframes fadeInSlow {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
         }
         
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 900;
-            color: #fff;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease-out 0.2s both;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 4rem;
+            line-height: 1.4;
+            opacity: 0;
+            animation: fadeInSlow 3s ease-out 1.5s forwards;
         }
         
         .hero-title .highlight {
@@ -200,23 +193,14 @@
             position: relative;
         }
         
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
         
         .hero-cta {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
+            opacity: 0;
+            animation: fadeInSlow 3s ease-out 2.5s forwards;
         }
         
         .cta-btn {
@@ -234,7 +218,7 @@
         }
         
         .cta-btn.primary {
-            background: var(--gradient-primary);
+            background: var(--primary);
             color: #fff;
             box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
         }
@@ -246,14 +230,44 @@
         
         .cta-btn.secondary {
             background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #333;
+            border: 2px solid #333;
         }
         
         .cta-btn.secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: #333;
+            color: #fff;
             transform: translateY(-2px);
+        }
+        
+        .cta-btn.interactive {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-btn.interactive::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+        
+        .cta-btn.interactive:hover::before {
+            left: 0;
+        }
+        
+        .cta-btn.interactive:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
         }
         
         /* 会社概要セクション */
@@ -448,79 +462,6 @@
             box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
         }
         
-        /* インタラクティブ体験セクション */
-        .interactive-section {
-            padding: 5rem 0;
-            background: var(--gradient-dark);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .interactive-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .interactive-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 1.5rem;
-        }
-        
-        .interactive-desc {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-        
-        .interactive-btn {
-            display: inline-block;
-            padding: 1.5rem 3rem;
-            background: #fff;
-            color: var(--dark);
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .interactive-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: var(--primary);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.5s ease;
-        }
-        
-        .interactive-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .interactive-btn:hover {
-            color: #fff;
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-        
-        .interactive-btn span {
-            position: relative;
-            z-index: 1;
-        }
         
         /* フッター */
         footer {
@@ -680,23 +621,21 @@
     
     <!-- メインヒーローセクション -->
     <section class="main-hero">
-        <div class="hero-bg-pattern"></div>
         <div class="hero-content">
-            <div class="hero-badge">Good Small Company</div>
+            <div class="hero-company-name">ロンショール合同会社</div>
             <h1 class="hero-title">
                 すべての人々に<br>
                 <span class="highlight">後悔のない人生</span>を
             </h1>
-            <p class="hero-subtitle">
-                医療の未来を変える。ストーリーと体験で伝える、<br>
-                唯一無二の健康経営・医療DXカンパニー
-            </p>
             <div class="hero-cta">
                 <a href="#services" class="cta-btn primary">
                     <span>サービスを見る</span>
                 </a>
-                <a href="#interactive" class="cta-btn secondary">
-                    <span>特別な体験を始める</span>
+                <a href="#" class="cta-btn interactive" onclick="startInteractiveExperience(); return false;">
+                    <span>インタラクティブ体験</span>
+                </a>
+                <a href="/about.html" class="cta-btn secondary">
+                    <span>会社について</span>
                 </a>
             </div>
         </div>
@@ -788,19 +727,6 @@
         </div>
     </section>
     
-    <!-- インタラクティブ体験セクション -->
-    <section class="interactive-section" id="interactive">
-        <div class="interactive-content">
-            <h2 class="interactive-title">あなたの人生、後悔はありませんか？</h2>
-            <p class="interactive-desc">
-                残された時間を可視化し、本当に大切なものを見つける<br>
-                特別なインタラクティブ体験をご用意しました
-            </p>
-            <a href="#" class="interactive-btn" onclick="startInteractiveExperience(); return false;">
-                <span>体験を始める</span>
-            </a>
-        </div>
-    </section>
     
     <!-- フッター -->
     <footer>
