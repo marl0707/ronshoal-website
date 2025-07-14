@@ -236,106 +236,76 @@
     
     a { color: var(--primary); text-decoration: none; }
     
-    header {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    /* Header Navigation */
+    .header-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
-    }
-    
-    .header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 10001;
       padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     }
     
-    .logo {
+    .brand-logo {
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    
-    .logo span {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .logo-icon {
-      width: 3rem;
-      height: 3rem;
-      background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: var(--light);
       font-size: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      transition: all 0.3s ease;
-    }
-    
-    .logo:hover .logo-icon {
-      transform: rotate(360deg) scale(1.1);
-      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
-    }
-    
-    nav ul {
+      text-decoration: none;
+      transition: opacity 0.3s ease;
       display: flex;
-      gap: 3rem;
+      align-items: center;
+    }
+    
+    .brand-logo span {
+      color: var(--primary);
+    }
+    
+    .brand-logo:hover {
+      opacity: 0.8;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
       list-style: none;
       margin: 0;
       padding: 0;
     }
     
-    nav li { font-weight: 600; }
-    
-    nav a {
-      color: var(--dark);
+    .nav-link {
+      color: white;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      position: relative;
+      font-weight: 500;
       transition: all 0.3s ease;
+      position: relative;
       padding: 0.5rem 1rem;
-      border-radius: 25px;
+      font-size: 1rem;
     }
     
-    nav a::before {
+    .nav-link::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 50%;
       width: 0;
       height: 2px;
-      background: var(--gradient-primary);
-      transition: all 0.3s ease;
+      background: var(--primary);
       transform: translateX(-50%);
+      transition: width 0.3s ease;
     }
     
-    nav a:hover::before {
-      width: 80%;
+    .nav-link:hover::after {
+      width: 100%;
     }
     
-    nav a:hover {
+    .nav-link:hover {
       color: var(--primary);
-      transform: translateY(-2px);
-      background: rgba(0, 212, 255, 0.1);
-      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
     }
     
     .hero {
@@ -802,18 +772,30 @@
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    
+    .footer-section h4 {
+      color: var(--primary);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
     }
     
     .footer-links {
-      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
     
     .footer-links a {
       color: rgba(255, 255, 255, 0.8);
-      margin: 0 1rem;
       text-decoration: none;
       transition: color 0.3s ease;
+      font-size: 0.95rem;
     }
     
     .footer-links a:hover {
@@ -821,8 +803,12 @@
     }
     
     .footer-copy {
+      grid-column: 1 / -1;
+      text-align: center;
       color: rgba(255, 255, 255, 0.6);
       font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     /* モバイルメニューボタン */
@@ -921,7 +907,7 @@
         left: -100%;
         width: 100%;
         height: calc(100vh - 60px);
-        background: white;
+        background: rgba(26, 26, 46, 0.98);
         transition: left 0.3s ease;
         box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         z-index: 999;
@@ -932,25 +918,25 @@
         left: 0;
       }
       
-      nav ul {
+      .nav-links {
         flex-direction: column;
         gap: 0;
         padding: 2rem 0;
       }
       
-      nav li {
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+      .nav-links li {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
       }
       
-      nav a {
+      .nav-link {
         display: block;
         padding: 1rem 2rem;
         font-size: 1rem;
         border-radius: 0;
       }
       
-      nav a:hover {
-        background: var(--gray);
+      .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
       }
       
       .mobile-menu-btn {
@@ -1119,28 +1105,23 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">
-        <img src="images/logo.png" alt="ロンショール" style="height: 48px; vertical-align: middle;">
-        <span>ロンショール合同会社</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">TOP</a></li>
-          <li><a href="index.html#story">ストーリー</a></li>
-          <li><a href="index.html#mission">ミッション</a></li>
-          <li><a href="index.html#services">サービス</a></li>
-          <li><a href="about.html">会社情報</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-btn" aria-label="メニュー">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+  <!-- ヘッダーナビゲーション -->
+  <header class="header-nav">
+    <a href="/" class="brand-logo">
+      <img src="images/logo.png" alt="ロンショール" style="height: 30px; vertical-align: middle; margin-right: 8px;">
+      <span>Ronshoal.llc</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/medical-services.html" class="nav-link">医療サービス一覧</a></li>
+        <li><a href="/other-services.html" class="nav-link">その他サービス一覧</a></li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
   
   <section class="hero">
@@ -1277,17 +1258,39 @@
   
   <footer>
     <div class="footer-content">
-      <div class="footer-links">
-        <a href="index.html">ホーム</a>｜
-        <a href="index.html#story">ストーリー</a>｜
-        <a href="index.html#mission">ミッション</a>｜
-        <a href="index.html#services">サービス</a>｜
-        <a href="about.html">会社情報</a>｜
-        <a href="contact.html">お問い合わせ</a>｜
-        Good Small Company
-        ｜ <a href="privacy.html">プライバシーポリシー</a>
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/kenshin-plus.html">健診プラス</a>
+          <a href="/health-passport.html">健康パスポート</a>
+          <a href="/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi.html">足育ナビ</a>
+          <a href="/medical-diet.html">医療ダイエット</a>
+          <a href="/sleep-apnea.html">睡眠時無呼吸症候群治療</a>
+          <a href="/mens-health.html">男性ヘルスケア</a>
+          <a href="/exosome.html">エクソソーム治療</a>
+        </div>
       </div>
-      <div class="footer-copy">©️2021 Ronshoal.llc</div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/ai-burger.html">AIバーガー</a>
+          <a href="/social-insurance.html">個人事業主向け社会保険</a>
+          <a href="/medical-consulting.html">医療介護経営コンサルティング</a>
+          <a href="/high-school-business.html">高校企業部</a>
+          <a href="/agi-step.html">AGIステップ</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="index.html">ホーム</a>
+          <a href="about.html">会社情報</a>
+          <a href="contact.html">お問い合わせ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
     </div>
   </footer>
   
