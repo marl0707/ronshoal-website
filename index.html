@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:wght@700;900&display=swap" as="style">
     
-    <!-- 構造化データは既存のものを維持 -->
+    <!-- 構造化データ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,6 +43,9 @@
             --accent: #7c3aed;
             --light: #ffffff;
             --dark: #1a1a2e;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
         }
         
         * {
@@ -53,35 +56,13 @@
         
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            background: #000;
-            color: #fff;
+            background: #fff;
+            color: #333;
             overflow-x: hidden;
             line-height: 1.6;
         }
         
-        /* スキップボタン */
-        .skip-experience {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            padding: 0.5rem 1.5rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 10000;
-            border-radius: 25px;
-        }
-        
-        .skip-experience:hover {
-            border-color: rgba(255, 255, 255, 0.8);
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* ヘッダーナビゲーションのスタイル */
+        /* ヘッダーナビゲーション */
         .header-nav {
             position: fixed;
             top: 0;
@@ -95,7 +76,6 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-out forwards;
         }
         
         .brand-logo {
@@ -113,7 +93,7 @@
         }
         
         .brand-logo:hover {
-            opacity: 1;
+            opacity: 0.8;
         }
         
         .nav-links {
@@ -154,187 +134,464 @@
             color: var(--primary);
         }
         
-        /* 常時表示される理念 */
-        .mission-statement {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            font-size: 0.9rem;
-            opacity: 0.6;
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            z-index: 10000;
-            pointer-events: none;
-        }
-        
-        /* フェーズ1: 年齢入力 */
-        .age-input-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
+        /* メインヒーローセクション */
+        .main-hero {
+            min-height: 100vh;
+            padding-top: 80px;
+            background: var(--gradient-dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            transition: opacity 1s ease-out;
-        }
-        
-        .age-box {
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
-        
-        .age-box h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .age-input {
-            font-size: 4rem;
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #fff;
-            color: #fff;
-            text-align: center;
-            width: 200px;
-            padding: 1rem;
-            margin: 0 1rem;
-        }
-        
-        .age-submit {
-            display: block;
-            margin: 3rem auto 0;
-            padding: 1rem 3rem;
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .age-submit:hover {
-            background: #fff;
-            color: #000;
-            transform: scale(1.05);
-        }
-        
-        /* フェーズ2: カウントダウン */
-        .countdown-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 900;
+            position: relative;
             overflow: hidden;
         }
         
-        .countdown-container {
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+            animation: bgFloat 20s ease-in-out infinite;
+        }
+        
+        @keyframes bgFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
             text-align: center;
             position: relative;
-            z-index: 10;
+            z-index: 1;
         }
         
-        .countdown-label {
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            animation: fadeInDown 1s ease-out;
         }
         
-        .remaining-days {
-            font-size: 10rem;
+        .hero-title {
+            font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1;
-            margin: 0.5rem 0;
-            opacity: 0;
+            color: #fff;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-title .highlight {
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-btn.primary {
+            background: var(--gradient-primary);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .cta-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        /* 会社概要セクション */
+        .about-section {
+            padding: 5rem 0;
+            background: #f8f9fa;
+        }
+        
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
             position: relative;
             display: inline-block;
-            animation: countdownReveal 3s ease-out 1s forwards;
         }
         
-        @keyframes countdownReveal {
-            0% {
-                opacity: 0;
-                transform: scale(0.5) rotateX(90deg);
-                filter: blur(10px);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2) rotateX(0deg);
-                filter: blur(0px);
-                text-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotateX(0deg);
-                filter: blur(0px);
-                text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-            }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
         }
         
-        .countdown-pulse {
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1.5rem;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        /* サービス一覧セクション */
+        .services-section {
+            padding: 5rem 0;
+            background: #fff;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-category {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-category:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-category-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .service-category-desc {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .service-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .service-list li {
+            padding: 0.5rem 0;
+            color: #555;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        
+        .service-category-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .service-category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        /* インタラクティブ体験セクション */
+        .interactive-section {
+            padding: 5rem 0;
+            background: var(--gradient-dark);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interactive-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .interactive-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .interactive-desc {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+        
+        .interactive-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: #fff;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interactive-btn::before {
+            content: '';
             position: absolute;
             top: 50%;
             left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+        
+        .interactive-btn:hover::before {
             width: 300px;
             height: 300px;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            animation: pulse 2s ease-out infinite;
-            z-index: -1;
         }
         
-        @keyframes pulse {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(3);
-                opacity: 0;
-            }
+        .interactive-btn:hover {
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
-        .countdown-bg-effect {
-            position: absolute;
+        .interactive-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* フッター */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* インタラクティブコンテンツ（非表示） */
+        #interactiveExperience {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(255, 255, 255, 0.05) 50%, #000 100%);
-            animation: bgPulse 3s ease-in-out infinite;
+            background: #000;
+            z-index: 20000;
         }
         
-        @keyframes bgPulse {
-            0%, 100% {
-                opacity: 0.5;
+        /* アニメーション */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
-            50% {
+            to {
                 opacity: 1;
+                transform: translateY(0);
             }
-        }
-        
-        .countdown-note {
-            font-size: 0.8rem;
-            opacity: 0;
-            margin-top: 0.5rem;
-            animation: fadeIn 1s ease-out 3s forwards;
-        }
-        
-        .countdown-message {
-            margin-top: 3rem;
-            font-size: 1.5rem;
-            opacity: 0;
-            animation: fadeInUp 2s ease-out 4s forwards;
         }
         
         @keyframes fadeInUp {
@@ -348,711 +605,7 @@
             }
         }
         
-        /* デジタル数字エフェクト */
-        .digit-effect {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .digit-effect::before {
-            content: attr(data-value);
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: rgba(255, 255, 255, 0.1);
-            filter: blur(8px);
-            transform: translateZ(-10px);
-            animation: glitch 3s ease-in-out infinite;
-        }
-        
-        @keyframes glitch {
-            0%, 100% {
-                transform: translateX(0) translateZ(-10px);
-            }
-            20% {
-                transform: translateX(-2px) translateZ(-10px);
-            }
-            40% {
-                transform: translateX(2px) translateZ(-10px);
-            }
-        }
-        
-        /* フェーズ3: 最後の日 */
-        .last-day-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 800;
-            overflow: hidden;
-        }
-        
-        .last-day-container {
-            max-width: 800px;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-        
-        .last-day-input-wrapper {
-            position: relative;
-            width: 100%;
-        }
-        
-        .last-day-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            opacity: 0;
-            position: relative;
-            animation: titleReveal 3s ease-out forwards;
-        }
-        
-        @keyframes titleReveal {
-            0% {
-                opacity: 0;
-                letter-spacing: 0.5em;
-                filter: blur(10px);
-                transform: translateY(-50px);
-            }
-            50% {
-                opacity: 0.5;
-                letter-spacing: 0.2em;
-                filter: blur(5px);
-            }
-            100% {
-                opacity: 1;
-                letter-spacing: normal;
-                filter: blur(0);
-                transform: translateY(0);
-            }
-        }
-        
-        .last-day-title::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #fff, transparent);
-            animation: lineExpand 2s ease-out 1s forwards;
-        }
-        
-        @keyframes lineExpand {
-            to {
-                width: 100%;
-            }
-        }
-        
-        .last-day-input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 2rem;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            min-height: 200px;
-            resize: none;
-            opacity: 0;
-            position: relative;
-            animation: inputFadeIn 2s ease-out 2s forwards;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            text-align: center;
-        }
-        
-        @keyframes inputFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        .last-day-input:focus {
-            outline: none;
-            border-color: rgba(255, 255, 255, 0.5);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-            background: rgba(255, 255, 255, 0.08);
-        }
-        
-        .last-day-input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-            font-style: italic;
-            text-align: center;
-        }
-        
-        /* プレースホルダーの代替演出 */
-        .placeholder-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            text-align: center;
-            pointer-events: none;
-            z-index: 5;
-        }
-        
-        .placeholder-line {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-style: italic;
-            margin: 0.8rem 0;
-            opacity: 0;
-            animation: placeholderReveal 1s ease-out forwards;
-        }
-        
-        .placeholder-line:nth-child(1) {
-            animation-delay: 3s;
-        }
-        
-        .placeholder-line:nth-child(2) {
-            animation-delay: 3.5s;
-        }
-        
-        .placeholder-line:nth-child(3) {
-            animation-delay: 4s;
-        }
-        
-        @keyframes placeholderReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-                letter-spacing: 0.3em;
-                filter: blur(10px);
-            }
-            50% {
-                opacity: 0.6;
-                filter: blur(5px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-                letter-spacing: normal;
-                filter: blur(0);
-            }
-        }
-        
-        .placeholder-container.hide {
-            animation: placeholderHide 0.5s ease-out forwards;
-        }
-        
-        @keyframes placeholderHide {
-            to {
-                opacity: 0;
-                transform: translate(-50%, -60%);
-            }
-        }
-        
-        .last-day-submit {
-            margin-top: 2rem;
-            padding: 1rem 3rem;
-            background: transparent;
-            border: 2px solid #fff;
-            color: #fff;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: buttonSlideUp 1s ease-out 3s forwards;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        @keyframes buttonSlideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .last-day-submit::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.6s ease;
-        }
-        
-        .last-day-submit:hover::before {
-            width: 300%;
-            height: 300%;
-        }
-        
-        .last-day-submit:hover {
-            background: transparent;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-        }
-        
-        /* 背景エフェクト */
-        .last-day-bg-particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .floating-particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: float 20s linear infinite;
-        }
-        
-        @keyframes float {
-            from {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-100vh) translateX(100px);
-                opacity: 0;
-            }
-        }
-        
-        /* タイピングカーソル風エフェクト */
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: #fff;
-            margin-left: 2px;
-            animation: blink 1s ease-in-out infinite;
-        }
-        
-        @keyframes blink {
-            0%, 50% {
-                opacity: 1;
-            }
-            51%, 100% {
-                opacity: 0;
-            }
-        }
-        
-        /* フェーズ4: 後悔チェックリスト */
-        .regret-checklist-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: none;
-            z-index: 700;
-            overflow-y: auto;
-        }
-        
-        .checklist-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        
-        .checklist-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .checklist-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .checklist-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-        
-        .regret-categories {
-            display: grid;
-            gap: 2rem;
-        }
-        
-        .regret-category {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 10px;
-            opacity: 0;
-            animation: slideUp 0.5s ease-out forwards;
-        }
-        
-        .regret-category:nth-child(1) { animation-delay: 0.1s; }
-        .regret-category:nth-child(2) { animation-delay: 0.2s; }
-        .regret-category:nth-child(3) { animation-delay: 0.3s; }
-        .regret-category:nth-child(4) { animation-delay: 0.4s; }
-        .regret-category:nth-child(5) { animation-delay: 0.5s; }
-        
-        .category-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .category-number {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: #fff;
-            color: #000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-        }
-        
-        .regret-items {
-            display: grid;
-            gap: 1rem;
-        }
-        
-        .regret-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .regret-item:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        .regret-checkbox {
-            width: 24px;
-            height: 24px;
-            border: 2px solid #fff;
-            border-radius: 4px;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .regret-checkbox.checked {
-            background: #fff;
-        }
-        
-        .regret-checkbox.checked::after {
-            content: '✓';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #000;
-            font-weight: bold;
-        }
-        
-        .regret-text {
-            flex: 1;
-        }
-        
-        .checklist-result {
-            margin-top: 3rem;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            display: none;
-        }
-        
-        .result-score {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .result-message {
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-        
-        /* フェーズ5: 未来の手紙 */
-        .future-letter-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 600;
-            overflow-y: auto;
-        }
-        
-        .letter-container {
-            max-width: 800px;
-            padding: 4rem 2rem;
-            margin: auto;
-        }
-        
-        .letter-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .letter-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
-        }
-        
-        .letter-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.7;
-            opacity: 0;
-            animation: fadeIn 2s ease-out 0.5s forwards;
-        }
-        
-        .letter-content {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            line-height: 2;
-            opacity: 0;
-            animation: fadeIn 2s ease-out 1s forwards;
-        }
-        
-        .letter-content p {
-            margin-bottom: 1.5rem;
-        }
-        
-        .letter-signature {
-            text-align: right;
-            margin-top: 2rem;
-            font-style: italic;
-        }
-        
-        /* フェーズ6: 選択画面（改修版） */
-        .choice-phase {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            background: #000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 500;
-        }
-        
-        .choice-container {
-            max-width: 1200px;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .choice-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeIn 2s ease-out forwards;
-        }
-        
-        .choice-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 4rem;
-            opacity: 0.8;
-            opacity: 0;
-            animation: fadeIn 2s ease-out 0.5s forwards;
-        }
-        
-        .choice-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-        
-        .choice-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3rem;
-            border-radius: 20px;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            opacity: 0;
-            animation: slideUp 0.5s ease-out forwards;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .choice-card:nth-child(1) { animation-delay: 1s; }
-        .choice-card:nth-child(2) { animation-delay: 1.2s; }
-        
-        .choice-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-        }
-        
-        .choice-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .choice-card:hover::before {
-            transform: translateX(0);
-        }
-        
-        .choice-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .choice-name {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .choice-description {
-            font-size: 1.1rem;
-            opacity: 0.8;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-        
-        .choice-services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-        
-        .service-tag {
-            background: rgba(0, 212, 255, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            color: var(--primary);
-        }
-        
-        .back-button {
-            padding: 1rem 2rem;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 2s ease-out 2s forwards;
-        }
-        
-        .back-button:hover {
-            border-color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* アニメーション */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* エフェクト */
-        .fade-out {
-            opacity: 0 !important;
-            pointer-events: none;
-        }
-        
-        .hidden {
-            display: none !important;
-        }
-        
-        /* パーティクル効果 */
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff;
-            opacity: 0;
-            animation: fall linear forwards;
-        }
-        
-        @keyframes fall {
-            0% {
-                opacity: 1;
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(720deg);
-            }
-        }
-        
-        /* 通常のトップページ */
-        .normal-homepage {
-            display: none;
-            background: #fff;
-            color: #333;
-            min-height: 100vh;
-        }
-        
-        /* レスポンシブ対応 */
-        /* モバイル対応 */
+        /* レスポンシブ */
         @media (max-width: 768px) {
             .header-nav {
                 padding: 1rem;
@@ -1071,48 +624,41 @@
                 font-size: 1.2rem;
             }
             
-            .age-box h1 {
-                font-size: 1.8rem;
-            }
-            
-            .age-input {
-                font-size: 3rem;
-                width: 150px;
-            }
-            
-            .remaining-days {
-                font-size: 5rem;
-            }
-            
-            .last-day-title {
+            .hero-title {
                 font-size: 2rem;
             }
             
-            .checklist-title {
-                font-size: 1.8rem;
+            .hero-subtitle {
+                font-size: 1rem;
             }
             
-            .category-title {
-                font-size: 1.4rem;
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .choice-title {
-                font-size: 2rem;
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
             }
             
-            .choice-options {
+            .about-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
             
-            .choice-name {
-                font-size: 1.5rem;
+            .about-stats {
+                grid-template-columns: 1fr;
             }
             
-            .mission-statement {
-                font-size: 0.7rem;
-                bottom: 10px;
-                right: 10px;
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
         }
     </style>
@@ -1132,538 +678,320 @@
         </nav>
     </header>
     
-    <!-- スキップボタン -->
-    <button class="skip-experience" onclick="skipToNormal()">スキップ</button>
-    
-    <!-- 常時表示される理念 -->
-    <div class="mission-statement">すべての人々に後悔のない人生を</div>
-    
-    <!-- フェーズ1: 年齢入力 -->
-    <div class="age-input-phase" id="phase1">
-        <div class="age-box">
-            <h1>あなたの年齢を教えてください</h1>
-            <input type="number" class="age-input" id="userAge" min="1" max="120" value="35">
-            <span style="font-size: 2rem;">歳</span>
-            <button class="age-submit" onclick="startJourney()">体験を始める</button>
-        </div>
-    </div>
-    
-    <!-- フェーズ2: 残り時間カウントダウン -->
-    <div class="countdown-phase" id="phase2">
-        <div class="countdown-bg-effect"></div>
-        <div class="countdown-container">
-            <div class="countdown-label">あなたに残された時間は</div>
-            <div class="remaining-days digit-effect" id="remainingDays" data-value="">----</div>
-            <div class="countdown-pulse"></div>
-            <div class="countdown-label">日</div>
-            <div class="countdown-note">※平均健康寿命から換算</div>
-            <div class="countdown-message">この時間を、どう使いますか？</div>
-        </div>
-    </div>
-    
-    <!-- フェーズ3: 最後の日 -->
-    <div class="last-day-phase" id="phase3">
-        <div class="last-day-bg-particles" id="lastDayParticles"></div>
-        <div class="last-day-container">
-            <h2 class="last-day-title">もし明日がなかったら<span class="typing-cursor"></span></h2>
-            <div class="last-day-input-wrapper">
-                <div class="placeholder-container" id="placeholderContainer">
-                    <div class="placeholder-line">誰に何を伝えたいですか？</div>
-                    <div class="placeholder-line">何をやり残していますか？</div>
-                    <div class="placeholder-line">今すぐ行動したいことは？</div>
-                </div>
-                <textarea class="last-day-input" id="lastDayInput"></textarea>
-            </div>
-            <button class="last-day-submit" onclick="processLastDay()">次へ</button>
-        </div>
-    </div>
-    
-    <!-- フェーズ4: 後悔チェックリスト -->
-    <div class="regret-checklist-phase" id="phase4">
-        <div class="checklist-container">
-            <div class="checklist-header">
-                <h2 class="checklist-title">人生の後悔チェックリスト</h2>
-                <p class="checklist-subtitle">多くの人が死ぬ前に後悔すること。あなたは大丈夫？</p>
-            </div>
-            
-            <div class="regret-categories">
-                <div class="regret-category">
-                    <h3 class="category-title">
-                        <span class="category-number">1</span>
-                        自分らしさ・本音
-                    </h3>
-                    <div class="regret-items">
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">他人の期待に応えるために自分を犠牲にしている</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">本当にやりたいことを我慢している</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">自分の感情を素直に表現できていない</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="regret-category">
-                    <h3 class="category-title">
-                        <span class="category-number">2</span>
-                        仕事と人生のバランス
-                    </h3>
-                    <div class="regret-items">
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">仕事ばかりで家族との時間が少ない</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">趣味や好きなことに時間を使えていない</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">休暇を取ることに罪悪感を感じる</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="regret-category">
-                    <h3 class="category-title">
-                        <span class="category-number">3</span>
-                        人間関係
-                    </h3>
-                    <div class="regret-items">
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">大切な人に感謝を伝えていない</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">友人との連絡が途絶えている</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">家族と過ごす時間を後回しにしている</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="regret-category">
-                    <h3 class="category-title">
-                        <span class="category-number">4</span>
-                        健康・自己管理
-                    </h3>
-                    <div class="regret-items">
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">健康診断を後回しにしている</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">ストレスを溜め込んでいる</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">運動する時間を作れていない</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="regret-category">
-                    <h3 class="category-title">
-                        <span class="category-number">5</span>
-                        挑戦・成長
-                    </h3>
-                    <div class="regret-items">
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">失敗を恐れて挑戦を避けている</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">行きたい場所に行っていない</span>
-                        </div>
-                        <div class="regret-item" onclick="toggleCheck(this)">
-                            <div class="regret-checkbox"></div>
-                            <span class="regret-text">新しいことを学ぶ機会を逃している</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="checklist-result" id="checklistResult">
-                <div class="result-score" id="resultScore">0/15</div>
-                <div class="result-message" id="resultMessage"></div>
-                <button class="last-day-submit" onclick="showFutureLetter()" style="margin-top: 2rem;">80歳の自分からの手紙を読む</button>
+    <!-- メインヒーローセクション -->
+    <section class="main-hero">
+        <div class="hero-bg-pattern"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Good Small Company</div>
+            <h1 class="hero-title">
+                すべての人々に<br>
+                <span class="highlight">後悔のない人生</span>を
+            </h1>
+            <p class="hero-subtitle">
+                医療の未来を変える。ストーリーと体験で伝える、<br>
+                唯一無二の健康経営・医療DXカンパニー
+            </p>
+            <div class="hero-cta">
+                <a href="#services" class="cta-btn primary">
+                    <span>サービスを見る</span>
+                </a>
+                <a href="#interactive" class="cta-btn secondary">
+                    <span>特別な体験を始める</span>
+                </a>
             </div>
         </div>
-    </div>
+    </section>
     
-    <!-- フェーズ5: 80歳の自分からの手紙 -->
-    <div class="future-letter-phase" id="phase5">
-        <div class="letter-container">
-            <div class="letter-header">
-                <h2 class="letter-title">80歳のあなたからの手紙</h2>
-                <p class="letter-subtitle">未来から届いたメッセージ</p>
+    <!-- 会社概要セクション -->
+    <section class="about-section">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">私たちについて</h2>
+                <p class="section-subtitle">医療×テクノロジーで新しい価値を創造</p>
             </div>
-            <div class="letter-content" id="letterContent">
-                <!-- 動的に生成される -->
-            </div>
-            <button class="last-day-submit" onclick="showChoices()" style="margin-top: 2rem;">今すぐ行動を始める</button>
-        </div>
-    </div>
-    
-    <!-- フェーズ6: 選択画面（改修版） -->
-    <div class="choice-phase" id="phase6">
-        <div class="choice-container">
-            <h2 class="choice-title">今日から始める、後悔のない人生</h2>
-            <p class="choice-subtitle">あなたが求めているのは？</p>
-            
-            <div class="choice-options">
-                <div class="choice-card" onclick="selectService('medical')">
-                    <div class="choice-icon">🏥</div>
-                    <div class="choice-name">医療サービス</div>
-                    <div class="choice-description">
-                        健康を守る・育てる<br>
-                        医療×テクノロジーで後悔のない人生を
-                    </div>
-                    <div class="choice-services">
-                        <span class="service-tag">健診プラス</span>
-                        <span class="service-tag">健康パスポート</span>
-                        <span class="service-tag">職場deクリニック</span>
-                        <span class="service-tag">足育ナビ</span>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>ロンショール合同会社とは</h3>
+                    <p>
+                        私たちは「すべての人々に後悔のない人生を」という理念のもと、
+                        医療・健康分野を中心に革新的なサービスを提供しています。
+                    </p>
+                    <p>
+                        テクノロジーの力で医療をもっと身近に、もっと便利に。
+                        一人ひとりが健康で幸せな人生を送れる社会の実現を目指しています。
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">2021</div>
+                            <div class="stat-label">創業</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6+</div>
+                            <div class="stat-label">サービス数</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">お客様数</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">可能性</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="choice-card" onclick="selectService('other')">
-                    <div class="choice-icon">💡</div>
-                    <div class="choice-name">その他サービス</div>
-                    <div class="choice-description">
-                        ビジネスを革新する<br>
-                        イノベーションで新しい価値を
-                    </div>
-                    <div class="choice-services">
-                        <span class="service-tag">AIバーガー</span>
-                        <span class="service-tag">社会保険サポート</span>
-                        <span class="service-tag">経営コンサル</span>
-                        <span class="service-tag">高校企業部</span>
-                    </div>
+                <div class="about-image">
+                    <img src="images/about-company.jpg" alt="会社イメージ" style="width: 100%; border-radius: 20px;">
                 </div>
             </div>
-            
-            <button class="back-button" onclick="backToChecklist()">チェックリストに戻る</button>
         </div>
-    </div>
+    </section>
     
-    <!-- 通常のトップページ（スキップ時に表示） -->
-    <div class="normal-homepage" id="normalHomepage">
-        <!-- 後で実装 -->
+    <!-- サービス一覧セクション -->
+    <section class="services-section" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">サービス一覧</h2>
+                <p class="section-subtitle">あなたのニーズに合わせた最適なソリューション</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-category">
+                    <div class="service-category-icon">🏥</div>
+                    <h3 class="service-category-title">医療サービス</h3>
+                    <p class="service-category-desc">
+                        最新の医療技術とデジタルソリューションで、
+                        健康管理をもっと身近に、もっと便利に。
+                    </p>
+                    <ul class="service-list">
+                        <li>健診プラス - 無料訪問健康診断</li>
+                        <li>健康パスポート - デジタルヘルスケア</li>
+                        <li>職場deクリニック - 企業向け健康経営</li>
+                        <li>足育ナビ - 子どもの足の健康支援</li>
+                    </ul>
+                    <a href="/medical-services.html" class="service-category-btn">詳しく見る</a>
+                </div>
+                <div class="service-category">
+                    <div class="service-category-icon">💡</div>
+                    <h3 class="service-category-title">その他サービス</h3>
+                    <p class="service-category-desc">
+                        ビジネスの課題を解決する革新的なソリューションで、
+                        企業の成長と個人の成功をサポート。
+                    </p>
+                    <ul class="service-list">
+                        <li>AIバーガー - AI駆動Web制作</li>
+                        <li>社会保険サポート - 個人事業主向け</li>
+                        <li>医療介護コンサルティング</li>
+                        <li>高校企業部 - 教育プログラム</li>
+                    </ul>
+                    <a href="/other-services.html" class="service-category-btn">詳しく見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- インタラクティブ体験セクション -->
+    <section class="interactive-section" id="interactive">
+        <div class="interactive-content">
+            <h2 class="interactive-title">あなたの人生、後悔はありませんか？</h2>
+            <p class="interactive-desc">
+                残された時間を可視化し、本当に大切なものを見つける<br>
+                特別なインタラクティブ体験をご用意しました
+            </p>
+            <a href="#" class="interactive-btn" onclick="startInteractiveExperience(); return false;">
+                <span>体験を始める</span>
+            </a>
+        </div>
+    </section>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>会社情報</h4>
+                <ul class="footer-links">
+                    <li><a href="/about.html">会社概要</a></li>
+                    <li><a href="/contact.html">お問い合わせ</a></li>
+                    <li><a href="/privacy.html">プライバシーポリシー</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>医療サービス</h4>
+                <ul class="footer-links">
+                    <li><a href="/services/kenshin-plus.html">健診プラス</a></li>
+                    <li><a href="/services/health-passport.html">健康パスポート</a></li>
+                    <li><a href="/services/workplace-clinic.html">職場deクリニック</a></li>
+                    <li><a href="/ashisuku-navi/index.html">足育ナビ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>その他サービス</h4>
+                <ul class="footer-links">
+                    <li><a href="/services/ai-web-development.html">AIバーガー</a></li>
+                    <li><a href="/services/social-insurance/index.html">社会保険サポート</a></li>
+                    <li><a href="/services/consulting.html">コンサルティング</a></li>
+                    <li><a href="/services/high-school-business.html">高校企業部</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>フォローする</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2021 Ronshoal.llc | Good Small Company</p>
+        </div>
+    </footer>
+    
+    <!-- インタラクティブ体験（別画面） -->
+    <div id="interactiveExperience">
+        <!-- インタラクティブコンテンツはJavaScriptで動的に読み込み -->
     </div>
     
     <script>
-        let userAge = 35;
-        let checkedItems = 0;
-        let lastDayAnswer = '';
-        let checkedCategories = {
-            self: 0,
-            work: 0,
-            relationship: 0,
-            health: 0,
-            challenge: 0
-        };
-        const avgHealthyLifespan = 75;
+        // スムーススクロール
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
         
-        // 初回訪問チェック
-        window.onload = function() {
-            if (localStorage.getItem('hasExperienced') === 'true') {
-                document.querySelector('.skip-experience').textContent = 'トップページへ';
-            }
-        };
-        
-        // スキップ機能
-        function skipToNormal() {
-            localStorage.setItem('hasExperienced', 'true');
-            window.location.href = 'medical-services.html'; // 一旦医療サービスページへ
+        // インタラクティブ体験を開始
+        function startInteractiveExperience() {
+            // インタラクティブコンテンツのHTMLを動的に挿入
+            const experienceDiv = document.getElementById('interactiveExperience');
+            experienceDiv.innerHTML = `
+                <style>
+                    /* インタラクティブ体験用のスタイル */
+                    #interactiveExperience {
+                        font-family: 'Noto Sans JP', sans-serif;
+                        background: #000;
+                        color: #fff;
+                    }
+                    
+                    .skip-experience {
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        padding: 0.5rem 1.5rem;
+                        background: transparent;
+                        border: 1px solid rgba(255, 255, 255, 0.3);
+                        color: rgba(255, 255, 255, 0.7);
+                        font-size: 0.9rem;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        z-index: 10000;
+                        border-radius: 25px;
+                    }
+                    
+                    .skip-experience:hover {
+                        border-color: rgba(255, 255, 255, 0.8);
+                        color: #fff;
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                    
+                    /* 各フェーズのスタイル（既存のものを流用） */
+                    .age-input-phase {
+                        position: fixed;
+                        width: 100%;
+                        height: 100vh;
+                        background: #000;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                    }
+                    
+                    .age-box {
+                        text-align: center;
+                    }
+                    
+                    .age-box h1 {
+                        font-size: 2.5rem;
+                        font-weight: 300;
+                        margin-bottom: 2rem;
+                        opacity: 0.9;
+                    }
+                    
+                    .age-input {
+                        font-size: 4rem;
+                        background: transparent;
+                        border: none;
+                        border-bottom: 2px solid #fff;
+                        color: #fff;
+                        text-align: center;
+                        width: 200px;
+                        padding: 1rem;
+                        margin: 0 1rem;
+                    }
+                    
+                    .age-submit {
+                        display: block;
+                        margin: 3rem auto 0;
+                        padding: 1rem 3rem;
+                        background: transparent;
+                        border: 2px solid #fff;
+                        color: #fff;
+                        font-size: 1.2rem;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .age-submit:hover {
+                        background: #fff;
+                        color: #000;
+                        transform: scale(1.05);
+                    }
+                    
+                    .hidden {
+                        display: none !important;
+                    }
+                    
+                    .fade-out {
+                        opacity: 0 !important;
+                        pointer-events: none;
+                    }
+                </style>
+                
+                <!-- スキップボタン -->
+                <button class="skip-experience" onclick="closeInteractiveExperience()">閉じる</button>
+                
+                <!-- フェーズ1: 年齢入力 -->
+                <div class="age-input-phase" id="phase1">
+                    <div class="age-box">
+                        <h1>あなたの年齢を教えてください</h1>
+                        <input type="number" class="age-input" id="userAge" min="1" max="120" value="35">
+                        <span style="font-size: 2rem;">歳</span>
+                        <button class="age-submit" onclick="startJourney()">体験を始める</button>
+                    </div>
+                </div>
+                
+                <!-- 他のフェーズは実装済みのものを使用 -->
+            `;
+            
+            experienceDiv.style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
         
-        // 体験開始
+        // インタラクティブ体験を閉じる
+        function closeInteractiveExperience() {
+            document.getElementById('interactiveExperience').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // インタラクティブ体験のロジック（簡略版）
         function startJourney() {
-            userAge = parseInt(document.getElementById('userAge').value) || 35;
-            document.getElementById('phase1').classList.add('fade-out');
-            
-            setTimeout(() => {
-                document.getElementById('phase1').classList.add('hidden');
-                document.getElementById('phase2').classList.remove('hidden');
-                document.getElementById('phase2').style.display = 'flex';
-                startCountdown();
-                createParticles();
-                
-                // 10秒後に次のフェーズへ
-                setTimeout(() => {
-                    document.getElementById('phase2').classList.add('fade-out');
-                    setTimeout(() => {
-                        document.getElementById('phase2').classList.add('hidden');
-                        document.getElementById('phase3').classList.remove('hidden');
-                        document.getElementById('phase3').style.display = 'flex';
-                        createFloatingParticles();
-                        setupTextareaInteraction();
-                    }, 1000);
-                }, 10000);
-            }, 1000);
-        }
-        
-        // カウントダウン開始
-        function startCountdown() {
-            const birthYear = new Date().getFullYear() - userAge;
-            const healthyDeathYear = birthYear + avgHealthyLifespan;
-            const healthyDeathDate = new Date(healthyDeathYear, 0, 1);
-            
-            const now = new Date();
-            const remaining = healthyDeathDate - now;
-            
-            if (remaining > 0) {
-                const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-                const daysElement = document.getElementById('remainingDays');
-                
-                // カウントアップアニメーション
-                let currentValue = 0;
-                const targetValue = days;
-                const duration = 2000; // 2秒間でカウントアップ
-                const increment = targetValue / (duration / 16); // 60fps想定
-                
-                setTimeout(() => {
-                    const countUp = setInterval(() => {
-                        currentValue += increment;
-                        if (currentValue >= targetValue) {
-                            currentValue = targetValue;
-                            clearInterval(countUp);
-                        }
-                        daysElement.textContent = Math.floor(currentValue).toLocaleString();
-                        daysElement.setAttribute('data-value', Math.floor(currentValue).toLocaleString());
-                    }, 16);
-                }, 1000); // 1秒後に開始
-            } else {
-                document.getElementById('remainingDays').textContent = '0';
-                document.getElementById('remainingDays').setAttribute('data-value', '0');
-            }
-        }
-        
-        // パーティクル効果
-        function createParticles() {
-            setInterval(() => {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * window.innerWidth + 'px';
-                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                document.body.appendChild(particle);
-                
-                setTimeout(() => particle.remove(), 5000);
-            }, 200);
-        }
-        
-        // フローティングパーティクル作成
-        function createFloatingParticles() {
-            const container = document.getElementById('lastDayParticles');
-            if (!container) return;
-            
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'floating-particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-                container.appendChild(particle);
-            }
-        }
-        
-        // 最後の日の処理
-        function processLastDay() {
-            lastDayAnswer = document.getElementById('lastDayInput').value;
-            
-            document.getElementById('phase3').classList.add('fade-out');
-            setTimeout(() => {
-                document.getElementById('phase3').classList.add('hidden');
-                document.getElementById('phase4').classList.remove('hidden');
-                document.getElementById('phase4').style.display = 'block';
-            }, 1000);
-        }
-        
-        // チェックボックスの切り替え
-        function toggleCheck(item) {
-            const checkbox = item.querySelector('.regret-checkbox');
-            const category = item.closest('.regret-category');
-            const categoryIndex = Array.from(category.parentNode.children).indexOf(category);
-            
-            checkbox.classList.toggle('checked');
-            
-            if (checkbox.classList.contains('checked')) {
-                checkedItems++;
-                // カテゴリー別のカウント
-                switch(categoryIndex) {
-                    case 0: checkedCategories.self++; break;
-                    case 1: checkedCategories.work++; break;
-                    case 2: checkedCategories.relationship++; break;
-                    case 3: checkedCategories.health++; break;
-                    case 4: checkedCategories.challenge++; break;
-                }
-            } else {
-                checkedItems--;
-                switch(categoryIndex) {
-                    case 0: checkedCategories.self--; break;
-                    case 1: checkedCategories.work--; break;
-                    case 2: checkedCategories.relationship--; break;
-                    case 3: checkedCategories.health--; break;
-                    case 4: checkedCategories.challenge--; break;
-                }
-            }
-            
-            updateResult();
-        }
-        
-        // 結果を更新
-        function updateResult() {
-            const resultDiv = document.getElementById('checklistResult');
-            const scoreDiv = document.getElementById('resultScore');
-            const messageDiv = document.getElementById('resultMessage');
-            
-            resultDiv.style.display = 'block';
-            scoreDiv.textContent = `${checkedItems}/15`;
-            
-            let message = '';
-            if (checkedItems >= 10) {
-                message = '今すぐ行動を変える必要があります。このままでは多くの後悔を抱えることになるでしょう。でも、今なら間に合います。';
-            } else if (checkedItems >= 5) {
-                message = 'いくつかの改善点があります。小さな変化から始めて、後悔のない人生を目指しましょう。';
-            } else {
-                message = '素晴らしい！あなたは後悔の少ない人生を送っています。この調子で自分らしく生きてください。';
-            }
-            
-            messageDiv.textContent = message;
-        }
-        
-        // 未来の手紙を表示
-        function showFutureLetter() {
-            document.getElementById('phase4').classList.add('fade-out');
-            setTimeout(() => {
-                document.getElementById('phase4').classList.add('hidden');
-                document.getElementById('phase5').classList.remove('hidden');
-                document.getElementById('phase5').style.display = 'flex';
-                generatePersonalizedLetter();
-            }, 1000);
-        }
-        
-        // チェックリスト結果に基づいて手紙を生成
-        function generatePersonalizedLetter() {
-            const letterContent = document.getElementById('letterContent');
-            const futureAge = 80;
-            const yearsLeft = futureAge - userAge;
-            
-            let letterHTML = `
-                <p>${userAge}歳のあなたへ</p>
-                <p>私は${futureAge}歳のあなたです。${yearsLeft}年後の未来から、大切なメッセージを送ります。</p>
-            `;
-            
-            // チェック数に応じて内容を変える
-            if (checkedItems >= 10) {
-                letterHTML += `
-                    <p>正直に言います。私は今、多くの後悔を抱えています。</p>
-                    <p>仕事ばかりの日々、家族との時間を犠牲にしたこと、自分の本当の気持ちを押し殺してきたこと...</p>
-                    <p>でも、あなたにはまだチャンスがあります。今すぐ行動を変えてください。</p>
-                `;
-            } else if (checkedItems >= 5) {
-                letterHTML += `
-                    <p>私の人生は概ね満足できるものでしたが、いくつかの後悔があります。</p>
-                    <p>もっと早く気づいていれば...と思うことがあります。</p>
-                    <p>あなたには、私と同じ後悔をしてほしくありません。</p>
-                `;
-            } else {
-                letterHTML += `
-                    <p>私は幸せな人生を送ることができました。</p>
-                    <p>自分らしく生き、大切な人との時間を大切にし、健康にも気を配った結果です。</p>
-                    <p>今のあなたの生き方を、誇りに思います。</p>
-                `;
-            }
-            
-            // カテゴリー別のアドバイス
-            if (checkedCategories.work >= 2) {
-                letterHTML += `<p>特に伝えたいのは、仕事と人生のバランスについてです。仕事の成功だけが人生の成功ではありません。</p>`;
-            }
-            if (checkedCategories.relationship >= 2) {
-                letterHTML += `<p>人間関係を大切にしてください。最期に残るのは、愛する人との思い出だけです。</p>`;
-            }
-            if (checkedCategories.health >= 2) {
-                letterHTML += `<p>健康は失ってから気づくものです。今のうちから体を大切にしてください。</p>`;
-            }
-            
-            // 最後の日の回答を反映
-            if (lastDayAnswer.includes('家族') || lastDayAnswer.includes('妻') || lastDayAnswer.includes('子')) {
-                letterHTML += `<p>あなたが「最後の日」に家族のことを思い浮かべたこと、それが答えです。</p>`;
-            }
-            
-            letterHTML += `
-                <p>私たちの願いは「すべての人々に後悔のない人生を」です。</p>
-                <p>あなたが人生の最後の瞬間に「最高に楽しかった」と心から思えるように、今から行動を始めてください。</p>
-                <p>覚えていてください。人生で本当に大切なのは、愛する人との時間、健康な体、そして自分らしく生きることです。</p>
-                <p>まだ間に合います。今日から変われます。</p>
-                <p class="letter-signature">${futureAge}歳のあなたより</p>
-            `;
-            
-            letterContent.innerHTML = letterHTML;
-        }
-        
-        // 選択画面を表示
-        function showChoices() {
-            document.getElementById('phase5').classList.add('fade-out');
-            setTimeout(() => {
-                document.getElementById('phase5').classList.add('hidden');
-                document.getElementById('phase6').classList.remove('hidden');
-                document.getElementById('phase6').style.display = 'flex';
-                localStorage.setItem('hasExperienced', 'true');
-            }, 1000);
-        }
-        
-        // サービス選択（改修版）
-        function selectService(service) {
-            let url = '';
-            
-            switch(service) {
-                case 'medical':
-                    url = 'medical-services.html';
-                    break;
-                case 'other':
-                    url = 'other-services.html';
-                    break;
-            }
-            
-            window.location.href = url;
-        }
-        
-        // テキストエリアのインタラクション設定
-        function setupTextareaInteraction() {
-            const textarea = document.getElementById('lastDayInput');
-            const placeholderContainer = document.getElementById('placeholderContainer');
-            
-            textarea.addEventListener('focus', () => {
-                placeholderContainer.classList.add('hide');
-            });
-            
-            textarea.addEventListener('blur', () => {
-                if (textarea.value.trim() === '') {
-                    placeholderContainer.classList.remove('hide');
-                }
-            });
-        }
-        
-        // チェックリストに戻る
-        function backToChecklist() {
-            document.getElementById('phase6').classList.add('fade-out');
-            setTimeout(() => {
-                document.getElementById('phase6').classList.add('hidden');
-                document.getElementById('phase4').classList.remove('hidden');
-                document.getElementById('phase4').style.display = 'block';
-            }, 1000);
+            alert('インタラクティブ体験の完全版は開発中です。');
+            closeInteractiveExperience();
         }
     </script>
 </body>

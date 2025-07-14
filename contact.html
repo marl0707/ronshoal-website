@@ -538,22 +538,44 @@
     footer {
       background: #1a237e;
       color: #fff;
-      padding: 2rem 1rem 1rem 1rem;
-      text-align: center;
+      padding: 4rem 2rem 2rem;
       margin-top: 3rem;
     }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+    .footer-section h4 {
+      color: #00d4ff;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+    }
     .footer-links {
-      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
     }
     .footer-links a {
-      color: #fff;
-      margin: 0 1rem;
-      font-size: 1.05rem;
-      text-decoration: underline;
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover {
+      color: #00d4ff;
     }
     .footer-copy {
-      font-size: 1rem;
-      color: #cfd8dc;
+      grid-column: 1 / -1;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     /* ハンバーガーメニュー */
     .mobile-menu-btn {
@@ -782,17 +804,20 @@
       
       /* フッター調整 */
       footer {
-        padding: 2rem 1rem 1.5rem;
+        padding: 3rem 1rem 2rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .footer-section {
+        text-align: center;
       }
       
       .footer-links {
-        font-size: 0.9rem;
-        line-height: 2;
-      }
-      
-      .footer-links a {
-        margin: 0 0.5rem;
-        font-size: 0.95rem;
+        align-items: center;
       }
     }
 
@@ -936,20 +961,25 @@
       
       /* フッター調整 */
       footer {
-        padding: 2rem 0.8rem 1.5rem;
+        padding: 2.5rem 0.8rem 1.5rem;
       }
       
-      .footer-links {
-        font-size: 0.85rem;
+      .footer-content {
+        gap: 1.5rem;
+      }
+      
+      .footer-section h4 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
       }
       
       .footer-links a {
-        margin: 0 0.3rem;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
       }
       
       .footer-copy {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        padding-top: 1.5rem;
       }
     }
 
@@ -1182,16 +1212,41 @@
   </main>
 
   <footer>
-    <div class="footer-links">
-      <a href="index.html">ホーム</a>｜
-      <a href="index.html#philosophy">目指す社会</a>｜
-      <a href="business.html">事業内容</a>｜
-      <a href="about.html">会社情報</a>｜
-      <a href="contact.html">お問い合わせ</a>｜
-      Good Small Company
-      ｜ <a href="privacy.html">プライバシーポリシー</a> |
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          <a href="/services/health-passport/medical-diet.html">医療ダイエット</a>
+          <a href="/services/health-passport/sleep-apnea.html">睡眠時無呼吸症候群治療</a>
+          <a href="/services/health-passport/mens-health.html">男性ヘルスケア</a>
+          <a href="/services/health-passport/exosome-treatment.html">エクソソーム治療</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          <a href="/services/agi-step.html">AGIステップ</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
     </div>
-    <div class="footer-copy">©️2021 Ronshoal.llc</div>
   </footer>
 
   <script>
