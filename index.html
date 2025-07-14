@@ -319,7 +319,7 @@
         
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
         }
@@ -366,6 +366,21 @@
         .stat-label {
             font-size: 1rem;
             color: #666;
+        }
+        
+        .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
         }
         
         /* サービス一覧セクション */
@@ -601,6 +616,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .about-image img {
+                max-height: 350px;
+            }
+            
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -621,8 +640,8 @@
         </a>
         <nav>
             <ul class="nav-links">
-                <li><a href="/medical-services.html" class="nav-link">医療サービス一覧</a></li>
-                <li><a href="/other-services.html" class="nav-link">その他サービス一覧</a></li>
+                <li><a href="/medical-services.html" class="nav-link">医療サービス</a></li>
+                <li><a href="/other-services.html" class="nav-link">ビジネスサービス</a></li>
             </ul>
         </nav>
     </header>
@@ -687,7 +706,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/about-company.png" alt="会社イメージ" style="width: 100%; border-radius: 20px;">
+                    <img src="images/about-company.png" alt="会社イメージ" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); object-fit: cover; max-height: 500px;">
                 </div>
             </div>
         </div>
@@ -755,8 +774,7 @@
           <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
           <a href="/services/consulting.html">医療介護経営コンサルティング</a>
           <a href="/services/high-school-business.html">高校企業部</a>
-          <a href="/services/agi-step.html">AGIステップ</a>
-        </div>
+          </div>
       </div>
       <div class="footer-section">
         <h4>会社情報</h4>
