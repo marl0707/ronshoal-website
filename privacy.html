@@ -63,33 +63,16 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 2.2rem;
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
       display: flex;
       align-items: center;
       gap: 0.8rem;
     }
     
-    .logo-icon {
-      width: 3rem;
-      height: 3rem;
+    .logo span {
       background: var(--gradient-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 900;
-      color: var(--light);
-      font-size: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      transition: all 0.3s ease;
-    }
-    
-    .logo:hover .logo-icon {
-      transform: rotate(360deg) scale(1.1);
-      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
     nav ul {
@@ -419,8 +402,8 @@
   <header>
     <div class="header-inner">
       <div class="logo">
-        <div class="logo-icon">R</div>
-        ロンショール合同会社
+        <img src="images/logo.png" alt="ロンショール" style="height: 48px; vertical-align: middle;">
+        <span>ロンショール合同会社</span>
       </div>
       <nav>
         <ul>

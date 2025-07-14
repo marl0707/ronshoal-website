@@ -228,13 +228,16 @@
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 2.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo span {
       background: var(--gradient-primary);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
     }
     
     .logo-icon {
@@ -1109,8 +1112,8 @@
   <header>
     <div class="header-inner">
       <div class="logo">
-        <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#3e8ed0"/><text x="50%" y="58%" text-anchor="middle" font-size="22" fill="#fff" font-family="Montserrat, sans-serif">R</text></svg>
-        ロンショール合同会社
+        <img src="images/logo.png" alt="ロンショール" style="height: 48px; vertical-align: middle;">
+        <span>ロンショール合同会社</span>
       </div>
       <nav>
         <ul>

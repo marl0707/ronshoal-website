@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>医療サービス | ロンショール合同会社</title>
+    <meta name="description" content="健康を守る・育てる。医療×テクノロジーで後悔のない人生を実現する、ロンショールの医療サービス。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --accent: #7c3aed;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8fafc;
+            --gray-dark: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            background: linear-gradient(135deg, var(--primary) 0%, #0099cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Story Section */
+        .story-section {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            color: var(--light);
+        }
+        
+        .story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .story-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mission-card {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .mission-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Services Grid */
+        .services-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: transparent;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .service-description {
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-link {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: var(--primary);
+            color: var(--light);
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: var(--light);
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1rem 2.5rem;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--light);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="images/logo.png" alt="ロンショール" style="height: 40px; vertical-align: middle; margin-right: 10px;">
+                <span>ロンショール</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="/">ホーム</a></li>
+                    <li><a href="#services">サービス一覧</a></li>
+                    <li><a href="other-services.html">その他サービス</a></li>
+                    <li><a href="contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-badge">MEDICAL SERVICES</div>
+        <h1>医療サービス</h1>
+        <p class="hero-subtitle">健康を守る・育てる<br>医療×テクノロジーで後悔のない人生を</p>
+    </section>
+    
+    <section class="story-section">
+        <div class="story-container">
+            <h2 class="section-title">通院？それとも仕事？</h2>
+            <div class="story-text">
+                「はぁ？！午前休？こんな忙しい時期に何考えてんの？昼イチの会議絶対遅れるなよ！」<br><br>
+                先月から申請していた休みについて朝から嫌味を言われ、糖尿病クリニックへ向かう足が重い、、捌け口のない怒りをアスファルトに小さく擦り付ける。<br><br>
+                お爺さんお婆さんで溢れかえっている待合室、、いつもの光景だ。<br><br>
+                簡単に受付を済まし、待合室の隅に腰掛けると、疲れ切った表情のサラリーマンが頭を抱えているのが目に入った。彼もまた、同じような状況にあるのかもしれない。彼の隣の空席に座り、ほんの少し安堵を感じる。<br><br>
+                予約時間になっても自分の名前が呼ばれることはない。これもいつも通り、15分以上は遅れる。ノートPCを膝の上で開き、電源を立ち上げる。<br>
+                上司から追加の資料を会議までに作成するようメールが来ていた。彼は有給という概念を知っているのだろうか。<br><br>
+                名前が呼ばれ、診察室に向かう。いつもの医師が既にパソコンの画面を見ながら何やらメモを取っている。「どうですか、最近の体調は？」との問いかけに、「いえ、相変わらずです」と答える。「では、いつもの処方出しておきますね。」<br>
+                いつものやりとりを終え、診察室を出る。このやりとりの為だけに、毎月上司に嫌味を言われていると考えると、悲しくなる。<br><br>
+                もう限界だ。理解のない会社や上司が悪いのか、病気になった自分が悪いのか、病気になりやすい自分の家系が悪いのか。<br><br>
+                考えても仕方がない、妻や子どもがいる自分には選択肢などない<br>
+                会社を辞めるのか、通院を辞めるのか<br><br>
+                答えは明らかだ。
+            </div>
+        </div>
+    </section>
+    
+    <section class="mission-section">
+        <div class="mission-container">
+            <h2 class="section-title">医療サービスのミッション</h2>
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div class="mission-number">01</div>
+                    <h3>仕事が忙しい方でも継続的な医療提供を</h3>
+                    <p>早期治療介入によって重症化を防ぎ社会保障費を削減する。仕事が忙しく、後回しになりがちな生活習慣病等の通院。オンライン診療などのIT技術を駆使して、クリニック受診のハードルを下げます。</p>
+                </div>
+                <div class="mission-card">
+                    <div class="mission-number">02</div>
+                    <h3>予防医療の推進</h3>
+                    <p>病気になってからではなく、病気になる前の対策を。定期的な健康チェックと早期発見・早期治療により、健康寿命を延ばし、後悔のない人生をサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <h2 class="section-title">サービス一覧</h2>
+            <div class="services-grid">
+                <div class="service-card" onclick="location.href='services/kenko-plus.html'">
+                    <div class="service-icon">🏥</div>
+                    <h3 class="service-title">健診プラス</h3>
+                    <p class="service-description">
+                        労災二次健診給付制度を活用した無料訪問健康診断事業。脳梗塞や心筋梗塞の発症リスクを早期発見。
+                    </p>
+                    <a href="services/kenko-plus.html" class="service-link">詳しく見る</a>
+                </div>
+                
+                <div class="service-card" onclick="location.href='services/health-passport.html'">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">健康パスポート</h3>
+                    <p class="service-description">
+                        スマホ1つで生活習慣病の治療が可能。オンライン診療で通院の負担を軽減します。
+                    </p>
+                    <a href="services/health-passport.html" class="service-link">詳しく見る</a>
+                </div>
+                
+                <div class="service-card" onclick="location.href='services/workplace-clinic.html'">
+                    <div class="service-icon">🏢</div>
+                    <h3 class="service-title">職場 de クリニック</h3>
+                    <p class="service-description">
+                        健康経営をサポートする新しい福利厚生サービス。職場で医療サービスを提供します。
+                    </p>
+                    <a href="services/workplace-clinic.html" class="service-link">詳しく見る</a>
+                </div>
+                
+                <div class="service-card" onclick="location.href='lp/ashisuku-navi/'">
+                    <div class="service-icon">👣</div>
+                    <h3 class="service-title">足育ナビ</h3>
+                    <p class="service-description">
+                        足の健康から全身の健康へ。専門的な足のケアと健康サポートを提供します。
+                    </p>
+                    <a href="lp/ashisuku-navi/" class="service-link">詳しく見る</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">健康で後悔のない人生を</h2>
+            <p class="cta-description">今すぐ始める、あなたに合った健康管理</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn">お問い合わせ</a>
+                <a href="other-services.html" class="cta-btn secondary">その他のサービスを見る</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="/">ホーム</a>
+            <a href="about.html">会社情報</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+        <p>&copy; 2021 Ronshoal LLC. All rights reserved.</p>
+    </footer>
+</body>
+</html>
