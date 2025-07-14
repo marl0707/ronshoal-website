@@ -324,12 +324,29 @@ h1, h2, h3, h4, h5, h6 {
 
 .service-label {
   display: inline-block;
-  color: var(--gray-dark);
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  letter-spacing: 0.05em;
-  opacity: 0.8;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2em;
+  position: relative;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-bottom: 0.5rem;
+}
+
+.service-label::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), var(--accent-color), transparent);
+  border-radius: 2px;
 }
 
 .hero-title {
