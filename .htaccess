@@ -1,0 +1,5 @@
+# AGIステップからAIバーガーへのリダイレクト
+Redirect 301 /services/agi-step.html /services/ai-web-development.html
+
+# 拡張子なしでもアクセス可能にする場合
+Redirect 301 /services/agi-step /services/ai-web-development.html
