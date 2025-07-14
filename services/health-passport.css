@@ -561,10 +561,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .tab-nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 3rem;
   padding: 0 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .tab-btn {
@@ -1208,15 +1211,15 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .tab-btn {
-    padding: 1.5rem 2rem;
-    font-size: 1.125rem;
+    padding: 1.5rem 2rem !important;
+    font-size: 1.125rem !important;
     min-width: fit-content;
     flex-shrink: 0;
-    min-height: 80px;
+    min-height: 80px !important;
   }
   
   .tab-btn i {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
   
   .tab-btn.active {

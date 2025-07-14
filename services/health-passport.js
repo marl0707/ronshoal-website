@@ -3,6 +3,26 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // ========================================
+    // モバイルメニューの実装
+    // ========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // メニューリンクをクリックしたらメニューを閉じる
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+    
+    // ========================================
     // タブ機能の実装
     // ========================================
     const tabButtons = document.querySelectorAll('.tab-btn');
