@@ -26,19 +26,19 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 via-purple-900 to-slate-900 text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-slate-100 via-blue-50 to-slate-100 text-gray-900 overflow-x-hidden">
       {/* Header */}
-      <header className="bg-black/30 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/10">
+      <header className="bg-white/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg animate-pulse-scale" />
-            <div className="minecraft-font text-xl text-white">
+            <div className="minecraft-font text-xl text-gray-900">
               MC PROGRAMMING
             </div>
           </div>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="minecraft-btn text-white px-8 py-3 rounded-none font-bold text-sm uppercase tracking-wider"
+            className="minecraft-btn text-white px-8 py-3 rounded-none font-bold text-sm uppercase tracking-wider shadow-lg"
           >
             🎮 無料セミナー参加
           </button>
@@ -70,7 +70,7 @@ export default function Home() {
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="inline-block mb-8 animate-slide-up">
-            <div className="pixel-card bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 minecraft-font text-xs uppercase tracking-wider">
+            <div className="pixel-card bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-3 minecraft-font text-xs uppercase tracking-wider shadow-lg">
               🎓 Dr. Kawakatsu Supervised
             </div>
           </div>
@@ -79,16 +79,16 @@ export default function Home() {
             <span className="block minecraft-font text-3xl md:text-5xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-cyan-400">
               MINECRAFT
             </span>
-            <span className="block jp-font text-5xl md:text-7xl font-black text-white leading-tight">
+            <span className="block jp-font text-5xl md:text-7xl font-black text-gray-900 leading-tight">
               能力開発
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">プログラミング</span>
               講座
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 jp-font animate-slide-up" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl md:text-2xl text-gray-700 mb-12 jp-font animate-slide-up font-medium" style={{ animationDelay: '0.2s' }}>
             遊びながら、未来に必要なスキルを身につける<br />
-            <span className="text-lg text-gray-400">🎮 全12ステップで基礎から本格的なゲーム開発まで</span>
+            <span className="text-lg text-gray-600">🎮 全12ステップで基礎から本格的なゲーム開発まで</span>
           </p>
           
           <div className="mb-12 animate-slide-up" style={{ animationDelay: '0.3s' }}>
@@ -97,14 +97,14 @@ export default function Home() {
               <img 
                 src="https://readdy.ai/api/search-image?query=Happy%20children%20aged%208-12%20playing%20Minecraft%20on%20computers%20together%2C%20bright%20clean%20educational%20environment%2C%20focused%20and%20joyful%20expressions%2C%20learning%20through%20gaming%2C%20colorful%20setup%20with%20multiple%20screens%20showing%20agent%20characters%2C%20warm%20lighting%2C%20realistic%20photo%20of%20educational%20technology&width=800&height=500&seq=hero3&orientation=landscape"
                 alt="マインクラフトで学ぶ子どもたち"
-                className="relative rounded-2xl shadow-2xl mx-auto max-w-full h-auto object-cover border-4 border-white/10"
+                className="relative rounded-2xl shadow-2xl mx-auto max-w-full h-auto object-cover border-4 border-gray-300"
               />
             </div>
           </div>
 
           <div className="relative animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 blur-xl opacity-30" />
-            <div className="relative pixel-card bg-black/40 backdrop-blur-md p-8 border-yellow-400">
+            <div className="relative pixel-card bg-white/90 backdrop-blur-md p-8 border-yellow-400 shadow-lg">
               <h3 className="minecraft-font text-2xl text-yellow-400 mb-6 neon-text">🎁 LINE BONUS x4</h3>
               <div className="grid md:grid-cols-4 gap-4">
                 {[
@@ -115,11 +115,11 @@ export default function Home() {
                 ].map((item, index) => (
                   <div key={index} className="text-center hover-lift">
                     <div className="text-4xl mb-2">{item.icon}</div>
-                    <div className="text-white jp-font font-bold">{item.text}</div>
+                    <div className="text-gray-800 jp-font font-bold">{item.text}</div>
                   </div>
                 ))}
               </div>
-              <p className="text-sm text-gray-400 mt-6 jp-font">
+              <p className="text-sm text-gray-600 mt-6 jp-font">
                 ※教育版マインクラフトを使用した本格的なプログラミング学習
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function Home() {
                 <span>無料セミナーに申し込む</span>
               </div>
             </button>
-            <p className="text-lg text-gray-400 font-bold jp-font animate-pulse">
+            <p className="text-lg text-gray-600 font-bold jp-font animate-pulse">
               ↓ たった30秒！友だち追加するだけ
             </p>
           </div>
@@ -147,7 +147,7 @@ export default function Home() {
       <section className="py-24 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-900/20 to-transparent" />
         <div className="max-w-5xl mx-auto px-4 relative z-10">
-          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-white mb-16">
+          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-gray-900 mb-16">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
               PROBLEMS?
             </span>
@@ -162,10 +162,10 @@ export default function Home() {
             ].map((problem, index) => (
               <div key={index} className="group relative hover:scale-105 transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500 to-orange-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity" />
-                <div className="relative pixel-card bg-black/40 backdrop-blur-sm p-6 border-red-400/50 group-hover:border-red-400">
+                <div className="relative pixel-card bg-white/90 backdrop-blur-sm p-6 border-red-400/50 group-hover:border-red-400 shadow-lg">
                   <div className="flex items-center gap-4">
                     <span className="text-4xl group-hover:animate-bounce">{problem.icon}</span>
-                    <p className="text-lg text-gray-300 jp-font">{problem.text}</p>
+                    <p className="text-lg text-gray-700 jp-font">{problem.text}</p>
                   </div>
                 </div>
               </div>
@@ -175,7 +175,7 @@ export default function Home() {
           <div className="text-center">
             <div className="inline-block relative">
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-600 blur-xl opacity-50" />
-              <div className="relative bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm p-8 rounded-2xl border border-green-400/50">
+              <div className="relative bg-gradient-to-r from-green-100 to-emerald-100 backdrop-blur-sm p-8 rounded-2xl border border-green-400">
                 <p className="minecraft-font text-xl text-green-400 mb-6 neon-text">💚 SOLUTION INSIDE</p>
                 <button 
                   onClick={() => setIsModalOpen(true)}
@@ -208,7 +208,7 @@ export default function Home() {
         </div>
         
         <div className="max-w-6xl mx-auto px-4 relative z-10">
-          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-white mb-16">
+          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-gray-900 mb-16">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
               FEATURES
             </span>
@@ -216,14 +216,14 @@ export default function Home() {
           <div className="mb-16">
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
-              <div className="relative bg-black/60 backdrop-blur-xl rounded-3xl p-10 border border-white/10">
-                <p className="text-xl text-gray-300 leading-relaxed mb-8 jp-font">
+              <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-10 border border-gray-200 shadow-xl">
+                <p className="text-xl text-gray-700 leading-relaxed mb-8 jp-font">
                   <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                     お子様の大好きなマインクラフトが、
                   </span><br />
-                  <span className="text-white">最高の学習ツールに変わります。</span>
+                  <span className="text-gray-900 font-bold">最高の学習ツールに変わります。</span>
                 </p>
-                <p className="text-gray-400 leading-relaxed mb-10 jp-font">
+                <p className="text-gray-600 leading-relaxed mb-10 jp-font">
                   本講座は、川勝英史教授（博士・経営情報科学分野）が監修する、教育版マインクラフトを活用した革新的なプログラミング学習プログラムです。
                 </p>
                 
@@ -237,8 +237,8 @@ export default function Home() {
                       <div className="inline-block p-6 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl mb-3 group-hover/item:scale-110 transition-transform">
                         <div className="text-5xl">{item.icon}</div>
                       </div>
-                      <h4 className="minecraft-font text-sm text-white mb-2">{item.title}</h4>
-                      <p className="text-xs text-gray-400 jp-font">{item.desc}</p>
+                      <h4 className="minecraft-font text-sm text-gray-800 mb-2">{item.title}</h4>
+                      <p className="text-xs text-gray-600 jp-font">{item.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -246,7 +246,7 @@ export default function Home() {
             </div>
           </div>
           
-          <h3 className="minecraft-font text-2xl text-center text-white mb-12">
+          <h3 className="minecraft-font text-2xl text-center text-gray-900 mb-12">
             WHY MINECRAFT?
           </h3>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -358,12 +358,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-purple-900/20 via-transparent to-purple-900/20" />
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-white mb-4">
+          <h2 className="minecraft-font text-3xl md:text-4xl text-center text-gray-900 mb-4">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
               12 STEPS
             </span>
           </h2>
-          <p className="text-center text-xl text-gray-400 mb-16 jp-font">
+          <p className="text-center text-xl text-gray-600 mb-16 jp-font">
             基礎から応用まで、段階的に学習を進めます
           </p>
           
@@ -382,14 +382,14 @@ export default function Home() {
               ].map((step, index) => (
                 <div key={index} className="group relative hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-500 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
-                  <div className="relative pixel-card bg-black/60 backdrop-blur-sm p-6 border-green-400/30 group-hover:border-green-400">
+                  <div className="relative pixel-card bg-white/95 backdrop-blur-sm p-6 border-green-400/30 group-hover:border-green-400 shadow-lg">
                     <div className="flex items-center gap-4 mb-3">
                       <div className="bg-gradient-to-br from-green-400 to-emerald-600 text-black w-12 h-12 rounded-lg flex items-center justify-center font-bold text-xl minecraft-font">
                         {step.num}
                       </div>
-                      <h3 className="font-bold text-white jp-font flex-1">{step.title}</h3>
+                      <h3 className="font-bold text-gray-900 jp-font flex-1">{step.title}</h3>
                     </div>
-                    <p className="text-sm text-gray-400 jp-font">{step.desc}</p>
+                    <p className="text-sm text-gray-600 jp-font">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -408,14 +408,14 @@ export default function Home() {
               ].map((step, index) => (
                 <div key={index} className="group relative hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
-                  <div className="relative pixel-card bg-black/60 backdrop-blur-sm p-6 border-blue-400/30 group-hover:border-blue-400">
+                  <div className="relative pixel-card bg-white/95 backdrop-blur-sm p-6 border-blue-400/30 group-hover:border-blue-400 shadow-lg">
                     <div className="flex items-center gap-4 mb-3">
                       <div className="bg-gradient-to-br from-blue-400 to-cyan-600 text-black w-12 h-12 rounded-lg flex items-center justify-center font-bold text-xl minecraft-font">
                         {step.num}
                       </div>
-                      <h3 className="font-bold text-white jp-font flex-1">{step.title}</h3>
+                      <h3 className="font-bold text-gray-900 jp-font flex-1">{step.title}</h3>
                     </div>
-                    <p className="text-sm text-gray-400 jp-font">{step.desc}</p>
+                    <p className="text-sm text-gray-600 jp-font">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -434,14 +434,14 @@ export default function Home() {
               ].map((step, index) => (
                 <div key={index} className="group relative hover:scale-105 transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 opacity-0 group-hover:opacity-30 blur-xl transition-opacity" />
-                  <div className="relative pixel-card bg-black/60 backdrop-blur-sm p-6 border-purple-400/30 group-hover:border-purple-400">
+                  <div className="relative pixel-card bg-white/95 backdrop-blur-sm p-6 border-purple-400/30 group-hover:border-purple-400 shadow-lg">
                     <div className="flex items-center gap-4 mb-3">
                       <div className="bg-gradient-to-br from-purple-400 to-pink-600 text-black w-12 h-12 rounded-lg flex items-center justify-center font-bold text-xl minecraft-font">
                         {step.num}
                       </div>
-                      <h3 className="font-bold text-white jp-font flex-1">{step.title}</h3>
+                      <h3 className="font-bold text-gray-900 jp-font flex-1">{step.title}</h3>
                     </div>
-                    <p className="text-sm text-gray-400 jp-font">{step.desc}</p>
+                    <p className="text-sm text-gray-600 jp-font">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -451,8 +451,8 @@ export default function Home() {
           {/* カリキュラム特長 */}
           <div className="relative mt-16">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20" />
-            <div className="relative bg-black/60 backdrop-blur-xl rounded-3xl p-10 border border-white/10">
-              <h3 className="minecraft-font text-2xl text-center text-white mb-12">
+            <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-10 border border-gray-200 shadow-xl">
+              <h3 className="minecraft-font text-2xl text-center text-gray-900 mb-12">
                 CURRICULUM FEATURES
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -488,10 +488,10 @@ export default function Home() {
                         <span className="text-4xl">{feature.icon}</span>
                       </div>
                     </div>
-                    <h4 className="font-bold text-white mb-4 jp-font">{feature.title}</h4>
+                    <h4 className="font-bold text-gray-900 mb-4 jp-font">{feature.title}</h4>
                     <ul className="space-y-2">
                       {feature.points.map((point, idx) => (
-                        <li key={idx} className="text-sm text-gray-400 jp-font">{point}</li>
+                        <li key={idx} className="text-sm text-gray-600 jp-font">{point}</li>
                       ))}
                     </ul>
                   </div>
