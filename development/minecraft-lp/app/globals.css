@@ -1,4 +1,190 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* マインクラフト風のピクセルフォント */
+.minecraft-font {
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* 日本語用フォント */
+.jp-font {
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* カスタムアニメーション */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5),
+                0 0 40px rgba(34, 197, 94, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(34, 197, 94, 0.7),
+                0 0 60px rgba(34, 197, 94, 0.4);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* マインクラフト風ブロックボタン */
+.minecraft-btn {
+  background: linear-gradient(180deg, #5cb85c 0%, #4cae4c 50%, #449d44 50%, #398439 100%);
+  border: 3px solid #2e6f2e;
+  box-shadow: 
+    inset -3px -3px 0 rgba(0,0,0,0.3),
+    inset 3px 3px 0 rgba(255,255,255,0.3),
+    0 4px 0 #2e6f2e,
+    0 6px 8px rgba(0,0,0,0.3);
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  transform: translateY(0);
+  transition: all 0.1s;
+}
+
+.minecraft-btn:hover {
+  transform: translateY(2px);
+  box-shadow: 
+    inset -3px -3px 0 rgba(0,0,0,0.3),
+    inset 3px 3px 0 rgba(255,255,255,0.3),
+    0 2px 0 #2e6f2e,
+    0 3px 4px rgba(0,0,0,0.3);
+}
+
+.minecraft-btn:active {
+  transform: translateY(4px);
+  box-shadow: 
+    inset -3px -3px 0 rgba(0,0,0,0.3),
+    inset 3px 3px 0 rgba(255,255,255,0.3),
+    0 0 0 #2e6f2e;
+}
+
+/* ピクセルアートカード */
+.pixel-card {
+  position: relative;
+  background: #f8f8f8;
+  border: 4px solid #333;
+  box-shadow: 
+    4px 0 0 #333,
+    0 4px 0 #333,
+    4px 4px 0 #333,
+    -4px 0 0 #333,
+    0 -4px 0 #333,
+    -4px -4px 0 #333,
+    4px -4px 0 #333,
+    -4px 4px 0 #333;
+}
+
+/* グラデーションテキスト */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ネオンテキスト効果 */
+.neon-text {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+}
+
+/* 3Dカード効果 */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(-5deg);
+}
+
+/* カスタムスクロールバー */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ブロック風の影 */
+.block-shadow {
+  box-shadow: 
+    4px 4px 0 rgba(0,0,0,0.1),
+    8px 8px 0 rgba(0,0,0,0.05),
+    12px 12px 0 rgba(0,0,0,0.025);
+}
+
+/* ホバーで浮き上がる効果 */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* パララックススクロール用 */
+.parallax {
+  will-change: transform;
+}
+
+/* カスタムローディングアニメーション */
+@keyframes minecraft-load {
+  0% { transform: scale(0) rotate(0deg); }
+  50% { transform: scale(1) rotate(180deg); }
+  100% { transform: scale(0) rotate(360deg); }
+}
+
+.minecraft-loader {
+  animation: minecraft-load 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
