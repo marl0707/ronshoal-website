@@ -31,7 +31,7 @@ export default function Home() {
       <header className="bg-white/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-gray-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg animate-pulse-scale" />
+            <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-600 rounded-lg" />
             <div className="minecraft-font text-xl text-gray-900">
               MC PROGRAMMING
             </div>
@@ -48,7 +48,7 @@ export default function Home() {
       {/* Floating LINE Button */}
       <button 
         onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-emerald-600 text-white px-6 py-4 rounded-full hover:scale-110 transition-all shadow-2xl z-40 font-bold animate-glow flex items-center gap-2"
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-emerald-600 text-white px-6 py-4 rounded-full hover:scale-110 transition-all shadow-2xl z-40 font-bold flex items-center gap-2"
       >
         <span className="text-2xl">📱</span>
         <span className="text-sm">LINE登録</span>
@@ -105,7 +105,7 @@ export default function Home() {
           <div className="relative animate-slide-up" style={{ animationDelay: '0.4s' }}>
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 blur-xl opacity-30" />
             <div className="relative pixel-card bg-white/90 backdrop-blur-md p-8 border-yellow-400 shadow-lg">
-              <h3 className="minecraft-font text-2xl text-yellow-400 mb-6 neon-text">🎁 LINE BONUS x4</h3>
+              <h3 className="minecraft-font text-2xl text-yellow-400 mb-6">🎁 LINE BONUS x4</h3>
               <div className="grid md:grid-cols-4 gap-4">
                 {[
                   { icon: '🎥', text: '無料セミナー' },
@@ -136,7 +136,7 @@ export default function Home() {
                 <span>無料セミナーに申し込む</span>
               </div>
             </button>
-            <p className="text-lg text-gray-600 font-bold jp-font animate-pulse">
+            <p className="text-lg text-gray-600 font-bold jp-font">
               ↓ たった30秒！友だち追加するだけ
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function Home() {
             <div className="inline-block relative">
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-600 blur-xl opacity-50" />
               <div className="relative bg-gradient-to-r from-green-100 to-emerald-100 backdrop-blur-sm p-8 rounded-2xl border border-green-400">
-                <p className="minecraft-font text-xl text-green-400 mb-6 neon-text">💚 SOLUTION INSIDE</p>
+                <p className="minecraft-font text-xl text-green-400 mb-6">💚 SOLUTION INSIDE</p>
                 <button 
                   onClick={() => setIsModalOpen(true)}
                   className="minecraft-btn text-white px-8 py-3 rounded-lg font-bold uppercase"
@@ -371,7 +371,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-3 gap-8 mb-16 perspective-1000">
             {/* STEP 1-4 初級 */}
             <div className="space-y-6">
-              <div className="minecraft-font text-xl text-green-400 text-center mb-6 neon-text">
+              <div className="minecraft-font text-xl text-green-400 text-center mb-6">
                 BEGINNER
               </div>
               {[
@@ -397,7 +397,7 @@ export default function Home() {
             
             {/* STEP 5-8 中級 */}
             <div className="space-y-6">
-              <div className="minecraft-font text-xl text-blue-400 text-center mb-6 neon-text">
+              <div className="minecraft-font text-xl text-blue-400 text-center mb-6">
                 INTERMEDIATE
               </div>
               {[
@@ -423,7 +423,7 @@ export default function Home() {
             
             {/* STEP 9-12 上級 */}
             <div className="space-y-6">
-              <div className="minecraft-font text-xl text-purple-400 text-center mb-6 neon-text">
+              <div className="minecraft-font text-xl text-purple-400 text-center mb-6">
                 ADVANCED
               </div>
               {[
