@@ -26,17 +26,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
+      {/* 装飾的なBLOB */}
+      <div className="decorative-blob" style={{ top: '10%', left: '-20%' }} />
+      <div className="decorative-blob" style={{ top: '60%', right: '-20%' }} />
       {/* Header */}
-      <header className="bg-white/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-gray-200 shadow-sm">
+      <header className="glass fixed top-0 w-full z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="text-2xl font-bold text-gray-900 jp-font">
-              マインクラフト×プログラミング
+            <div className="text-2xl font-black gradient-text fun-font">
+              マイクラ × プログラミング
             </div>
           </div>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold text-sm transition-all shadow-md jp-font"
+            className="gradient-candy text-white px-8 py-3 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 fun-font"
           >
             無料で相談する
           </button>
@@ -46,32 +49,38 @@ export default function Home() {
       {/* Floating LINE Button */}
       <button 
         onClick={() => setIsModalOpen(true)}
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full hover:scale-105 transition-all shadow-2xl z-40 font-bold flex items-center gap-2 jp-font"
+        className="fixed bottom-6 right-6 bg-gradient-to-r from-green-400 to-emerald-500 text-white px-6 py-4 rounded-full hover:scale-110 transition-all shadow-2xl z-40 font-bold flex items-center gap-2 fun-font animate-wiggle"
       >
         <span className="text-xl">📱</span>
         <span>LINE相談</span>
       </button>
 
       {/* Hero Section - 注意を引く */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 bg-gradient-to-b from-blue-50 to-white">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 gradient-mesh">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div className="text-center md:text-left">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 jp-font leading-tight">
-                お子様の<span className="text-green-600">「ゲーム時間」</span>を
-                <span className="text-blue-600">「学習時間」</span>に変える方法
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left animate-fade-in-up">
+              <div className="inline-block mb-4 px-4 py-2 bg-yellow-400 text-gray-900 rounded-full text-sm font-bold animate-wiggle">
+                🎆 期間限定キャンペーン中
+              </div>
+              <h1 className="text-5xl md:text-7xl font-black mb-6 fun-font leading-tight">
+                <span className="text-white">お子様の</span>
+                <span className="gradient-text-green">「ゲーム時間」</span>
+                <span className="text-white">を</span><br />
+                <span className="gradient-text-orange">「学習時間」</span>
+                <span className="text-white">に変える</span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-700 mb-8 jp-font">
+              <p className="text-xl md:text-2xl text-white/90 mb-8 soft-font">
                 マインクラフトで遊びながら、
                 プログラミングの基礎から本格的なゲーム開発まで
               </p>
               
-              <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6 mb-8 inline-block">
-                <p className="text-lg font-bold text-gray-900 mb-2 jp-font">
-                  ⚡ 今なら期間限定
+              <div className="glass rounded-2xl p-6 mb-8 inline-block animate-blob">
+                <p className="text-lg font-bold text-gray-900 mb-2 fun-font">
+                  ⚡ 今だけのスペシャルオファー
                 </p>
-                <p className="text-2xl font-bold text-red-600 jp-font">
+                <p className="text-2xl font-black gradient-text fun-font">
                   無料体験セミナー＋4大特典プレゼント中
                 </p>
               </div>
@@ -79,24 +88,26 @@ export default function Home() {
               <div className="mb-8">
                 <button 
                   onClick={() => setIsModalOpen(true)}
-                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl px-12 py-5 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all jp-font"
+                  className="group relative overflow-hidden bg-white text-gray-900 text-xl px-12 py-5 rounded-full font-black shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all fun-font border-gradient"
                 >
-                  今すぐ無料で始める →
+                  <span className="relative z-10">今すぐ無料で始める →</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </button>
-                <p className="text-sm text-gray-600 mt-4 jp-font">
+                <p className="text-sm text-white/80 mt-4 soft-font">
                   ※30秒で簡単登録・いつでも解除可能
                 </p>
               </div>
             </div>
             
-            <div className="relative">
+            <div className="relative animate-float">
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-500 rounded-3xl blur-3xl opacity-30 animate-blob" />
               <img 
                 src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
                 alt="子供たちが楽しそうにパソコンで学習している様子"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-3xl shadow-2xl w-full h-auto relative z-10 transform rotate-3 hover:rotate-0 transition-transform duration-500"
               />
-              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-xl p-4 shadow-lg">
-                <p className="text-sm font-bold jp-font">🎓 博士監修プログラム</p>
+              <div className="absolute -bottom-6 -right-6 glass rounded-xl p-4 shadow-lg z-20 animate-wiggle">
+                <p className="text-sm font-bold gradient-text fun-font">🎓 博士監修プログラム</p>
               </div>
             </div>
           </div>
@@ -104,10 +115,11 @@ export default function Home() {
       </section>
 
       {/* 共感・問題提起 Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 jp-font">
-            こんなお悩みありませんか？
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-pink-50 to-yellow-50 opacity-50" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-12 fun-font">
+            <span className="gradient-text">こんなお悩み</span>ありませんか？
           </h2>
           
           <div className="space-y-6">
@@ -128,25 +140,25 @@ export default function Home() {
                 desc: "興味を持ってもすぐに飽きてしまう..."
               }
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div key={index} className="glass rounded-2xl p-6 hover:shadow-2xl transition-all hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl">{item.icon}</span>
+                  <span className="text-5xl animate-wiggle" style={{ animationDelay: `${index * 0.2}s` }}>{item.icon}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 jp-font">{item.title}</h3>
-                    <p className="text-gray-700 jp-font">{item.desc}</p>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2 fun-font">{item.title}</h3>
+                    <p className="text-gray-700 soft-font">{item.desc}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           
-          <div className="mt-12 text-center">
-            <p className="text-2xl font-bold text-gray-900 mb-4 jp-font">
+          <div className="mt-16 text-center animate-scale-in">
+            <p className="text-3xl font-black text-gray-900 mb-4 fun-font animate-wiggle">
               でも、もし...
             </p>
-            <p className="text-xl text-gray-700 jp-font">
-              お子様の大好きな<span className="font-bold text-green-600">マインクラフト</span>が
-              最高の<span className="font-bold text-blue-600">学習ツール</span>になるとしたら？
+            <p className="text-2xl font-bold soft-font">
+              お子様の大好きな<span className="gradient-text-green">マインクラフト</span>が
+              最高の<span className="gradient-text-orange">学習ツール</span>になるとしたら？
             </p>
           </div>
         </div>
@@ -163,41 +175,42 @@ export default function Home() {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="text-center">
-              <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🎓</span>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-blue-400 to-purple-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-4xl animate-float">🎓</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 jp-font">学術的裏付け</h3>
-              <p className="text-gray-700 jp-font">20年以上の研究に基づく最適な学習設計</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">学術的裏付け</h3>
+              <p className="text-gray-700 soft-font">20年以上の研究に基づく最適な学習設計</p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🎮</span>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-green-400 to-emerald-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-4xl animate-float" style={{ animationDelay: '0.3s' }}>🎮</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 jp-font">楽しく継続</h3>
-              <p className="text-gray-700 jp-font">ゲーム感覚で自然に身につくプログラミング思考</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">楽しく継続</h3>
+              <p className="text-gray-700 soft-font">ゲーム感覚で自然に身につくプログラミング思考</p>
             </div>
             
-            <div className="text-center">
-              <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🚀</span>
+            <div className="text-center group">
+              <div className="bg-gradient-to-br from-purple-400 to-pink-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                <span className="text-4xl animate-float" style={{ animationDelay: '0.6s' }}>🚀</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 jp-font">確実な成長</h3>
-              <p className="text-gray-700 jp-font">10ステージで基礎から本格開発まで</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">確実な成長</h3>
+              <p className="text-gray-700 soft-font">10ステージで基礎から本格開発まで</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 信頼性・権威性 */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
-            なぜ選ばれるのか
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-10" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-black text-center mb-12 fun-font">
+            <span className="gradient-text">なぜ選ばれる</span>のか
           </h2>
           
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
+          <div className="neumorphic rounded-3xl p-8 mb-8">
             <div className="md:flex items-center gap-8">
               <div className="md:w-1/3 mb-6 md:mb-0">
                 <img 
@@ -210,7 +223,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-2 jp-font">
                   川勝 英史 教授
                 </h3>
-                <p className="text-blue-600 font-semibold mb-4 jp-font">
+                <p className="gradient-text font-bold mb-4 soft-font text-lg">
                   東京情報大学 総合情報学部 教授 / 博士（経営情報科学）
                 </p>
                 <ul className="space-y-2 text-gray-700 jp-font">
@@ -223,11 +236,13 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="text-center">
-            <p className="text-lg text-gray-700 mb-8 jp-font">
-              「小学生の頃のプログラミング体験が今の私を作りました。
-              子どもたちの『好き』を『力』に変える教育を届けたい」
-            </p>
+          <div className="text-center mt-8">
+            <div className="glass rounded-2xl p-6 inline-block">
+              <p className="text-xl font-bold soft-font text-gray-800">
+                「小学生の頃のプログラミング体験が今の私を作りました。
+                子どもたちの<span className="gradient-text-green">『好き』</span>を<span className="gradient-text-orange">『力』</span>に変える教育を届けたい」
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -323,138 +338,141 @@ export default function Home() {
       </section>
 
       {/* 緊急性・限定性 */}
-      <section className="py-20 bg-gradient-to-b from-yellow-50 to-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
-            <h2 className="text-3xl font-bold text-red-700 mb-4 jp-font">
-              ⚠️ 重要なお知らせ
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-mesh opacity-20" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <div className="neumorphic rounded-3xl p-8 text-center">
+            <h2 className="text-4xl font-black mb-4 fun-font animate-wiggle">
+              ⚠️ <span className="gradient-text-orange">重要なお知らせ</span>
             </h2>
-            <p className="text-xl text-gray-800 mb-6 jp-font">
-              無料体験セミナーは<span className="font-bold text-red-600">各回10名限定</span>です
+            <p className="text-2xl font-bold mb-6 soft-font">
+              無料体験セミナーは<span className="gradient-text-orange text-3xl">各回10名限定</span>です
             </p>
-            <div className="bg-white rounded-lg p-6 mb-6">
-              <p className="text-lg font-bold text-gray-900 mb-2 jp-font">今月の残り枠</p>
-              <div className="flex justify-center gap-4">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-red-600">3</p>
-                  <p className="text-sm text-gray-600 jp-font">火曜日</p>
+            <div className="glass rounded-2xl p-6 mb-6 animate-blob">
+              <p className="text-xl font-black gradient-text mb-4 fun-font">今月の残り枠</p>
+              <div className="flex justify-center gap-6">
+                <div className="text-center transform hover:scale-110 transition-all">
+                  <p className="text-5xl font-black gradient-text-orange animate-wiggle">3</p>
+                  <p className="text-sm fun-font mt-2">火曜日</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-red-600">5</p>
-                  <p className="text-sm text-gray-600 jp-font">金曜日</p>
+                <div className="text-center transform hover:scale-110 transition-all">
+                  <p className="text-5xl font-black gradient-text-orange animate-wiggle" style={{ animationDelay: '0.2s' }}>5</p>
+                  <p className="text-sm fun-font mt-2">金曜日</p>
                 </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-red-600">2</p>
-                  <p className="text-sm text-gray-600 jp-font">日曜日</p>
+                <div className="text-center transform hover:scale-110 transition-all">
+                  <p className="text-5xl font-black gradient-text-orange animate-wiggle" style={{ animationDelay: '0.4s' }}>2</p>
+                  <p className="text-sm fun-font mt-2">日曜日</p>
                 </div>
               </div>
             </div>
-            <p className="text-gray-700 jp-font">
-              ※人気の時間帯から埋まっていきます
+            <p className="text-xl font-bold soft-font animate-fade-in-up">
+              ※<span className="gradient-text-orange">人気の時間帯</span>から埋まっていきます
             </p>
           </div>
         </div>
       </section>
 
       {/* LINE特典 */}
-      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section className="py-20 gradient-candy">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
-            LINE登録で得られる4大特典
+          <h2 className="text-4xl font-black text-center mb-12 text-white fun-font">
+            🎁 LINE登録で得られる<span className="text-yellow-300">4大特典</span>
           </h2>
           
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+            <div className="glass rounded-2xl p-6 hover:scale-105 transition-all animate-fade-in-up">
               <div className="flex items-center gap-4 mb-3">
-                <span className="text-3xl">📺</span>
-                <h3 className="text-xl font-bold jp-font">無料セミナー参加権</h3>
+                <span className="text-4xl animate-float">📺</span>
+                <h3 className="text-xl font-black fun-font">無料セミナー参加権</h3>
               </div>
-              <p className="text-gray-700 jp-font">通常5,000円相当のセミナーに無料でご参加いただけます</p>
+              <p className="text-gray-700 soft-font">通常<span className="font-bold text-red-600">5,000円相当</span>のセミナーに無料でご参加いただけます</p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+            <div className="glass rounded-2xl p-6 hover:scale-105 transition-all animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               <div className="flex items-center gap-4 mb-3">
-                <span className="text-3xl">💰</span>
-                <h3 className="text-xl font-bold jp-font">受講料特別割引</h3>
+                <span className="text-4xl animate-float" style={{ animationDelay: '0.2s' }}>💰</span>
+                <h3 className="text-xl font-black fun-font">受講料特別割引</h3>
               </div>
-              <p className="text-gray-700 jp-font">LINE登録者限定の特別価格でご受講いただけます</p>
+              <p className="text-gray-700 soft-font">LINE登録者限定の<span className="gradient-text font-bold">特別価格</span>でご受講いただけます</p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+            <div className="glass rounded-2xl p-6 hover:scale-105 transition-all animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               <div className="flex items-center gap-4 mb-3">
-                <span className="text-3xl">🎮</span>
-                <h3 className="text-xl font-bold jp-font">入門動画プレゼント</h3>
+                <span className="text-4xl animate-float" style={{ animationDelay: '0.4s' }}>🎮</span>
+                <h3 className="text-xl font-black fun-font">入門動画プレゼント</h3>
               </div>
-              <p className="text-gray-700 jp-font">エージェントプログラミングの基礎が学べる動画をプレゼント</p>
+              <p className="text-gray-700 soft-font">エージェントプログラミングの基礎が学べる動画をプレゼント</p>
             </div>
             
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+            <div className="glass rounded-2xl p-6 hover:scale-105 transition-all animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <div className="flex items-center gap-4 mb-3">
-                <span className="text-3xl">📚</span>
-                <h3 className="text-xl font-bold jp-font">設定ガイドブック</h3>
+                <span className="text-4xl animate-float" style={{ animationDelay: '0.6s' }}>📚</span>
+                <h3 className="text-xl font-black fun-font">設定ガイドブック</h3>
               </div>
-              <p className="text-gray-700 jp-font">マインクラフト教育版の詳しい設定方法をまとめたガイド</p>
+              <p className="text-gray-700 soft-font">マインクラフト教育版の詳しい設定方法をまとめたガイド</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* 行動喚起 */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 jp-font">
-            今すぐ始める3つの理由
+      <section className="py-20 relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-blue-50 opacity-50" />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black text-center mb-12 fun-font">
+            <span className="gradient-text-green">今すぐ始める</span>3つの理由
           </h2>
           
           <div className="space-y-6 mb-12">
-            <div className="flex items-start gap-4">
-              <div className="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="flex items-start gap-4 glass rounded-2xl p-6 hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-black text-xl flex-shrink-0 shadow-lg">
                 1
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 jp-font">完全無料で試せる</h3>
-                <p className="text-gray-700 jp-font">
+                <h3 className="text-xl font-black mb-2 fun-font">完全無料で試せる</h3>
+                <p className="text-gray-700 soft-font">
                   まずは無料セミナーで、お子様に合うかどうかを確認できます。
                 </p>
               </div>
             </div>
             
-            <div className="flex items-start gap-4">
-              <div className="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="flex items-start gap-4 glass rounded-2xl p-6 hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-black text-xl flex-shrink-0 shadow-lg">
                 2
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 jp-font">特典が今だけ</h3>
-                <p className="text-gray-700 jp-font">
-                  4大特典（5,000円相当）は期間限定。来月以降は内容が変更される可能性があります。
+                <h3 className="text-xl font-black mb-2 fun-font">特典が今だけ</h3>
+                <p className="text-gray-700 soft-font">
+                  4大特典（<span className="font-bold gradient-text-orange">5,000円相当</span>）は期間限定。来月以降は内容が変更される可能性があります。
                 </p>
               </div>
             </div>
             
-            <div className="flex items-start gap-4">
-              <div className="bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="flex items-start gap-4 glass rounded-2xl p-6 hover:shadow-xl transition-all">
+              <div className="bg-gradient-to-r from-purple-400 to-pink-500 text-white w-12 h-12 rounded-full flex items-center justify-center font-black text-xl flex-shrink-0 shadow-lg">
                 3
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-2 jp-font">早く始めるほど有利</h3>
-                <p className="text-gray-700 jp-font">
+                <h3 className="text-xl font-black mb-2 fun-font">早く始めるほど有利</h3>
+                <p className="text-gray-700 soft-font">
                   プログラミング学習は早期開始が効果的。1日でも早いスタートが将来の大きな差に。
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4 jp-font">
+          <div className="gradient-candy rounded-3xl p-8 text-center animate-blob shadow-2xl">
+            <h3 className="text-3xl font-black mb-6 text-white fun-font animate-wiggle">
               簡単30秒！LINE登録で今すぐスタート
             </h3>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl px-12 py-5 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all jp-font mb-4"
+              className="group relative overflow-hidden bg-white text-gray-900 text-xl px-12 py-5 rounded-full font-black shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all fun-font mb-4"
             >
-              無料で始める →
+              <span className="relative z-10">無料で始める →</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>
-            <p className="text-sm text-gray-600 jp-font">
+            <p className="text-sm text-white/90 soft-font">
               ※しつこい勧誘は一切ありません
             </p>
           </div>
@@ -462,60 +480,61 @@ export default function Home() {
       </section>
 
       {/* カリキュラム詳細（後ろの方に配置） */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
-            10ステージで段階的に成長
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-blue-50 to-green-50 opacity-50" />
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-black text-center mb-12 fun-font">
+            <span className="gradient-text">10ステージ</span>で段階的に成長
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* 初級 */}
             <div>
-              <h3 className="text-xl font-bold text-green-600 mb-6 text-center jp-font">
+              <h3 className="text-xl font-black gradient-text-green mb-6 text-center fun-font">
                 🌱 初級ステージ（1-2）
               </h3>
               <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ1：エージェント操作の基礎</h4>
-                  <p className="text-sm text-gray-700 jp-font">move、turn、placeなどの基本コマンド</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ1：エージェント操作の基礎</h4>
+                  <p className="text-sm text-gray-700 soft-font">move、turn、placeなどの基本コマンド</p>
                 </div>
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ2：簡単な採掘・建築</h4>
-                  <p className="text-sm text-gray-700 jp-font">エージェントを使った初めてのミッション</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ2：簡単な採掘・建築</h4>
+                  <p className="text-sm text-gray-700 soft-font">エージェントを使った初めてのミッション</p>
                 </div>
               </div>
             </div>
             
             {/* 基礎 */}
             <div>
-              <h3 className="text-xl font-bold text-blue-600 mb-6 text-center jp-font">
+              <h3 className="text-xl font-black gradient-text mb-6 text-center fun-font">
                 🌿 基礎ステージ（3-4）
               </h3>
               <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ3：繰り返し処理</h4>
-                  <p className="text-sm text-gray-700 jp-font">forループで効率的な作業を実現</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ3：繰り返し処理</h4>
+                  <p className="text-sm text-gray-700 soft-font">forループで効率的な作業を実現</p>
                 </div>
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ4：パターンの自動化</h4>
-                  <p className="text-sm text-gray-700 jp-font">規則性を見つけてプログラム化</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ4：パターンの自動化</h4>
+                  <p className="text-sm text-gray-700 soft-font">規則性を見つけてプログラム化</p>
                 </div>
               </div>
             </div>
             
             {/* 中級 */}
             <div>
-              <h3 className="text-xl font-bold text-purple-600 mb-6 text-center jp-font">
+              <h3 className="text-xl font-black gradient-text-orange mb-6 text-center fun-font">
                 🌳 中級ステージ（5-6）
               </h3>
               <div className="space-y-4">
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ5：条件分岐</h4>
-                  <p className="text-sm text-gray-700 jp-font">if文で状況に応じた判断を実装</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ5：条件分岐</h4>
+                  <p className="text-sm text-gray-700 soft-font">if文で状況に応じた判断を実装</p>
                 </div>
-                <div className="bg-white rounded-lg p-4 shadow">
-                  <h4 className="font-bold mb-2 jp-font">ステージ6：障害物回避</h4>
-                  <p className="text-sm text-gray-700 jp-font">より複雑な課題への挑戦</p>
+                <div className="glass rounded-xl p-4 hover:scale-105 transition-all">
+                  <h4 className="font-bold mb-2 fun-font">ステージ6：障害物回避</h4>
+                  <p className="text-sm text-gray-700 soft-font">より複雑な課題への挑戦</p>
                 </div>
               </div>
             </div>
@@ -660,37 +679,40 @@ export default function Home() {
       </section>
 
       {/* 最終CTA */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8 jp-font">
-            お子様の可能性を、今すぐ解き放ちませんか？
+      <section className="py-20 gradient-mesh relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-8 text-white fun-font animate-fade-in-up">
+            お子様の<span className="text-yellow-300">可能性</span>を、
+            今すぐ<span className="text-yellow-300">解き放ちませんか</span>？
           </h2>
-          <p className="text-xl text-gray-700 mb-8 jp-font">
+          <p className="text-2xl text-white/90 mb-12 soft-font animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             ゲームが大好きな今だからこそ、
             その情熱を未来につながる力に変えるチャンスです。
           </p>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-2xl px-16 py-6 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all jp-font"
+            className="group relative overflow-hidden bg-white text-gray-900 text-2xl px-20 py-8 rounded-full font-black shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all fun-font animate-wiggle"
           >
-            今すぐ無料で始める
+            <span className="relative z-10">今すぐ無料で始める</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
           </button>
-          <p className="text-sm text-gray-500 mt-4 jp-font">
+          <p className="text-sm text-white/70 mt-6 soft-font">
             ※登録は無料です。いつでも解除できます。
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-12">
+      <footer className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-lg font-bold mb-2 jp-font">
+          <p className="text-xl font-black mb-2 fun-font">
             マインクラフトで学ぶ能力開発プログラミング講座
           </p>
-          <p className="text-gray-400 jp-font">
+          <p className="text-gray-300 soft-font">
             博士（経営情報科学）川勝英史教授 監修
           </p>
-          <p className="text-sm text-gray-500 mt-6">
+          <p className="text-sm text-gray-400 mt-6">
             &copy; 2024 All rights reserved.
           </p>
         </div>
@@ -698,36 +720,38 @@ export default function Home() {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl relative">
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="glass rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-scale-in">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl"
+              className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 text-3xl transition-colors"
             >
               ×
             </button>
             
-            <h3 className="text-2xl font-bold mb-4 text-center jp-font">
+            <h3 className="text-3xl font-black mb-6 text-center gradient-text fun-font">
               LINE友だち追加
             </h3>
-            <p className="text-gray-700 mb-6 text-center jp-font">
+            <p className="text-gray-700 mb-8 text-center soft-font text-lg">
               下記のQRコードを読み取るか、
               ボタンをタップして友だち追加してください
             </p>
             
-            <div className="text-center mb-6">
-              <img 
-                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://line.me/R/ti/p/%40minecraft-programming"
-                alt="LINE QRコード"
-                className="mx-auto rounded-lg shadow-md"
-              />
+            <div className="text-center mb-8">
+              <div className="inline-block p-4 bg-white rounded-2xl shadow-lg">
+                <img 
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://line.me/R/ti/p/%40minecraft-programming"
+                  alt="LINE QRコード"
+                  className="rounded-lg"
+                />
+              </div>
             </div>
             
             <a 
               href="https://line.me/R/ti/p/@minecraft-programming"
               target="_blank"
               rel="noopener noreferrer"
-              className="block w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-bold text-center transition-colors jp-font"
+              className="block w-full bg-gradient-to-r from-green-400 to-emerald-500 hover:from-green-500 hover:to-emerald-600 text-white py-4 rounded-full font-black text-center transition-all shadow-lg hover:shadow-xl transform hover:scale-105 fun-font text-lg"
             >
               LINEで友だち追加
             </a>
