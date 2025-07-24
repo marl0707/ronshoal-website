@@ -54,36 +54,51 @@ export default function Home() {
 
       {/* Hero Section - 注意を引く */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 jp-font leading-tight">
-            お子様の<span className="text-green-600">「ゲーム時間」</span>を<br />
-            <span className="text-blue-600">「学習時間」</span>に変える方法
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 jp-font">
-            マインクラフトで遊びながら、<br />
-            プログラミングの基礎から本格的なゲーム開発まで
-          </p>
-          
-          <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6 mb-8 inline-block">
-            <p className="text-lg font-bold text-gray-900 mb-2 jp-font">
-              ⚡ 今なら期間限定
-            </p>
-            <p className="text-2xl font-bold text-red-600 jp-font">
-              無料体験セミナー＋4大特典プレゼント中
-            </p>
-          </div>
-          
-          <div className="mb-8">
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl px-12 py-5 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all jp-font"
-            >
-              今すぐ無料で始める →
-            </button>
-            <p className="text-sm text-gray-600 mt-4 jp-font">
-              ※30秒で簡単登録・いつでも解除可能
-            </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 jp-font leading-tight">
+                お子様の<span className="text-green-600">「ゲーム時間」</span>を<br />
+                <span className="text-blue-600">「学習時間」</span>に変える方法
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-700 mb-8 jp-font">
+                マインクラフトで遊びながら、<br />
+                プログラミングの基礎から本格的なゲーム開発まで
+              </p>
+              
+              <div className="bg-yellow-50 border-2 border-yellow-300 rounded-lg p-6 mb-8 inline-block">
+                <p className="text-lg font-bold text-gray-900 mb-2 jp-font">
+                  ⚡ 今なら期間限定
+                </p>
+                <p className="text-2xl font-bold text-red-600 jp-font">
+                  無料体験セミナー＋4大特典プレゼント中
+                </p>
+              </div>
+              
+              <div className="mb-8">
+                <button 
+                  onClick={() => setIsModalOpen(true)}
+                  className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white text-xl px-12 py-5 rounded-full font-bold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all jp-font"
+                >
+                  今すぐ無料で始める →
+                </button>
+                <p className="text-sm text-gray-600 mt-4 jp-font">
+                  ※30秒で簡単登録・いつでも解除可能
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop"
+                alt="子供たちが楽しそうにパソコンで学習している様子"
+                className="rounded-2xl shadow-2xl w-full h-auto"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-gradient-to-br from-green-400 to-emerald-500 text-white rounded-xl p-4 shadow-lg">
+                <p className="text-sm font-bold jp-font">🎓 博士監修プログラム</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
