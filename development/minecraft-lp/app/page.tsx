@@ -58,12 +58,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left">
               <h1 className="text-4xl md:text-6xl font-bold mb-6 jp-font leading-tight">
-                お子様の<span className="text-green-600">「ゲーム時間」</span>を<br />
+                お子様の<span className="text-green-600">「ゲーム時間」</span>を
                 <span className="text-blue-600">「学習時間」</span>に変える方法
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-700 mb-8 jp-font">
-                マインクラフトで遊びながら、<br />
+                マインクラフトで遊びながら、
                 プログラミングの基礎から本格的なゲーム開発まで
               </p>
               
@@ -145,7 +145,7 @@ export default function Home() {
               でも、もし...
             </p>
             <p className="text-xl text-gray-700 jp-font">
-              お子様の大好きな<span className="font-bold text-green-600">マインクラフト</span>が<br />
+              お子様の大好きな<span className="font-bold text-green-600">マインクラフト</span>が
               最高の<span className="font-bold text-blue-600">学習ツール</span>になるとしたら？
             </p>
           </div>
@@ -211,8 +211,7 @@ export default function Home() {
                   川勝 英史 教授
                 </h3>
                 <p className="text-blue-600 font-semibold mb-4 jp-font">
-                  東京情報大学 総合情報学部 教授<br />
-                  博士（経営情報科学）
+                  東京情報大学 総合情報学部 教授 / 博士（経営情報科学）
                 </p>
                 <ul className="space-y-2 text-gray-700 jp-font">
                   <li>✅ 日本初！Intel Skills for Innovation "Silver Ambassador"</li>
@@ -226,7 +225,7 @@ export default function Home() {
           
           <div className="text-center">
             <p className="text-lg text-gray-700 mb-8 jp-font">
-              「小学生の頃のプログラミング体験が今の私を作りました。<br />
+              「小学生の頃のプログラミング体験が今の私を作りました。
               子どもたちの『好き』を『力』に変える教育を届けたい」
             </p>
           </div>
@@ -641,15 +640,15 @@ export default function Home() {
               <div className="grid md:grid-cols-3 gap-4">
                 <div>
                   <p className="font-bold text-blue-600 jp-font">火曜日</p>
-                  <p className="text-sm jp-font">14:00-15:00<br />19:00-20:00</p>
+                  <p className="text-sm jp-font">14:00-15:00 / 19:00-20:00</p>
                 </div>
                 <div>
                   <p className="font-bold text-blue-600 jp-font">金曜日</p>
-                  <p className="text-sm jp-font">11:00-12:00<br />22:00-23:00</p>
+                  <p className="text-sm jp-font">11:00-12:00 / 22:00-23:00</p>
                 </div>
                 <div>
                   <p className="font-bold text-blue-600 jp-font">日曜日</p>
-                  <p className="text-sm jp-font">10:00-11:00<br />18:00-19:00</p>
+                  <p className="text-sm jp-font">10:00-11:00 / 18:00-19:00</p>
                 </div>
               </div>
               <p className="text-sm text-gray-600 mt-4 text-center jp-font">
@@ -667,7 +666,7 @@ export default function Home() {
             お子様の可能性を、今すぐ解き放ちませんか？
           </h2>
           <p className="text-xl text-gray-700 mb-8 jp-font">
-            ゲームが大好きな今だからこそ、<br />
+            ゲームが大好きな今だからこそ、
             その情熱を未来につながる力に変えるチャンスです。
           </p>
           <button 
@@ -712,7 +711,7 @@ export default function Home() {
               LINE友だち追加
             </h3>
             <p className="text-gray-700 mb-6 text-center jp-font">
-              下記のQRコードを読み取るか、<br />
+              下記のQRコードを読み取るか、
               ボタンをタップして友だち追加してください
             </p>
             
