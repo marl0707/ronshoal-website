@@ -152,7 +152,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 解決策の提示 */}
+      {/* 解決策の提示 - 簡潔に */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 jp-font">
@@ -184,7 +184,7 @@ export default function Home() {
                 <span className="text-3xl">🚀</span>
               </div>
               <h3 className="text-xl font-bold mb-2 jp-font">確実な成長</h3>
-              <p className="text-gray-700 jp-font">12ステップで基礎から本格開発まで</p>
+              <p className="text-gray-700 jp-font">10ステージで基礎から本格開発まで</p>
             </div>
           </div>
         </div>
@@ -294,18 +294,18 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                grade: "小学5年生の保護者様",
-                comment: "ゲームばかりだった息子が、今では『プログラミングの時間だ！』と自分から机に向かうように。学校の成績も上がりました。",
-                rating: "★★★★★"
-              },
-              {
-                grade: "小学3年生の保護者様",
-                comment: "最初は難しいかなと心配でしたが、ステップごとに進められるので無理なく続けられています。何より楽しそうなのが一番です。",
+                grade: "小学4年生の保護者様",
+                comment: "ゲームの時間が学習時間に変わりました！毎回のステージクリアを楽しみにしていて、自分から『今日はプログラミングやる！』と言うようになりました",
                 rating: "★★★★★"
               },
               {
                 grade: "小学6年生の保護者様",
-                comment: "プログラミング教室をいくつか試しましたが、ここまで夢中になったのは初めて。博士監修という安心感もあります。",
+                comment: "最初は難しいかなと心配でしたが、ゲーム感覚で進められるので全く問題ありませんでした。自分で考えて解決する力が明らかについています",
+                rating: "★★★★★"
+              },
+              {
+                grade: "小学5年生の保護者様",
+                comment: "プログラミングへの苦手意識がなくなっただけでなく、学校の勉強でも論理的に考えるようになりました",
                 rating: "★★★★★"
               }
             ].map((item, index) => (
@@ -353,6 +353,49 @@ export default function Home() {
             <p className="text-gray-700 jp-font">
               ※人気の時間帯から埋まっていきます
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* LINE特典 */}
+      <section className="py-20 bg-gradient-to-b from-green-50 to-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
+            LINE登録で得られる4大特典
+          </h2>
+          
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-3xl">📺</span>
+                <h3 className="text-xl font-bold jp-font">無料セミナー参加権</h3>
+              </div>
+              <p className="text-gray-700 jp-font">通常5,000円相当のセミナーに無料でご参加いただけます</p>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-3xl">💰</span>
+                <h3 className="text-xl font-bold jp-font">受講料特別割引</h3>
+              </div>
+              <p className="text-gray-700 jp-font">LINE登録者限定の特別価格でご受講いただけます</p>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-3xl">🎮</span>
+                <h3 className="text-xl font-bold jp-font">入門動画プレゼント</h3>
+              </div>
+              <p className="text-gray-700 jp-font">エージェントプログラミングの基礎が学べる動画をプレゼント</p>
+            </div>
+            
+            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-all">
+              <div className="flex items-center gap-4 mb-3">
+                <span className="text-3xl">📚</span>
+                <h3 className="text-xl font-bold jp-font">設定ガイドブック</h3>
+              </div>
+              <p className="text-gray-700 jp-font">マインクラフト教育版の詳しい設定方法をまとめたガイド</p>
+            </div>
           </div>
         </div>
       </section>
@@ -415,6 +458,204 @@ export default function Home() {
             <p className="text-sm text-gray-600 jp-font">
               ※しつこい勧誘は一切ありません
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* カリキュラム詳細（後ろの方に配置） */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
+            10ステージで段階的に成長
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* 初級 */}
+            <div>
+              <h3 className="text-xl font-bold text-green-600 mb-6 text-center jp-font">
+                🌱 初級ステージ（1-2）
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ1：エージェント操作の基礎</h4>
+                  <p className="text-sm text-gray-700 jp-font">move、turn、placeなどの基本コマンド</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ2：簡単な採掘・建築</h4>
+                  <p className="text-sm text-gray-700 jp-font">エージェントを使った初めてのミッション</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* 基礎 */}
+            <div>
+              <h3 className="text-xl font-bold text-blue-600 mb-6 text-center jp-font">
+                🌿 基礎ステージ（3-4）
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ3：繰り返し処理</h4>
+                  <p className="text-sm text-gray-700 jp-font">forループで効率的な作業を実現</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ4：パターンの自動化</h4>
+                  <p className="text-sm text-gray-700 jp-font">規則性を見つけてプログラム化</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* 中級 */}
+            <div>
+              <h3 className="text-xl font-bold text-purple-600 mb-6 text-center jp-font">
+                🌳 中級ステージ（5-6）
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ5：条件分岐</h4>
+                  <p className="text-sm text-gray-700 jp-font">if文で状況に応じた判断を実装</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ6：障害物回避</h4>
+                  <p className="text-sm text-gray-700 jp-font">より複雑な課題への挑戦</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* 上級 */}
+            <div>
+              <h3 className="text-xl font-bold text-orange-600 mb-6 text-center jp-font">
+                ⚡ 上級ステージ（7-8）
+              </h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ7：迷路脱出</h4>
+                  <p className="text-sm text-gray-700 jp-font">アルゴリズムを使った問題解決</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ8：パズル解決</h4>
+                  <p className="text-sm text-gray-700 jp-font">論理的思考の総合演習</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* マスター */}
+            <div className="md:col-span-2 lg:col-span-2">
+              <h3 className="text-xl font-bold text-red-600 mb-6 text-center jp-font">
+                🏅 マスターステージ（9-10）
+              </h3>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ9：オリジナルミッション作成</h4>
+                  <p className="text-sm text-gray-700 jp-font">自分だけの課題を設計</p>
+                </div>
+                <div className="bg-white rounded-lg p-4 shadow">
+                  <h4 className="font-bold mb-2 jp-font">ステージ10：作品発表会</h4>
+                  <p className="text-sm text-gray-700 jp-font">成果を共有し、新しい発見へ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 講座の特徴詳細 */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
+            講座の3大特徴
+          </h2>
+          
+          <div className="space-y-8">
+            <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-4 jp-font">
+                🏆 特徴1：ステージクリア型カリキュラム
+              </h3>
+              <ul className="space-y-2 text-gray-700 jp-font">
+                <li>• 全10ステージの冒険で段階的に成長</li>
+                <li>• クリアごとに新しいスキルを獲得</li>
+                <li>• レベルアップを実感できる進行システム</li>
+              </ul>
+            </div>
+            
+            <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-4 jp-font">
+                🤖 特徴2：エージェントプログラミング
+              </h3>
+              <ul className="space-y-2 text-gray-700 jp-font">
+                <li>• エージェントに指示を出して課題クリア</li>
+                <li>• 試行錯誤しながら最適解を発見</li>
+                <li>• プログラミング的思考が自然に身につく</li>
+              </ul>
+            </div>
+            
+            <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-4 jp-font">
+                👥 特徴3：継続的な学習サポート
+              </h3>
+              <ul className="space-y-2 text-gray-700 jp-font">
+                <li>• 月1回の合同ミーティングで作品共有</li>
+                <li>• 他の受講生の解法から新しい発見</li>
+                <li>• モチベーションを維持する仕組み</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 無料セミナーの詳細 */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 jp-font">
+            無料セミナーの内容（60分）
+          </h2>
+          
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">25分</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 jp-font">実演デモ</h3>
+                  <p className="text-gray-700 jp-font">エージェントプログラミングの実際の様子をご覧いただけます</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">25分</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 jp-font">プログラム詳細説明</h3>
+                  <p className="text-gray-700 jp-font">10ステージの学習内容と身につくスキルをご紹介</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">10分</div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 jp-font">質疑応答</h3>
+                  <p className="text-gray-700 jp-font">ご不明な点について直接お答えします</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-8 bg-blue-50 rounded-lg p-4">
+              <h4 className="font-bold text-blue-800 mb-2 jp-font">開催スケジュール</h4>
+              <div className="grid md:grid-cols-3 gap-4">
+                <div>
+                  <p className="font-bold text-blue-600 jp-font">火曜日</p>
+                  <p className="text-sm jp-font">14:00-15:00<br />19:00-20:00</p>
+                </div>
+                <div>
+                  <p className="font-bold text-blue-600 jp-font">金曜日</p>
+                  <p className="text-sm jp-font">11:00-12:00<br />22:00-23:00</p>
+                </div>
+                <div>
+                  <p className="font-bold text-blue-600 jp-font">日曜日</p>
+                  <p className="text-sm jp-font">10:00-11:00<br />18:00-19:00</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600 mt-4 text-center jp-font">
+                ※すべてオンライン（Zoom）開催
+              </p>
+            </div>
           </div>
         </div>
       </section>
