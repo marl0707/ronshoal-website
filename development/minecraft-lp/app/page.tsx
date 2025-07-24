@@ -107,7 +107,7 @@ export default function Home() {
                 className="rounded-3xl shadow-2xl w-full h-auto relative z-10 transform rotate-3 hover:rotate-0 transition-transform duration-500"
               />
               <div className="absolute -bottom-6 -right-6 glass rounded-xl p-4 shadow-lg z-20 animate-wiggle">
-                <p className="text-sm font-bold gradient-text fun-font">🎓 博士監修プログラム</p>
+                <p className="text-sm font-bold gradient-text fun-font">🎓 博士が直接指導</p>
               </div>
             </div>
           </div>
@@ -168,10 +168,10 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 jp-font">
-            博士監修の本格プログラミング講座
+            博士が作った本格プログラミング講座
           </h2>
           <p className="text-center text-lg text-gray-600 mb-12 jp-font">
-            東京情報大学 川勝英史教授（博士）による特別カリキュラム
+            東京情報大学 川勝英史教授（博士）が直接開発・指導
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -179,24 +179,24 @@ export default function Home() {
               <div className="bg-gradient-to-br from-blue-400 to-purple-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <span className="text-4xl animate-float">🎓</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 fun-font">学術的裏付け</h3>
-              <p className="text-gray-700 soft-font">20年以上の研究に基づく最適な学習設計</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">教授が直接指導</h3>
+              <p className="text-gray-700 soft-font">川勝教授自らが毎回授業を担当</p>
             </div>
             
             <div className="text-center group">
               <div className="bg-gradient-to-br from-green-400 to-emerald-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <span className="text-4xl animate-float" style={{ animationDelay: '0.3s' }}>🎮</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 fun-font">楽しく継続</h3>
-              <p className="text-gray-700 soft-font">ゲーム感覚で自然に身につくプログラミング思考</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">オリジナルカリキュラム</h3>
+              <p className="text-gray-700 soft-font">研究成果を活かした独自プログラム</p>
             </div>
             
             <div className="text-center group">
               <div className="bg-gradient-to-br from-purple-400 to-pink-500 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
                 <span className="text-4xl animate-float" style={{ animationDelay: '0.6s' }}>🚀</span>
               </div>
-              <h3 className="text-xl font-bold mb-2 fun-font">確実な成長</h3>
-              <p className="text-gray-700 soft-font">10ステージで基礎から本格開発まで</p>
+              <h3 className="text-xl font-bold mb-2 fun-font">少人数制指導</h3>
+              <p className="text-gray-700 soft-font">一人ひとりに寄り添う丁寧な教育</p>
             </div>
           </div>
         </div>
@@ -240,7 +240,7 @@ export default function Home() {
             <div className="glass rounded-2xl p-6 inline-block">
               <p className="text-xl font-bold soft-font text-gray-800">
                 「小学生の頃のプログラミング体験が今の私を作りました。
-                子どもたちの<span className="gradient-text-green">『好き』</span>を<span className="gradient-text-orange">『力』</span>に変える教育を届けたい」
+                私が直接指導して、子どもたちの<span className="gradient-text-green">『好き』</span>を<span className="gradient-text-orange">『力』</span>に変えます」
               </p>
             </div>
           </div>
@@ -632,24 +632,24 @@ export default function Home() {
               <div className="flex items-start gap-4">
                 <div className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">25分</div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 jp-font">実演デモ</h3>
-                  <p className="text-gray-700 jp-font">エージェントプログラミングの実際の様子をご覧いただけます</p>
+                  <h3 className="text-xl font-bold mb-2 jp-font">教授による実演デモ</h3>
+                  <p className="text-gray-700 jp-font">川勝教授が実際にエージェントプログラミングを実演</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
                 <div className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">25分</div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 jp-font">プログラム詳細説明</h3>
-                  <p className="text-gray-700 jp-font">10ステージの学習内容と身につくスキルをご紹介</p>
+                  <h3 className="text-xl font-bold mb-2 jp-font">教授独自のカリキュラム説明</h3>
+                  <p className="text-gray-700 jp-font">教授が開発した10ステージの学習内容を詳しく解説</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-4">
                 <div className="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">10分</div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 jp-font">質疑応答</h3>
-                  <p className="text-gray-700 jp-font">ご不明な点について直接お答えします</p>
+                  <h3 className="text-xl font-bold mb-2 jp-font">教授への直接質問</h3>
+                  <p className="text-gray-700 jp-font">川勝教授が直接ご質問にお答えします</p>
                 </div>
               </div>
             </div>
@@ -710,7 +710,7 @@ export default function Home() {
             マインクラフトで学ぶ能力開発プログラミング講座
           </p>
           <p className="text-gray-300 soft-font">
-            博士（経営情報科学）川勝英史教授 監修
+            博士（経営情報科学）川勝英史教授 開発・指導
           </p>
           <p className="text-sm text-gray-400 mt-6">
             &copy; 2024 All rights reserved.
