@@ -1,15 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter), var(--font-noto-sans-jp), ui-sans-serif, system-ui, sans-serif;
+
+  /* Corporate Base */
+  --color-corp-base: var(--color-corp-base);
+  --color-corp-main: var(--color-corp-main);
+
+  /* Kenshin Plus */
+  --color-kenshin-base: var(--color-kenshin-base);
+  --color-kenshin-main: var(--color-kenshin-main);
+  --color-kenshin-sub: var(--color-kenshin-sub);
+  --color-kenshin-accent: var(--color-kenshin-accent);
+  --color-kenshin-text: var(--color-kenshin-text);
+
+  /* Health Passport */
+  --color-health-base: var(--color-health-base);
+  --color-health-main: var(--color-health-main);
+  --color-health-sub: var(--color-health-sub);
+  --color-health-accent: var(--color-health-accent);
+  --color-health-text: var(--color-health-text);
+
+  /* AI Burger */
+  --color-ai-base: var(--color-ai-base);
+  --color-ai-main: var(--color-ai-main);
+  --color-ai-sub: var(--color-ai-sub);
+  --color-ai-accent: var(--color-ai-accent);
+  --color-ai-text: var(--color-ai-text);
+
+  /* Personal Lab */
+  --color-lab-base: var(--color-lab-base);
+  --color-lab-main: var(--color-lab-main);
+  --color-lab-sub: var(--color-lab-sub);
+  --color-lab-accent: var(--color-lab-accent);
+  --color-lab-text: var(--color-lab-text);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  /* Corporate Base */
+  --color-corp-base: #F8FAFC;
+  --color-corp-main: #1E293B;
+
+  /* Kenshin Plus */
+  --color-kenshin-base: #f3f4f7;
+  --color-kenshin-main: #2347a4;
+  --color-kenshin-sub: #e8ebf3;
+  --color-kenshin-accent: #db3b0f;
+  --color-kenshin-text: #1a2237;
+
+  /* Health Passport */
+  --color-health-base: #f3f0f4;
+  --color-health-main: #8e23b8;
+  --color-health-sub: #eee3f3;
+  --color-health-accent: #a7cf17;
+  --color-health-text: #372040;
+
+  /* AI Burger */
+  --color-ai-base: #f9f8f6;
+  --color-ai-main: #e7a71d;
+  --color-ai-sub: #f0e7e0;
+  --color-ai-accent: #bae010;
+  --color-ai-text: #252118;
+
+  /* Personal Lab */
+  --color-lab-base: #f3f5f6;
+  --color-lab-main: #aecddb;
+  --color-lab-sub: #3b5663;
+  --color-lab-accent: #ceaf27;
+  --color-lab-text: #21282c;
+
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +87,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
