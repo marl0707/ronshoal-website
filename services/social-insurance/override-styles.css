@@ -1,0 +1,309 @@
+/* Override Styles with Higher Specificity */
+/* Force styles to apply */
+
+/* ========================================
+   CRITICAL OVERRIDES - Maximum Specificity
+   ======================================== */
+
+/* Hero Highlight - 年間100万円削減 */
+body .hero .hero-content .hero-highlight,
+body .hero-content .hero-highlight,
+.hero-highlight {
+    background: #FFD700 !important;
+    color: #000000 !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 50px !important;
+    font-weight: 900 !important;
+    font-size: 1.25rem !important;
+    display: inline-block !important;
+    margin-bottom: 1.5rem !important;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4) !important;
+    position: relative !important;
+    animation: pulse-glow 2s ease-in-out infinite !important;
+    text-shadow: none !important;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4) !important;
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 6px 30px rgba(255, 215, 0, 0.6) !important;
+        transform: scale(1.05);
+    }
+}
+
+/* 削減例のセクション全体 */
+body .reduction-examples,
+.reduction-examples {
+    margin: 3rem 0 !important;
+    padding: 2rem !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* 削減例グリッド */
+body .reduction-grid,
+.reduction-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.5rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* 削減例カード */
+body .reduction-card,
+.reduction-example,
+.example-card {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 15px !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+body .reduction-card:hover,
+.reduction-example:hover,
+.example-card:hover {
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 削減前の金額 */
+body .example-before,
+.reduction-before,
+.example-before {
+    font-size: 1rem !important;
+    color: #666 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* 矢印 */
+body .example-arrow,
+.reduction-arrow,
+.example-arrow {
+    font-size: 2rem !important;
+    color: #667eea !important;
+    margin: 1rem 0 !important;
+    display: block !important;
+}
+
+/* 削減後の金額 */
+body .example-after,
+.reduction-after,
+.example-after {
+    font-size: 1.75rem !important;
+    color: #e53e3e !important;
+    font-weight: 900 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* 削減額表示 */
+body .example-save,
+.reduction-save,
+.example-save {
+    display: inline-block !important;
+    background: linear-gradient(135deg, #48bb78, #38a169) !important;
+    color: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.4) !important;
+}
+
+/* 問題提起セクション */
+body .problem-section,
+.problem-section {
+    background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%) !important;
+    padding: 5rem 0 !important;
+}
+
+/* 問題カード */
+body .problem-card,
+.problem-card {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 2.5rem !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08) !important;
+    border: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+    height: 100% !important;
+}
+
+body .problem-card:hover,
+.problem-card:hover {
+    border-color: #feb2b2 !important;
+    box-shadow: 0 10px 30px rgba(229, 62, 62, 0.15) !important;
+    transform: translateY(-5px) !important;
+}
+
+/* 解決セクション */
+body .solution-section,
+.solution-section {
+    background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%) !important;
+    padding: 5rem 0 !important;
+}
+
+body .solution-title,
+.solution-title {
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-align: center !important;
+    margin-bottom: 1rem !important;
+}
+
+/* FAQ セクション - 最重要 */
+body .faq-section,
+.faq-section,
+#faq {
+    background: #ffffff !important;
+    padding: 5rem 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+body .faq-title,
+.faq-title,
+.section-title {
+    font-size: 2.5rem !important;
+    font-weight: 900 !important;
+    color: #1a202c !important;
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+}
+
+body .faq-list,
+.faq-list,
+.faq-container {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+}
+
+body .faq-item,
+.faq-item {
+    background: #f7fafc !important;
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 15px !important;
+    margin-bottom: 1.5rem !important;
+    overflow: hidden !important;
+    transition: all 0.3s ease !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+body .faq-item:hover,
+.faq-item:hover {
+    border-color: #667eea !important;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1) !important;
+}
+
+body .faq-question,
+.faq-question {
+    padding: 1.75rem 2rem !important;
+    background: white !important;
+    cursor: pointer !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    color: #1a202c !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+body .faq-question:hover,
+.faq-question:hover {
+    background: #f0f4ff !important;
+    color: #667eea !important;
+}
+
+body .faq-question::after,
+.faq-question::after {
+    content: '+' !important;
+    font-size: 28px !important;
+    font-weight: 400 !important;
+    color: #667eea !important;
+    transition: transform 0.3s ease !important;
+    line-height: 1 !important;
+    margin-left: 1rem !important;
+}
+
+body .faq-item.active .faq-question,
+.faq-item.active .faq-question {
+    background: #667eea !important;
+    color: white !important;
+}
+
+body .faq-item.active .faq-question::after,
+.faq-item.active .faq-question::after {
+    transform: rotate(45deg) !important;
+    color: white !important;
+}
+
+body .faq-answer,
+.faq-answer {
+    max-height: 0 !important;
+    overflow: hidden !important;
+    background: white !important;
+    transition: max-height 0.4s ease, padding 0.4s ease !important;
+}
+
+body .faq-item.active .faq-answer,
+.faq-item.active .faq-answer {
+    max-height: 500px !important;
+    padding: 2rem !important;
+    border-top: 1px solid #e2e8f0 !important;
+}
+
+body .faq-answer p,
+.faq-answer p {
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    color: #4a5568 !important;
+    margin: 0 !important;
+}
+
+/* Force visibility for all FAQ elements */
+.faq-section *,
+#faq * {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    body .hero-highlight,
+    .hero-highlight {
+        font-size: 1rem !important;
+        padding: 0.5rem 1rem !important;
+    }
+    
+    body .reduction-grid,
+    .reduction-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    body .faq-question,
+    .faq-question {
+        padding: 1.25rem 1.5rem !important;
+        font-size: 1rem !important;
+    }
+}
