@@ -1,0 +1,5 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="200" fill="#2563EB" rx="20" ry="20"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="48" fill="white" font-weight="bold">Ronshoal</text>
+  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="white" opacity="0.8">LLC</text>
+</svg>
