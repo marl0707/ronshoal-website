@@ -27,6 +27,7 @@ export const Footer = () => {
                         <h4 className="text-lg font-bold text-blue-400 mb-6">会社情報</h4>
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
                             <a href="/" className="hover:text-white transition-colors">ホーム</a>
+                            <a href="/message" className="hover:text-white transition-colors">代表メッセージ</a>
                             <a href="/company" className="hover:text-white transition-colors">会社情報</a>
                             <a href="/contact" className="hover:text-white transition-colors">お問い合わせ</a>
                             <a href="/privacy" className="hover:text-white transition-colors">プライバシーポリシー</a>
