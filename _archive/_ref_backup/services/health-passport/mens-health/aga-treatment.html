@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGA治療 | 男性ヘルスケア | 健康パスポート | ロンショール合同会社</title>
+  <meta name="description" content="男性型脱毛症（AGA）の治療。フィナステリド、ミノキシジルによる効果的な治療を提供。専門医による診断と継続的なサポート。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #ffd700;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .aga-basics-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    
+    .aga-basics-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .knowledge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .knowledge-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .knowledge-card.full-width {
+      grid-column: 1 / -1;
+    }
+    
+    .knowledge-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .mechanism-flow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .mechanism-step {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .mechanism-step.danger {
+      background: rgba(255, 107, 53, 0.1);
+      border-color: rgba(255, 107, 53, 0.3);
+    }
+    
+    .step-number {
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      background: var(--gradient-primary);
+      color: var(--dark);
+      border-radius: 50%;
+      font-weight: 700;
+      line-height: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .mechanism-arrow {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    
+    .mechanism-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .hair-cycle-comparison {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .cycle-item h4 {
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+    
+    .cycle-phases {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .phase {
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .phase.growth {
+      background: rgba(0, 212, 255, 0.2);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+    
+    .phase.growth.short {
+      background: rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+    
+    .phase.regression {
+      background: rgba(255, 215, 0, 0.2);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+    
+    .phase.rest {
+      background: rgba(128, 128, 128, 0.2);
+      border: 1px solid rgba(128, 128, 128, 0.3);
+    }
+    
+    .phase.rest.long {
+      background: rgba(255, 107, 53, 0.2);
+      border: 1px solid rgba(255, 107, 53, 0.3);
+    }
+    
+    .classification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .classification-item {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .stage-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .diagnosis-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .diagnosis-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      text-align: left;
+    }
+    
+    .checklist-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .checklist-category {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .checklist-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .checklist-items li {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    
+    .checklist-items li::before {
+      content: '□';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+    }
+    
+    .diagnosis-cta {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(0, 212, 255, 0.1);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 212, 255, 0.3);
+    }
+    
+    .diagnosis-result {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .diagnosis-btn {
+      display: inline-block;
+      padding: 1.2rem 2.5rem;
+      background: var(--gradient-primary);
+      color: var(--dark);
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .diagnosis-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .treatment-overview {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .treatment-intro {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .treatment-card.featured {
+      grid-column: span 2;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .drug-details {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .drug-details h4 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .drug-details p,
+    .drug-details ul {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    
+    .drug-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .drug-details li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    
+    .drug-details li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .combination-therapy {
+      margin-top: 4rem;
+      padding: 3rem;
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+    
+    .combination-title {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    
+    .combination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .combination-item {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .combination-item h4 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    
+    .combination-drugs {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .combination-effect {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    
+    @media (max-width: 768px) {
+      .treatment-card.featured {
+        grid-column: span 1;
+      }
+      
+      .drug-details {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::before {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .service-hero {
+      min-height: 60vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../../images/medical-background.jpg') center/cover;
+      opacity: 0.1;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .service-hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+    }
+    
+    .service-hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .treatment-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    }
+    
+    .treatment-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .treatment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .treatment-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .treatment-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .treatment-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .treatment-title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .treatment-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    
+    .treatment-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .treatment-features li {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .treatment-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .testimonials-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 4rem;
+      color: var(--primary);
+      position: absolute;
+      top: -1rem;
+      left: 1rem;
+      opacity: 0.3;
+    }
+    
+    .testimonial-text {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .timeline-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .timeline-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    
+    .timeline-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    
+    .timeline-content {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 1.5rem;
+      flex: 1;
+      margin: 0 2rem;
+    }
+    
+    .timeline-month {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-align: center;
+      min-width: 100px;
+    }
+    
+    .timeline-title {
+      font-weight: 700;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+    
+    .timeline-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    
+    .cta-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+      text-align: center;
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    .statistics-section {
+      padding: 4rem 2rem;
+      background: rgba(0, 212, 255, 0.1);
+    }
+    
+    .statistics-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-card {
+      background: rgba(10, 10, 10, 0.9);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+    }
+    
+    .pricing-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+    }
+    
+    .pricing-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .pricing-comparison {
+      margin: 3rem 0;
+      overflow-x: auto;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .comparison-table th {
+      background: rgba(0, 212, 255, 0.1);
+      font-weight: 700;
+      color: var(--light);
+    }
+    
+    .comparison-table th.highlight {
+      background: var(--gradient-primary);
+      color: var(--dark);
+    }
+    
+    .comparison-table td.highlight {
+      background: rgba(0, 212, 255, 0.05);
+      font-weight: 700;
+    }
+    
+    .comparison-table .price {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .comparison-table .competitor {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: line-through;
+    }
+    
+    .comparison-table .savings {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    
+    .annual-savings {
+      margin: 4rem 0;
+    }
+    
+    .annual-savings h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    
+    .savings-calculator {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .savings-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .savings-item.featured {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: rgba(0, 212, 255, 0.3);
+      transform: scale(1.05);
+    }
+    
+    .savings-item h4 {
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+    
+    .monthly-saving {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+    }
+    
+    .annual-saving {
+      font-size: 1.1rem;
+      color: var(--light);
+    }
+    
+    .highlight-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .savings-note {
+      margin-top: 1rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    .price-plans {
+      margin-top: 4rem;
+    }
+    
+    .price-plans h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .plan-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .plan-card.featured {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: rgba(0, 212, 255, 0.3);
+      transform: scale(1.05);
+    }
+    
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .popular-badge {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    
+    .plan-name {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .plan-desc {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 1.5rem;
+    }
+    
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    
+    .plan-features li {
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.8rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .plan-features li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    
+    .price-guarantee {
+      margin-top: 4rem;
+      padding: 3rem;
+      background: rgba(255, 215, 0, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+    
+    .price-guarantee h3 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .guarantee-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .guarantee-item {
+      text-align: center;
+    }
+    
+    .guarantee-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    
+    .guarantee-item h4 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+    
+    .guarantee-item p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .why-now-section {
+      padding: 4rem 2rem;
+      background: var(--dark);
+    }
+    
+    .why-now-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .why-now-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .why-now-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .why-now-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent);
+    }
+    
+    .why-now-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .why-now-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    .why-now-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .faq-section {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    
+    .faq-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .faq-categories {
+      margin-top: 3rem;
+    }
+    
+    .faq-category {
+      margin-bottom: 3rem;
+    }
+    
+    .category-title {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+    }
+    
+    .faq-items {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .faq-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateX(10px);
+      border-color: var(--primary);
+    }
+    
+    .faq-question {
+      color: var(--light);
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .faq-question::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.2em;
+      background: var(--gradient-primary);
+      border-radius: 2px;
+    }
+    
+    .faq-answer {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .faq-answer strong {
+      color: var(--primary);
+    }
+    
+    .online-consultation-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .consultation-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .consultation-steps {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    
+    .step-item {
+      flex: 1;
+      min-width: 150px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .step-item:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .step-item.success {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: rgba(0, 212, 255, 0.3);
+    }
+    
+    .step-number {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: var(--dark);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    
+    .step-item.success .step-number {
+      background: var(--gradient-accent);
+    }
+    
+    .step-title {
+      color: var(--light);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .step-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .step-time {
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    .step-arrow {
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 0 0.5rem;
+    }
+    
+    .consultation-benefits {
+      margin-top: 4rem;
+      padding: 3rem;
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+    }
+    
+    .consultation-benefits h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    
+    .benefit-item {
+      text-align: center;
+    }
+    
+    .benefit-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-item h4 {
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+    
+    .benefit-item p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .consultation-steps {
+        flex-direction: column;
+      }
+      
+      .step-arrow {
+        transform: rotate(90deg);
+        margin: 1rem 0;
+      }
+    }
+
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .service-hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .treatment-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav ul {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">R</div>
+        ロンショール合同会社
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../../../index.html">TOP</a></li>
+          <li><a href="../../../index.html">TOP</a></li>
+          <li><a href="../../../index.html#story">ストーリー</a></li>
+          <li><a href="../../../index.html#mission">ミッション</a></li>
+          <li><a href="../../../index.html#services">サービス</a></li>
+          <li><a href="../../../about.html">会社情報</a></li>
+          <li><a href="../../../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="service-hero">
+    <div class="service-hero-content">
+      <div class="hero-badge">AGA治療</div>
+      <h1 class="service-hero-title">「まだ毛根が生きているなら<br>今のうちに始めてください」</h1>
+      <p class="service-hero-subtitle">娘に「パパ、頭のてっぺん見えてるよ」と言われたあの日から3ヶ月。妻が「最近、若くなったね」と言ってくれた。</p>
+    </div>
+  </section>
+
+  <section class="treatment-section">
+    <div class="treatment-container">
+      <div class="section-badge">TREATMENT</div>
+      <h2 class="section-title">医学的に証明された治療法</h2>
+      
+      <div class="treatment-overview">
+        <p class="treatment-intro">日本皮膚科学会の診療ガイドラインで推奨される、エビデンスに基づいた治療法をご提供します。</p>
+      </div>
+      
+      <div class="treatment-grid">
+        <div class="treatment-card featured">
+          <div class="treatment-icon">💊</div>
+          <div class="treatment-title">フィナステリド（プロペシア）</div>
+          <div class="treatment-desc">
+            <strong>世界初のAGA治療内服薬、日本皮膚科学会推奨度A</strong>
+          </div>
+          <div class="drug-details">
+            <div class="drug-mechanism">
+              <h4>作用機序</h4>
+              <p>5α還元酵素II型を阻害し、DHTの生成を約70%抑制</p>
+            </div>
+            <div class="drug-effectiveness">
+              <h4>効果データ</h4>
+              <ul>
+                <li>1年継続：58%が改善</li>
+                <li>3年継続：78%が改善</li>
+                <li>5年継続：90%が現状維持以上</li>
+              </ul>
+            </div>
+            <div class="drug-features">
+              <h4>特徴</h4>
+              <ul>
+                <li>1日1回1mg内服</li>
+                <li>副作用発現率：0.2-1.5%</li>
+                <li>世界60カ国以上で承認</li>
+                <li>20年以上の使用実績</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="treatment-card featured">
+          <div class="treatment-icon">💊</div>
+          <div class="treatment-title">デュタステリド（ザガーロ）</div>
+          <div class="treatment-desc">
+            <strong>最新・最強のAGA治療薬、フィナステリドの1.6倍の効果</strong>
+          </div>
+          <div class="drug-details">
+            <div class="drug-mechanism">
+              <h4>作用機序</h4>
+              <p>5α還元酵素I型・II型の両方を阻害、DHTを約90%抑制</p>
+            </div>
+            <div class="drug-effectiveness">
+              <h4>効果データ</h4>
+              <ul>
+                <li>6ヶ月継続：89.6%が改善</li>
+                <li>発毛本数：フィナステリドの1.6倍</li>
+                <li>毛髪太さ：平均13%増加</li>
+              </ul>
+            </div>
+            <div class="drug-features">
+              <h4>特徴</h4>
+              <ul>
+                <li>1日1回0.5mg内服</li>
+                <li>半減期が長く、安定した効果</li>
+                <li>前頭部にも高い効果</li>
+                <li>2015年厚労省承認</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="treatment-card">
+          <div class="treatment-icon">💧</div>
+          <div class="treatment-title">ミノキシジル外用薬</div>
+          <div class="treatment-desc">
+            <strong>発毛を促進する唯一の外用薬、推奨度A</strong>
+          </div>
+          <div class="drug-details">
+            <div class="drug-mechanism">
+              <h4>作用機序</h4>
+              <p>血管拡張作用により毛母細胞を活性化、成長因子を増加</p>
+            </div>
+            <div class="drug-effectiveness">
+              <h4>効果データ（5%製剤）</h4>
+              <ul>
+                <li>16週使用：平均19本/cm²増加</li>
+                <li>24週使用：平均26本/cm²増加</li>
+                <li>有効率：約70%</li>
+              </ul>
+            </div>
+            <div class="drug-features">
+              <h4>特徴</h4>
+              <ul>
+                <li>1日2回頭皮に塗布</li>
+                <li>内服薬との併用可能</li>
+                <li>女性も使用可能（2%製剤）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="treatment-card">
+          <div class="treatment-icon">💉</div>
+          <div class="treatment-title">メソセラピー</div>
+          <div class="treatment-desc">
+            <strong>成長因子を直接注入する最新治療</strong>
+          </div>
+          <div class="drug-details">
+            <div class="drug-mechanism">
+              <h4>作用機序</h4>
+              <p>毛髪再生因子を頭皮に直接注入し、毛母細胞を強力に活性化</p>
+            </div>
+            <div class="drug-effectiveness">
+              <h4>効果データ</h4>
+              <ul>
+                <li>3ヶ月：70%が発毛実感</li>
+                <li>6ヶ月：90%が改善</li>
+                <li>内服薬との併用で相乗効果</li>
+              </ul>
+            </div>
+            <div class="drug-features">
+              <h4>特徴</h4>
+              <ul>
+                <li>月1回の施術</li>
+                <li>痛みはほとんどなし</li>
+                <li>即効性が期待できる</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="combination-therapy">
+        <h3 class="combination-title">併用療法による相乗効果</h3>
+        <div class="combination-grid">
+          <div class="combination-item">
+            <h4>スタンダード併用</h4>
+            <p class="combination-drugs">フィナステリド + ミノキシジル外用</p>
+            <p class="combination-effect">改善率：85%以上</p>
+          </div>
+          <div class="combination-item">
+            <h4>アドバンス併用</h4>
+            <p class="combination-drugs">デュタステリド + ミノキシジル外用</p>
+            <p class="combination-effect">改善率：90%以上</p>
+          </div>
+          <div class="combination-item">
+            <h4>プレミアム併用</h4>
+            <p class="combination-drugs">デュタステリド + ミノキシジル + メソセラピー</p>
+            <p class="combination-effect">改善率：95%以上</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aga-basics-section">
+    <div class="aga-basics-container">
+      <div class="section-badge">KNOWLEDGE</div>
+      <h2 class="section-title">AGA（男性型脱毛症）の基礎知識</h2>
+      
+      <div class="knowledge-grid">
+        <div class="knowledge-card">
+          <h3 class="knowledge-title">AGAのメカニズム</h3>
+          <div class="mechanism-flow">
+            <div class="mechanism-step">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <strong>テストステロン</strong>
+                <p>男性ホルモン（正常）</p>
+              </div>
+            </div>
+            <div class="mechanism-arrow">→</div>
+            <div class="mechanism-step">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <strong>5α還元酵素</strong>
+                <p>毛根部で作用</p>
+              </div>
+            </div>
+            <div class="mechanism-arrow">→</div>
+            <div class="mechanism-step danger">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <strong>DHT（悪玉男性ホルモン）</strong>
+                <p>毛根を攻撃</p>
+              </div>
+            </div>
+          </div>
+          <p class="mechanism-desc">DHTが毛母細胞にダメージを与え、毛周期を短縮させます。正常な毛周期（2-6年）が数ヶ月に短縮され、細く短い毛しか生えなくなります。</p>
+        </div>
+        
+        <div class="knowledge-card">
+          <h3 class="knowledge-title">毛周期の変化</h3>
+          <div class="hair-cycle-comparison">
+            <div class="cycle-item normal">
+              <h4>正常な毛周期</h4>
+              <div class="cycle-phases">
+                <div class="phase growth">成長期：2-6年（85-90%）</div>
+                <div class="phase regression">退行期：2-3週間（1%）</div>
+                <div class="phase rest">休止期：3-4ヶ月（10-15%）</div>
+              </div>
+            </div>
+            <div class="cycle-item aga">
+              <h4>AGAの毛周期</h4>
+              <div class="cycle-phases">
+                <div class="phase growth short">成長期：数ヶ月～1年</div>
+                <div class="phase regression">退行期：変化なし</div>
+                <div class="phase rest long">休止期：長期化</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="knowledge-card full-width">
+          <h3 class="knowledge-title">進行度分類（Hamilton-Norwood分類）</h3>
+          <div class="classification-grid">
+            <div class="classification-item">
+              <div class="stage-badge">I型</div>
+              <p>正常または軽度の後退</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">II型</div>
+              <p>M字部分の軽度後退</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">III型</div>
+              <p>M字部分の明確な後退</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">IV型</div>
+              <p>頭頂部にも脱毛</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">V型</div>
+              <p>前頭部と頭頂部の脱毛が拡大</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">VI型</div>
+              <p>前頭部と頭頂部がつながる</p>
+            </div>
+            <div class="classification-item">
+              <div class="stage-badge">VII型</div>
+              <p>側頭部と後頭部のみ残存</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="diagnosis-section">
+    <div class="diagnosis-container">
+      <div class="section-badge">CHECK</div>
+      <h2 class="section-title">AGAセルフチェック</h2>
+      <p class="section-subtitle">以下の項目に1つでも当てはまる場合は、AGAの可能性があります</p>
+      
+      <div class="checklist-grid">
+        <div class="checklist-card">
+          <h3 class="checklist-category">抜け毛の変化</h3>
+          <ul class="checklist-items">
+            <li>枕元の抜け毛が増えた（朝起きると10本以上）</li>
+            <li>シャンプー時の抜け毛が増えた（排水溝が詰まりやすい）</li>
+            <li>1日100本以上抜けている感覚がある</li>
+            <li>細く短い抜け毛が多い</li>
+          </ul>
+        </div>
+        
+        <div class="checklist-card">
+          <h3 class="checklist-category">髪質の変化</h3>
+          <ul class="checklist-items">
+            <li>髪が細くなってきた</li>
+            <li>髪にハリ・コシがなくなった</li>
+            <li>セットが決まりにくくなった</li>
+            <li>前髪が立ち上がりにくい</li>
+          </ul>
+        </div>
+        
+        <div class="checklist-card">
+          <h3 class="checklist-category">見た目の変化</h3>
+          <ul class="checklist-items">
+            <li>おでこが広くなった気がする</li>
+            <li>頭頂部の地肌が透けて見える</li>
+            <li>生え際がM字型に後退している</li>
+            <li>つむじが大きくなった</li>
+          </ul>
+        </div>
+        
+        <div class="checklist-card">
+          <h3 class="checklist-category">家族歴・生活習慣</h3>
+          <ul class="checklist-items">
+            <li>父親や祖父が薄毛</li>
+            <li>母方の祖父が薄毛</li>
+            <li>20代から抜け毛が気になり始めた</li>
+            <li>ストレスが多い生活をしている</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="diagnosis-cta">
+        <p class="diagnosis-result">2つ以上当てはまる方は、早期の診断・治療をおすすめします</p>
+        <a href="../../../contact.html" class="diagnosis-btn">無料オンライン診断を受ける</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="testimonials-container">
+      <div class="section-badge">VOICES</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「<strong>妻の視線が変わったんです。</strong>以前は頭を見て話してたのに、今は目を見て話してくれる。オンライン診療で誰にも会わずに始められて、本当に良かった。<strong>半年で人生が変わりました。</strong>」
+          </div>
+          <div class="testimonial-author">38歳男性・営業職</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「<strong>娘に『パパ、頭のてっぺん見えてるよ』と言われたあの日から3ヶ月。</strong>妻が『最近、若くなったね』と言ってくれた。写真を見返すと、確かに違う。<strong>娘は『パパ、かっこいい！』って。</strong>家族の笑顔が増えました。」
+          </div>
+          <div class="testimonial-author">38歳男性・営業職</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            「朝、セットが楽しくなる。写真を撮るのが怖くない。風が吹いても平気。自信を持って人と会える。これが、治療を続けた多くの方が実感されている変化です。」
+          </div>
+          <div class="testimonial-author">45歳男性・会社員</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statistics-section">
+    <div class="statistics-container">
+      <div class="section-badge">FACTS</div>
+      <h2 class="section-title">知っていましたか？衰撃の事実</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5人に1人</div>
+          <div class="stat-desc">日本人男性がAGAを発症</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">95%</div>
+          <div class="stat-desc">治療を受けていない人の割合</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">80%以上</div>
+          <div class="stat-desc">適切な治療で改善が期待</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3ヶ月</div>
+          <div class="stat-desc">変化を実感する平均期間</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="pricing-container">
+      <div class="section-badge">PRICING</div>
+      <h2 class="section-title">透明で良心的な価格設定</h2>
+      <p class="section-subtitle">大手クリニックと比較して30-50%お得。隠れた費用は一切ありません。</p>
+      
+      <div class="pricing-comparison">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>治療薬</th>
+              <th class="highlight">当院価格</th>
+              <th>大手A院</th>
+              <th>大手B院</th>
+              <th>節約額</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>フィナステリド（1ヶ月）</td>
+              <td class="highlight price">¥3,980</td>
+              <td class="competitor">¥8,000</td>
+              <td class="competitor">¥7,500</td>
+              <td class="savings">¥4,020/月 節約</td>
+            </tr>
+            <tr>
+              <td>デュタステリド（1ヶ月）</td>
+              <td class="highlight price">¥6,980</td>
+              <td class="competitor">¥12,000</td>
+              <td class="competitor">¥11,000</td>
+              <td class="savings">¥5,020/月 節約</td>
+            </tr>
+            <tr>
+              <td>ミノキシジル外用（1ヶ月）</td>
+              <td class="highlight price">¥4,980</td>
+              <td class="competitor">¥9,000</td>
+              <td class="competitor">¥8,500</td>
+              <td class="savings">¥4,020/月 節約</td>
+            </tr>
+            <tr>
+              <td>診察料</td>
+              <td class="highlight price">¥0</td>
+              <td class="competitor">¥3,000</td>
+              <td class="competitor">¥2,000</td>
+              <td class="savings">¥3,000 節約</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="annual-savings">
+        <h3>年間節約額シミュレーション</h3>
+        <div class="savings-calculator">
+          <div class="savings-item">
+            <h4>フィナステリド単独治療の場合</h4>
+            <p class="monthly-saving">月額節約額：¥4,020</p>
+            <p class="annual-saving">年間節約額：<span class="highlight-amount">¥48,240</span></p>
+          </div>
+          <div class="savings-item featured">
+            <h4>デュタステリド + ミノキシジル併用の場合</h4>
+            <p class="monthly-saving">月額節約額：¥9,040</p>
+            <p class="annual-saving">年間節約額：<span class="highlight-amount">¥108,480</span></p>
+            <p class="savings-note">10年間で100万円以上の節約！</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="price-plans">
+        <h3>治療プラン</h3>
+        <div class="plans-grid">
+          <div class="plan-card">
+            <h4 class="plan-name">予防プラン</h4>
+            <p class="plan-desc">現状維持・予防したい方</p>
+            <div class="plan-price">¥3,980/月</div>
+            <ul class="plan-features">
+              <li>フィナステリド 1mg</li>
+              <li>オンライン診察無料</li>
+              <li>送料無料</li>
+              <li>初回血液検査付き</li>
+            </ul>
+          </div>
+          
+          <div class="plan-card featured">
+            <div class="popular-badge">人気No.1</div>
+            <h4 class="plan-name">発毛プラン</h4>
+            <p class="plan-desc">しっかり発毛したい方</p>
+            <div class="plan-price">¥11,960/月</div>
+            <ul class="plan-features">
+              <li>デュタステリド 0.5mg</li>
+              <li>ミノキシジル外用 5%</li>
+              <li>オンライン診察無料</li>
+              <li>送料無料</li>
+              <li>定期血液検査付き</li>
+            </ul>
+          </div>
+          
+          <div class="plan-card">
+            <h4 class="plan-name">プレミアムプラン</h4>
+            <p class="plan-desc">最速で結果を出したい方</p>
+            <div class="plan-price">¥29,800/月</div>
+            <ul class="plan-features">
+              <li>デュタステリド 0.5mg</li>
+              <li>ミノキシジル外用 5%</li>
+              <li>メソセラピー月1回</li>
+              <li>専門医による定期診察</li>
+              <li>完全サポート体制</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="price-guarantee">
+        <h3>価格保証</h3>
+        <div class="guarantee-items">
+          <div class="guarantee-item">
+            <span class="guarantee-icon">💰</span>
+            <h4>最低価格保証</h4>
+            <p>他院より高い場合は差額返金</p>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">🚫</span>
+            <h4>隠れ費用なし</h4>
+            <p>診察料・送料すべて無料</p>
+          </div>
+          <div class="guarantee-item">
+            <span class="guarantee-icon">📅</span>
+            <h4>いつでも解約可能</h4>
+            <p>縛りなし・違約金なし</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-now-section">
+    <div class="why-now-container">
+      <div class="section-badge">URGENT</div>
+      <h2 class="section-title">なぜ「今」始めるべきなのか？</h2>
+      <div class="why-now-grid">
+        <div class="why-now-card">
+          <div class="why-now-icon">⏰</div>
+          <div class="why-now-title">1日遅れるごとに100本抜ける</div>
+          <div class="why-now-desc">
+            <strong>AGAは進行性の疾患。</strong>今日始めれば1年後には3万本以上の差が生まれます。「まだ大丈夫」が命取りです。
+          </div>
+        </div>
+        <div class="why-now-card">
+          <div class="why-now-icon">📉</div>
+          <div class="why-now-title">毛根が死んだら終わり</div>
+          <div class="why-now-desc">
+            <strong>毛根の寿命は決まっている。</strong>一度完全に死滅した毛根は二度と再生しません。今なら間に合います。
+          </div>
+        </div>
+        <div class="why-now-card">
+          <div class="why-now-icon">💸</div>
+          <div class="why-now-title">治療費が増え続ける</div>
+          <div class="why-now-desc">
+            <strong>進行するほど治療が困難に。</strong>初期なら1種類の薬で済むが、進行後は複数の治療が必要。費用は2-3倍に。
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section">
+    <div class="timeline-container">
+      <div class="section-badge">TIMELINE</div>
+      <h2 class="section-title">治療の流れ</h2>
+      <div class="timeline-item">
+        <div class="timeline-month">1ヶ月</div>
+        <div class="timeline-content">
+          <div class="timeline-title">治療開始</div>
+          <div class="timeline-desc"><strong>「本当に効果があるのか」半信半疑でスタート。</strong>ミノキシジルとデュタステリドの黄金コンビで治療開始。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">3ヶ月</div>
+        <div class="timeline-content">
+          <div class="timeline-title">変化の実感</div>
+          <div class="timeline-desc"><strong>「あれ？抜け毛が減った？」</strong>シャンプー後の排水溝を見て驚く。朝のセットが楽になり、髪にコシが出てきたことを実感。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">6ヶ月</div>
+        <div class="timeline-content">
+          <div class="timeline-title">周囲が気づく変化</div>
+          <div class="timeline-desc"><strong>「最近、何か違うね」</strong>妻からの一言。友人から「若くなった？」。写真を撮るのが怖くなくなり、風が吹いても平気に。</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">1年</div>
+        <div class="timeline-content">
+          <div class="timeline-title">安定した効果</div>
+          <div class="timeline-desc"><strong>「人生が変わった」</strong>鏡を見るのが楽しい。積極的に人と会える。妻との関係も良好。家族写真を撮る機会が増えた。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="faq-container">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくあるご質問</h2>
+      
+      <div class="faq-categories">
+        <div class="faq-category">
+          <h3 class="category-title">治療効果について</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. どのくらいで効果が出ますか？</h4>
+              <div class="faq-answer">
+                <p>個人差はありますが、多くの方が<strong>3-4ヶ月で変化を実感</strong>されています。抜け毛の減少は1-2ヶ月、発毛実感は3-6ヶ月が目安です。早い方では1ヶ月で「シャンプー時の抜け毛が減った」と実感されます。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 効果がない場合はどうなりますか？</h4>
+              <div class="faq-answer">
+                <p>6ヶ月継続して効果がない場合は、治療薬の変更や併用療法をご提案します。フィナステリドで効果が不十分な場合、デュタステリドへの切り替えで改善するケースが多くあります。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 治療をやめたらどうなりますか？</h4>
+              <div class="faq-answer">
+                <p>残念ながら、治療を中止すると<strong>6-12ヶ月で元の状態に戻ります</strong>。AGAは進行性のため、改善した状態を維持するには継続的な治療が必要です。ただし、ある程度改善した後は薬を減量できる場合もあります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3 class="category-title">副作用・安全性について</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 副作用が心配です。大丈夫でしょうか？</h4>
+              <div class="faq-answer">
+                <p>フィナステリドの副作用発現率は<strong>1-2%程度</strong>と非常に低く、重篤な副作用はほとんどありません。主な副作用は性欲減退（1.1%）、勃起不全（0.7%）などですが、服用を中止すれば改善します。当院では定期的な問診で安全性を確認しています。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 子作りへの影響はありますか？</h4>
+              <div class="faq-answer">
+                <p>フィナステリド・デュタステリドは精液への移行が極めて少なく、胎児への影響は報告されていません。ただし、念のため妊活の2-3ヶ月前から服用を中止することをお勧めしています。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 女性でも治療できますか？</h4>
+              <div class="faq-answer">
+                <p>フィナステリド・デュタステリドは<strong>女性には使用できません</strong>。特に妊娠中の女性は触ることも避ける必要があります。女性の薄毛にはミノキシジル外用（2%）や他の治療法をご提案します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3 class="category-title">治療方法・薬について</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. フィナステリドとデュタステリドの違いは？</h4>
+              <div class="faq-answer">
+                <p><strong>デュタステリドの方が約1.6倍効果が高い</strong>とされています。フィナステリドはII型5α還元酵素のみ阻害しますが、デュタステリドはI型・II型両方を阻害するため、より強力にDHTを抑制します。ただし、フィナステリドで十分な効果が得られる方も多くいます。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. ミノキシジルの内服薬はありますか？</h4>
+              <div class="faq-answer">
+                <p>ミノキシジル内服薬は日本では未承認ですが、当院では安全性を考慮した上で処方可能です。外用薬より効果が高い反面、むくみや動悸などの副作用リスクがあるため、医師の管理下での使用が必要です。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 併用した方が良いですか？</h4>
+              <div class="faq-answer">
+                <p><strong>内服薬とミノキシジル外用の併用が最も効果的</strong>です。内服薬でDHTを抑制し、ミノキシジルで発毛を促進する相乗効果が期待できます。単剤治療より改善率が20-30%高くなります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3 class="category-title">費用・支払いについて</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 保険は適用されますか？</h4>
+              <div class="faq-answer">
+                <p>残念ながら<strong>AGA治療は保険適用外</strong>です。ただし、当院では大手クリニックより30-50%安い価格設定で、経済的負担を軽減しています。また、まとめ買い割引もご用意しています。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 支払い方法は？</h4>
+              <div class="faq-answer">
+                <p>クレジットカード（VISA、MasterCard、JCB、AMEX）、銀行振込、代金引換に対応しています。分割払いも可能です。定期配送の場合は、毎月自動決済で手間がかかりません。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 返金保証はありますか？</h4>
+              <div class="faq-answer">
+                <p>初回購入から30日間の返金保証があります。万が一、薬が体質に合わない場合は、開封済みでも返金いたします。ただし、効果がないという理由での返金は6ヶ月以上継続された方に限ります。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3 class="category-title">オンライン診療について</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. オンライン診療の流れは？</h4>
+              <div class="faq-answer">
+                <p>①WEB予約 → ②問診票記入 → ③医師とビデオ通話（10-15分） → ④処方・決済 → ⑤最短翌日お届け。<strong>所要時間は全体で30分程度</strong>です。スマホがあれば、どこからでも受診できます。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 血液検査は必要ですか？</h4>
+              <div class="faq-answer">
+                <p>初回は血液検査キットをお送りし、自宅で採血していただきます。肝機能などを確認し、安全に治療できるか判断します。その後は6ヶ月に1回の検査を推奨しています。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 薬はどのように届きますか？</h4>
+              <div class="faq-answer">
+                <p><strong>中身がわからない梱包</strong>でお届けします。品名は「サプリメント」と記載し、プライバシーに配慮しています。ポスト投函も可能で、不在時でも受け取れます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="faq-category">
+          <h3 class="category-title">その他のご質問</h3>
+          <div class="faq-items">
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 年齢制限はありますか？</h4>
+              <div class="faq-answer">
+                <p>20歳以上の方が対象です。未成年の方は保護者の同意があっても処方できません。また、高齢の方でも安全性に問題なければ治療可能です。実際に70代で治療されている方もいらっしゃいます。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 他の薬との飲み合わせは？</h4>
+              <div class="faq-answer">
+                <p>フィナステリド・デュタステリドは<strong>他の薬との相互作用がほとんどありません</strong>。風邪薬や胃腸薬などと併用しても問題ありません。ただし、持病がある方は必ず医師にお伝えください。</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-question">Q. 生活習慣で気をつけることは？</h4>
+              <div class="faq-answer">
+                <p>十分な睡眠（7時間以上）、バランスの良い食事、適度な運動、ストレス管理が大切です。特に<strong>亜鉛・ビタミンB群・タンパク質</strong>は髪の成長に重要です。喫煙は血流を悪化させるため、禁煙をお勧めします。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="online-consultation-section">
+    <div class="consultation-container">
+      <div class="section-badge">START GUIDE</div>
+      <h2 class="section-title">オンライン診療の始め方</h2>
+      <p class="section-subtitle">スマホで完結！最短翌日から治療開始</p>
+      
+      <div class="consultation-steps">
+        <div class="step-item">
+          <div class="step-number">STEP 1</div>
+          <h3 class="step-title">WEB予約（24時間受付）</h3>
+          <p class="step-desc">希望の日時を選んで予約。当日予約もOK！</p>
+          <div class="step-time">所要時間：1分</div>
+        </div>
+        
+        <div class="step-arrow">→</div>
+        
+        <div class="step-item">
+          <div class="step-number">STEP 2</div>
+          <h3 class="step-title">問診票記入</h3>
+          <p class="step-desc">現在の症状や健康状態を入力</p>
+          <div class="step-time">所要時間：3分</div>
+        </div>
+        
+        <div class="step-arrow">→</div>
+        
+        <div class="step-item">
+          <div class="step-number">STEP 3</div>
+          <h3 class="step-title">医師とビデオ診察</h3>
+          <p class="step-desc">専門医が症状を確認し、最適な治療法を提案</p>
+          <div class="step-time">所要時間：10-15分</div>
+        </div>
+        
+        <div class="step-arrow">→</div>
+        
+        <div class="step-item">
+          <div class="step-number">STEP 4</div>
+          <h3 class="step-title">処方・決済</h3>
+          <p class="step-desc">クレジットカードで簡単決済</p>
+          <div class="step-time">所要時間：1分</div>
+        </div>
+        
+        <div class="step-arrow">→</div>
+        
+        <div class="step-item success">
+          <div class="step-number">COMPLETE</div>
+          <h3 class="step-title">最短翌日お届け</h3>
+          <p class="step-desc">プライバシーに配慮した梱包でお届け</p>
+          <div class="step-time">全国送料無料</div>
+        </div>
+      </div>
+      
+      <div class="consultation-benefits">
+        <h3>オンライン診療のメリット</h3>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <span class="benefit-icon">🏠</span>
+            <h4>自宅で完結</h4>
+            <p>通院不要。待ち時間ゼロ</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">🔒</span>
+            <h4>完全プライバシー</h4>
+            <p>誰にも会わずに治療可能</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">💰</span>
+            <h4>診察料無料</h4>
+            <p>薬代のみ。追加費用なし</p>
+          </div>
+          <div class="benefit-item">
+            <span class="benefit-icon">📱</span>
+            <h4>スマホで簡単</h4>
+            <p>アプリ不要。ブラウザでOK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">「まだ毛根が生きているなら、今のうちに」</h2>
+      <p class="cta-desc">
+        <strong>毎日100本。これがあなたが失っている髪の本数です。</strong><br>
+        1年後には3万本以上の差が生まれます。<br>
+        もう、家族の視線を気にする必要はありません。<br>
+        <strong>今日が、あなたの人生を変える日です。</strong>
+      </p>
+      <div class="cta-buttons">
+        <a href="../../../contact.html" class="cta-btn primary">オンライン診療を予約</a>
+        <a href="../../../contact.html" class="cta-btn secondary">無料相談</a>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
+</body>
+</html> 

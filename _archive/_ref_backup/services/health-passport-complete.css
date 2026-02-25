@@ -1,0 +1,322 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.print-btn {
+    background-color: #27ae60;
+    padding: 0.5rem 1.5rem !important;
+}
+
+/* Completion Message */
+.completion-message {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #d4edda;
+    border-radius: 8px;
+    border: 1px solid #c3e6cb;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+}
+
+.completion-message h2 {
+    color: #155724;
+    margin-bottom: 0.5rem;
+}
+
+.completion-message p {
+    color: #155724;
+}
+
+/* Passport Card */
+.passport-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+.passport-header {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.passport-header h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.issue-date {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.passport-body {
+    padding: 2rem;
+}
+
+/* Info Sections */
+.info-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.info-section:last-child {
+    border-bottom: none;
+}
+
+.info-section h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+}
+
+.info-item label {
+    font-weight: 600;
+    color: #555;
+    margin-right: 0.5rem;
+    min-width: 100px;
+}
+
+.info-item span {
+    color: #333;
+}
+
+/* Health Info */
+.health-info {
+    space-y: 1rem;
+}
+
+.health-item {
+    margin-bottom: 1rem;
+}
+
+.health-item label {
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.health-item p {
+    color: #333;
+    padding-left: 1rem;
+    white-space: pre-wrap;
+}
+
+/* Contact Info */
+.contact-info {
+    space-y: 0.5rem;
+}
+
+.contact-item {
+    margin-bottom: 0.5rem;
+}
+
+.contact-item label {
+    font-weight: 600;
+    color: #555;
+    margin-right: 0.5rem;
+}
+
+/* QR Code Section */
+.qr-code-section {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.qr-placeholder {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+.qr-placeholder p {
+    margin-top: 40px;
+    font-weight: 600;
+    color: #666;
+}
+
+.qr-placeholder small {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Next Steps */
+.next-steps {
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+.next-steps h3 {
+    color: #1976d2;
+    margin-bottom: 1rem;
+}
+
+.next-steps ol {
+    margin-left: 2rem;
+    color: #555;
+}
+
+.next-steps li {
+    margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+/* Print Styles */
+@media print {
+    header nav,
+    .action-buttons,
+    .next-steps,
+    footer {
+        display: none;
+    }
+    
+    .passport-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    body {
+        background: white;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+    
+    .passport-body {
+        padding: 1.5rem;
+    }
+}

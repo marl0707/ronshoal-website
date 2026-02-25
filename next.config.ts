@@ -7,11 +7,11 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         {
           source: "/malaysia",
-          destination: "https://app-tau-livid.vercel.app/malaysia",
+          destination: "https://app-sejimarls-projects.vercel.app/malaysia",
         },
         {
           source: "/malaysia/:path*",
-          destination: "https://app-tau-livid.vercel.app/malaysia/:path*",
+          destination: "https://app-sejimarls-projects.vercel.app/malaysia/:path*",
         },
       ],
     };

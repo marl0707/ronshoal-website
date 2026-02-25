@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIバーガー | 他社見積もりから20%割引・半分の納期で実現 | ロンショール合同会社</title>
+  <meta name="description" content="他社のお見積書をお持ちください。ご提供いただいた見積書から20%割引（今ならキャンペーンで半額）。AI技術で納期も半分に短縮します。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #7c3aed;
+      --success: #10b981;
+      --light: #ffffff;
+      --dark: #1a1a2e;
+      --gray: #f8fafc;
+      --gray-dark: #64748b;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+      --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+    }
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    a { color: var(--primary); text-decoration: none; }
+    
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--light);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      transition: all 0.3s ease;
+    }
+    
+    .logo:hover .logo-icon {
+      transform: rotate(360deg) scale(1.1);
+      box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+      background: rgba(0, 212, 255, 0.1);
+      box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+    }
+    
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
+      animation: backgroundMove 20s ease-in-out infinite;
+    }
+    
+    @keyframes backgroundMove {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-50px, -50px) rotate(180deg); }
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .hero-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 4.5rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.6rem;
+      color: var(--gray-dark);
+      margin-bottom: 3rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 600;
+    }
+    
+    .hero-points {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+    
+    .hero-point {
+      background: var(--light);
+      border: 2px solid var(--primary);
+      border-radius: 20px;
+      padding: 1.5rem 2.5rem;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .hero-point:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+      border-color: var(--secondary);
+    }
+    
+    .hero-point-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero-point-label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-btn {
+      padding: 1.5rem 3rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--light);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .hero-note {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      font-style: italic;
+    }
+    
+    .reason-section {
+      padding: 8rem 2rem;
+      background: var(--light);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--light);
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray-dark);
+      line-height: 1.8;
+    }
+    
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .reason-card {
+      background: var(--gray);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .reason-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+    
+    .reason-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .reason-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .reason-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-primary);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .reason-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .reason-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+    
+    .plan-section {
+      padding: 8rem 2rem;
+      background: var(--gray);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .plan-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .plan-card {
+      background: var(--light);
+      border-radius: 30px;
+      padding: 4rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .plan-card::before {
+      content: '限定特別価格';
+      position: absolute;
+      top: 30px;
+      right: -80px;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 5rem;
+      transform: rotate(45deg);
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .plan-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .plan-price {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .plan-original {
+      font-size: 1.2rem;
+      color: var(--gray-dark);
+      text-decoration: line-through;
+      margin-bottom: 0.5rem;
+    }
+    
+    .plan-current {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      color: var(--secondary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    
+    .plan-label {
+      font-size: 1rem;
+      color: var(--gray-dark);
+    }
+    
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 3rem;
+    }
+    
+    .plan-features li {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .plan-features li:last-child {
+      border-bottom: none;
+    }
+    
+    .check-icon {
+      width: 24px;
+      height: 24px;
+      background: var(--gradient-success);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .plan-cta {
+      text-align: center;
+    }
+    
+    .service-section {
+      padding: 8rem 2rem;
+      background: var(--light);
+    }
+    
+    .service-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .service-card {
+      background: var(--gray);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: var(--gradient-primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover::after {
+      transform: scaleX(1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--light);
+      margin: 0 auto 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .service-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .service-desc {
+      color: var(--gray-dark);
+      line-height: 1.6;
+    }
+    
+    .process-section {
+      padding: 8rem 2rem;
+      background: var(--gray);
+    }
+    
+    .process-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .process-timeline {
+      position: relative;
+      padding: 2rem 0;
+    }
+    
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--primary);
+      transform: translateX(-50%);
+    }
+    
+    .process-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+    
+    .process-step:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    
+    .process-step:nth-child(even) .process-content {
+      text-align: right;
+    }
+    
+    .process-number {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--light);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: var(--shadow-glow);
+      z-index: 1;
+    }
+    
+    .process-content {
+      width: calc(50% - 50px);
+      padding: 2rem;
+      background: var(--light);
+      border-radius: 20px;
+      box-shadow: var(--shadow-card);
+    }
+    
+    .process-step:nth-child(odd) .process-content {
+      margin-right: auto;
+    }
+    
+    .process-step:nth-child(even) .process-content {
+      margin-left: auto;
+    }
+    
+    .process-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    
+    .process-desc {
+      color: var(--gray-dark);
+      line-height: 1.6;
+    }
+    
+    .process-duration {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--light);
+      padding: 0.3rem 1rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    
+    .faq-section {
+      padding: 8rem 2rem;
+      background: var(--light);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-list {
+      margin-top: 3rem;
+    }
+    
+    .faq-item {
+      background: var(--gray);
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-question {
+      padding: 2rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--dark);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-question:hover {
+      color: var(--primary);
+    }
+    
+    .faq-toggle {
+      width: 30px;
+      height: 30px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--light);
+      font-weight: 700;
+      transition: transform 0.3s ease;
+    }
+    
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+    
+    .faq-answer {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item.active .faq-answer {
+      padding: 0 2rem 2rem;
+      max-height: 500px;
+    }
+    
+    .faq-answer p {
+      color: var(--gray-dark);
+      line-height: 1.8;
+    }
+    
+    .contact-section {
+      padding: 8rem 2rem;
+      background: var(--dark);
+      color: var(--light);
+      text-align: center;
+    }
+    
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-subtitle {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    
+    .contact-cta {
+      display: inline-block;
+      background: var(--gradient-primary);
+      color: var(--light);
+      padding: 1.5rem 4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .contact-cta:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    /* ハンバーガーメニュー */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: relative;
+      z-index: 1001;
+    }
+    
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--dark);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+    
+    /* タブレット対応 */
+    @media (max-width: 1024px) {
+      .header-inner {
+        padding: 0.8rem 1.5rem;
+      }
+      
+      .logo {
+        font-size: 1.8rem;
+      }
+      
+      nav ul {
+        gap: 2rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+      }
+      
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 0 2rem;
+      }
+    }
+    
+    /* スマートフォン対応 */
+    @media (max-width: 768px) {
+      /* ヘッダー */
+      .header-inner {
+        padding: 0.6rem 1rem;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+      }
+      
+      .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+      }
+      
+      /* ナビゲーション */
+      nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: white;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        overflow-y: auto;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem 0;
+      }
+      
+      nav li {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      
+      nav a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 0;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      /* ヒーロー調整 */
+      .hero {
+        padding-top: 60px;
+        min-height: auto;
+      }
+      
+      .hero-content {
+        padding: 2rem 1rem;
+      }
+      
+      .hero-badge {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      
+      .hero-points {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+      
+      .hero-point {
+        width: 100%;
+        max-width: 300px;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .cta-btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+      }
+      
+      /* セクション調整 */
+      section {
+        padding: 4rem 1rem;
+      }
+      
+      .section-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      /* グリッドレイアウト */
+      .reason-grid,
+      .service-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      /* プロセスタイムライン */
+      .process-timeline::before {
+        left: 30px;
+      }
+      
+      .process-step,
+      .process-step:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .process-number {
+        left: 30px;
+        transform: translateX(-50%);
+      }
+      
+      .process-content {
+        width: calc(100% - 80px);
+        margin-left: 60px !important;
+        text-align: left !important;
+      }
+      
+      /* 料金プラン */
+      .plan-card {
+        padding: 2rem;
+        max-width: 350px;
+        margin: 0 auto;
+      }
+      
+      .plan-current {
+        font-size: 3rem;
+      }
+    }
+    
+    /* iPhone Pro Max対応 (430px) */
+    @media (max-width: 430px) {
+      /* ヘッダー最小化 */
+      .header-inner {
+        padding: 0.5rem 0.8rem;
+      }
+      
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      .logo-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+      }
+      
+      /* ヒーロー最適化 */
+      .hero-content {
+        padding: 1.5rem 0.8rem;
+      }
+      
+      .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.5rem 1.2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+      
+      .hero-points {
+        margin: 1.5rem 0;
+      }
+      
+      .hero-point {
+        padding: 1.5rem;
+      }
+      
+      .hero-point-number {
+        font-size: 2.5rem;
+      }
+      
+      .hero-point-label {
+        font-size: 0.9rem;
+      }
+      
+      .cta-btn {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+      }
+      
+      .hero-note {
+        font-size: 0.85rem;
+        padding: 0 1rem;
+      }
+      
+      /* セクション共通 */
+      section {
+        padding: 3rem 0.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      /* カード類 */
+      .reason-card,
+      .service-card {
+        padding: 1.5rem;
+      }
+      
+      .reason-icon,
+      .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      
+      .reason-card h3,
+      .service-card h3 {
+        font-size: 1.1rem;
+      }
+      
+      .reason-card p,
+      .service-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      
+      /* プロセス */
+      .process-content {
+        padding: 1.5rem;
+      }
+      
+      .process-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+      }
+      
+      .process-title {
+        font-size: 1.1rem;
+      }
+      
+      .process-desc {
+        font-size: 0.9rem;
+      }
+      
+      .process-duration {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.8rem;
+      }
+      
+      /* 料金プラン */
+      .plan-card {
+        padding: 1.5rem;
+      }
+      
+      .plan-original {
+        font-size: 1.2rem;
+      }
+      
+      .plan-current {
+        font-size: 2.5rem;
+      }
+      
+      .plan-note {
+        font-size: 0.85rem;
+      }
+      
+      .plan-features li {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+      }
+      
+      /* FAQ */
+      .faq-question {
+        font-size: 1rem;
+        padding: 1rem 3rem 1rem 1rem;
+      }
+      
+      .faq-answer {
+        font-size: 0.9rem;
+        padding: 1rem;
+      }
+      
+      /* フッター */
+      footer {
+        padding: 3rem 0.8rem 2rem;
+      }
+    }
+    
+    /* 小型スマートフォン対応 (375px) */
+    @media (max-width: 375px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .hero-point-number {
+        font-size: 2.2rem;
+      }
+      
+      .plan-current {
+        font-size: 2.2rem;
+      }
+      
+      .cta-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="../images/logo.png" alt="ロンショール" style="height: 48px; vertical-align: middle;">
+        <span>ロンショール合同会社</span>
+      </div>
+      <nav id="navigation">
+        <ul>
+          <li><a href="../index.html">TOP</a></li>
+          <li><a href="../about.html">会社情報</a></li>
+          <li><a href="#services">サービス</a></li>
+          <li><a href="#process">ご利用の流れ</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title" style="font-size: 5.5rem; margin-bottom: 1rem;">AIバーガー</h1>
+      <div class="hero-badge" style="font-size: 2.5rem; padding: 1rem 3rem; font-weight: 900; margin-bottom: 1.5rem;">うまい、はやい、やすい</div>
+      <p class="hero-subtitle" style="font-size: 1.8rem; margin-bottom: 3rem;">システム開発業界の常識を打ち破ります</p>
+      
+      <div class="hero-points">
+        <div class="hero-point">
+          <div class="hero-point-number" style="font-size: 2.5rem; color: var(--secondary);">うまい</div>
+          <div class="hero-point-label">高品質な成果物</div>
+        </div>
+        <div class="hero-point">
+          <div class="hero-point-number" style="font-size: 2.5rem; color: var(--secondary);">はやい</div>
+          <div class="hero-point-label">納期半分</div>
+        </div>
+        <div class="hero-point">
+          <div class="hero-point-number" style="font-size: 2.5rem; color: var(--secondary);">やすい</div>
+          <div class="hero-point-label">20%割引</div>
+        </div>
+      </div>
+      
+      <div class="hero-cta">
+        <a href="../contact.html" class="cta-btn primary">見積書を送って相談する</a>
+        <a href="#process" class="cta-btn secondary">ご利用の流れを見る</a>
+      </div>
+      
+      <p class="hero-note">※まずは他社様の見積書をメールまたはお問い合わせフォームからお送りください</p>
+    </div>
+  </section>
+  
+  <!-- うまい！セクション -->
+  <section class="partner-section" style="padding: 6rem 2rem; background: linear-gradient(135deg, #fff5f5 0%, #ffe4e1 100%);">
+    <div class="section-content" style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 4rem; margin-bottom: 1rem;">🍔 うまい！</h2>
+        <p style="font-size: 1.8rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem;">
+          世界が認めた技術力で、最高品質のシステムをお届け
+        </p>
+        <p style="font-size: 1.4rem; color: var(--gray-dark);">
+          AIバーガーの「うまい」の秘密は、最強の開発パートナーにあり！
+        </p>
+      </div>
+      
+      <!-- パートナー紹介 -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--primary);">
+          システム開発パートナー：中川 慎太郎 氏
+        </h3>
+        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+          弊社は、シリコンバレーで実績を積んだ中川慎太郎氏と強力なパートナーシップを結び、世界基準のシステム開発をご提供しています。
+        </p>
+        
+        <!-- 実績 -->
+        <div style="margin-bottom: 3rem;">
+          <h4 style="font-size: 1.6rem; margin-bottom: 1.5rem;">🏆 実績</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+            <div style="background: var(--gray); padding: 1.5rem; border-radius: 10px;">
+              <strong>シリコンバレー経験者</strong><br>
+              米国ベイエリアでCTOとして活躍
+            </div>
+            <div style="background: var(--gray); padding: 1.5rem; border-radius: 10px;">
+              <strong>メディア掲載</strong><br>
+              Bloomberg、Yahoo Finance、日経新聞に掲載
+            </div>
+            <div style="background: var(--gray); padding: 1.5rem; border-radius: 10px;">
+              <strong>開発規模</strong><br>
+              10億件以上のデータ処理システム構築
+            </div>
+            <div style="background: var(--gray); padding: 1.5rem; border-radius: 10px;">
+              <strong>資金調達</strong><br>
+              Forever21、メルカリ等から出資獲得
+            </div>
+          </div>
+        </div>
+        
+        <!-- 経歴 -->
+        <div style="margin-bottom: 3rem;">
+          <h4 style="font-size: 1.6rem; margin-bottom: 1.5rem;">📋 経歴</h4>
+          <div style="border-left: 4px solid var(--primary); padding-left: 2rem;">
+            <div style="margin-bottom: 2rem;">
+              <h5 style="font-size: 1.3rem; margin-bottom: 0.5rem;">2021年〜2025年：Bye & DeStore (US) - CTO</h5>
+              <ul style="list-style-type: disc; margin-left: 1.5rem; line-height: 1.8;">
+                <li>米国ベイエリア（シリコンバレー）にて最高技術責任者</li>
+                <li>AI搭載の国際EC検索エンジン「Bye」を開発</li>
+                <li>10億件の商品データを処理し、最大90%の価格差を発見するシステム構築</li>
+                <li>Forever21、メルカリ等のエンジェル投資家および海外VCから資金調達</li>
+              </ul>
+            </div>
+            <div>
+              <h5 style="font-size: 1.3rem; margin-bottom: 0.5rem;">2019年〜2022年：Lisa Technologies - CPO / Tech Lead</h5>
+              <ul style="list-style-type: disc; margin-left: 1.5rem; line-height: 1.8;">
+                <li>都内スタートアップにてチーフプロダクトオフィサー兼技術リード</li>
+                <li>プロダクト開発全般を統括</li>
+                <li>サイバーエージェント等、国内大手VCからの資金調達を実現</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- なぜうまいのか -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">なぜAIバーガーは「うまい」のか？</h3>
+        <p style="font-size: 1.6rem; font-weight: 700; text-align: center; color: var(--secondary); margin-bottom: 3rem;">
+          弊社 × 中川慎太郎 = 最強タッグ
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">🤝 強力なパートナーシップ</h4>
+            <p style="line-height: 1.8;">
+              弊社は、世界トップレベルの技術者である中川氏をシステム開発パートナーに迎え、お客様に最高品質のシステムをお届けします。
+            </p>
+          </div>
+          
+          <div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">🌟 パートナーの開発実績</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li><strong>AI技術</strong> - 100万枚の画像学習AI、多言語翻訳システム</li>
+              <li><strong>ビッグデータ</strong> - 500店舗以上の売上改善を実現</li>
+              <li><strong>Web3</strong> - 最新技術を活用したプラットフォーム開発</li>
+              <li><strong>高速開発</strong> - 最短1営業日でMVP提供</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">💡 だからこそ実現できる価値</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li>✓ シリコンバレー基準の品質管理</li>
+              <li>✓ 最新技術へのアクセス</li>
+              <li>✓ グローバルな視点での問題解決</li>
+              <li>✓ ビジネス成果にコミットする開発</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- まとめ -->
+      <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border-radius: 20px; padding: 3rem; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">🎯 AIバーガーが「うまい」理由</h3>
+        <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem;">
+          世界レベルの開発パートナー × 弊社の顧客理解 = 最高のシステム
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+          私たち弊社は、中川慎太郎氏という最強の開発パートナーと共に、お客様のビジネスを成功に導きます。<br>
+          「ゼロからのプロダクト作りが大好き」という中川氏の情熱と、10年以上の実績が、AIバーガーの品質を保証します。
+        </p>
+        <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 2rem; margin-top: 2rem;">
+          <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">💬 弊社より</h4>
+          <p style="font-style: italic; line-height: 1.8;">
+            「私たちは、世界で活躍する中川慎太郎氏をパートナーに迎えることで、シリコンバレー品質のシステム開発を日本のお客様にお届けできることを誇りに思います。この強力なパートナーシップが、AIバーガーの『うまい』を実現しています。」
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- はやい！セクション -->
+  <section class="speed-section" style="padding: 6rem 2rem; background: linear-gradient(135deg, #e6f7ff 0%, #e6fffa 100%);">
+    <div class="section-content" style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 4rem; margin-bottom: 1rem;">🍔 はやい！</h2>
+        <p style="font-size: 1.8rem; font-weight: 700; color: var(--dark); margin-bottom: 1rem;">
+          AI駆動開発で、驚異的なスピードを実現
+        </p>
+        <p style="font-size: 1.4rem; color: var(--gray-dark);">
+          通常6ヶ月かかる開発を、1週間で。その秘密はAIにあり！
+        </p>
+      </div>
+      
+      <!-- なぜはやいのか -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">なぜAIバーガーは「はやい」のか？</h3>
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <p style="font-size: 1.6rem; font-weight: 700; color: var(--primary);">🤖 AI駆動開発の革命</p>
+          <p style="font-size: 1.2rem; line-height: 1.8; margin-top: 1rem;">
+            弊社は最新のAI技術を開発プロセスに全面的に活用することで、<br>要件定義後の開発速度を大幅に短縮しています。
+          </p>
+        </div>
+        
+        <!-- 開発期間比較 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+          <div style="background: #f5f5f5; padding: 2rem; border-radius: 15px; border: 2px solid #ccc;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: #666;">従来の開発</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.5rem;">要件定義：完了後</li>
+              <li style="margin-bottom: 0.5rem;">設計・開発：3〜4ヶ月</li>
+              <li style="margin-bottom: 0.5rem;">テスト・修正：1〜2ヶ月</li>
+              <li style="font-weight: 700; font-size: 1.2rem; color: #666; margin-top: 1rem;">合計：4〜6ヶ月</li>
+            </ul>
+          </div>
+          <div style="background: linear-gradient(135deg, #e6f7ff 0%, #e6fffa 100%); padding: 2rem; border-radius: 15px; border: 2px solid var(--primary);">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary);">AIバーガーの開発</h4>
+            <ul style="list-style: none; padding: 0;">
+              <li style="margin-bottom: 0.5rem;">要件定義：完了後</li>
+              <li style="margin-bottom: 0.5rem;">AI支援設計・開発：3〜5日</li>
+              <li style="margin-bottom: 0.5rem;">AI自動テスト：1〜2日</li>
+              <li style="font-weight: 700; font-size: 1.2rem; color: var(--primary); margin-top: 1rem;">合計：1週間〜</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- AI活用による高速化の仕組み -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem;">🚀 AI活用による高速化の仕組み</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary);">1. AIコード生成</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li>✓ GitHub Copilot、ChatGPT、Claude等の最新AI活用</li>
+              <li>✓ ボイラープレートコードの自動生成</li>
+              <li>✓ 一般的な機能の実装時間を90%削減</li>
+              <li>✓ 要件に基づいた最適なコード構造を瞬時に構築</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary);">2. AI支援開発</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li>✓ 複雑なアルゴリズムの実装支援</li>
+              <li>✓ エラー解決の高速化</li>
+              <li>✓ リファクタリングの自動提案</li>
+              <li>✓ 最新のベストプラクティスを即座に適用</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary);">3. AI自動テスト</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li>✓ テストケースの自動生成</li>
+              <li>✓ バグの事前予測と自動修正</li>
+              <li>✓ 品質チェックの自動化</li>
+              <li>✓ パフォーマンステストの効率化</li>
+            </ul>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary);">4. AIドキュメント作成</h4>
+            <ul style="list-style-type: none; padding: 0;">
+              <li>✓ 技術仕様書の自動生成</li>
+              <li>✓ コードコメントの自動付与</li>
+              <li>✓ API仕様書の自動作成</li>
+              <li>✓ 運用マニュアルの自動生成</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 実績 -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem;">⚡ 実績が証明する開発スピード</h3>
+        <p style="text-align: center; margin-bottom: 2rem; font-size: 1.2rem;">実際の開発事例（要件定義完了後）</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #fff0f0 0%, #ffe0e0 100%); border-radius: 15px;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🏪</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">ECサイト構築</h4>
+            <p style="color: #666;">従来：開発3〜4ヶ月</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">↓</p>
+            <p style="font-weight: 700; color: var(--primary);">AIバーガー：1週間</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #f0f0ff 0%, #e0e0ff 100%); border-radius: 15px;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">データ分析システム</h4>
+            <p style="color: #666;">従来：開発2〜3ヶ月</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">↓</p>
+            <p style="font-weight: 700; color: var(--primary);">AIバーガー：5日</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #f0fff0 0%, #e0ffe0 100%); border-radius: 15px;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">📱</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">モバイルアプリ開発</h4>
+            <p style="color: #666;">従来：開発4ヶ月</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">↓</p>
+            <p style="font-weight: 700; color: var(--primary);">AIバーガー：2週間</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #fffff0 0%, #ffffe0 100%); border-radius: 15px;">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🤖</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">AI搭載チャットボット</h4>
+            <p style="color: #666;">従来：開発1ヶ月</p>
+            <p style="font-size: 1.5rem; font-weight: 700; color: var(--secondary);">↓</p>
+            <p style="font-weight: 700; color: var(--primary);">AIバーガー：3日</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- スピードを支える仕組み -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem;">💡 スピードを支える仕組み</h3>
+        
+        <div style="display: grid; gap: 2rem;">
+          <div style="border-left: 4px solid var(--primary); padding-left: 2rem;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">MVP開発アプローチ</h4>
+            <p>要件定義完了後、最短1営業日で動くプロトタイプを提供。実際に触って確認しながら開発を進めることで、手戻りを最小化。</p>
+          </div>
+          
+          <div style="border-left: 4px solid var(--secondary); padding-left: 2rem;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">AIによるコード資産の活用</h4>
+            <p>中川パートナーが開発した数百のプロジェクトから、再利用可能なコンポーネントをAIが自動選択・カスタマイズ。</p>
+          </div>
+          
+          <div style="border-left: 4px solid var(--accent); padding-left: 2rem;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">24時間AI開発体制</h4>
+            <p>人間が休んでいる間も、AIが開発タスクを継続。朝起きたら実装が進んでいる状態を実現。</p>
+          </div>
+          
+          <div style="border-left: 4px solid var(--primary); padding-left: 2rem;">
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">並列開発の最適化</h4>
+            <p>AIが複数の機能を同時並行で開発。依存関係を自動管理し、効率的な開発フローを実現。</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- お客様の声 -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem;">💬 お客様の声</h3>
+        
+        <div style="display: grid; gap: 2rem;">
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px; position: relative;">
+            <p style="font-style: italic; line-height: 1.8; margin-bottom: 1rem;">
+              「要件定義が終わったら、1週間後には動くシステムが...AIの力は想像以上でした」
+            </p>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <p style="font-style: italic; line-height: 1.8; margin-bottom: 1rem;">
+              「開発がはやいので、すぐにユーザーテストができて、改善サイクルが回せました」
+            </p>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <p style="font-style: italic; line-height: 1.8; margin-bottom: 1rem;">
+              「通常なら半年待つところが、1ヶ月で本番稼働。競合に大きく差をつけられました」
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- まとめ -->
+      <div style="background: linear-gradient(135deg, var(--primary) 0%, #10b981 100%); color: white; border-radius: 20px; padding: 3rem; text-align: center;">
+        <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">🎯 AIバーガーが「はやい」理由</h3>
+        <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 2rem;">
+          最新AI技術 × 経験豊富な開発者 = 圧倒的スピード
+        </p>
+        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem;">
+          要件定義でお客様のニーズを正確に把握した後は、AIの力で一気に開発を加速。<br>
+          AIが得意とする実装作業はAIに任せ、人間の創造性が必要な設計判断に集中。<br>
+          この最適な役割分担により、品質を保ちながら開発期間を大幅短縮。
+        </p>
+        
+        <div style="background: rgba(255,255,255,0.2); border-radius: 15px; padding: 2rem; margin: 2rem 0;">
+          <h4 style="font-size: 1.3rem; margin-bottom: 1rem;">重要：はやいだけじゃない！</h4>
+          <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div>✅ 品質は世界基準（「うまい」）</div>
+            <div>✅ 無駄を省いてコスト削減（「やすい」）</div>
+            <div>✅ AIによる正確な実装</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+          <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">🚀 今すぐ体験！</h4>
+          <p style="font-size: 1.2rem;">
+            要件が決まっているなら、AIバーガーの圧倒的なスピードをご体験ください。<br>
+            最短1営業日でプロトタイプをお見せします。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- やすい！セクション -->
+  <section class="price-section" style="padding: 6rem 2rem; background: linear-gradient(135deg, #fffef0 0%, #fff5e6 100%);">
+    <div class="section-content" style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <h2 style="font-size: 4rem; margin-bottom: 1rem;">🍔 やすい！</h2>
+        <h3 style="font-size: 2.5rem; font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">
+          他社見積もりから必ず20%OFF！
+        </h3>
+        <p style="font-size: 1.4rem; color: var(--gray-dark);">
+          どこよりも安く、でも品質は妥協しない。AIの力で実現する驚きの価格
+        </p>
+      </div>
+      
+      <!-- シンプルな価格保証 -->
+      <div style="background: linear-gradient(135deg, var(--secondary) 0%, #ff8c42 100%); color: white; border-radius: 20px; padding: 3rem; text-align: center; margin-bottom: 3rem;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">💰 シンプルな価格保証</h3>
+        <div style="font-size: 2rem; font-weight: 700; margin: 2rem 0;">
+          他社見積もりを見せてください<br>
+          必ず20%引きで開発します
+        </div>
+        <p style="font-size: 1.2rem; margin-top: 2rem;">
+          ※最低構築費用：30万円
+        </p>
+      </div>
+      
+      <!-- なぜ20%引きが可能なのか -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">なぜ20%引きが可能なのか？</h3>
+        
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <div style="font-size: 3rem; margin-bottom: 1rem;">🤖</div>
+          <h4 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem;">AI活用で開発効率5倍</h4>
+          <p style="font-size: 1.2rem; line-height: 1.8;">
+            弊社は最新のAI技術を駆使することで、従来の1/5のコストで同じ品質のシステムを開発できます。
+          </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px; text-align: center;">
+            <h5 style="font-size: 1.3rem; margin-bottom: 1rem;">AIによる自動コーディング</h5>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--primary);">開発時間90%削減</p>
+          </div>
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px; text-align: center;">
+            <h5 style="font-size: 1.3rem; margin-bottom: 1rem;">AI自動テスト</h5>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--primary);">テスト工数80%削減</p>
+          </div>
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px; text-align: center;">
+            <h5 style="font-size: 1.3rem; margin-bottom: 1rem;">AIドキュメント生成</h5>
+            <p style="font-size: 2rem; font-weight: 700; color: var(--primary);">ドキュメント作成95%削減</p>
+          </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; font-weight: 700;">
+          この圧倒的な効率化により、他社より20%安くても十分な利益を確保できるのです。
+        </p>
+      </div>
+      
+      <!-- 対応規模と削減例 -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">📊 対応規模と削減例</h3>
+        
+        <div style="display: grid; gap: 2rem;">
+          <div style="background: linear-gradient(to right, #f0f9ff 0%, #ffffff 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--primary);">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">小規模（40万円〜100万円）</h4>
+            <p style="margin-bottom: 0.5rem;">簡易Webサイト、チャットボット等</p>
+            <p style="font-size: 1.3rem; font-weight: 700;">
+              例：80万円 → <span style="color: var(--secondary); font-size: 1.5rem;">64万円（16万円お得！）</span>
+            </p>
+          </div>
+          
+          <div style="background: linear-gradient(to right, #f0fff4 0%, #ffffff 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #10b981;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">中規模（100万円〜1000万円）</h4>
+            <p style="margin-bottom: 0.5rem;">ECサイト、業務システム、アプリ開発等</p>
+            <p style="font-size: 1.3rem; font-weight: 700;">
+              例：500万円 → <span style="color: var(--secondary); font-size: 1.5rem;">400万円（100万円お得！）</span>
+            </p>
+          </div>
+          
+          <div style="background: linear-gradient(to right, #fef3c7 0%, #ffffff 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #f59e0b;">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">大規模（1000万円〜5000万円）</h4>
+            <p style="margin-bottom: 0.5rem;">基幹システム、AI搭載システム等</p>
+            <p style="font-size: 1.3rem; font-weight: 700;">
+              例：3000万円 → <span style="color: var(--secondary); font-size: 1.5rem;">2400万円（600万円お得！）</span>
+            </p>
+          </div>
+          
+          <div style="background: linear-gradient(to right, #f3e8ff 0%, #ffffff 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid var(--accent);">
+            <h4 style="font-size: 1.5rem; margin-bottom: 1rem;">エンタープライズ（5000万円〜1億円以上）</h4>
+            <p style="margin-bottom: 0.5rem;">全社システム、大規模プラットフォーム等</p>
+            <p style="font-size: 1.3rem; font-weight: 700;">
+              例：8000万円 → <span style="color: var(--secondary); font-size: 1.5rem;">6400万円（1600万円お得！）</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ご契約の流れ -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">📋 ご契約の流れ</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 1rem;">1️⃣</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">見積書送付（お客様→弊社）</h4>
+            <p>他社の見積書をメールでお送りください</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 1rem;">2️⃣</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">お打ち合わせ</h4>
+            <p>要件確認と技術仕様のすり合わせ</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 1rem;">3️⃣</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">正式見積書（弊社→お客様）</h4>
+            <p>20%引きの正式なお見積もりを提出</p>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="width: 80px; height: 80px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; margin: 0 auto 1rem;">4️⃣</div>
+            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem;">ご契約・開発スタート</h4>
+            <p>合意後、即座に開発に着手します</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 20%引きでも変わらないもの -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">✅ 20%引きでも変わらないもの</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">品質</h4>
+            <p>シリコンバレー基準の開発（中川パートナー監修）</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">スピード</h4>
+            <p>AI駆動で納期も短縮</p>
+          </div>
+          
+          <div style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+            <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">サポート</h4>
+            <p>手厚いアフターフォロー</p>
+          </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; font-weight: 700;">
+          安さの理由は「効率化」。品質への妥協は一切ありません。
+        </p>
+      </div>
+      
+      <!-- お客様の声 -->
+      <div style="background: white; border-radius: 20px; padding: 3rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+        <h3 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">💬 お客様の声</h3>
+        
+        <div style="display: grid; gap: 2rem;">
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <p style="font-style: italic; line-height: 1.8;">
+              「他社見積もり650万円が520万円に。130万円も節約できて、浮いた予算で追加機能も実装できました」
+            </p>
+          </div>
+          
+          <div style="background: var(--gray); padding: 2rem; border-radius: 15px;">
+            <p style="font-style: italic; line-height: 1.8;">
+              「正直、安すぎて不安でしたが、クオリティは他社以上。打ち合わせも丁寧で安心できました」
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA -->
+      <div style="background: linear-gradient(135deg, var(--secondary) 0%, #ff8c42 100%); color: white; border-radius: 20px; padding: 3rem; text-align: center;">
+        <h3 style="font-size: 2.5rem; margin-bottom: 1.5rem;">今すぐ20%OFFを体験</h3>
+        <p style="font-size: 1.4rem; line-height: 1.8; margin-bottom: 2rem;">
+          <strong>他社見積もりをお持ちの方は、今すぐお送りください。</strong><br>
+          <strong>最短即日で、20%引きのお見積もりをご提示します。</strong>
+        </p>
+        <p style="font-size: 1.2rem; margin-bottom: 3rem;">
+          どこよりも安く、でも品質は世界レベル。<br>
+          それがAIバーガーです。
+        </p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="../contact.html" style="background: white; color: var(--secondary); padding: 1rem 3rem; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+            見積もりを送る
+          </a>
+          <a href="../contact.html" style="background: transparent; color: white; border: 2px solid white; padding: 1rem 3rem; border-radius: 50px; font-weight: 700; font-size: 1.2rem; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
+            お問い合わせ
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="plan-section" id="plan">
+    <div class="section-header">
+      <div class="section-badge">SPECIAL OFFER</div>
+      <h2 class="section-title">お見積もり割引サービス</h2>
+      <p class="section-subtitle">他社様の見積書をご提供いただければ、その金額から20%割引いたします<br><span style="color: var(--secondary); font-weight: 700;">【期間限定】今なら50%OFFキャンペーン実施中！</span></p>
+    </div>
+    
+    <div class="plan-container">
+      <div class="plan-card">
+        <h3 class="plan-title">見積書割引プラン</h3>
+        
+        <div class="plan-price">
+          <div class="plan-original">他社様のお見積もり金額</div>
+          <div class="plan-current" style="text-decoration: line-through; font-size: 2.5rem; color: var(--gray-dark);">20% OFF</div>
+          <div class="plan-current" style="margin-top: 1rem;">50% OFF</div>
+          <div class="plan-label" style="color: var(--secondary); font-weight: 700;">※期間限定キャンペーン価格</div>
+          <div class="plan-label">※実際の価格は見積もり内容により変動します</div>
+        </div>
+        
+        <ul class="plan-features">
+          <li>
+            <span class="check-icon">✓</span>
+            <span>レスポンシブ対応（PC・タブレット・スマホ）</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>SEO最適化（検索エンジン対策）</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>高速表示対応（PageSpeed Insights 90点以上）</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>SSL対応（セキュリティ強化）</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>アクセス解析設置（Google Analytics）</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>お問い合わせフォーム実装</span>
+          </li>
+          <li>
+            <span class="check-icon">✓</span>
+            <span>納品後1ヶ月間の無料修正対応</span>
+          </li>
+        </ul>
+        
+        <div class="plan-cta">
+          <a href="../contact.html" class="cta-btn primary">今すぐ相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="service-section" id="services">
+    <div class="section-header">
+      <div class="section-badge">SERVICES</div>
+      <h2 class="section-title">制作可能なサービス</h2>
+      <p class="section-subtitle">あらゆるWeb制作ニーズに対応します</p>
+    </div>
+    
+    <div class="service-container">
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-name">コーポレートサイト</h3>
+          <p class="service-desc">
+            企業の顔となる信頼性の高いWebサイトを制作。ブランディングから集客まで、ビジネスの成長を支援します。
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3 class="service-name">ランディングページ</h3>
+          <p class="service-desc">
+            高いコンバージョン率を実現するLP制作。A/Bテストも考慮した、成果の出るページを提供します。
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+          <h3 class="service-name">ECサイト</h3>
+          <p class="service-desc">
+            Shopify、WooCommerce等を活用した、売れるネットショップを構築。決済から配送まで一貫サポート。
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3 class="service-name">採用サイト</h3>
+          <p class="service-desc">
+            優秀な人材を惹きつける採用特設サイト。企業の魅力を最大限に伝え、応募数向上を実現します。
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🤖</div>
+          <h3 class="service-name">AIチャットボット</h3>
+          <p class="service-desc">
+            24時間365日対応のAIチャットボットを実装。顧客対応の自動化で、業務効率を大幅に改善します。
+          </p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-name">Webアプリケーション</h3>
+          <p class="service-desc">
+            業務効率化を実現するWebアプリを開発。社内システムから顧客向けサービスまで幅広く対応。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="process-section" id="process">
+    <div class="section-header">
+      <div class="section-badge">PROCESS</div>
+      <h2 class="section-title">ご利用の流れ</h2>
+      <p class="section-subtitle">他社見積書のご提供から納品まで</p>
+    </div>
+    
+    <div class="process-container">
+      <div class="process-timeline">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3 class="process-title">他社見積書のご提供</h3>
+            <p class="process-desc">
+              まず他社様から受け取られた見積書をメールまたはお問い合わせフォームからお送りください。内容を確認後、20%割引（キャンペーン中は50%割引）の金額をご提示します。
+            </p>
+            <span class="process-duration">1-2営業日</span>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3 class="process-title">割引価格のご提示・ご契約</h3>
+            <p class="process-desc">
+              見積書の内容を確認し、20%割引（キャンペーン中は50%OFF）の価格をご提示。ご納得いただければご契約となります。
+            </p>
+            <span class="process-duration">1営業日
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3 class="process-title">デザイン・開発</h3>
+            <p class="process-desc">
+              見積書に記載された仕様に基づき、AI技術を活用して効率的に開発。デザインから実装まで高品質に仕上げます。
+            </p>
+            <span class="process-duration">7-10営業日</span>
+          </div>
+        </div>
+        
+        <div class="process-step">
+          <div class="process-number">4</div>
+          <div class="process-content">
+            <h3 class="process-title">テスト・納品</h3>
+            <p class="process-desc">
+              各種ブラウザでの動作確認、スマホ対応チェックを実施。問題がなければ本番環境へ公開し、納品完了です。
+            </p>
+            <span class="process-duration">1-2営業日</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="faq-section">
+    <div class="section-header">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title">よくあるご質問</h2>
+    </div>
+    
+    <div class="faq-container">
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>他社の見積書があれば本当に20%安くなりますか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              はい、他社様の正式な見積書をご提供いただければ、その金額から確実に20%割引いたします。最新のAI技術を活用することで開発工数を削減し、中間マージンもカットすることで実現しています。現在は期間限定キャンペーンとして50%OFFでご提供中です。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>品質は大丈夫ですか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              品質には絶対の自信があります。AI技術は効率化のツールとして活用していますが、最終的な品質チェックは経験豊富な人間のエンジニアが行います。また、納品後1ヶ月間の無料修正対応も含まれているため、安心してご依頼いただけます。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>どのような規模の案件まで対応可能ですか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              小規模なランディングページから、100ページを超える大規模コーポレートサイト、複雑な機能を持つWebアプリケーションまで幅広く対応しています。案件の規模に関わらず、ご提供いただいた見積書の金額から20%割引（キャンペーン期間中は50%OFF）いたします。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>納期はどれくらいですか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              一般的なコーポレートサイトやLPの場合、最短2週間で納品可能です。これは業界平均の約半分の期間です。規模や機能により変動しますが、他社よりも確実に短い納期でお届けします。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>修正や更新はどのように対応していますか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              納品後1ヶ月間は無料で修正対応いたします。その後も、月額制の保守プランをご用意しており、定期的な更新や改善をサポートします。また、お客様自身で更新できるCMS（WordPress等）での構築も可能です。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>見積書を送るにはどうすればいいですか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              お問い合わせフォームまたはメールで、他社様から受け取られた見積書をPDFや画像形式でお送りください。機密情報は適切に管理いたします。見積書の内容を確認後、1営業日以内に20%割引（キャンペーン中は50%OFF）の金額をご提示いたします。
+            </p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>どのような見積書でも対応可能ですか？</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Web制作会社様からの正式な見積書であれば基本的に対応可能です。ただし、見積書に詳細な仕様が記載されている必要があります。不明瞭な内容の場合は、追加でヒアリングさせていただく場合がございます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2 class="contact-title">他社の見積書をお送りください</h2>
+      <p class="contact-subtitle">
+        Web制作会社から受け取られた見積書を、PDFや画像でお送りください。<br>
+        内容を確認後、20%割引（キャンペーン中は50%OFF）の金額をご提示いたします。
+      </p>
+      <a href="../contact.html" class="contact-cta">見積書を送って相談する</a>
+    </div>
+  </section>
+  
+    <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
+  
+  <script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+    
+    // モバイルメニューの開閉
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navigation = document.getElementById('navigation');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+      navigation.classList.toggle('active');
+      
+      // ハンバーガーメニューのアニメーション
+      const spans = this.querySelectorAll('span');
+      if (navigation.classList.contains('active')) {
+        spans[0].style.transform = 'rotate(45deg) translateY(7px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translateY(-7px)';
+      } else {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
+    });
+    
+    // メニューリンクをクリックしたら閉じる
+    const navLinks = navigation.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        navigation.classList.remove('active');
+        const spans = mobileMenuBtn.querySelectorAll('span');
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      });
+    });
+  </script>
+</body>
+</html>

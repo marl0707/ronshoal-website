@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マインクラフトLP編集画面 - 完全版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 14px;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-tab:hover {
+            color: #333;
+        }
+        
+        .nav-tab.active {
+            color: #2196F3;
+            border-bottom-color: #2196F3;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .section h2 {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .field {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .item-group {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+            position: sticky;
+            bottom: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        }
+        
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-save {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background: #45a049;
+        }
+        
+        .btn-preview {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-preview:hover {
+            background: #0b7dda;
+        }
+        
+        .btn-download {
+            background: #ff9800;
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background: #e68900;
+        }
+        
+        .status {
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            border: 1px solid #90caf9;
+        }
+        
+        .instructions h3 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            color: #555;
+        }
+        
+        .instructions li {
+            margin-bottom: 5px;
+        }
+
+        .add-button {
+            background: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .add-button:hover {
+            background: #45a049;
+        }
+
+        .remove-button {
+            background: #f44336;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .remove-button:hover {
+            background: #d32f2f;
+        }
+
+        .array-controls {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 マインクラフトLP 編集画面 - 完全版</h1>
+        
+        <div class="instructions">
+            <h3>📝 編集方法</h3>
+            <ol>
+                <li>タブを切り替えて各セクションを編集してください</li>
+                <li>「プレビュー」ボタンで変更内容を確認できます</li>
+                <li>「保存」ボタンをクリックして変更を保存します</li>
+                <li>「JSONダウンロード」で編集内容をファイルとして保存できます</li>
+                <li>保存したJSONファイルを開発者に送付してください</li>
+            </ol>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchTab('basic')">基本情報</button>
+            <button class="nav-tab" onclick="switchTab('features')">特徴・解決策</button>
+            <button class="nav-tab" onclick="switchTab('stages')">ステージ・成果</button>
+            <button class="nav-tab" onclick="switchTab('line')">LINE関連</button>
+            <button class="nav-tab" onclick="switchTab('seminar')">セミナー</button>
+            <button class="nav-tab" onclick="switchTab('special')">特典・CTA</button>
+            <button class="nav-tab" onclick="switchTab('footer')">フッター・その他</button>
+        </div>
+        
+        <form id="contentForm">
+            <!-- 基本情報タブ -->
+            <div id="basic-tab" class="tab-content active">
+                <!-- ヒーローセクション -->
+                <div class="section">
+                    <h2>🌟 ヒーローセクション（トップ部分）</h2>
+                    <div class="field">
+                        <label>メインタイトル</label>
+                        <textarea name="hero.title" id="hero-title"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>サブタイトル</label>
+                        <input type="text" name="hero.subtitle" id="hero-subtitle">
+                    </div>
+                    <div class="field">
+                        <label>ボタンテキスト（メイン）</label>
+                        <input type="text" name="hero.cta.primary" id="hero-cta-primary">
+                    </div>
+                    <div class="field">
+                        <label>ボタンテキスト（サブ）</label>
+                        <input type="text" name="hero.cta.secondary" id="hero-cta-secondary">
+                    </div>
+                </div>
+                
+                <!-- お悩みセクション -->
+                <div class="section">
+                    <h2>😟 お悩みセクション</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" name="problems.title" id="problems-title">
+                    </div>
+                    <div id="problems-items"></div>
+                    <button type="button" class="add-button" onclick="addProblemItem()">+ お悩みを追加</button>
+                </div>
+                
+                <!-- 将来への危機感セクション -->
+                <div class="section">
+                    <h2>⚠️ 将来への危機感セクション</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" name="futureRisk.title" id="futureRisk-title">
+                    </div>
+                    <div class="field">
+                        <label>衝撃的なデータ（本文）</label>
+                        <textarea name="futureRisk.shockingData.text" id="futureRisk-shockingData-text"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>IT人材不足データ</label>
+                        <input type="text" name="futureRisk.itShortage.text" id="futureRisk-itShortage-text">
+                    </div>
+                    <div class="field">
+                        <label>メッセージ</label>
+                        <textarea name="futureRisk.message" id="futureRisk-message"></textarea>
+                    </div>
+                </div>
+                
+                <!-- 講師紹介セクション -->
+                <div class="section">
+                    <h2>👨‍🏫 講師紹介セクション</h2>
+                    <div class="field">
+                        <label>講師名</label>
+                        <input type="text" name="instructor.name" id="instructor-name">
+                    </div>
+                    <div class="field">
+                        <label>肩書き</label>
+                        <input type="text" name="instructor.title" id="instructor-title">
+                    </div>
+                    <div class="field">
+                        <label>メッセージ</label>
+                        <textarea name="instructor.message" id="instructor-message"></textarea>
+                    </div>
+                </div>
+                
+                <!-- 保護者の声セクション -->
+                <div class="section">
+                    <h2>💬 保護者の声セクション</h2>
+                    <div id="testimonials-items"></div>
+                    <button type="button" class="add-button" onclick="addTestimonial()">+ 保護者の声を追加</button>
+                </div>
+            </div>
+
+            <!-- 特徴・解決策タブ -->
+            <div id="features-tab" class="tab-content">
+                <!-- ソリューションセクション -->
+                <div class="section">
+                    <h2>🎯 ソリューションセクション</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="solution-title">
+                    </div>
+                    <div id="solution-features"></div>
+                    <div class="field">
+                        <label>Before / After - Before テキスト</label>
+                        <input type="text" id="solution-before-text">
+                    </div>
+                    <div class="field">
+                        <label>Before / After - After テキスト</label>
+                        <input type="text" id="solution-after-text">
+                    </div>
+                    <div class="field">
+                        <label>CTA テキスト</label>
+                        <input type="text" id="solution-cta">
+                    </div>
+                </div>
+
+                <!-- 3大特徴セクション -->
+                <div class="section">
+                    <h2>✨ プログラムの3大特徴</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="features-title">
+                    </div>
+                    
+                    <!-- 特徴1 -->
+                    <div class="item-group">
+                        <h3>特徴1</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="feature1-title">
+                        </div>
+                        <div class="field">
+                            <label>サブタイトル</label>
+                            <input type="text" id="feature1-subtitle">
+                        </div>
+                        <div id="feature1-points"></div>
+                    </div>
+                    
+                    <!-- 特徴2 -->
+                    <div class="item-group">
+                        <h3>特徴2</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="feature2-title">
+                        </div>
+                        <div class="field">
+                            <label>サブタイトル</label>
+                            <input type="text" id="feature2-subtitle">
+                        </div>
+                        <div id="feature2-points"></div>
+                    </div>
+                    
+                    <!-- 特徴3 -->
+                    <div class="item-group">
+                        <h3>特徴3</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="feature3-title">
+                        </div>
+                        <div class="field">
+                            <label>サブタイトル</label>
+                            <input type="text" id="feature3-subtitle">
+                        </div>
+                        <div id="feature3-points"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ステージ・成果タブ -->
+            <div id="stages-tab" class="tab-content">
+                <!-- ステージセクション -->
+                <div class="section">
+                    <h2>🎮 10ステージの冒険内容</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="stages-title">
+                    </div>
+                    <div id="stage-groups"></div>
+                </div>
+
+                <!-- 成果セクション -->
+                <div class="section">
+                    <h2>🏆 受講生の成果紹介</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="results-title">
+                    </div>
+                    <div class="field">
+                        <label>サブタイトル</label>
+                        <input type="text" id="results-subtitle">
+                    </div>
+                    <div id="results-works"></div>
+                    <div id="results-growth"></div>
+                    <div class="field">
+                        <label>CTA テキスト</label>
+                        <input type="text" id="results-cta">
+                    </div>
+                </div>
+            </div>
+
+            <!-- LINE関連タブ -->
+            <div id="line-tab" class="tab-content">
+                <!-- LINE特典セクション -->
+                <div class="section">
+                    <h2>📱 LINE登録3大メリット</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="lineBenefits-title">
+                    </div>
+                    <div class="field">
+                        <label>サブタイトル</label>
+                        <input type="text" id="lineBenefits-subtitle">
+                    </div>
+                    
+                    <!-- メリット1 -->
+                    <div class="item-group">
+                        <h3>メリット1</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="benefit1-title">
+                        </div>
+                        <div id="benefit1-items"></div>
+                    </div>
+                    
+                    <!-- メリット2 -->
+                    <div class="item-group">
+                        <h3>メリット2</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="benefit2-title">
+                        </div>
+                        <div id="benefit2-items"></div>
+                    </div>
+                    
+                    <!-- メリット3 -->
+                    <div class="item-group">
+                        <h3>メリット3</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="benefit3-title">
+                        </div>
+                        <div id="benefit3-items"></div>
+                    </div>
+                    
+                    <!-- 登録手順 -->
+                    <div class="item-group">
+                        <h3>登録手順</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="howToRegister-title">
+                        </div>
+                        <div id="register-steps"></div>
+                        <div id="register-timeInfo"></div>
+                    </div>
+                    
+                    <!-- FAQ -->
+                    <div class="item-group">
+                        <h3>FAQ</h3>
+                        <div class="field">
+                            <label>質問</label>
+                            <input type="text" id="faq-question">
+                        </div>
+                        <div class="field">
+                            <label>回答</label>
+                            <input type="text" id="faq-answer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セミナータブ -->
+            <div id="seminar-tab" class="tab-content">
+                <div class="section">
+                    <h2>📺 無料セミナー情報</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="seminar-title">
+                    </div>
+                    <div class="field">
+                        <label>サブタイトル</label>
+                        <input type="text" id="seminar-subtitle">
+                    </div>
+                    
+                    <!-- セミナー内容 -->
+                    <div class="item-group">
+                        <h3>セミナー内容</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="seminar-content-title">
+                        </div>
+                        <div id="seminar-sections"></div>
+                        <div class="field">
+                            <label>注記</label>
+                            <input type="text" id="seminar-note">
+                        </div>
+                    </div>
+                    
+                    <!-- スケジュール -->
+                    <div class="item-group">
+                        <h3>開催スケジュール</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="schedule-title">
+                        </div>
+                        <div id="schedule-days"></div>
+                        <div class="field">
+                            <label>注記</label>
+                            <input type="text" id="schedule-note">
+                        </div>
+                    </div>
+                    
+                    <!-- 緊急性 -->
+                    <div class="item-group">
+                        <h3>今すぐ登録すべき理由</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="urgency-title">
+                        </div>
+                        <div id="urgency-reasons"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 特典・CTAタブ -->
+            <div id="special-tab" class="tab-content">
+                <!-- 教授メッセージ -->
+                <div class="section">
+                    <h2>📝 川勝教授より最後にひとこと</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="professorMessage-title">
+                    </div>
+                    <div id="professor-messages"></div>
+                    <button type="button" class="add-button" onclick="addProfessorMessage()">+ メッセージを追加</button>
+                    <div class="field">
+                        <label>署名 - 肩書き</label>
+                        <input type="text" id="signature-position">
+                    </div>
+                    <div class="field">
+                        <label>署名 - 名前</label>
+                        <input type="text" id="signature-name">
+                    </div>
+                </div>
+
+                <!-- 特別オファー -->
+                <div class="section">
+                    <h2>🎁 特別オファー</h2>
+                    <div class="field">
+                        <label>メインタイトル</label>
+                        <input type="text" id="specialOffer-mainTitle">
+                    </div>
+                    <div id="specialOffer-benefits"></div>
+                    
+                    <!-- 緊急お知らせ -->
+                    <div class="item-group">
+                        <h3>緊急お知らせ</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="urgentNotice-title">
+                        </div>
+                        <div id="urgentNotice-items"></div>
+                    </div>
+                    
+                    <!-- 本日限定特典 -->
+                    <div class="item-group">
+                        <h3>本日限定特典</h3>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" id="todaySpecial-title">
+                        </div>
+                        <div class="field">
+                            <label>サブタイトル</label>
+                            <input type="text" id="todaySpecial-subtitle">
+                        </div>
+                        <div class="field">
+                            <label>特別特典</label>
+                            <input type="text" id="todaySpecial-benefit">
+                        </div>
+                        <div class="field">
+                            <label>特別特典詳細</label>
+                            <input type="text" id="todaySpecial-benefitDetail">
+                        </div>
+                        <div class="field">
+                            <label>時間制限</label>
+                            <input type="text" id="todaySpecial-timeLimit">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 最終CTA -->
+                <div class="section">
+                    <h2>🚀 最終CTA</h2>
+                    <div class="field">
+                        <label>タイトル</label>
+                        <textarea id="finalCta-title"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>サブタイトル</label>
+                        <input type="text" id="finalCta-subtitle">
+                    </div>
+                    <div class="field">
+                        <label>緊急性ボックス - タイトル</label>
+                        <input type="text" id="urgencyBox-title">
+                    </div>
+                    <div class="field">
+                        <label>緊急性ボックス - テキスト</label>
+                        <input type="text" id="urgencyBox-text">
+                    </div>
+                    <div class="field">
+                        <label>ボタンテキスト</label>
+                        <input type="text" id="finalCta-buttonText">
+                    </div>
+                    <div class="field">
+                        <label>免責事項</label>
+                        <input type="text" id="finalCta-disclaimer">
+                    </div>
+                </div>
+            </div>
+
+            <!-- フッター・その他タブ -->
+            <div id="footer-tab" class="tab-content">
+                <!-- 登録フロー -->
+                <div class="section">
+                    <h2>📋 登録フロー</h2>
+                    <div class="field">
+                        <label>セクションタイトル</label>
+                        <input type="text" id="registrationFlow-title">
+                    </div>
+                    <div id="registration-steps"></div>
+                    <div class="field">
+                        <label>配信内容タイトル</label>
+                        <input type="text" id="registrationFlow-contentTitle">
+                    </div>
+                    <div id="registration-contents"></div>
+                </div>
+
+                <!-- フッター -->
+                <div class="section">
+                    <h2>🏢 フッター</h2>
+                    <div class="field">
+                        <label>会社名</label>
+                        <input type="text" id="footer-companyName">
+                    </div>
+                    <div id="footer-sections"></div>
+                    <div class="field">
+                        <label>コピーライト</label>
+                        <input type="text" id="footer-copyright">
+                    </div>
+                </div>
+
+                <!-- モーダル -->
+                <div class="section">
+                    <h2>📱 モーダル（ポップアップ）</h2>
+                    <div class="field">
+                        <label>タイトル</label>
+                        <input type="text" id="modal-title">
+                    </div>
+                    <div class="field">
+                        <label>QR説明</label>
+                        <input type="text" id="modal-qrInstruction">
+                    </div>
+                    <div class="field">
+                        <label>QR詳細説明</label>
+                        <input type="text" id="modal-qrDescription">
+                    </div>
+                    <div id="modal-points"></div>
+                    <div class="field">
+                        <label>閉じるボタンテキスト</label>
+                        <input type="text" id="modal-closeButtonText">
+                    </div>
+                </div>
+
+                <!-- その他 -->
+                <div class="section">
+                    <h2>🔧 その他</h2>
+                    <div class="field">
+                        <label>QRコード代替テキスト</label>
+                        <input type="text" id="qrCodeAlt">
+                    </div>
+                    <div class="field">
+                        <label>最後のメッセージ1</label>
+                        <input type="text" id="closingMessage-text1">
+                    </div>
+                    <div class="field">
+                        <label>最後のメッセージ2</label>
+                        <input type="text" id="closingMessage-text2">
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <div class="button-group">
+            <button type="button" class="btn-preview" onclick="previewChanges()">プレビュー</button>
+            <button type="button" class="btn-save" onclick="saveContent()">保存</button>
+            <button type="button" class="btn-download" onclick="downloadJSON()">JSONダウンロード</button>
+        </div>
+        
+        <div id="status" class="status"></div>
+    </div>
+    
+    <script>
+        // 初期データ
+        let contentData = {};
+        
+        // ページ読み込み時
+        window.onload = function() {
+            // ローカルストレージから読み込み
+            const savedData = localStorage.getItem('minecraftLPContentFull');
+            if (savedData) {
+                contentData = JSON.parse(savedData);
+            } else {
+                // デフォルトデータを読み込み
+                loadDefaultContent();
+            }
+            
+            // フォームに反映
+            populateForm();
+        };
+        
+        function switchTab(tabName) {
+            // すべてのタブとコンテンツを非アクティブに
+            document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // 選択されたタブとコンテンツをアクティブに
+            event.target.classList.add('active');
+            document.getElementById(tabName + '-tab').classList.add('active');
+        }
+        
+        function loadDefaultContent() {
+            // content.jsonからデータを読み込む（実際の実装では、fetchまたはインポートを使用）
+            // ここでは簡略化のため、空のオブジェクトを設定
+            contentData = {};
+            
+            // fetchでcontent.jsonを読み込む
+            fetch('/development/minecraft-lp/content.json')
+                .then(response => response.json())
+                .then(data => {
+                    contentData = data;
+                    populateForm();
+                })
+                .catch(error => {
+                    console.error('Error loading content.json:', error);
+                    // デフォルトデータを設定
+                    setDefaultData();
+                    populateForm();
+                });
+        }
+        
+        function setDefaultData() {
+            // デフォルトデータ（content.jsonの内容）をここに設定
+            contentData = {
+                "hero": {
+                    "title": "ゲームが学びに変わる\\n瞬間を、お子様に。",
+                    "subtitle": "マインクラフトで身につく論理的思考力とプログラミング思考",
+                    "cta": {
+                        "primary": "公式LINEで無料セミナーに申し込む",
+                        "secondary": "↓ たった30秒！友だち追加するだけ"
+                    }
+                },
+                // ... 他のセクションのデータ
+            };
+        }
+        
+        function populateForm() {
+            // 基本情報タブ
+            if (contentData.hero) {
+                document.getElementById('hero-title').value = contentData.hero.title || '';
+                document.getElementById('hero-subtitle').value = contentData.hero.subtitle || '';
+                document.getElementById('hero-cta-primary').value = contentData.hero.cta?.primary || '';
+                document.getElementById('hero-cta-secondary').value = contentData.hero.cta?.secondary || '';
+            }
+            
+            if (contentData.problems) {
+                document.getElementById('problems-title').value = contentData.problems.title || '';
+                populateProblemItems();
+            }
+            
+            if (contentData.futureRisk) {
+                document.getElementById('futureRisk-title').value = contentData.futureRisk.title || '';
+                document.getElementById('futureRisk-shockingData-text').value = contentData.futureRisk.shockingData?.text || '';
+                document.getElementById('futureRisk-itShortage-text').value = contentData.futureRisk.itShortage?.text || '';
+                document.getElementById('futureRisk-message').value = contentData.futureRisk.message || '';
+            }
+            
+            if (contentData.instructor) {
+                document.getElementById('instructor-name').value = contentData.instructor.name || '';
+                document.getElementById('instructor-title').value = contentData.instructor.title || '';
+                document.getElementById('instructor-message').value = contentData.instructor.message || '';
+            }
+            
+            if (contentData.testimonials) {
+                populateTestimonials();
+            }
+            
+            // 他のセクションも同様に実装
+            populateAllSections();
+        }
+        
+        function populateProblemItems() {
+            const container = document.getElementById('problems-items');
+            container.innerHTML = '';
+            
+            if (contentData.problems?.items) {
+                contentData.problems.items.forEach((item, index) => {
+                    addProblemItemElement(item, index);
+                });
+            }
+        }
+        
+        function addProblemItem() {
+            if (!contentData.problems) contentData.problems = { items: [] };
+            if (!contentData.problems.items) contentData.problems.items = [];
+            
+            const newItem = { icon: '❓', text: '新しいお悩み' };
+            contentData.problems.items.push(newItem);
+            addProblemItemElement(newItem, contentData.problems.items.length - 1);
+        }
+        
+        function addProblemItemElement(item, index) {
+            const container = document.getElementById('problems-items');
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item-group';
+            itemDiv.innerHTML = `
+                <div class="field">
+                    <label>アイコン ${index + 1}</label>
+                    <input type="text" id="problem-icon-${index}" value="${item.icon || ''}" onchange="updateProblemItem(${index}, 'icon', this.value)">
+                </div>
+                <div class="field">
+                    <label>テキスト ${index + 1}</label>
+                    <input type="text" id="problem-text-${index}" value="${item.text || ''}" onchange="updateProblemItem(${index}, 'text', this.value)">
+                </div>
+                <button type="button" class="remove-button" onclick="removeProblemItem(${index})">削除</button>
+            `;
+            container.appendChild(itemDiv);
+        }
+        
+        function updateProblemItem(index, field, value) {
+            if (contentData.problems?.items?.[index]) {
+                contentData.problems.items[index][field] = value;
+            }
+        }
+        
+        function removeProblemItem(index) {
+            if (contentData.problems?.items) {
+                contentData.problems.items.splice(index, 1);
+                populateProblemItems();
+            }
+        }
+        
+        function populateTestimonials() {
+            const container = document.getElementById('testimonials-items');
+            container.innerHTML = '';
+            
+            if (contentData.testimonials) {
+                contentData.testimonials.forEach((item, index) => {
+                    addTestimonialElement(item, index);
+                });
+            }
+        }
+        
+        function addTestimonial() {
+            if (!contentData.testimonials) contentData.testimonials = [];
+            
+            const newItem = { grade: '学年', text: '新しい保護者の声' };
+            contentData.testimonials.push(newItem);
+            addTestimonialElement(newItem, contentData.testimonials.length - 1);
+        }
+        
+        function addTestimonialElement(item, index) {
+            const container = document.getElementById('testimonials-items');
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'item-group';
+            itemDiv.innerHTML = `
+                <div class="field">
+                    <label>学年 ${index + 1}</label>
+                    <input type="text" id="testimonial-grade-${index}" value="${item.grade || ''}" onchange="updateTestimonial(${index}, 'grade', this.value)">
+                </div>
+                <div class="field">
+                    <label>コメント ${index + 1}</label>
+                    <textarea id="testimonial-text-${index}" onchange="updateTestimonial(${index}, 'text', this.value)">${item.text || ''}</textarea>
+                </div>
+                <button type="button" class="remove-button" onclick="removeTestimonial(${index})">削除</button>
+            `;
+            container.appendChild(itemDiv);
+        }
+        
+        function updateTestimonial(index, field, value) {
+            if (contentData.testimonials?.[index]) {
+                contentData.testimonials[index][field] = value;
+            }
+        }
+        
+        function removeTestimonial(index) {
+            if (contentData.testimonials) {
+                contentData.testimonials.splice(index, 1);
+                populateTestimonials();
+            }
+        }
+        
+        // 教授メッセージ関連
+        function addProfessorMessage() {
+            if (!contentData.professorMessage) contentData.professorMessage = { messages: [] };
+            if (!contentData.professorMessage.messages) contentData.professorMessage.messages = [];
+            
+            contentData.professorMessage.messages.push('新しいメッセージ');
+            populateProfessorMessages();
+        }
+        
+        function populateProfessorMessages() {
+            const container = document.getElementById('professor-messages');
+            container.innerHTML = '';
+            
+            if (contentData.professorMessage?.messages) {
+                contentData.professorMessage.messages.forEach((message, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>メッセージ ${index + 1}</label>
+                            <textarea id="professor-message-${index}" onchange="updateProfessorMessage(${index}, this.value)">${message || ''}</textarea>
+                        </div>
+                        <button type="button" class="remove-button" onclick="removeProfessorMessage(${index})">削除</button>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateProfessorMessage(index, value) {
+            if (contentData.professorMessage?.messages?.[index] !== undefined) {
+                contentData.professorMessage.messages[index] = value;
+            }
+        }
+        
+        function removeProfessorMessage(index) {
+            if (contentData.professorMessage?.messages) {
+                contentData.professorMessage.messages.splice(index, 1);
+                populateProfessorMessages();
+            }
+        }
+        
+        // すべてのセクションを設定する関数
+        function populateAllSections() {
+            // ソリューションセクション
+            if (contentData.solution) {
+                document.getElementById('solution-title').value = contentData.solution.title || '';
+                document.getElementById('solution-before-text').value = contentData.solution.beforeAfter?.before?.text || '';
+                document.getElementById('solution-after-text').value = contentData.solution.beforeAfter?.after?.text || '';
+                document.getElementById('solution-cta').value = contentData.solution.cta || '';
+                populateSolutionFeatures();
+            }
+            
+            // 特徴セクション
+            if (contentData.features) {
+                document.getElementById('features-title').value = contentData.features.title || '';
+                populateFeatures();
+            }
+            
+            // ステージセクション
+            if (contentData.stages) {
+                document.getElementById('stages-title').value = contentData.stages.title || '';
+                populateStageGroups();
+            }
+            
+            // 成果セクション
+            if (contentData.results) {
+                document.getElementById('results-title').value = contentData.results.title || '';
+                document.getElementById('results-subtitle').value = contentData.results.subtitle || '';
+                document.getElementById('results-cta').value = contentData.results.ctaText || '';
+                populateResultsWorks();
+                populateResultsGrowth();
+            }
+            
+            // LINE特典セクション
+            if (contentData.lineBenefits) {
+                document.getElementById('lineBenefits-title').value = contentData.lineBenefits.title || '';
+                document.getElementById('lineBenefits-subtitle').value = contentData.lineBenefits.subtitle || '';
+                populateLineBenefits();
+            }
+            
+            // セミナーセクション
+            if (contentData.seminar) {
+                document.getElementById('seminar-title').value = contentData.seminar.title || '';
+                document.getElementById('seminar-subtitle').value = contentData.seminar.subtitle || '';
+                populateSeminarSections();
+            }
+            
+            // 教授メッセージ
+            if (contentData.professorMessage) {
+                document.getElementById('professorMessage-title').value = contentData.professorMessage.title || '';
+                document.getElementById('signature-position').value = contentData.professorMessage.signature?.position || '';
+                document.getElementById('signature-name').value = contentData.professorMessage.signature?.name || '';
+                populateProfessorMessages();
+            }
+            
+            // 特別オファー
+            if (contentData.specialOffer) {
+                document.getElementById('specialOffer-mainTitle').value = contentData.specialOffer.mainTitle || '';
+                populateSpecialOfferBenefits();
+                
+                if (contentData.specialOffer.urgentNotice) {
+                    document.getElementById('urgentNotice-title').value = contentData.specialOffer.urgentNotice.title || '';
+                    populateUrgentNoticeItems();
+                }
+                
+                if (contentData.specialOffer.todaySpecial) {
+                    document.getElementById('todaySpecial-title').value = contentData.specialOffer.todaySpecial.title || '';
+                    document.getElementById('todaySpecial-subtitle').value = contentData.specialOffer.todaySpecial.subtitle || '';
+                    document.getElementById('todaySpecial-benefit').value = contentData.specialOffer.todaySpecial.specialBenefit || '';
+                    document.getElementById('todaySpecial-benefitDetail').value = contentData.specialOffer.todaySpecial.specialBenefitDetail || '';
+                    document.getElementById('todaySpecial-timeLimit').value = contentData.specialOffer.todaySpecial.timeLimit || '';
+                }
+            }
+            
+            // 最終CTA
+            if (contentData.finalCta) {
+                document.getElementById('finalCta-title').value = contentData.finalCta.title || '';
+                document.getElementById('finalCta-subtitle').value = contentData.finalCta.subtitle || '';
+                document.getElementById('urgencyBox-title').value = contentData.finalCta.urgencyBox?.title || '';
+                document.getElementById('urgencyBox-text').value = contentData.finalCta.urgencyBox?.text || '';
+                document.getElementById('finalCta-buttonText').value = contentData.finalCta.buttonText || '';
+                document.getElementById('finalCta-disclaimer').value = contentData.finalCta.disclaimer || '';
+            }
+            
+            // 登録フロー
+            if (contentData.registrationFlow) {
+                document.getElementById('registrationFlow-title').value = contentData.registrationFlow.title || '';
+                document.getElementById('registrationFlow-contentTitle').value = contentData.registrationFlow.contentTitle || '';
+                populateRegistrationSteps();
+                populateRegistrationContents();
+            }
+            
+            // フッター
+            if (contentData.footer) {
+                document.getElementById('footer-companyName').value = contentData.footer.companyName || '';
+                document.getElementById('footer-copyright').value = contentData.footer.copyright || '';
+                populateFooterSections();
+            }
+            
+            // モーダル
+            if (contentData.modal) {
+                document.getElementById('modal-title').value = contentData.modal.title || '';
+                document.getElementById('modal-qrInstruction').value = contentData.modal.qrInstruction || '';
+                document.getElementById('modal-qrDescription').value = contentData.modal.qrDescription || '';
+                document.getElementById('modal-closeButtonText').value = contentData.modal.closeButtonText || '';
+                populateModalPoints();
+            }
+            
+            // その他
+            document.getElementById('qrCodeAlt').value = contentData.qrCodeAlt || '';
+            if (contentData.closingMessage) {
+                document.getElementById('closingMessage-text1').value = contentData.closingMessage.text1 || '';
+                document.getElementById('closingMessage-text2').value = contentData.closingMessage.text2 || '';
+            }
+        }
+        
+        // 各セクションの詳細populate関数（一部のみ実装例）
+        function populateSolutionFeatures() {
+            const container = document.getElementById('solution-features');
+            container.innerHTML = '';
+            
+            if (contentData.solution?.features) {
+                contentData.solution.features.forEach((feature, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>アイコン</label>
+                            <input type="text" value="${feature.icon || ''}" onchange="updateSolutionFeature(${index}, 'icon', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" value="${feature.title || ''}" onchange="updateSolutionFeature(${index}, 'title', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>テキスト</label>
+                            <input type="text" value="${feature.text || ''}" onchange="updateSolutionFeature(${index}, 'text', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateSolutionFeature(index, field, value) {
+            if (contentData.solution?.features?.[index]) {
+                contentData.solution.features[index][field] = value;
+            }
+        }
+        
+        // データ収集関数
+        function collectFormData() {
+            const updatedData = JSON.parse(JSON.stringify(contentData)); // ディープコピー
+            
+            // 基本情報
+            updatedData.hero = {
+                title: document.getElementById('hero-title').value,
+                subtitle: document.getElementById('hero-subtitle').value,
+                cta: {
+                    primary: document.getElementById('hero-cta-primary').value,
+                    secondary: document.getElementById('hero-cta-secondary').value
+                }
+            };
+            
+            updatedData.problems = {
+                title: document.getElementById('problems-title').value,
+                items: contentData.problems?.items || []
+            };
+            
+            updatedData.futureRisk = {
+                title: document.getElementById('futureRisk-title').value,
+                shockingData: {
+                    text: document.getElementById('futureRisk-shockingData-text').value,
+                    source: contentData.futureRisk?.shockingData?.source || ''
+                },
+                itShortage: {
+                    text: document.getElementById('futureRisk-itShortage-text').value,
+                    source: contentData.futureRisk?.itShortage?.source || ''
+                },
+                message: document.getElementById('futureRisk-message').value
+            };
+            
+            updatedData.instructor = {
+                name: document.getElementById('instructor-name').value,
+                title: document.getElementById('instructor-title').value,
+                message: document.getElementById('instructor-message').value,
+                achievements: contentData.instructor?.achievements || []
+            };
+            
+            // 他のセクションも同様に収集
+            
+            return updatedData;
+        }
+        
+        // 特徴セクションのpopulate関数
+        function populateFeatures() {
+            // 特徴1
+            if (contentData.features?.feature1) {
+                document.getElementById('feature1-title').value = contentData.features.feature1.title || '';
+                document.getElementById('feature1-subtitle').value = contentData.features.feature1.subtitle || '';
+                populateFeaturePoints('feature1');
+            }
+            
+            // 特徴2
+            if (contentData.features?.feature2) {
+                document.getElementById('feature2-title').value = contentData.features.feature2.title || '';
+                document.getElementById('feature2-subtitle').value = contentData.features.feature2.subtitle || '';
+                populateFeaturePoints('feature2');
+            }
+            
+            // 特徴3
+            if (contentData.features?.feature3) {
+                document.getElementById('feature3-title').value = contentData.features.feature3.title || '';
+                document.getElementById('feature3-subtitle').value = contentData.features.feature3.subtitle || '';
+                populateFeaturePoints('feature3');
+            }
+        }
+        
+        function populateFeaturePoints(featureName) {
+            const container = document.getElementById(featureName + '-points');
+            container.innerHTML = '';
+            
+            if (contentData.features?.[featureName]?.points) {
+                contentData.features[featureName].points.forEach((point, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>アイコン</label>
+                            <input type="text" value="${point.icon || ''}" onchange="updateFeaturePoint('${featureName}', ${index}, 'icon', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>テキスト</label>
+                            <input type="text" value="${point.text || ''}" onchange="updateFeaturePoint('${featureName}', ${index}, 'text', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateFeaturePoint(featureName, index, field, value) {
+            if (contentData.features?.[featureName]?.points?.[index]) {
+                contentData.features[featureName].points[index][field] = value;
+            }
+        }
+        
+        // 保存関数
+        function saveContent() {
+            const updatedData = collectFormData();
+            
+            // ローカルストレージに保存
+            localStorage.setItem('minecraftLPContentFull', JSON.stringify(updatedData));
+            
+            // 成功メッセージ
+            showStatus('保存しました！JSONファイルをダウンロードして開発者に送付してください。', 'success');
+            
+            // contentDataを更新
+            contentData = updatedData;
+        }
+        
+        function previewChanges() {
+            // プレビュー用のウィンドウを開く
+            const previewWindow = window.open('/minecraft-lp/', '_blank');
+            
+            showStatus('プレビューウィンドウを開きました。実際のサイトで確認してください。', 'success');
+        }
+        
+        function downloadJSON() {
+            const updatedData = collectFormData();
+            
+            // JSONファイルとしてダウンロード
+            const dataStr = JSON.stringify(updatedData, null, 2);
+            const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+            
+            const exportFileDefaultName = 'minecraft-lp-content-full.json';
+            
+            const linkElement = document.createElement('a');
+            linkElement.setAttribute('href', dataUri);
+            linkElement.setAttribute('download', exportFileDefaultName);
+            linkElement.click();
+            
+            showStatus('JSONファイルをダウンロードしました。このファイルを開発者に送付してください。', 'success');
+        }
+        
+        function showStatus(message, type) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = 'status ' + type;
+            status.style.display = 'block';
+            
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+        }
+        
+        // その他のセクション用のpopulate関数も同様に実装...
+        
+        // ステージグループ
+        function populateStageGroups() {
+            const container = document.getElementById('stage-groups');
+            container.innerHTML = '';
+            
+            if (contentData.stages?.stageGroups) {
+                contentData.stages.stageGroups.forEach((group, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <h3>${group.emoji || ''} ${group.level || ''}</h3>
+                        <div class="field">
+                            <label>絵文字</label>
+                            <input type="text" value="${group.emoji || ''}" onchange="updateStageGroup(${index}, 'emoji', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>レベル</label>
+                            <input type="text" value="${group.level || ''}" onchange="updateStageGroup(${index}, 'level', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" value="${group.title || ''}" onchange="updateStageGroup(${index}, 'title', this.value)">
+                        </div>
+                        <div id="stage-details-${index}"></div>
+                    `;
+                    container.appendChild(itemDiv);
+                    
+                    // 詳細を追加
+                    const detailsContainer = itemDiv.querySelector(`#stage-details-${index}`);
+                    if (group.details) {
+                        group.details.forEach((detail, detailIndex) => {
+                            const detailDiv = document.createElement('div');
+                            detailDiv.className = 'field';
+                            detailDiv.innerHTML = `
+                                <label>詳細 ${detailIndex + 1}</label>
+                                <input type="text" value="${detail}" onchange="updateStageDetail(${index}, ${detailIndex}, this.value)">
+                            `;
+                            detailsContainer.appendChild(detailDiv);
+                        });
+                    }
+                });
+            }
+        }
+        
+        function updateStageGroup(index, field, value) {
+            if (contentData.stages?.stageGroups?.[index]) {
+                contentData.stages.stageGroups[index][field] = value;
+            }
+        }
+        
+        function updateStageDetail(groupIndex, detailIndex, value) {
+            if (contentData.stages?.stageGroups?.[groupIndex]?.details?.[detailIndex] !== undefined) {
+                contentData.stages.stageGroups[groupIndex].details[detailIndex] = value;
+            }
+        }
+        
+        // 成果作品
+        function populateResultsWorks() {
+            const container = document.getElementById('results-works');
+            container.innerHTML = '<h3>作品例</h3>';
+            
+            if (contentData.results?.works) {
+                contentData.results.works.forEach((work, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" value="${work.title || ''}" onchange="updateResultWork(${index}, 'title', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>説明</label>
+                            <input type="text" value="${work.description || ''}" onchange="updateResultWork(${index}, 'description', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateResultWork(index, field, value) {
+            if (contentData.results?.works?.[index]) {
+                contentData.results.works[index][field] = value;
+            }
+        }
+        
+        // 成長ポイント
+        function populateResultsGrowth() {
+            const container = document.getElementById('results-growth');
+            container.innerHTML = '<h3>成長ポイント</h3>';
+            
+            if (contentData.results?.growthPoints) {
+                contentData.results.growthPoints.forEach((point, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>アイコン</label>
+                            <input type="text" value="${point.icon || ''}" onchange="updateGrowthPoint(${index}, 'icon', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>テキスト</label>
+                            <input type="text" value="${point.text || ''}" onchange="updateGrowthPoint(${index}, 'text', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateGrowthPoint(index, field, value) {
+            if (contentData.results?.growthPoints?.[index]) {
+                contentData.results.growthPoints[index][field] = value;
+            }
+        }
+        
+        // LINE特典の各メリット
+        function populateLineBenefits() {
+            // メリット1
+            if (contentData.lineBenefits?.benefit1) {
+                document.getElementById('benefit1-title').value = contentData.lineBenefits.benefit1.title || '';
+                populateBenefitItems('benefit1');
+            }
+            
+            // メリット2
+            if (contentData.lineBenefits?.benefit2) {
+                document.getElementById('benefit2-title').value = contentData.lineBenefits.benefit2.title || '';
+                populateBenefitItems('benefit2');
+            }
+            
+            // メリット3
+            if (contentData.lineBenefits?.benefit3) {
+                document.getElementById('benefit3-title').value = contentData.lineBenefits.benefit3.title || '';
+                populateBenefitItems('benefit3');
+            }
+            
+            // 登録手順
+            if (contentData.lineBenefits?.howToRegister) {
+                document.getElementById('howToRegister-title').value = contentData.lineBenefits.howToRegister.title || '';
+                populateRegisterSteps();
+                populateRegisterTimeInfo();
+            }
+            
+            // FAQ
+            if (contentData.lineBenefits?.faq) {
+                document.getElementById('faq-question').value = contentData.lineBenefits.faq.question || '';
+                document.getElementById('faq-answer').value = contentData.lineBenefits.faq.answer || '';
+            }
+        }
+        
+        function populateBenefitItems(benefitName) {
+            const container = document.getElementById(benefitName + '-items');
+            container.innerHTML = '';
+            
+            if (contentData.lineBenefits?.[benefitName]?.items) {
+                contentData.lineBenefits[benefitName].items.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    
+                    if (typeof item === 'string') {
+                        itemDiv.innerHTML = `
+                            <label>項目 ${index + 1}</label>
+                            <input type="text" value="${item}" onchange="updateBenefitItem('${benefitName}', ${index}, this.value)">
+                        `;
+                    } else {
+                        itemDiv.innerHTML = `
+                            <label>アイコン</label>
+                            <input type="text" value="${item.icon || ''}" onchange="updateBenefitItemObject('${benefitName}', ${index}, 'icon', this.value)">
+                            <label>テキスト</label>
+                            <input type="text" value="${item.text || ''}" onchange="updateBenefitItemObject('${benefitName}', ${index}, 'text', this.value)">
+                        `;
+                    }
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateBenefitItem(benefitName, index, value) {
+            if (contentData.lineBenefits?.[benefitName]?.items?.[index] !== undefined) {
+                contentData.lineBenefits[benefitName].items[index] = value;
+            }
+        }
+        
+        function updateBenefitItemObject(benefitName, index, field, value) {
+            if (contentData.lineBenefits?.[benefitName]?.items?.[index]) {
+                contentData.lineBenefits[benefitName].items[index][field] = value;
+            }
+        }
+        
+        // 登録ステップ
+        function populateRegisterSteps() {
+            const container = document.getElementById('register-steps');
+            container.innerHTML = '';
+            
+            if (contentData.lineBenefits?.howToRegister?.steps) {
+                contentData.lineBenefits.howToRegister.steps.forEach((step, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    itemDiv.innerHTML = `
+                        <label>ステップ ${index + 1}</label>
+                        <input type="text" value="${step}" onchange="updateRegisterStep(${index}, this.value)">
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateRegisterStep(index, value) {
+            if (contentData.lineBenefits?.howToRegister?.steps?.[index] !== undefined) {
+                contentData.lineBenefits.howToRegister.steps[index] = value;
+            }
+        }
+        
+        // 時間情報
+        function populateRegisterTimeInfo() {
+            const container = document.getElementById('register-timeInfo');
+            container.innerHTML = '';
+            
+            if (contentData.lineBenefits?.howToRegister?.timeInfo) {
+                contentData.lineBenefits.howToRegister.timeInfo.forEach((info, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    itemDiv.innerHTML = `
+                        <label>時間情報 ${index + 1}</label>
+                        <input type="text" value="${info}" onchange="updateTimeInfo(${index}, this.value)">
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateTimeInfo(index, value) {
+            if (contentData.lineBenefits?.howToRegister?.timeInfo?.[index] !== undefined) {
+                contentData.lineBenefits.howToRegister.timeInfo[index] = value;
+            }
+        }
+        
+        // セミナーセクション
+        function populateSeminarSections() {
+            if (contentData.seminar?.content) {
+                document.getElementById('seminar-content-title').value = contentData.seminar.content.title || '';
+                document.getElementById('seminar-note').value = contentData.seminar.content.note || '';
+                
+                const container = document.getElementById('seminar-sections');
+                container.innerHTML = '';
+                
+                if (contentData.seminar.content.sections) {
+                    contentData.seminar.content.sections.forEach((section, index) => {
+                        const itemDiv = document.createElement('div');
+                        itemDiv.className = 'item-group';
+                        itemDiv.innerHTML = `
+                            <div class="field">
+                                <label>時間</label>
+                                <input type="text" value="${section.duration || ''}" onchange="updateSeminarSection(${index}, 'duration', this.value)">
+                            </div>
+                            <div class="field">
+                                <label>タイトル</label>
+                                <input type="text" value="${section.title || ''}" onchange="updateSeminarSection(${index}, 'title', this.value)">
+                            </div>
+                            <div id="seminar-items-${index}"></div>
+                        `;
+                        container.appendChild(itemDiv);
+                        
+                        // アイテムを追加
+                        const itemsContainer = itemDiv.querySelector(`#seminar-items-${index}`);
+                        if (section.items) {
+                            section.items.forEach((item, itemIndex) => {
+                                const itemField = document.createElement('div');
+                                itemField.className = 'field';
+                                itemField.innerHTML = `
+                                    <label>項目 ${itemIndex + 1}</label>
+                                    <input type="text" value="${item}" onchange="updateSeminarItem(${index}, ${itemIndex}, this.value)">
+                                `;
+                                itemsContainer.appendChild(itemField);
+                            });
+                        }
+                    });
+                }
+            }
+            
+            // スケジュール
+            if (contentData.seminar?.schedule) {
+                document.getElementById('schedule-title').value = contentData.seminar.schedule.title || '';
+                document.getElementById('schedule-note').value = contentData.seminar.schedule.note || '';
+                populateScheduleDays();
+            }
+            
+            // 緊急性
+            if (contentData.seminar?.urgency) {
+                document.getElementById('urgency-title').value = contentData.seminar.urgency.title || '';
+                populateUrgencyReasons();
+            }
+        }
+        
+        function updateSeminarSection(index, field, value) {
+            if (contentData.seminar?.content?.sections?.[index]) {
+                contentData.seminar.content.sections[index][field] = value;
+            }
+        }
+        
+        function updateSeminarItem(sectionIndex, itemIndex, value) {
+            if (contentData.seminar?.content?.sections?.[sectionIndex]?.items?.[itemIndex] !== undefined) {
+                contentData.seminar.content.sections[sectionIndex].items[itemIndex] = value;
+            }
+        }
+        
+        // スケジュール日程
+        function populateScheduleDays() {
+            const container = document.getElementById('schedule-days');
+            container.innerHTML = '';
+            
+            if (contentData.seminar?.schedule?.days) {
+                contentData.seminar.schedule.days.forEach((day, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>曜日</label>
+                            <input type="text" value="${day.day || ''}" onchange="updateScheduleDay(${index}, 'day', this.value)">
+                        </div>
+                        <div id="schedule-times-${index}"></div>
+                    `;
+                    container.appendChild(itemDiv);
+                    
+                    // 時間を追加
+                    const timesContainer = itemDiv.querySelector(`#schedule-times-${index}`);
+                    if (day.times) {
+                        day.times.forEach((time, timeIndex) => {
+                            const timeField = document.createElement('div');
+                            timeField.className = 'field';
+                            timeField.innerHTML = `
+                                <label>時間 ${timeIndex + 1}</label>
+                                <input type="text" value="${time}" onchange="updateScheduleTime(${index}, ${timeIndex}, this.value)">
+                            `;
+                            timesContainer.appendChild(timeField);
+                        });
+                    }
+                });
+            }
+        }
+        
+        function updateScheduleDay(index, field, value) {
+            if (contentData.seminar?.schedule?.days?.[index]) {
+                contentData.seminar.schedule.days[index][field] = value;
+            }
+        }
+        
+        function updateScheduleTime(dayIndex, timeIndex, value) {
+            if (contentData.seminar?.schedule?.days?.[dayIndex]?.times?.[timeIndex] !== undefined) {
+                contentData.seminar.schedule.days[dayIndex].times[timeIndex] = value;
+            }
+        }
+        
+        // 緊急性の理由
+        function populateUrgencyReasons() {
+            const container = document.getElementById('urgency-reasons');
+            container.innerHTML = '';
+            
+            if (contentData.seminar?.urgency?.reasons) {
+                contentData.seminar.urgency.reasons.forEach((reason, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>アイコン</label>
+                            <input type="text" value="${reason.icon || ''}" onchange="updateUrgencyReason(${index}, 'icon', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" value="${reason.title || ''}" onchange="updateUrgencyReason(${index}, 'title', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>テキスト</label>
+                            <input type="text" value="${reason.text || ''}" onchange="updateUrgencyReason(${index}, 'text', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateUrgencyReason(index, field, value) {
+            if (contentData.seminar?.urgency?.reasons?.[index]) {
+                contentData.seminar.urgency.reasons[index][field] = value;
+            }
+        }
+        
+        // 特別オファー特典
+        function populateSpecialOfferBenefits() {
+            const container = document.getElementById('specialOffer-benefits');
+            container.innerHTML = '';
+            
+            if (contentData.specialOffer?.benefits) {
+                contentData.specialOffer.benefits.forEach((benefit, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>アイコン</label>
+                            <input type="text" value="${benefit.icon || ''}" onchange="updateSpecialBenefit(${index}, 'icon', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>テキスト</label>
+                            <input type="text" value="${benefit.text || ''}" onchange="updateSpecialBenefit(${index}, 'text', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateSpecialBenefit(index, field, value) {
+            if (contentData.specialOffer?.benefits?.[index]) {
+                contentData.specialOffer.benefits[index][field] = value;
+            }
+        }
+        
+        // 緊急お知らせアイテム
+        function populateUrgentNoticeItems() {
+            const container = document.getElementById('urgentNotice-items');
+            container.innerHTML = '';
+            
+            if (contentData.specialOffer?.urgentNotice?.items) {
+                contentData.specialOffer.urgentNotice.items.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    itemDiv.innerHTML = `
+                        <label>項目 ${index + 1}</label>
+                        <input type="text" value="${item}" onchange="updateUrgentNoticeItem(${index}, this.value)">
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateUrgentNoticeItem(index, value) {
+            if (contentData.specialOffer?.urgentNotice?.items?.[index] !== undefined) {
+                contentData.specialOffer.urgentNotice.items[index] = value;
+            }
+        }
+        
+        // 登録フローステップ
+        function populateRegistrationSteps() {
+            const container = document.getElementById('registration-steps');
+            container.innerHTML = '';
+            
+            if (contentData.registrationFlow?.steps) {
+                contentData.registrationFlow.steps.forEach((step, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>番号</label>
+                            <input type="text" value="${step.number || ''}" onchange="updateRegistrationStep(${index}, 'number', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>タイトル</label>
+                            <input type="text" value="${step.title || ''}" onchange="updateRegistrationStep(${index}, 'title', this.value)">
+                        </div>
+                        <div class="field">
+                            <label>説明</label>
+                            <input type="text" value="${step.description || ''}" onchange="updateRegistrationStep(${index}, 'description', this.value)">
+                        </div>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateRegistrationStep(index, field, value) {
+            if (contentData.registrationFlow?.steps?.[index]) {
+                contentData.registrationFlow.steps[index][field] = value;
+            }
+        }
+        
+        // 登録フローコンテンツ
+        function populateRegistrationContents() {
+            const container = document.getElementById('registration-contents');
+            container.innerHTML = '';
+            
+            if (contentData.registrationFlow?.contents) {
+                contentData.registrationFlow.contents.forEach((content, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    itemDiv.innerHTML = `
+                        <label>コンテンツ ${index + 1}</label>
+                        <input type="text" value="${content}" onchange="updateRegistrationContent(${index}, this.value)">
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateRegistrationContent(index, value) {
+            if (contentData.registrationFlow?.contents?.[index] !== undefined) {
+                contentData.registrationFlow.contents[index] = value;
+            }
+        }
+        
+        // フッターセクション
+        function populateFooterSections() {
+            const container = document.getElementById('footer-sections');
+            container.innerHTML = '';
+            
+            if (contentData.footer?.sections) {
+                contentData.footer.sections.forEach((section, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'item-group';
+                    itemDiv.innerHTML = `
+                        <div class="field">
+                            <label>セクションタイトル</label>
+                            <input type="text" value="${section.title || ''}" onchange="updateFooterSection(${index}, 'title', this.value)">
+                        </div>
+                        <div id="footer-items-${index}"></div>
+                    `;
+                    container.appendChild(itemDiv);
+                    
+                    // アイテムを追加
+                    const itemsContainer = itemDiv.querySelector(`#footer-items-${index}`);
+                    if (section.items) {
+                        section.items.forEach((item, itemIndex) => {
+                            const itemField = document.createElement('div');
+                            itemField.className = 'field';
+                            itemField.innerHTML = `
+                                <label>項目 ${itemIndex + 1}</label>
+                                <input type="text" value="${item}" onchange="updateFooterItem(${index}, ${itemIndex}, this.value)">
+                            `;
+                            itemsContainer.appendChild(itemField);
+                        });
+                    }
+                });
+            }
+        }
+        
+        function updateFooterSection(index, field, value) {
+            if (contentData.footer?.sections?.[index]) {
+                contentData.footer.sections[index][field] = value;
+            }
+        }
+        
+        function updateFooterItem(sectionIndex, itemIndex, value) {
+            if (contentData.footer?.sections?.[sectionIndex]?.items?.[itemIndex] !== undefined) {
+                contentData.footer.sections[sectionIndex].items[itemIndex] = value;
+            }
+        }
+        
+        // モーダルポイント
+        function populateModalPoints() {
+            const container = document.getElementById('modal-points');
+            container.innerHTML = '';
+            
+            if (contentData.modal?.points) {
+                contentData.modal.points.forEach((point, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'field';
+                    itemDiv.innerHTML = `
+                        <label>ポイント ${index + 1}</label>
+                        <input type="text" value="${point}" onchange="updateModalPoint(${index}, this.value)">
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+        }
+        
+        function updateModalPoint(index, value) {
+            if (contentData.modal?.points?.[index] !== undefined) {
+                contentData.modal.points[index] = value;
+            }
+        }
+    </script>
+</body>
+</html>

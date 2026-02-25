@@ -1,0 +1,2402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一般社団法人高校起業部 | 高校生が本気で稼ぐ。地域が本気で応援する。</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #10b981;
+            --accent-color: #f59e0b;
+            --neutral-50: #fafafa;
+            --neutral-100: #f5f5f5;
+            --neutral-200: #e5e5e5;
+            --neutral-300: #d4d4d4;
+            --neutral-600: #525252;
+            --neutral-700: #404040;
+            --neutral-800: #262626;
+            --neutral-900: #171717;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --surface-white: #ffffff;
+            --surface-light: #f8fafc;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--surface-white);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%),
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: floatElement 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.6; }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            animation: slideInLeft 1s ease-out 0.6s both;
+        }
+
+        .hero-button {
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-button:hover::before {
+            left: 100%;
+        }
+
+        .hero-button.primary {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        .hero-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+        }
+
+        .hero-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            animation: slideInRight 1s ease-out 0.3s both;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-visual:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-visual h3 {
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-preview {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-preview:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-preview-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffd700;
+            margin-bottom: 0.25rem;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-preview-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-image: url('images/business-team.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .problem-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ダーク背景のセクション用の白いタイトル */
+        .section-title.white {
+            color: white;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .problem-card:hover::before {
+            left: 100%;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .problem-card:hover .problem-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.6);
+        }
+
+        .problem-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover .problem-icon::after {
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.1; }
+            100% { transform: scale(1); opacity: 0.3; }
+        }
+
+        .problem-card h3 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .problem-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            display: block;
+            text-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 80px 0;
+            background: var(--surface-light);
+        }
+
+        .solution-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .flip-card-front {
+            background: white;
+            border: 1px solid var(--border-light);
+        }
+
+        .flip-card-front .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card-front .program-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .flip-card-front p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-back p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        /* Program Section */
+        .program-section {
+            padding: 80px 0;
+            background: white;
+            position: relative;
+        }
+
+        .program-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/students-working.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .program-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .program-card::after {
+            content: '詳細を見る';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .program-card:hover::after {
+            opacity: 1;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover .program-image {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .program-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover .program-content::before {
+            transform: scaleX(1);
+        }
+
+        .program-card.video .program-image {
+            background-image: url('images/video-production.jpg');
+        }
+
+        .program-card.crowdfunding .program-image {
+            background-image: url('images/crowdfunding.jpg');
+        }
+
+        .program-card.pr .program-image {
+            background-image: url('images/pr-media.jpg');
+        }
+
+        .program-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .program-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Success Section */
+        .success-section {
+            padding: 80px 0;
+            background: var(--surface-light);
+            position: relative;
+        }
+
+        .success-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/success-story.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.03;
+            z-index: 0;
+        }
+
+        .success-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .success-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .success-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .success-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .success-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .success-card:hover .success-avatar {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .success-avatar::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .success-card:hover .success-avatar::after {
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .pricing-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .pricing-card {
+            background: white;
+            color: var(--text-primary);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            margin-top: 2rem;
+        }
+
+        .pricing-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .pricing-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-note {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-light);
+            position: relative;
+            padding-left: 2rem;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .process-step:hover::before {
+            opacity: 0.05;
+        }
+
+        .process-step > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover .process-number {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background: var(--surface-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--surface-light);
+        }
+
+        .faq-answer {
+            padding: 0 2rem 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--surface-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-text {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .cta-btn.primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .cta-btn.primary:hover {
+            background: var(--neutral-100);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn.secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--neutral-900);
+            color: var(--neutral-300);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--neutral-400);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--neutral-700);
+            color: var(--neutral-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stats-preview {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.875rem;
+            }
+
+            .solution-grid,
+            .program-grid,
+            .success-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .flip-card {
+                height: 250px;
+            }
+            
+            .flip-card-front, .flip-card-back {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Scroll Behavior */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced particle effects */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatParticle 15s linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 3D Flip Card Effects */
+        .flip-card {
+            background-color: transparent;
+            perspective: 1000px;
+            height: 300px;
+            margin-bottom: 2rem;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .flip-card-front {
+            background: white;
+            border: 1px solid var(--border-light);
+        }
+
+        .flip-card-front .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .flip-card-front h3 {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .flip-card-front p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-back h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .flip-card-back p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .solution-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover .solution-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Program Cards with Flip Effect */
+        .program-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .program-card::after {
+            content: '詳細を見る';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(37, 99, 235, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .program-card:hover::after {
+            opacity: 1;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .program-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover .program-image {
+            transform: scale(1.1);
+        }
+
+        .program-content {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .program-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .program-card:hover .program-content::before {
+            transform: scaleX(1);
+        }
+
+        /* Success Cards with Flip Effect */
+        .success-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .success-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .success-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .success-card > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .success-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .success-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .success-card:hover .success-avatar {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .success-avatar::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .success-card:hover .success-avatar::after {
+            opacity: 1;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Process Steps with Flip Effect */
+        .process-step {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .process-step:hover::before {
+            opacity: 0.05;
+        }
+
+        .process-step > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .process-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover .process-number {
+            transform: scale(1.2) rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <img src="images/high-school-business-logo.png" alt="高校起業部ロゴ" style="height:48px; margin-right:16px;">
+            <a href="#" class="logo" style="font-size:1.3rem; font-weight:900; color:#2563eb; letter-spacing:0.1em;">一般社団法人全国高校起業部</a>
+            <ul class="nav-menu">
+                <li><a href="#problem">教育課題</a></li>
+                <li><a href="#solution">部活動効果</a></li>
+                <li><a href="#program">プログラム</a></li>
+                <li><a href="#results">導入事例</a></li>
+                <li><a href="#pricing">料金</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">個別相談に申し込む</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>高校生が本気で稼ぐ。<br>地域が本気で応援する。</h1>
+                <p class="subtitle">部活動として導入する革新的な実践教育プログラム。「絵に描いた餅」ではない、本当にお金を稼ぐ体験で高校生の無限の可能性を引き出します。</p>
+                <div class="hero-buttons">
+                    <a href="../../contact.html" class="hero-button primary">🚀 個別相談に申し込む</a>
+                    <a href="#solution" class="hero-button secondary">✨ 詳しく見る</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <h3>導入校の実績</h3>
+                <div class="stats-preview">
+                    <div class="stat-preview">
+                        <div class="stat-preview-number" data-target="1250">0</div>
+                        <div class="stat-preview-label">生徒数増加率</div>
+                    </div>
+                    <div class="stat-preview">
+                        <div class="stat-preview-number">週1回〜</div>
+                        <div class="stat-preview-label">部活動頻度</div>
+                    </div>
+                    <div class="stat-preview">
+                        <div class="stat-preview-number">実質0円</div>
+                        <div class="stat-preview-label">学校負担</div>
+                    </div>
+                    <div class="stat-preview">
+                        <div class="stat-preview-number" data-target="100">0</div>
+                        <div class="stat-preview-label">実践重視</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="problem">
+        <div class="problem-content">
+            <h2 class="section-title">今の高校教育だけで<br>生徒は満足していますか？</h2>
+            <p class="section-subtitle">従来の部活動や授業では、生徒の実践力向上と将来への期待感醸成に限界があります。</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">📊</div>
+                    <h3>形だけのビジネス教育</h3>
+                    <p>実際にお金を稼がない「絵に描いた餅」で終わり、本当のビジネス感覚が身につかない</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">😴</div>
+                    <h3>将来への期待感不足</h3>
+                    <p>社会に出ることに希望が持てず、挑戦する意欲を失ってしまう生徒が増加</p>
+                </div>
+                <div class="problem-card fade-in">
+                    <div class="problem-icon">🏫</div>
+                    <h3>限られた進路選択</h3>
+                    <p>進学・就職の2択しかなく、起業という第3の選択肢で可能性を広げられない</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-grid">
+                <div class="stat-card fade-in">
+                    <span class="stat-number">1250%</span>
+                    <div class="stat-label">導入校の生徒数増加率</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">実質0円</span>
+                    <div class="stat-label">学校の導入コスト</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">週1回〜</span>
+                    <div class="stat-label">部活動としての活動頻度</div>
+                </div>
+                <div class="stat-card fade-in">
+                    <span class="stat-number">100%</span>
+                    <div class="stat-label">実践重視の教育効果</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section" id="solution">
+        <div class="solution-container">
+            <h2 class="section-title">部活動として導入する<br>高校起業部の効果</h2>
+            <p class="section-subtitle">従来の部活動では得られない、実践的なビジネススキルと人生経験を提供します。</p>
+            
+            <div class="solution-grid">
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">💰</div>
+                            <h3>実際にお金を稼ぐ体験</h3>
+                            <p>絵に描いた餅ではなく、本当にお金を稼ぐ実践的な学習。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>実践的収益体験</h3>
+                            <p>成果報酬制で学校負担は実質無料。生徒が実際に企業から対価をいただくことで、本当のビジネス感覚を身につけます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">🤝</div>
+                            <h3>地域企業との真の連携</h3>
+                            <p>地元企業の課題を高校生が解決。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>相互利益の創出</h3>
+                            <p>相互利益を生む立体的なコミュニティを構築。企業にとっては新鮮な視点、生徒にとっては実践的な学びの場を提供します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">📈</div>
+                            <h3>視座を上げる教育</h3>
+                            <p>挑戦する大人との出会いで、社会への期待感を醸成。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>成功体験の共有</h3>
+                            <p>疲れた大人ではなく、挑戦する大人との出会いで、社会への期待感を醸成。経営者メンターから直接学ぶことで視座が大きく向上します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">🎯</div>
+                            <h3>失敗を学習に変える</h3>
+                            <p>18歳での失敗は取り返せる。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>失敗の価値化</h3>
+                            <p>挑戦したノウハウが人生を豊かにすることを学びます。18歳での失敗は取り返せる貴重な経験として位置づけ、成長の糧にします。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">🌱</div>
+                            <h3>複数収入源の構築</h3>
+                            <p>奨学金返済問題を解決。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>経済的自立支援</h3>
+                            <p>複数の収入源を持った状態で社会に出る力を身につけます。奨学金返済問題を解決し、経済的な不安を軽減します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card fade-in">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="solution-icon">🏆</div>
+                            <h3>実践的資格の取得</h3>
+                            <p>就職・進学に活用できる独自の実践的資格。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>将来への投資</h3>
+                            <p>就職・進学に活用できる独自の実践的資格を発行し、将来の可能性を広げます。実績に基づく資格は就職活動でも大きな武器になります。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program-section" id="program">
+        <div class="program-container">
+            <h2 class="section-title">三種の神器で実践力を身につける</h2>
+            <p class="section-subtitle">部活動として取り組む3つの実践的プログラムで、生徒の成長を支援します。</p>
+            
+            <div class="program-grid">
+                <div class="flip-card fade-in video">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="program-image"></div>
+                            <h3>動画制作事業</h3>
+                            <p>地域企業の採用動画やPR動画を制作。60-90秒のショート動画で人の感情を動かす技術を習得。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>クリエイティブ能力の活用</h3>
+                            <p>実際に企業から対価をいただきます。高校生のクリエイティブ能力は企業にとって貴重な資産です。感情を動かす動画制作技術を実践的に学びます。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card fade-in crowdfunding">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="program-image"></div>
+                            <h3>クラウドファンディング支援</h3>
+                            <p>地域企業のプロジェクトをクラファンで支援。資金調達のノウハウと地域への貢献を同時に学びます。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>地域経済の活性化</h3>
+                            <p>成功すれば手数料収入も得られ、地域経済の活性化にも貢献できます。資金調達の実践的スキルを身につけ、地域社会への貢献を体験します。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card fade-in pr">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="program-image"></div>
+                            <h3>PR（パブリックリレーションズ）</h3>
+                            <p>地元企業をメディアに推薦。高校生だからこそ採用される確率が高い、効果的なPR戦略を実践。</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>メディア戦略の実践</h3>
+                            <p>一度の成功で企業に数億円の価値をもたらすことも可能です。高校生の視点を活かしたPR戦略で、企業のブランディングを支援します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Section -->
+    <section class="success-section" id="results">
+        <div class="success-container">
+            <h2 class="section-title">部活動導入校の成功事例</h2>
+            <p class="section-subtitle">実際に導入いただいた学校での成果をご紹介します。</p>
+            
+            <div class="success-grid">
+                <div class="success-card fade-in">
+                    <div class="success-avatar">👨‍🏫</div>
+                    <p class="success-quote">"4月に4人だった生徒数が、1年で50人になり、来年は100人を予定しています。企業部があることで選ばれる学校になりました。"</p>
+                    <div class="success-author">福井県ICT中央高等学院</div>
+                    <div class="success-role">校長</div>
+                </div>
+                <div class="success-card fade-in">
+                    <div class="success-avatar">👨‍💼</div>
+                    <p class="success-quote">"地元企業との連携が深まり、実際に採用動画を制作したことで売上が20%向上しました。高校生のアイデアは本当に新鮮でした。"</p>
+                    <div class="success-author">地元製造業A社</div>
+                    <div class="success-role">代表取締役</div>
+                </div>
+                <div class="success-card fade-in">
+                    <div class="success-avatar">👨‍🎓</div>
+                    <p class="success-quote">"最初は不安でしたが、実際にお金を稼げたときの達成感は忘れられません。大学進学への意欲も高まりました。"</p>
+                    <div class="success-author">高校3年生</div>
+                    <div class="success-role">企業部部長</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="pricing-container">
+            <h2 class="section-title">学校にやさしい料金体系</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">成果報酬制により、学校の負担を最小限に抑えます。</p>
+            
+            <div class="pricing-card">
+                <h3 class="pricing-title">部活動導入プラン</h3>
+                <div class="pricing-amount">月額1万円</div>
+                <p class="pricing-note">生徒が稼いだ利益の一部で運営費を回収 → 学校負担は実質無料</p>
+                
+                <ul class="pricing-features">
+                    <li>月1万円の部活動運営費のみ</li>
+                    <li>生徒の売上から運営費を回収</li>
+                    <li>年間100万円以上の部活動収益も可能</li>
+                    <li>余剰資金は学校運営に活用可能</li>
+                    <li>専門メンターによる継続サポート</li>
+                    <li>オンライン教材・カリキュラム提供</li>
+                    <li>地域企業とのマッチング支援</li>
+                    <li>実践的資格の発行サービス</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="process-container">
+            <h2 class="section-title">部活動導入までの流れ</h2>
+            <p class="section-subtitle">個別相談から部活動開始まで、丁寧にサポートいたします。</p>
+            
+            <div class="process-grid">
+                <div class="process-step fade-in">
+                    <div class="process-number">1</div>
+                    <h3>個別相談</h3>
+                    <p>学校の特色や地域特性をヒアリングし、最適な部活動プランを無料でご提案いたします。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">2</div>
+                    <h3>地域企業調査</h3>
+                    <p>地元企業の課題調査と連携可能な企業のリストアップを行い、部活動との連携体制を構築します。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">3</div>
+                    <h3>部活動設計</h3>
+                    <p>学校のカリキュラムに合わせた部活動の活動内容と年間計画を設計します。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">4</div>
+                    <h3>メンター配置</h3>
+                    <p>地域の経営者や専門家を部活動の外部メンターとして配置し、指導体制を整えます。</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-number">5</div>
+                    <h3>部活動開始</h3>
+                    <p>高校起業部として正式に部活動をスタートし、生徒の実践的なビジネス教育を開始します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2 class="section-title">よくある質問</h2>
+            <p class="section-subtitle">学校関係者の方からよくいただく質問にお答えします。</p>
+            
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>部活動として失敗があるとした場合、学校にリスクはありますか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>成果報酬制のため、学校のリスクは固定費分のみとなっており限定的です。また、生徒の「失敗」も重要な学習体験として位置づけ、失敗から学ぶ教育プロセスを重視しています。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>既存の授業や他の部活動に影響はありませんか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>週1回〜の部活動として設計されており、学業への影響は最小限です。むしろ実践的な学習により、他の授業への興味関心も高まる傾向があります。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>顧問の先生の負担はどの程度ですか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>学校の先生が顧問となりますが、専門的な指導は外部の経営者メンターが担当します。先生は生徒の成長を見守る役割が中心となります。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>どのような生徒に向いていますか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>特別な能力は必要ありません。むしろ従来の勉強や部活動で力を発揮できなかった生徒が、新しい可能性を見つけるケースが多数あります。多くの経営者との出会いが可能性を引き出すきっかけになり得るので、多くの学生に活用いただきたいです。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>地方の学校でも導入可能ですか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>むしろ地方の学校の方が地域密着度が高く、効果を発揮しやすい環境です。地元企業との連携も築きやすい傾向にあります。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>生徒が企業と直接取引して安全性は大丈夫ですか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>全ての企業連携は事前審査を行い、メンターが仲介役となります。契約や金銭管理も適切にサポートし、生徒の安全を最優先に運営します。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>初期費用や設備投資は必要ですか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>大きな設備投資は不要です。基本的にはパソコンとインターネット環境があれば開始できます。月額1万円の運営費も起業部の収益で回収可能です。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>進学校でも導入できますか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>はい。実践的なビジネス体験は、大学受験や就職活動でのアピールポイントとなり、むしろ進学実績向上にも寄与します。AO入試対策としても効果的です。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>他校での導入実績はありますか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>導入事例校では生徒数が順調に増加し、今年度50人の学校が来年度は100人になる見込みです。全国での導入実績は順調に拡大中です。</p>
+                </div>
+            </div>
+
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>導入までにどの程度の期間が必要ですか？</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <p>個別相談から部活動開始まで、通常2-3ヶ月程度です。学校の状況や地域特性に合わせて、最適なスケジュールで進めさせていただきます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-container">
+            <div class="urgency-badge">📢 2024年度導入校募集中（先着10校限定）</div>
+            <h2 class="cta-title">生徒の可能性を最大化しませんか？</h2>
+            <p class="cta-text">部活動として高校起業部を導入し、生徒の実践力向上と地域活性化を同時に実現。<br>まずは個別相談で、あなたの学校に最適なプランをご提案いたします。</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn primary">個別相談に申し込む（無料）</a>
+                <a href="contact.html" class="cta-btn secondary">詳細資料をダウンロード</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
+
+    <script>
+        // Enhanced Count Up Animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start) + (target === 1250 ? '%' : '%');
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + (target === 1250 ? '%' : '%');
+                }
+            }
+            updateCounter();
+        }
+
+        // Enhanced particle system
+        function createEnhancedParticles() {
+            const particlesContainer = document.createElement('div');
+            particlesContainer.className = 'particles-container';
+            document.body.appendChild(particlesContainer);
+
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.cssText = `
+                    width: ${Math.random() * 6 + 2}px;
+                    height: ${Math.random() * 6 + 2}px;
+                    left: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 10}s;
+                    animation-duration: ${Math.random() * 10 + 10}s;
+                `;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize enhanced particles
+        createEnhancedParticles();
+
+        // Enhanced counter animation with intersection observer
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target.querySelector('.stat-number');
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (target) {
+                        animateCounter(counter, target, 2000);
+                    }
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-card').forEach(card => {
+            counterObserver.observe(card);
+        });
+
+        // Enhanced hero stats animation
+        const heroStatsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-preview-number[data-target]');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        if (target) {
+                            animateCounter(counter, target, 1500);
+                        }
+                    });
+                    heroStatsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.hero-visual').forEach(visual => {
+            heroStatsObserver.observe(visual);
+        });
+
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const toggle = this.querySelector('.faq-toggle');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-toggle').textContent = '+';
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                    toggle.textContent = '−';
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+                header.style.backdropFilter = 'blur(8px)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add typing effect to hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }
+        });
+
+        // Add parallax effect to floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelectorAll('.floating-element');
+            
+            parallax.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                element.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>

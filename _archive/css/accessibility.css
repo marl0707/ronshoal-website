@@ -1,0 +1,413 @@
+/* ============================================
+   Accessibility CSS for Ronshoal Website
+   WCAG 2.1 Level AA Compliance
+   ============================================ */
+
+/* ============================================
+   1. Skip Navigation Links
+   ============================================ */
+.skip-navigation {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0 0 5px 0;
+}
+
+.skip-navigation:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  clip: auto;
+}
+
+/* ============================================
+   2. Focus States
+   ============================================ */
+/* High contrast focus indicators */
+*:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Enhanced focus for interactive elements */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+[tabindex]:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.3);
+}
+
+/* Remove default browser outline */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   3. Screen Reader Only Content
+   ============================================ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Make screen reader content visible when focused */
+.sr-only:focus {
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #000;
+  color: #fff;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+/* ============================================
+   4. Reduced Motion Preferences
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove parallax effects */
+  .hero::before {
+    animation: none !important;
+  }
+  
+  /* Remove floating animations */
+  .hero-badge,
+  .mission-card:hover .mission-number,
+  .flip-card:hover .service-number {
+    animation: none !important;
+    transform: none !important;
+  }
+  
+  /* Remove shine effects */
+  .hero-badge::before {
+    animation: none !important;
+  }
+  
+  /* Remove hover transforms */
+  *:hover {
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   5. High Contrast Mode Support
+   ============================================ */
+@media (prefers-contrast: high) {
+  /* Increase contrast for text */
+  body {
+    background: #fff;
+    color: #000;
+  }
+  
+  /* Ensure links are distinguishable */
+  a {
+    color: #0000ee;
+    text-decoration: underline;
+  }
+  
+  a:visited {
+    color: #551a8b;
+  }
+  
+  /* High contrast buttons */
+  .cta-btn {
+    border: 2px solid currentColor !important;
+  }
+  
+  /* High contrast form elements */
+  input,
+  textarea,
+  select {
+    border: 2px solid #000 !important;
+  }
+}
+
+/* ============================================
+   6. Form Accessibility
+   ============================================ */
+/* Required field indicators */
+.required-field::after {
+  content: " *";
+  color: #d00;
+  font-weight: bold;
+  speak: literal-punctuation;
+}
+
+/* Form field labels */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+/* Error messages */
+.error-message {
+  color: #d00;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Success messages */
+.success-message {
+  color: #0a0;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Form validation states */
+input[aria-invalid="true"],
+textarea[aria-invalid="true"],
+select[aria-invalid="true"] {
+  border-color: #d00;
+  border-width: 2px;
+}
+
+input[aria-invalid="false"],
+textarea[aria-invalid="false"],
+select[aria-invalid="false"] {
+  border-color: #0a0;
+  border-width: 2px;
+}
+
+/* ============================================
+   7. Keyboard Navigation Indicators
+   ============================================ */
+/* Visual focus indicators for keyboard navigation */
+.keyboard-focus-visible *:focus {
+  outline: 3px solid #ff6b35;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(255, 107, 53, 0.3);
+}
+
+/* Tab focus trap for modals */
+.focus-trap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+/* ============================================
+   8. ARIA Live Regions
+   ============================================ */
+/* Announcements for screen readers */
+.aria-live-polite {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* Important announcements */
+.aria-live-assertive {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ============================================
+   9. Color Contrast Enhancements
+   ============================================ */
+/* Ensure sufficient contrast for gray text */
+.gray-text-enhanced {
+  color: #595959; /* WCAG AA compliant with white background */
+}
+
+/* High contrast mode for light text on dark backgrounds */
+.light-on-dark {
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* ============================================
+   10. Mobile Menu Accessibility
+   ============================================ */
+/* Enhanced mobile menu button */
+.mobile-menu-btn {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-btn:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Mobile menu when open */
+nav.active {
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   11. Image Alt Text Styles
+   ============================================ */
+/* Broken image indicators */
+img:not([alt]) {
+  outline: 5px solid red;
+}
+
+img[alt=""] {
+  outline: 5px solid orange;
+}
+
+/* ============================================
+   12. Link Underlines for Better Visibility
+   ============================================ */
+/* Underline links in content areas */
+main a:not(.cta-btn):not(.no-underline) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+main a:not(.cta-btn):not(.no-underline):hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ============================================
+   13. Print Styles for Accessibility
+   ============================================ */
+@media print {
+  /* Ensure links are visible in print */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  
+  /* Remove decorative elements */
+  .hero::before,
+  .hero-badge::before,
+  *::before,
+  *::after {
+    display: none !important;
+  }
+  
+  /* High contrast for print */
+  * {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* ============================================
+   14. Loading and Skeleton States
+   ============================================ */
+/* Loading states for dynamic content */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ============================================
+   15. Table Accessibility
+   ============================================ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: left;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+th[scope="col"] {
+  vertical-align: bottom;
+}
+
+th[scope="row"] {
+  vertical-align: top;
+}
+
+/* ============================================
+   16. Custom Focus Styles for Different Elements
+   ============================================ */
+/* Cards and interactive containers */
+.mission-card:focus-within,
+.flip-card:focus-within,
+.story-text:focus-within {
+  outline: 3px solid #0066cc;
+  outline-offset: 5px;
+}
+
+/* Navigation items */
+nav a:focus {
+  background-color: rgba(0, 102, 204, 0.1);
+  border-radius: 4px;
+}
+
+/* Form submit buttons */
+button[type="submit"]:focus,
+input[type="submit"]:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.5);
+}

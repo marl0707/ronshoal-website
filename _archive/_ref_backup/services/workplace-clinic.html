@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>職場 de クリニック | ロンショール合同会社</title>
+  <meta name="description" content="健康経営をサポートする新しい福利厚生サービス。企業の労働生産性を大幅向上するプレゼンティーイズム対策を提供。">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    :root {
+      --primary: #00d4ff;
+      --secondary: #ff6b35;
+      --accent: #ffd700;
+      --dark: #0a0a0a;
+      --light: #ffffff;
+      --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+      --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+      --gradient-accent: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+      --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    header {
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+    
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    
+    .logo-icon {
+      width: 3rem;
+      height: 3rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--dark);
+      font-size: 1.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::before {
+      width: 100%;
+    }
+    
+    nav a:hover {
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 80px;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('../images/workplace-office.jpg') center/cover;
+      opacity: 0.15;
+      animation: heroParallax 20s ease-in-out infinite alternate;
+    }
+    
+    @keyframes heroParallax {
+      0% { transform: scale(1.1) translateY(-10px); }
+      100% { transform: scale(1.1) translateY(10px); }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 1000px;
+      padding: 0 2rem;
+    }
+    
+    .service-badge {
+      display: inline-block;
+      background: var(--gradient-accent);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      transform: rotate(-2deg);
+      box-shadow: var(--shadow-soft);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: rotate(-2deg) translateY(0px); }
+      50% { transform: rotate(-2deg) translateY(-10px); }
+    }
+    
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 50%, #ff6b35 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+    
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+      100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.5)); }
+    }
+    
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .cta-btn {
+      padding: 1.2rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-btn.primary {
+      background: var(--gradient-primary);
+      color: var(--dark);
+      box-shadow: var(--shadow-glow);
+    }
+    
+    .cta-btn.secondary {
+      background: transparent;
+      color: var(--light);
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-btn.primary:hover {
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+    }
+    
+    .cta-btn.secondary:hover {
+      background: var(--primary);
+      color: var(--dark);
+    }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 4rem 2rem; }
+    
+    .section {
+      margin-bottom: 6rem;
+      position: relative;
+    }
+    
+    .section-badge {
+      display: inline-block;
+      background: var(--gradient-secondary);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .intro-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .intro-image {
+      position: relative;
+    }
+    
+    .intro-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+    
+    .intro-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--gradient-primary);
+      border-radius: 20px;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .feature-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .feature-icon {
+      width: 4rem;
+      height: 4rem;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      font-weight: 900;
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .feature-desc {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.7;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .benefit-number {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1rem;
+    }
+    
+    .testimonial {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+      margin: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial::before {
+      content: '"';
+      font-family: 'Montserrat', serif;
+      font-size: 6rem;
+      color: var(--primary);
+      position: absolute;
+      top: -1rem;
+      left: 2rem;
+      opacity: 0.2;
+    }
+    
+    .testimonial-content {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    footer {
+      background: var(--dark);
+      padding: 4rem 2rem 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .footer-links {
+      margin-bottom: 2rem;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 1rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .footer-copy {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+    
+    /* ハンバーガーメニュー */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: var(--light);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* タブレット対応 (1024px) */
+    @media (max-width: 1024px) {
+      /* ヘッダー調整 */
+      .header-inner {
+        padding: 0.8rem 1.5rem;
+      }
+      
+      .logo {
+        font-size: 1.8rem;
+      }
+      
+      .logo-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+      }
+      
+      nav ul {
+        gap: 2rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      /* テキストサイズ調整 */
+      .hero-title {
+        font-size: 3.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      /* コンテナの余白調整 */
+      main {
+        padding: 4rem 2rem;
+      }
+    }
+
+    /* スマートフォン対応 (768px) */
+    @media (max-width: 768px) {
+      /* ヘッダー */
+      .header-inner {
+        padding: 0.6rem 1rem;
+      }
+      
+      .logo {
+        font-size: 1.5rem;
+        gap: 0.5rem;
+      }
+      
+      .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+      }
+      
+      /* モバイルナビゲーション */
+      nav {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(10, 10, 10, 0.98);
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        z-index: 999;
+        overflow-y: auto;
+      }
+      
+      nav.active {
+        left: 0;
+      }
+      
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem 0;
+      }
+      
+      nav li {
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      
+      nav a {
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        border-radius: 0;
+      }
+      
+      nav a:hover {
+        background: rgba(255,255,255,0.1);
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      /* ヒーローセクション */
+      .hero {
+        min-height: calc(100vh - 60px);
+        padding-top: 60px;
+        padding-bottom: 3rem;
+      }
+      
+      .hero-content {
+        padding: 2rem 1rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+      }
+      
+      /* ボタン */
+      .cta-btn {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem auto;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* グリッドレイアウト */
+      .intro-grid,
+      .features-grid,
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .intro-image {
+        order: -1;
+      }
+      
+      /* カード */
+      .feature-card,
+      .benefit-card {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      
+      /* セクション余白 */
+      .section {
+        margin-bottom: 4rem;
+      }
+      
+      main {
+        padding: 3rem 1rem;
+      }
+      
+      /* フォントサイズ */
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .intro-content {
+        font-size: 1rem;
+        line-height: 1.7;
+      }
+
+      /* CTA セクション */
+      .cta-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 1rem;
+      }
+    }
+
+    /* iPhone Pro Max対応 (430px) */
+    @media (max-width: 430px) {
+      /* ヘッダー最小化 */
+      header {
+        padding: 0;
+      }
+      
+      .header-inner {
+        padding: 0.5rem 0.8rem;
+      }
+      
+      .logo {
+        font-size: 1.3rem;
+      }
+      
+      .logo-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 0.9rem;
+      }
+      
+      /* ヒーロー最適化 */
+      .hero {
+        min-height: calc(100vh - 50px);
+        padding-top: 50px;
+      }
+      
+      .hero-content {
+        padding: 1.5rem 1rem;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+      }
+      
+      /* ボタンサイズ調整 */
+      .cta-btn {
+        font-size: 0.95rem;
+        padding: 0.9rem 1.8rem;
+        min-height: 44px;
+      }
+      
+      /* セクション余白削減 */
+      .section {
+        margin-bottom: 3rem;
+      }
+      
+      main {
+        padding: 2rem 0.8rem;
+      }
+      
+      /* テキストサイズ最適化 */
+      .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.8rem;
+      }
+      
+      .feature-title,
+      .benefit-title {
+        font-size: 1.1rem;
+      }
+      
+      .intro-content p,
+      .feature-desc,
+      .benefit-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+      
+      /* カードの余白調整 */
+      .feature-card,
+      .benefit-card {
+        padding: 1.5rem 1.2rem;
+      }
+      
+      /* フッター調整 */
+      footer {
+        padding: 3rem 0.8rem 2rem;
+      }
+      
+      .footer-links {
+        font-size: 0.9rem;
+        line-height: 2;
+      }
+    }
+
+    /* 小型スマートフォン対応 (375px) */
+    @media (max-width: 375px) {
+      /* さらに小さい画面用の微調整 */
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .feature-title,
+      .benefit-title {
+        font-size: 1rem;
+      }
+      
+      .intro-content p,
+      .feature-desc,
+      .benefit-desc {
+        font-size: 0.9rem;
+      }
+      
+      .cta-btn {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      .service-badge,
+      .section-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 1.2rem;
+      }
+    }
+
+    /* 超小型デバイス対応 (320px) */
+    @media (max-width: 320px) {
+      main {
+        padding: 2rem 0.5rem;
+      }
+      
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      
+      .section-title {
+        font-size: 1.4rem;
+      }
+      
+      .logo {
+        font-size: 1.1rem;
+      }
+    }
+
+    /* 横向き対応 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: calc(100vh - 50px);
+      }
+      
+      .hero-content {
+        padding: 1rem;
+      }
+      
+      .hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* アクセシビリティ: モーション設定を尊重 */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <img src="../images/logo.png" alt="ロンショール" style="height: 48px; vertical-align: middle;">
+        <span>ロンショール合同会社</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">TOP</a></li>
+          <li><a href="../index.html#story">ストーリー</a></li>
+          <li><a href="../index.html#mission">ミッション</a></li>
+          <li><a href="../index.html#services">サービス</a></li>
+          <li><a href="../about.html">会社情報</a></li>
+          <li><a href="../contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="service-badge">SERVICE 03</div>
+      <h1 class="hero-title">職場 de クリニック</h1>
+      <p class="hero-subtitle">健康経営をサポートする新しい福利厚生サービス<br>企業の労働生産性を大幅向上するプレゼンティーイズム対策</p>
+      <div class="hero-cta">
+        <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+        <a href="#features" class="cta-btn secondary">詳細を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="section-badge">ABOUT</div>
+      <h2 class="section-title">職場 de クリニックとは</h2>
+      <div class="intro-grid">
+        <div class="intro-content">
+          <p>どうすれば社員の生産性を高められるのか。企業の労働生産性を大幅向上するプレゼンティーイズムに着目した医療分野からの新しいアプローチです。</p>
+          <p>プレゼンティーイズムとは、体調不良や病気を抱えながらも出勤している状態を指します。この状態では、生産性が低下し、企業の業績に悪影響を与える可能性があります。</p>
+          <p>職場 de クリニックでは、企業のオフィスに直接医療サービスを提供し、社員の健康管理と生産性向上を同時に実現します。</p>
+        </div>
+        <div class="intro-image">
+          <img src="../images/workplace-health.jpg" alt="職場deクリニック">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-badge">FEATURES</div>
+      <h2 class="section-title">3つの特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🏢</div>
+          <div class="feature-title">オフィス訪問型</div>
+          <div class="feature-desc">
+            企業のオフィスに直接訪問し、社員が通院の手間なく医療サービスを受けられます。業務への影響を最小限に抑えます。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <div class="feature-title">健康データ管理</div>
+          <div class="feature-desc">
+            社員の健康データを一元管理し、企業全体の健康状態を可視化します。データに基づく効果的な健康施策を提案します。
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <div class="feature-title">生産性向上</div>
+          <div class="feature-desc">
+            プレゼンティーイズムを改善し、社員の生産性向上を実現します。企業の業績向上に直接貢献します。
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">BENEFITS</div>
+      <h2 class="section-title">導入企業の成果</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-number">30%</div>
+          <div class="benefit-label">生産性向上</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-number">50%</div>
+          <div class="benefit-label">欠勤率改善</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-number">80%</div>
+          <div class="benefit-label">社員満足度向上</div>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-number">25%</div>
+          <div class="benefit-label">医療費削減</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-badge">TESTIMONIAL</div>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="testimonial">
+        <div class="testimonial-content">
+          「職場 de クリニックを導入してから、社員の健康意識が大幅に向上しました。通院の手間が省けるため、業務への影響も少なく、社員からも好評です。健康データの可視化により、効果的な健康施策を実施できるようになりました。」
+        </div>
+        <div class="testimonial-author">- 製造業C社 人事部長</div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <h2>あなたの企業でも職場 de クリニックを導入しませんか？</h2>
+      <p>社員の健康管理と生産性向上を同時に実現し、企業の競争力を強化します。</p>
+      <a href="../contact.html" class="cta-btn primary">無料相談を申し込む</a>
+    </section>
+  </main>
+
+    <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
+  <script>
+    // モバイルメニュー機能
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav');
+    const body = document.body;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      nav.classList.toggle('active');
+      body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // ナビゲーションリンクをクリックしたらメニューを閉じる
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        nav.classList.remove('active');
+        body.style.overflow = '';
+      });
+    });
+
+    // 画面サイズが変更されたときにメニューを閉じる
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        mobileMenuBtn.classList.remove('active');
+        nav.classList.remove('active');
+        body.style.overflow = '';
+      }
+    });
+  </script>
+</body>
+</html> 

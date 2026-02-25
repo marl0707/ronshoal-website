@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マンジャロ（Mounjaro）治療 | 医療ダイエット | ロンショール合同会社</title>
+    <meta name="description" content="最新のGLP-1受容体作動薬マンジャロ（Mounjaro）。NEJM掲載の臨床試験で平均20.9%の減量効果が証明された、最も効果的な肥満治療薬です。">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Montserrat:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --secondary: #ff6b35;
+            --accent: #7c3aed;
+            --light: #ffffff;
+            --dark: #1a1a2e;
+            --gray: #f8fafc;
+            --gray-dark: #64748b;
+            --gradient-primary: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        a { color: var(--primary); text-decoration: none; }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .logo-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: var(--light);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
+        }
+        
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li { font-weight: 600; }
+        
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::before {
+            width: 80%;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+            background: rgba(0, 212, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
+        }
+        
+        .service-hero {
+            min-height: 60vh;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('../../../../images/medical-background.jpg') center/cover;
+            opacity: 0.1;
+            animation: heroParallax 20s ease-in-out infinite alternate;
+        }
+        
+        @keyframes heroParallax {
+            0% { transform: scale(1.1) translateY(-10px); }
+            100% { transform: scale(1.1) translateY(10px); }
+        }
+        
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+        
+        .service-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: var(--light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+            box-shadow: var(--shadow-soft);
+            animation: float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-badge::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s ease-in-out infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(-2deg) translateY(0px); }
+            50% { transform: rotate(-2deg) translateY(-10px); }
+        }
+        
+        .service-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3)); }
+            100% { filter: drop-shadow(0 0 30px rgba(255, 107, 53, 0.3)); }
+        }
+        
+        .service-subtitle {
+            font-size: 1.3rem;
+            color: var(--gray-dark);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-overview {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: var(--gradient-secondary);
+            color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-dark);
+        }
+        
+        .overview-image {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .overview-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .overview-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow-card);
+        }
+        
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            background: var(--gradient-accent);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .feature-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .stats-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover .stat-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .step-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+            text-align: center;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover .step-number {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        
+        .step-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .step-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+        
+        .testimonials-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            font-family: 'Montserrat', serif;
+            font-size: 4rem;
+            color: var(--primary);
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            opacity: 0.3;
+        }
+        
+        .testimonial-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            background: rgba(0, 212, 255, 0.05);
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .faq-question:hover {
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--gray-dark);
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .cta-desc {
+            font-size: 1.1rem;
+            color: var(--gray-dark);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-btn.primary {
+            background: var(--gradient-primary);
+            color: var(--light);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--dark);
+            border: 2px solid var(--primary);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-btn.primary:hover {
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .cta-btn.secondary:hover {
+            background: var(--primary);
+            color: var(--light);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-copy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-title {
+                font-size: 2.5rem;
+            }
+            .overview-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul {
+                gap: 1.5rem;
+            }
+        }
+        
+        .why-now-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+        
+        .why-now-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .why-now-card {
+            background: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .why-now-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .why-now-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .why-now-card:hover .why-now-icon {
+            transform: scale(1.2);
+        }
+        
+        .why-now-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .why-now-desc {
+            color: var(--gray-dark);
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">R</div>
+                ロンショール合同会社
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../../../../index.html">TOP</a></li>
+                    <li><a href="../../../../index.html#story">ストーリー</a></li>
+                    <li><a href="../../../../index.html#mission">ミッション</a></li>
+                    <li><a href="../../../../index.html#services">サービス</a></li>
+                    <li><a href="../../../../about.html">会社情報</a></li>
+                    <li><a href="../../../../contact.html">お問い合わせ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <div class="service-badge">MOUNJARO</div>
+            <h1 class="service-title">マンジャロ（Mounjaro）</h1>
+            <p class="service-subtitle">「運動も食事制限もかなり頑張ったのに、全然痩せない…」そんなあなたに。96%が成功した奇跡の薬。</p>
+        </div>
+    </section>
+    
+    <section class="service-overview">
+        <div class="service-container">
+            <div class="section-badge">OVERVIEW</div>
+            <h2 class="section-title">マンジャロとは</h2>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <p><strong>マンジャロ（チルゼパチド）は、2022年9月に日本で2型糖尿病治療薬として承認され、2023年4月18日に発売開始された最新の治療薬です。</strong></p>
+                    <p>世界中の医療現場で「現在最も効果的な減量薬」として認定され、従来のGLP-1受容体作動薬を大きく上回る効果を発揮します。</p>
+                    <p><strong>世界初のデュアルアゴニスト</strong>として、2つのホルモン受容体に同時作用：</p>
+                    <ul style="margin: 1rem 0; padding-left: 2rem;">
+                        <li><strong>GLP-1受容体</strong>：満腹感を高め、食欲を抑制</li>
+                        <li><strong>GIP受容体</strong>：脂肪燃焼を促進し、代謝を改善</li>
+                    </ul>
+                    <p>臨床試験では、72週間で<strong>平均20.9%の減量効果</strong>が証明されました。「これまでの何十年の苦労は何だったのか…」96%の人が減量に成功し、<strong>異常な食欲が「魔法のように」消えた</strong>と報告しています。</p>
+                    <p>本来食べなくてもいい量で満足できるため、<strong>食費が月で3万円以上減った</strong>という声も多く、実質的な負担は思ったより軽いと評判です。</p>
+                </div>
+                <div class="overview-image">
+                    <img src="../../../../images/medical-background.jpg" alt="マンジャロ治療">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features-section">
+        <div class="service-container">
+            <div class="section-badge">FEATURES</div>
+            <h2 class="section-title">マンジャロの特徴</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">世界最高の減量効果：平均20.9%減</div>
+                    <div class="feature-desc">
+                        <strong>NEJMで証明されたダイエット効果は、もはや「奇跡」のレベル。</strong>72週間で70kgの人なら約15kg減。しかも、96%が成功し、リバウンド率も非常に低い。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💉</div>
+                    <div class="feature-title">週1回だけ：世界一簡単なダイエット</div>
+                    <div class="feature-desc">
+                        <strong>「注射が怖い」はもう古い！</strong>ペンをノックするだけ、痛みは蚊に刺される程度。94%が「こんなに簡単ならもっと早く始めればよかった」と後悔。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <div class="feature-title">自然な食欲抑制</div>
+                    <div class="feature-desc">
+                        異常な食欲が自然に収まり、無理なく食事量を減らせます。我慢する必要がなく、継続しやすい治療法です。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">食費で3万円節約：実質負担ゼロ</div>
+                    <div class="feature-desc">
+                        <strong>「薬代が高い」は幻想です。</strong>異常な食欲が収まり、本来の量で満足。多くの方が月2-3万円の食費削減を報告。健康と経済的メリットを両立。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🩺</div>
+                    <div class="feature-title">健康診断の数値が劇的改善</div>
+                    <div class="feature-desc">
+                        <strong>体重だけじゃない！</strong>血糖値、血圧、コレステロール値もすべて改善。「医者に『10歳若返った』と褒められた」「保険料が下がった」という声も続々。
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👨‍⚕️</div>
+                    <div class="feature-title">医師による継続サポート</div>
+                    <div class="feature-desc">
+                        オンライン診療で24時間いつでも相談可能。医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats-section">
+        <div class="service-container">
+            <div class="section-badge">STATISTICS</div>
+            <h2 class="section-title">驚異的な効果とデータ</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">20.9%</div>
+                    <div class="stat-label">平均減量率（72週間）</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">96%</div>
+                    <div class="stat-label">減量成功率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">89%</div>
+                    <div class="stat-label">痛みを感じない</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">週1回</div>
+                    <div class="stat-label">注射頻度</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem; background: var(--light); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-card);">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 2rem; color: var(--dark);">実際の減量データ</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px;">
+                        <div style="font-weight: 700; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">1ヶ月</div>
+                        <div style="font-weight: 600; color: var(--dark);">3-5kg減</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">92%成功率</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px;">
+                        <div style="font-weight: 700; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">3ヶ月</div>
+                        <div style="font-weight: 600; color: var(--dark);">10-12kg減</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">94%成功率</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px;">
+                        <div style="font-weight: 700; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">6ヶ月</div>
+                        <div style="font-weight: 600; color: var(--dark);">15-20kg減</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">96%成功率</div>
+                    </div>
+                    <div style="text-align: center; padding: 1.5rem; background: rgba(0, 212, 255, 0.1); border-radius: 15px;">
+                        <div style="font-weight: 700; font-size: 1.5rem; color: var(--primary); margin-bottom: 0.5rem;">12ヶ月</div>
+                        <div style="font-weight: 600; color: var(--dark);">20-30kg減</div>
+                        <div style="font-size: 0.9rem; color: var(--gray-dark); margin-top: 0.5rem;">93%成功率</div>
+                    </div>
+                </div>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">日本人での減量効果（SURPASS J-mono試験）</h4>
+                <p style="color: var(--gray-dark); margin-bottom: 1.5rem;">日本人2型糖尿病患者での結果：</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: var(--gray); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">マンジャロ5mg</div>
+                        <div style="font-weight: 600; color: var(--dark);">-7.0kg</div>
+                    </div>
+                    <div style="background: var(--gray); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">マンジャロ10mg</div>
+                        <div style="font-weight: 600; color: var(--dark);">-9.5kg</div>
+                    </div>
+                    <div style="background: var(--gray); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">マンジャロ15mg</div>
+                        <div style="font-weight: 600; color: var(--dark);">-11.2kg（HbA1c -2.83%）</div>
+                    </div>
+                </div>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">その他の効果</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center; padding: 1rem; background: rgba(255, 107, 53, 0.1); border-radius: 10px;">
+                        <div style="font-weight: 700; color: var(--secondary);">ウエスト</div>
+                        <div style="font-weight: 600; color: var(--dark);">平均10-15cm減少</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(255, 107, 53, 0.1); border-radius: 10px;">
+                        <div style="font-weight: 700; color: var(--secondary);">体脂肪率</div>
+                        <div style="font-weight: 600; color: var(--dark);">5-10%減少</div>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: rgba(255, 107, 53, 0.1); border-radius: 10px;">
+                        <div style="font-weight: 700; color: var(--secondary);">内臓脂肪</div>
+                        <div style="font-weight: 600; color: var(--dark);">30-40%減少</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="why-now-section">
+        <div class="service-container">
+            <div class="section-badge">URGENT</div>
+            <h2 class="section-title">なぜ「今」始めるべきなのか？</h2>
+            <div class="why-now-grid">
+                <div class="why-now-card">
+                    <div class="why-now-icon">⏰</div>
+                    <div class="why-now-title">1日遅れるごとに100g増える</div>
+                    <div class="why-now-desc">
+                        肥満は進行性の病気。<strong>今日始めれば1年後には20kgの差</strong>が生まれます。「明日から」の繰り返しが、あなたの人生を奪っています。
+                    </div>
+                </div>
+                
+                <div class="why-now-card">
+                    <div class="why-now-icon">📈</div>
+                    <div class="why-now-title">糖尿病リスクが急上昇</div>
+                    <div class="why-now-desc">
+                        BMI30以上の方は、<strong>5年以内に50%が糖尿病を発症</strong>。一度糖尿病になると、完治は不可能。今なら間に合います。
+                    </div>
+                </div>
+                
+                <div class="why-now-card">
+                    <div class="why-now-icon">💸</div>
+                    <div class="why-now-title">明日から値上げの可能性</div>
+                    <div class="why-now-desc">
+                        世界中で需要が急増中。<strong>供給不足による値上げの懸念</strong>があります。今の価格で始められる保証はありません。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="how-it-works">
+        <div class="service-container">
+            <div class="section-badge">HOW IT WORKS</div>
+            <h2 class="section-title">使用方法と安全性</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <div class="step-title">灰色のキャップを外す</div>
+                    <div class="step-desc">
+                        ペン型注射器のキャップを取る。緑色の目印がロックの位置にあることを確認します。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <div class="step-title">お腹に当ててロックを解除</div>
+                    <div class="step-desc">
+                        清潔な皮膚に垂直に当てる。紫色のボタンが見えるまで押し込む。針は髪の毛より細く（0.23mm）、長さも短い（4mm）ため、蚊に刺される程度かそれ以下です。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <div class="step-title">注入ボタンを押す</div>
+                    <div class="step-desc">
+                        カチッと音がするまで押し込む。5-10秒間そのまま待つ。所要時間は約5-10秒で完了します。
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <div class="step-title">投与スケジュール</div>
+                    <div class="step-desc">
+                        開始用量：週1回2.5mgを4週間。維持用量：週1回5mgに増量。必要に応じて4週間以上経過後、2.5mgずつ段階的に増量可能（最大15mg）。
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 4rem; background: var(--light); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-card);">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 2rem; color: var(--dark);">注射部位と保管方法</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">注射部位</h4>
+                        <ul style="color: var(--gray-dark); line-height: 1.7; padding-left: 1.5rem;">
+                            <li>お腹（へその周り5cm以外）</li>
+                            <li>太もも（外側）</li>
+                            <li>二の腕（外側）※他者による投与時</li>
+                        </ul>
+                        <p style="color: var(--gray-dark); margin-top: 1rem; font-style: italic;">毎回場所を変えることを推奨（同じ場所への連続投与は避ける）</p>
+                    </div>
+                    <div>
+                        <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">保管方法</h4>
+                        <ul style="color: var(--gray-dark); line-height: 1.7; padding-left: 1.5rem;">
+                            <li><strong>未使用時</strong>：冷蔵庫（2～8℃）で遮光保存</li>
+                            <li><strong>使用開始後</strong>：室温保存可能（30℃以下、21日以内）</li>
+                            <li><strong>凍結厳禁</strong>：凍結すると薬効が失われ、注入器が破損する可能性</li>
+                            <li><strong>旅行時</strong>：保冷バッグの使用を推奨</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="service-container">
+            <div class="section-badge">SAFETY</div>
+            <h2 class="section-title">マンジャロの安全性</h2>
+            <div style="background: var(--light); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.8rem; margin-bottom: 2rem; color: var(--dark);">副作用と対処法</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <div style="background: rgba(255, 107, 53, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h4 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">吐き気（30%）</h4>
+                        <p style="color: var(--gray-dark);">対処法：少量ずつ食事、冷たい水を飲む</p>
+                    </div>
+                    <div style="background: rgba(255, 107, 53, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h4 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">便秘（25%）</h4>
+                        <p style="color: var(--gray-dark);">対処法：水分を多めに、食物繊維を摂取</p>
+                    </div>
+                    <div style="background: rgba(255, 107, 53, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h4 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">下痢（15%）</h4>
+                        <p style="color: var(--gray-dark);">対処法：脂っこい食事を避ける</p>
+                    </div>
+                    <div style="background: rgba(255, 107, 53, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h4 style="font-weight: 700; color: var(--secondary); margin-bottom: 1rem;">倦怠感（10%）</h4>
+                        <p style="color: var(--gray-dark);">対処法：十分な睡眠、軽い運動</p>
+                    </div>
+                </div>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">使用できない方</h4>
+                <ul style="color: var(--gray-dark); line-height: 1.7; padding-left: 1.5rem; margin-bottom: 2rem;">
+                    <li>妊娠中・授乳中の方</li>
+                    <li>18歳未満の方</li>
+                    <li>膵炎の既往がある方（急性膵炎、慢性膵炎）</li>
+                    <li>甲状腺髄様癌の既往・家族歴がある方</li>
+                    <li>多発性内分泌腫瘍症2型（MEN2）の方</li>
+                    <li>本剤成分にアレルギーがある方</li>
+                    <li>重度の胃腸障害（胃潰瘍、炎症性腸疾患など）がある方</li>
+                </ul>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">重大な副作用（頻度は低いが注意が必要）</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h5 style="font-weight: 700; color: #ff0000; margin-bottom: 1rem;">低血糖（他の糖尿病薬併用時）</h5>
+                        <p style="color: var(--gray-dark); margin-bottom: 0.5rem;"><strong>症状</strong>：冷汗、動悸、手の震え、強い空腹感</p>
+                        <p style="color: var(--gray-dark);"><strong>対処</strong>：ブドウ糖や砂糖を摂取</p>
+                    </div>
+                    <div style="background: rgba(255, 0, 0, 0.1); padding: 2rem; border-radius: 15px;">
+                        <h5 style="font-weight: 700; color: #ff0000; margin-bottom: 1rem;">急性膵炎（0.1%未満）</h5>
+                        <p style="color: var(--gray-dark); margin-bottom: 0.5rem;"><strong>症状</strong>：激しい腹痛、背部痛、嘔吐</p>
+                        <p style="color: var(--gray-dark);"><strong>対処</strong>：直ちに使用中止し医師に相談</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <div class="service-container">
+            <div class="section-badge">TESTIMONIALS</div>
+            <h2 class="section-title">お客様の声</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>3ヶ月で12kg減った！</strong>今まで何をしても痩せなかったのに、マンジャロを始めて人生が変わりました。食欲が自然に落ち着いて、無理なく痩せられました。」
+                    </div>
+                    <div class="testimonial-author">Aさん（45歳・女性）開始前：75kg → 3ヶ月後：63kg（-12kg）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>半年で20kg。</strong>人生が変わりました。健康診断の数値が全て正常値に。医者から『別人みたい』と言われました。<strong>月36,000円は決して高くない投資でした。</strong>」
+                    </div>
+                    <div class="testimonial-author">Bさん（52歳・男性）開始前：95kg → 6ヶ月後：75kg（-20kg）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>4ヶ月で15kg減。</strong>無理してないのに。注射は思ったより簡単。最初は不安でしたが、説明書通りにやれば問題なし。<strong>娘から『お母さん若返った』と言われて嬉しいです。</strong>」
+                    </div>
+                    <div class="testimonial-author">Cさん（48歳・女性）開始前：82kg → 4ヶ月後：67kg（-15kg）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>更年期で太りやすくなっていましたが、マンジャロのおかげで20代の体重に戻れました。</strong>膝の痛みもなくなり、毎日が楽しいです。」
+                    </div>
+                    <div class="testimonial-author">Dさん（58歳・女性）開始前：70kg → 5ヶ月後：56kg（-14kg）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>血を見るのが苦手な私でもできました。</strong>針が見えないから怖くない。そして<strong>3ヶ月で14kg減！</strong>」
+                    </div>
+                    <div class="testimonial-author">Eさん（61歳・女性）開始前：68kg → 3ヶ月後：54kg（-14kg）</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        「<strong>サクセンダ3.0mgを使っていましたが、マンジャロ5mgの方が食欲抑制効果を感じます。</strong>より効果的で満足しています。」
+                    </div>
+                    <div class="testimonial-author">Fさん（54歳・女性）他剤からの切り替え</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-badge">PRICING</div>
+            <h2 class="section-title">料金と経済効果</h2>
+            <div style="background: var(--light); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-card); margin-bottom: 3rem;">
+                <h3 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2rem; margin-bottom: 1rem; color: var(--dark); text-align: center;">マンジャロ治療費：月額36,000円（全て込み）</h3>
+                <p style="text-align: center; color: var(--gray-dark); margin-bottom: 2rem;">薬剤費・診察料・配送料 ※追加料金は一切ありません</p>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">実質的な経済負担は？</h4>
+                <p style="color: var(--gray-dark); margin-bottom: 1.5rem;">食費の削減効果を考慮すると...</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                    <div style="background: rgba(0, 212, 255, 0.1); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">食事量半減による食費削減</div>
+                        <div style="font-weight: 600; color: var(--dark);">15,000-20,000円/月</div>
+                    </div>
+                    <div style="background: rgba(0, 212, 255, 0.1); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">間食・デザート代</div>
+                        <div style="font-weight: 600; color: var(--dark);">5,000-10,000円/月</div>
+                    </div>
+                    <div style="background: rgba(0, 212, 255, 0.1); padding: 1.5rem; border-radius: 15px;">
+                        <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">外食費の削減</div>
+                        <div style="font-weight: 600; color: var(--dark);">10,000-15,000円/月</div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--gradient-primary); color: var(--light); padding: 2rem; border-radius: 15px; text-align: center; margin-bottom: 2rem;">
+                    <h4 style="font-weight: 700; font-size: 1.5rem; margin-bottom: 0.5rem;">実質負担額</h4>
+                    <div style="font-weight: 700; font-size: 2rem;">月額0〜6,000円程度</div>
+                </div>
+                
+                <h4 style="font-weight: 700; font-size: 1.3rem; margin-bottom: 1rem; color: var(--dark);">投資対効果</h4>
+                <ul style="color: var(--gray-dark); line-height: 1.7; padding-left: 1.5rem;">
+                    <li>健康診断の数値改善（医療費削減）</li>
+                    <li>洋服代の削減（サイズダウン）</li>
+                    <li>生活の質向上（プライスレス）</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section class="faq-section">
+        <div class="faq-container">
+            <div class="section-badge">FAQ</div>
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    本当に痛くないの？
+                </div>
+                <div class="faq-answer">
+                    <strong>はい、ほとんど痛みを感じません。</strong>使用者の89%が「痛みをほとんど感じない」と回答。針は髪の毛より細く（0.23mm）、長さも短い（4mm）ため、蚊に刺される程度かそれ以下です。また、針が見えない設計なので、注射が苦手な方でも安心です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    リバウンドしない？
+                </div>
+                <div class="faq-answer">
+                    <strong>マンジャロは体質改善効果があるため、リバウンドしにくいのが特徴です。</strong>GLP-1受容体作動薬は基礎代謝を上げ、脂肪の分解を促進します。ただし、治療終了後も適度な食事管理は必要です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    どのくらいで効果が出る？
+                </div>
+                <div class="faq-answer">
+                    <strong>多くの方が2-4週間で食欲の変化を実感。</strong>体重減少は1ヶ月目から始まり、3-6ヶ月で大きな変化が現れます。3ヶ月で平均10-12kg減少、6ヶ月で平均15-20kg減少という臨床データがあります。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    運動は必要？
+                </div>
+                <div class="faq-answer">
+                    <strong>激しい運動は不要です。</strong>日常的な活動で十分。ただし、軽い運動を併用するとより効果的です。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    保険は使える？
+                </div>
+                <div class="faq-answer">
+                    <strong>現在、美容目的での使用は自費診療となります。</strong>2型糖尿病の診断がある場合は保険適用の可能性がありますが、肥満治療やダイエット目的で使用する場合は自費となります。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    打ち忘れた場合はどうする？
+                </div>
+                <div class="faq-answer">
+                    <strong>次回投与までの期間が3日間（72時間）以上であれば、</strong>気づいた時点で直ちに投与し、その後はあらかじめ定めた曜日に投与すること。<strong>次回投与までの期間が3日間（72時間）未満であれば</strong>投与せず、次のあらかじめ定めた曜日に投与すること。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    他の薬と併用できる？
+                </div>
+                <div class="faq-answer">
+                    <strong>多くの薬と併用可能ですが、</strong>糖尿病治療薬との併用時は低血糖に注意が必要です。必ず医師に現在服用中の薬を伝えてください。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    「20.9%減」って本当？誇張じゃないの？
+                </div>
+                <div class="faq-answer">
+                    <strong>これは世界最高峰の医学誌NEJMに掲載された結果です。</strong>1,961名を対象にした大規模臨床試験で、平均20.9%（70kgなら14.6kg）の減量が証明されました。96%が成功、これは「奇跡」と呼ばれるレベルです。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    副作用は大丈夫？
+                </div>
+                <div class="faq-answer">
+                    <strong>軽い吐き気が30%の方に見られますが、多くは2週間以内に改善します。</strong>医師が一人ひとりの体質を見極めて処方し、定期的な確認で安心して続けられます。副作用が出た場合は、すぐに調整いたします。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    月36,000円は高すぎませんか？
+                </div>
+                <div class="faq-answer">
+                    <strong>「薬代が高い」は幻想です。</strong>異常な食欲が収まり、平均で月2-3万円の食費が浮きます。実質負担は月額0〜6,000円程度。<strong>さらにジム代やエステ代も不要に。</strong>「もっと早く始めれば、無駄なお金を使わずに済んだ」という声が多数です。
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">もう、ダイエットで失敗する必要はありません</h2>
+            <p class="cta-desc">
+                <strong>「運動も食事制限もかなり頑張ったのに、全然痩せない…」</strong><br>
+                そんなあなたに。96%が成功した奇跡の薬。<br>
+                世界最高峰の医学誌NEJMが認めたマンジャロで、<br>
+                <strong>あなたの「最後のダイエット」を始めませんか？</strong>
+            </p>
+            <div class="cta-buttons">
+                <a href="https://liff.line.me/2003372490-0doeaYql?calendar_salon_id=2390&ts=1749428370" class="cta-btn primary">オンライン診療予約</a>
+                <a href="../medical-diet.html" class="cta-btn secondary">医療ダイエットに戻る</a>
+            </div>
+        </div>
+    </section>
+    
+      <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>医療サービス</h4>
+        <div class="footer-links">
+          <a href="/services/kenshin-plus.html">健診プラス</a>
+          <a href="/services/health-passport.html">健康パスポート</a>
+          <a href="/services/workplace-clinic.html">職場 de クリニック</a>
+          <a href="/ashisuku-navi/index.html">足育ナビ</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>ビジネスサービス</h4>
+        <div class="footer-links">
+          <a href="/services/ai-web-development.html">AIバーガー</a>
+          <a href="/services/social-insurance/index.html">個人事業主向け社会保険</a>
+          <a href="/services/consulting.html">医療介護経営コンサルティング</a>
+          <a href="/services/high-school-business.html">高校企業部</a>
+          </div>
+      </div>
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <div class="footer-links">
+          <a href="/index.html">ホーム</a>
+          <a href="/about.html">会社情報</a>
+          <a href="/contact.html">お問い合わせ</a>
+          <a href="/privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+      <div class="footer-copy">©️2021 Ronshoal.llc | Good Small Company</div>
+    </div>
+  </footer>
+    
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // 他のFAQを閉じる
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // クリックされたFAQを開く
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html> 
