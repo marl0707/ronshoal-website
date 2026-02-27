@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
           source: "/malaysia/:path*",
           destination: "https://app-tau-livid.vercel.app/malaysia/:path*",
         },
+        {
+          source: "/gscope",
+          destination: "https://g-scope-app.vercel.app/gscope",
+        },
+        {
+          source: "/gscope/:path*",
+          destination: "https://g-scope-app.vercel.app/gscope/:path*",
+        },
       ],
     };
   },
