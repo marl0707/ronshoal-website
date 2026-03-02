@@ -167,6 +167,10 @@ export default function Home() {
                     onClick={() => {
                       setMatrixMode(true);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
+                      // 少し演出を見せてからシークレットページへ遷移
+                      setTimeout(() => {
+                        window.location.href = '/secret';
+                      }, 1000);
                     }}
                     className="group relative inline-flex items-center justify-center px-8 md:px-12 py-4 md:py-5 overflow-hidden rounded-full shadow-[0_0_40px_rgba(79,70,229,0.5)] hover:shadow-[0_0_80px_rgba(79,70,229,0.8)] transition-all duration-500 hover:-translate-y-1"
                   >

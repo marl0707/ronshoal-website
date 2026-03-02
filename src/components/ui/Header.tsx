@@ -16,7 +16,7 @@ export const Header = () => {
             <nav className="hidden md:flex gap-8 text-[10px] md:text-xs font-bold tracking-[0.2em]">
                 <a href="/philosophy" className="hover:opacity-70 transition-opacity">PHILOSOPHY</a>
                 <a href="/message" className="hover:opacity-70 transition-opacity">MESSAGE</a>
-                <a href="/business" className="hover:opacity-70 transition-opacity">BUSINESS</a>
+                <a href="#" className="hover:opacity-70 transition-opacity">BUSINESS</a>
                 <a href="/company" className="hover:opacity-70 transition-opacity">COMPANY</a>
                 <a href="/contact" className="hover:opacity-70 transition-opacity">CONTACT</a>
             </nav>

@@ -6,20 +6,20 @@ export const Footer = () => {
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-blue-400 mb-6">医療サービス</h4>
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
-                            <a href="/kenshin" className="hover:text-white transition-colors">健診プラス</a>
-                            <a href="/health" className="hover:text-white transition-colors">健康パスポート</a>
-                            <a href="/health" className="hover:text-white transition-colors">職場 de クリニック</a>
-                            <a href="/health" className="hover:text-white transition-colors">足育ナビ</a>
+                            <a href="#" className="hover:text-white transition-colors">健診プラス</a>
+                            <a href="#" className="hover:text-white transition-colors">健康パスポート</a>
+                            <a href="#" className="hover:text-white transition-colors">職場 de クリニック</a>
+                            <a href="#" className="hover:text-white transition-colors">足育ナビ</a>
                         </div>
                     </div>
 
                     <div className="space-y-4">
                         <h4 className="text-lg font-bold text-blue-400 mb-6">ビジネスサービス</h4>
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
-                            <a href="/ai" className="hover:text-white transition-colors">AIプロトタイピング工房</a>
-                            <a href="/business" className="hover:text-white transition-colors">個人事業主向け社会保険</a>
-                            <a href="/business" className="hover:text-white transition-colors">医療介護経営コンサルティング</a>
-                            <a href="/business" className="hover:text-white transition-colors">高校企業部</a>
+                            <a href="#" className="hover:text-white transition-colors">AIプロトタイピング工房</a>
+                            <a href="#" className="hover:text-white transition-colors">個人事業主向け社会保険</a>
+                            <a href="#" className="hover:text-white transition-colors">医療介護経営コンサルティング</a>
+                            <a href="#" className="hover:text-white transition-colors">高校企業部</a>
                         </div>
                     </div>
 

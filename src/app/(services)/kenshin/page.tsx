@@ -24,7 +24,7 @@ export default function KenshinPage() {
                 <FadeIn delay={0.2}>
                     <div className="w-full aspect-[21/9] mb-16 overflow-hidden bg-kenshin-sub rounded-2xl group shadow-lg">
                         <img
-                            src="https://ronshoal-image-bucket.s3.ap-northeast-1.amazonaws.com/kenko-plus-main.jpg"
+                            src="/services/images/健診プラス動画資料.png"
                             alt="健診プラス Concept"
                             className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                         />
