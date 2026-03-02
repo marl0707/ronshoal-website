@@ -39,6 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4635815438893136"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${inter.variable} ${notoSansJP.variable} antialiased`}
       >
