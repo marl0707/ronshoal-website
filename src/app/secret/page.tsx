@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Header } from "@/components/ui/Header";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Briefcase, GraduationCap, Heart, ChevronDown } from "lucide-react";
+import { ArrowLeft, MapPin, Briefcase, GraduationCap, Heart, ChevronDown, Globe } from "lucide-react";
 import { useRef } from "react";
 import { FadeIn } from "@/components/ui/FadeIn";
 
