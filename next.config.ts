@@ -22,6 +22,14 @@ const nextConfig: NextConfig = {
           source: "/gscope/:path*",
           destination: "https://g-scope-app.vercel.app/gscope/:path*",
         },
+        {
+          source: "/pickleball",
+          destination: "https://i-love-pickleball.vercel.app/pickleball",
+        },
+        {
+          source: "/pickleball/:path*",
+          destination: "https://i-love-pickleball.vercel.app/pickleball/:path*",
+        },
       ],
     };
   },
