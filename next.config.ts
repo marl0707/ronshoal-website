@@ -1,8 +1,7 @@
-
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // /malaysia サブパスをマレーシア生活情報局プロジェクトへプロキシ
+  output: "standalone",
   async rewrites() {
     return {
       beforeFiles: [
@@ -29,6 +28,22 @@ const nextConfig: NextConfig = {
         {
           source: "/pickleball/:path*",
           destination: "https://i-love-pickleball.vercel.app/pickleball/:path*",
+        },
+        {
+          source: "/onefunnel",
+          destination: "https://academic-craft-lms.vercel.app/onefunnel",
+        },
+        {
+          source: "/onefunnel/:path*",
+          destination: "https://academic-craft-lms.vercel.app/onefunnel/:path*",
+        },
+        {
+          source: "/nfcts",
+          destination: "https://nfcts-site.vercel.app/",
+        },
+        {
+          source: "/nfcts/:path*",
+          destination: "https://nfcts-site.vercel.app/:path*",
         },
       ],
     };
