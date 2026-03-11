@@ -46,12 +46,12 @@ const nextConfig: NextConfig = {
           destination: "https://nfcts-site.vercel.app/:path*",
         },
         {
-          source: "/kenshinpuls",
-          destination: "https://rousai-kensin-delta.vercel.app/kenshinpuls",
+          source: "/kenshinplus",
+          destination: "https://rousai-kensin-delta.vercel.app/kenshinplus",
         },
         {
-          source: "/kenshinpuls/:path*",
-          destination: "https://rousai-kensin-delta.vercel.app/kenshinpuls/:path*",
+          source: "/kenshinplus/:path*",
+          destination: "https://rousai-kensin-delta.vercel.app/kenshinplus/:path*",
         },
       ],
     };
