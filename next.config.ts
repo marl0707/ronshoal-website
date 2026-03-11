@@ -7,7 +7,11 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         {
           source: "/nfcts",
-          destination: "/services/nfcts",
+          destination: "https://nfcts-site.vercel.app/nfcts",
+        },
+        {
+          source: "/nfcts/:path*",
+          destination: "https://nfcts-site.vercel.app/nfcts/:path*",
         },
         {
           source: "/malaysia",
