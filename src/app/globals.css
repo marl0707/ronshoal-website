@@ -38,6 +38,13 @@
   --color-lab-sub: var(--color-lab-sub);
   --color-lab-accent: var(--color-lab-accent);
   --color-lab-text: var(--color-lab-text);
+
+  /* NFCts */
+  --color-nfc-base: var(--color-nfc-base);
+  --color-nfc-main: var(--color-nfc-main);
+  --color-nfc-sub: var(--color-nfc-sub);
+  --color-nfc-accent: var(--color-nfc-accent);
+  --color-nfc-text: var(--color-nfc-text);
 }
 
 :root {
@@ -72,6 +79,13 @@
   --color-lab-sub: #3b5663;
   --color-lab-accent: #ceaf27;
   --color-lab-text: #21282c;
+
+  /* NFCts */
+  --color-nfc-base: #f7f5f2;
+  --color-nfc-main: #2c1810;
+  --color-nfc-sub: #d4a574;
+  --color-nfc-accent: #c17f3e;
+  --color-nfc-text: #1a0f08;
 
   --background: #ffffff;
   --foreground: #171717;
