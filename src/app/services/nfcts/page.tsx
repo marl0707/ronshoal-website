@@ -4,8 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { TextReveal } from "@/components/ui/TextReveal";
-import { Footer } from "@/components/ui/Footer";
-import { Header } from "@/components/ui/Header";
+
 import { Sparkles, ArrowRight } from "lucide-react";
 
 const easeOut = [0.33, 1, 0.68, 1] as const;
@@ -53,7 +52,6 @@ const flowSteps = [
 export default function NfctsPage() {
   return (
     <>
-      <Header />
       <main className="min-h-screen bg-nfc-base text-nfc-main">
         {/* ── Hero Section ── */}
         <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-b from-white via-white to-nfc-base">
@@ -372,7 +370,6 @@ export default function NfctsPage() {
           </div>
         </section>
 
-        <Footer />
       </main>
     </>
   );

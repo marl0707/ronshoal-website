@@ -37,14 +37,7 @@ const nextConfig: NextConfig = {
           source: "/onefunnel/:path*",
           destination: "https://onefunnel-lms.vercel.app/onefunnel/:path*",
         },
-        {
-          source: "/nfcts",
-          destination: "https://nfcts-site.vercel.app/",
-        },
-        {
-          source: "/nfcts/:path*",
-          destination: "https://nfcts-site.vercel.app/:path*",
-        },
+
         {
           source: "/kenshinplus",
           destination: "https://rousai-kensin-delta.vercel.app/kenshinplus",
