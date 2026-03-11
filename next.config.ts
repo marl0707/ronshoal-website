@@ -31,11 +31,11 @@ const nextConfig: NextConfig = {
         },
         {
           source: "/onefunnel",
-          destination: "https://academic-craft-lms.vercel.app/onefunnel",
+          destination: "https://academic-craft-lms.vercel.app/",
         },
         {
           source: "/onefunnel/:path*",
-          destination: "https://academic-craft-lms.vercel.app/onefunnel/:path*",
+          destination: "https://academic-craft-lms.vercel.app/:path*",
         },
         {
           source: "/nfcts",
