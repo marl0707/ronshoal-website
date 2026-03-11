@@ -31,11 +31,11 @@ const nextConfig: NextConfig = {
         },
         {
           source: "/onefunnel",
-          destination: "https://academic-craft-lms.vercel.app/",
+          destination: "https://onefunnel-lms.vercel.app/onefunnel",
         },
         {
           source: "/onefunnel/:path*",
-          destination: "https://academic-craft-lms.vercel.app/:path*",
+          destination: "https://onefunnel-lms.vercel.app/onefunnel/:path*",
         },
         {
           source: "/nfcts",
@@ -44,6 +44,14 @@ const nextConfig: NextConfig = {
         {
           source: "/nfcts/:path*",
           destination: "https://nfcts-site.vercel.app/:path*",
+        },
+        {
+          source: "/kenshinpuls",
+          destination: "https://rousai-kensin-delta.vercel.app/kenshinpuls",
+        },
+        {
+          source: "/kenshinpuls/:path*",
+          destination: "https://rousai-kensin-delta.vercel.app/kenshinpuls/:path*",
         },
       ],
     };
