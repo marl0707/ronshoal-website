@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         {
+          source: "/nfcts",
+          destination: "/services/nfcts",
+        },
+        {
           source: "/malaysia",
           destination: "https://app-tau-livid.vercel.app/malaysia",
         },
