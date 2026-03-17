@@ -39,11 +39,11 @@ const nextConfig: NextConfig = {
         },
         {
           source: "/onefunnel",
-          destination: "https://onefunnel-lms.vercel.app/onefunnel",
+          destination: "https://onefunnel-lms-sejimarls-projects.vercel.app/onefunnel",
         },
         {
           source: "/onefunnel/:path*",
-          destination: "https://onefunnel-lms.vercel.app/onefunnel/:path*",
+          destination: "https://onefunnel-lms-sejimarls-projects.vercel.app/onefunnel/:path*",
         },
 
         {
