@@ -10,6 +10,7 @@ import { Header } from "@/components/ui/Header";
 import { Footer } from "@/components/ui/Footer";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
+import { OfficePreview } from "@/components/ai-team/OfficePreview";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -320,6 +321,59 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* 3.5. News: AI Team 始動 */}
+        <section className="py-32 md:py-48 px-6 lg:px-12 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <TextReveal>
+              <div className="flex flex-col items-center mb-16">
+                <h2 className="text-[10px] md:text-xs font-black tracking-[0.4em] text-corp-main uppercase mb-6">
+                  NEWS
+                </h2>
+                <p className="font-mono text-[10px] md:text-xs tracking-[0.3em] text-gray-500 mb-10">
+                  2026.05.15
+                </p>
+                <h3 className="text-2xl md:text-4xl lg:text-5xl font-bold text-corp-main text-center leading-[1.4] tracking-tight mb-10">
+                  ロンショール、<br />AI社員による経営組織を始動。
+                </h3>
+                <p className="text-sm md:text-base leading-[2.2] text-gray-700 font-medium max-w-2xl text-center">
+                  5部署・25名のAI社員が、開発・品質保証・教育・マーケティング・経営司令を分担して稼働しています。
+                  24時間365日、人間の指示を受けて会社の中をぐるぐる回っているところを覗いてみてください。
+                </p>
+              </div>
+            </TextReveal>
+
+            <FadeIn delay={0.1}>
+              <Link
+                href="/ai-team"
+                className="block group max-w-5xl mx-auto"
+                aria-label="AI社員紹介ページへ"
+              >
+                <div className="relative transition-transform duration-500 group-hover:-translate-y-1">
+                  <OfficePreview />
+                  {/* hover overlay */}
+                  <div className="absolute inset-0 rounded-2xl flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-colors duration-300 pointer-events-none">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white font-mono text-xs tracking-[0.4em] uppercase border border-white/60 px-6 py-3 rounded-full backdrop-blur-sm">
+                      VIEW DETAILS →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="flex justify-center mt-12">
+                <Link
+                  href="/ai-team"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-corp-main text-white text-sm font-bold tracking-wider hover:bg-black transition-colors duration-300 group"
+                >
+                  <span>詳しく知りたい</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            </FadeIn>
           </div>
         </section>
 
