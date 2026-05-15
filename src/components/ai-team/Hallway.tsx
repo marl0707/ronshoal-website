@@ -399,7 +399,7 @@ function DoorOnWall({ agent, geom, onClick, onHover, onLeave, isHover }: DoorOnW
 
       <foreignObject x={fx} y={fy} width={fw} height={fh} clipPath={`url(#${clipId})`}>
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
+
           style={{
             width: "100%",
             height: "100%",
@@ -524,7 +524,7 @@ function DoorSign({ agent, geom, isHover, onClick }: DoorSignProps) {
       style={{ overflow: "visible", pointerEvents: "none" }}
     >
       <div
-        xmlns="http://www.w3.org/1999/xhtml"
+
         style={{
           width: "100%",
           height: "100%",

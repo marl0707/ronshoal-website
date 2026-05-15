@@ -219,7 +219,7 @@ function ScreenPanel({ x, y, h, agent, children }: { x: number; y: number; h: nu
         height={Math.abs(D2[1] - A2[1])}
       >
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
+
           style={{
             width: "100%",
             height: "100%",
@@ -396,7 +396,7 @@ function IsoCharacter({ agent, memberId, onClick, ariaLabel }: { agent: Agent; m
       <ellipse cx={sx} cy={sy + 2} rx="30" ry="8" fill={agent.palette.accent} opacity="0.18" />
       <foreignObject x={sx - W / 2} y={sy - H + 30} width={W} height={H}>
         <div
-          xmlns="http://www.w3.org/1999/xhtml"
+
           style={{
             width: "100%",
             height: "100%",
