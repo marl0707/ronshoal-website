@@ -1,0 +1,37 @@
+# React Doctor — Advisory mode (Ronshoal-wide Phase 2 rollout)
+#
+# Purpose: surface React/Next.js code health issues as sticky PR comments without
+# blocking merges. Mirrors the workflow first deployed to I-love-pickleball.
+#
+# Version pin policy: react-doctor is in v0.x.x. Using @main for now; if score
+# volatility becomes a problem, switch to a tagged release.
+#
+# Operator notes (Ronshoal Tech Base):
+# - ronshoal-website is the proxy hub for ronshoal.com (rewrites() to sub-apps).
+# - Default branch is `main`.
+# - Hetzner-side global skill counterpart: ~/.claude/skills/react-doctor/SKILL.md
+
+name: React Doctor
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: write # required to post sticky PR comments
+
+jobs:
+  react-doctor:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0 # full history (allows future --diff usage)
+
+      - name: Run React Doctor (advisory)
+        uses: millionco/react-doctor@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          fail-on: none
