@@ -11,6 +11,7 @@ import { Footer } from "@/components/ui/Footer";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { ImageReveal } from "@/components/ui/ImageReveal";
 import { OfficePreview } from "@/components/ai-team/OfficePreview";
+import { WordmarkPanel } from "@/components/ui/WordmarkPanel";
 import { ArrowRight } from "lucide-react";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
       <div className={`flex flex-col min-h-screen bg-white text-corp-main selection:bg-gray-200 transition-opacity duration-1000 ${showSplash ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'}`}>
         {/* 1. Hero Section (DataGrid Clone - Physics Animation) */}
         <section className={`relative h-screen flex flex-col items-center justify-center overflow-hidden transition-colors duration-[2000ms] ${showSecret ? 'bg-[#030014]' : 'bg-white'}`}>
+          <h1 className="sr-only">ロンショール合同会社（Ronshoal LLC）— すべての人々に、後悔のない人生を。</h1>
           <div className={`absolute inset-0 w-full h-full transition-all duration-[2000ms] ${showSecret ? 'invert hue-rotate-180' : ''}`}>
             {!showSplash && <PhysicsBlocks isActive={true} onSecretTrigger={() => setShowSecret(true)} />}
           </div>
@@ -200,6 +202,15 @@ export default function Home() {
                   5部署・25名のAI社員が、開発・品質保証・教育・マーケティング・経営司令を分担して稼働しています。
                   24時間365日、人間の指示を受けて会社の中をぐるぐる回っているところを覗いてみてください。
                 </p>
+                {/* この組織を動かしている技術（AI経営体制の裏付け） */}
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-2">
+                  <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-gray-400 mr-1">POWERED BY</span>
+                  {["Next.js", "TypeScript", "Supabase", "Vercel", "Claude / Anthropic API"].map((t) => (
+                    <span key={t} className="font-mono text-[10px] font-bold tracking-[0.15em] text-gray-500 border border-gray-300 px-3 py-1">
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
             </TextReveal>
 
@@ -371,6 +382,52 @@ export default function Home() {
                     </p>
                   </FadeIn>
 
+                </div>
+              </div>
+
+              {/* Media Panel — 公開済みの自社メディア（実績） */}
+              <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 border-t border-gray-200 pt-32">
+                <div className="lg:w-1/3 shrink-0">
+                  <TextReveal>
+                    <p className="text-[10px] font-bold text-gray-400 tracking-[0.2em] mb-4">MEDIA / OWNED MEDIA</p>
+                    <h3 className="text-2xl md:text-3xl font-bold text-corp-main tracking-tight leading-snug">
+                      自社メディア<br />運営
+                    </h3>
+                  </TextReveal>
+                  <TextReveal delay={0.1}>
+                    <p className="text-sm leading-[2] text-gray-500 font-medium mt-6">
+                      実際に公開・運営しているメディア事業です。企画から開発・SEO・日々の運用までを一気通貫で内製しています。
+                    </p>
+                  </TextReveal>
+                </div>
+                <div className="lg:w-2/3 flex flex-col gap-16">
+                  <FadeIn delay={0.1} className="group cursor-pointer">
+                    {/* /pickleball・/malaysia は next.config.ts の rewrites() で別Vercelアプリへプロキシされる経路。
+                        next/link ではなく素の <a>（フルナビゲーション）を使う（Footer も同様）。<Link> に揃えると壊れる。 */}
+                    <a href="/pickleball" className="block">
+                      <p className="text-[10px] font-bold text-gray-500 tracking-[0.2em] mb-6">I LOVE PICKLEBALL</p>
+                      <ImageReveal>
+                        <WordmarkPanel label="I LOVE PICKLEBALL" sublabel="Media / Community" />
+                      </ImageReveal>
+                      <h4 className="text-xl font-bold mb-4">I LOVE PICKLEBALL（ピックルボール専門メディア）</h4>
+                      <p className="text-sm md:text-base leading-[2.2] text-gray-600 mb-6 font-medium">
+                        競技人口が急拡大するピックルボールの専門メディア。全国のコート・施設データベースや用語集を自社で構築し、日々コンテンツを配信しています。
+                      </p>
+                    </a>
+                  </FadeIn>
+
+                  <FadeIn delay={0.2} className="group cursor-pointer">
+                    <a href="/malaysia" className="block">
+                      <p className="text-[10px] font-bold text-gray-500 tracking-[0.2em] mb-6">MALAYSIA INFO BUREAU</p>
+                      <ImageReveal delay={0.1}>
+                        <WordmarkPanel label="マレーシア生活情報局" sublabel="Media / Lifestyle" />
+                      </ImageReveal>
+                      <h4 className="text-xl font-bold mb-4">マレーシア生活情報局</h4>
+                      <p className="text-sm md:text-base leading-[2.2] text-gray-600 mb-6 font-medium">
+                        マレーシアでの生活・移住に役立つ情報を届けるメディア。記事配信の仕組みからSEO設計までを内製し、現地で暮らす人々の実用的な疑問に応えています。
+                      </p>
+                    </a>
+                  </FadeIn>
                 </div>
               </div>
             </div>

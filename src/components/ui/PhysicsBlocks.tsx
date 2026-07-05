@@ -11,6 +11,8 @@ export const PhysicsBlocks = ({ isActive = true, onSecretTrigger }: { isActive?:
 
     useEffect(() => {
         if (!isActive || !sceneRef.current) return;
+        // アクセシビリティ: モーション削減設定時は物理演算を初期化せず、静的Heroのみ表示
+        if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
         // --- Matter.js セットアップ ---
         const Engine = Matter.Engine,
