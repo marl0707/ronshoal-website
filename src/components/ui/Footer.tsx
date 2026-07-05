@@ -15,8 +15,7 @@ export const Footer = () => {
                         <h4 className="text-lg font-bold text-blue-400 mb-6">IT関連事業</h4>
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
                             <a href="/services/ai-burger" className="hover:text-white transition-colors">AIバーガー - AI受注開発サービス</a>
-                            <span className="text-zinc-300 mt-2">NFCts - デジタル和紙プラットフォーム</span>
-                            <a href="/services/nfcts/kazasu-photo" className="hover:text-white transition-colors pl-4">・かざす写真館（導入事例）</a>
+                            {/* NFCts・かざす写真館は谷口松雄堂側へ移管済み（2026-07-04）のため自社IT事業欄から除外（2026-07-06） */}
                         </div>
                     </div>
 

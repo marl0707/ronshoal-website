@@ -57,6 +57,13 @@ const nextConfig: NextConfig = {
       ],
     };
   },
+  async redirects() {
+    return [
+      // 健康パスポート（オンライン診療）は休止中。配下ページへの直アクセスをトップへ一時リダイレクト（permanent:false=307・再開時にこの2行を削除）。2026-07-06
+      { source: "/services/kenko-passport", destination: "/", permanent: false },
+      { source: "/services/kenko-passport/:path*", destination: "/", permanent: false },
+    ];
+  },
 };
 
 export default nextConfig;
