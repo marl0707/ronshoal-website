@@ -15,7 +15,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: "ロンショール合同会社 | Ronshoal LLC",
   description: "すべての人々に後悔のない人生を。労災二次健診、再生医療、AI開発などを展開するロンショール合同会社の公式サイトです。",
-  keywords: ["ロンショール", "Ronshoal", "労災二次健診", "健診プラス", "健康経営", "AI開発", "AGIステップ", "健康パスポート"],
+  keywords: ["ロンショール", "Ronshoal", "労災二次健診", "健診プラス", "健康経営", "AI開発", "AGIステップ"],
   openGraph: {
     title: "ロンショール合同会社 | Ronshoal LLC",
     description: "すべての人々に後悔のない人生を。医療・AI・ライフスタイルの領域から世界をサポートします。",

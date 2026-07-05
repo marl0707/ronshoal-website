@@ -56,8 +56,6 @@ export default function NotFound() {
                     <div className="mt-12 flex flex-wrap justify-center gap-4 text-sm font-medium">
                         <Link href="/kenshin" className="text-gray-500 hover:text-black transition-colors underline-offset-4 hover:underline">健診プラス</Link>
                         <span className="text-gray-300">|</span>
-                        <Link href="/health" className="text-gray-500 hover:text-black transition-colors underline-offset-4 hover:underline">健康パスポート</Link>
-                        <span className="text-gray-300">|</span>
                         <Link href="/ai" className="text-gray-500 hover:text-black transition-colors underline-offset-4 hover:underline">AI Burger</Link>
                         <span className="text-gray-300">|</span>
                         <Link href="/company" className="text-gray-500 hover:text-black transition-colors underline-offset-4 hover:underline">会社紹介</Link>
