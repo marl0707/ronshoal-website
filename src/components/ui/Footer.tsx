@@ -7,9 +7,7 @@ export const Footer = () => {
                         <h4 className="text-lg font-bold text-blue-400 mb-6">医療関連事業</h4>
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
                             <a href="/services/kenshin-plus" className="hover:text-white transition-colors">健診プラス - 労災二次健診オンラインシステム</a>
-                            <span className="text-zinc-300 mt-2">健康パスポート - オンライン診療プラットフォーム</span>
-                            <a href="/services/kenko-passport/exosome" className="hover:text-white transition-colors pl-4">・骨髄由来エクソソーム治療</a>
-                            <a href="/services/kenko-passport/medical-diet" className="hover:text-white transition-colors pl-4">・医療ダイエット</a>
+                            {/* 健康パスポート（オンライン診療）・骨髄由来エクソソーム治療・医療ダイエットは休止中のため非表示（2026-07-06） */}
                         </div>
                     </div>
 

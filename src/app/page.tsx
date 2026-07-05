@@ -295,22 +295,8 @@ export default function Home() {
                     </Link>
                   </FadeIn>
 
-                  <FadeIn delay={0.2} className="group cursor-pointer">
-                    <Link href="/services/kenko-passport" className="block">
-                      <p className="text-[10px] font-bold text-gray-500 tracking-[0.2em] mb-6">HEALTH PASSPORT</p>
-                      <ImageReveal delay={0.1}>
-                        <div className="aspect-[16/9] w-full bg-gray-200 overflow-hidden mb-8 relative">
-                          <img src="/services/images/健康パスポート.png" alt="エクソソーム" className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" />
-                        </div>
-                      </ImageReveal>
-                      <h4 className="text-xl font-bold mb-4">健康パスポート（オンライン診療プラットフォーム）</h4>
-                      <p className="text-sm md:text-base leading-[2.2] text-gray-600 mb-6 font-medium">
-                        待ち時間が何時間になるかわからない。交通費をかけてわずか数分の診察のために医療機関へ通う。そんな「受診の壁」が、人々の予防意識を奪っています。<br />
-                        不調や肥満を抱える人が、隙間時間で手軽に、そして確実に改善へ向かえるオンライン診療プラットフォーム。<br />
-                        医療へのアクセス構造を壊し、世界をもっと豊かで健康なものへと変革します。
-                      </p>
-                    </Link>
-                  </FadeIn>
+                  {/* 健康パスポート（オンライン診療プラットフォーム）は休止中のため非表示（2026-07-06）。
+                      配下のエクソソーム治療・医療ダイエットも同様。再開時はこのカードとフッターの該当リンクを復元。 */}
                 </div>
               </div>
 
