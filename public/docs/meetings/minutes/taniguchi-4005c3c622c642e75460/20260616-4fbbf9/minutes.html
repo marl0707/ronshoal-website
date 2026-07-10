@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>谷口社長ミーティング（2026年6月16日） 議事録 | 2026年06月16日</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: #f4f3f0; color: #24211c;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 56px 32px 96px; }
+  .masthead { border-bottom: 2px solid #1f2a24; padding-bottom: 20px; margin-bottom: 36px; }
+  .masthead .label { font-size: 12px; letter-spacing: .12em; color: #6b6459; text-transform: uppercase; }
+  .masthead h1 { font-size: 24px; margin: 8px 0 4px; font-weight: 700; }
+  .masthead .meta { font-size: 14px; color: #55503f; }
+  .backlink { display: inline-block; margin-bottom: 20px; font-size: 13px; color: #55503f; text-decoration: none; }
+  .backlink:hover { text-decoration: underline; }
+  .summary { background: #fff; border: 1px solid #e3e0d8; border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; font-size: 15px; }
+  .attendees { margin-bottom: 32px; }
+  .attendees h2, .section h2, .decisions h2, .actions h2 {
+    font-size: 15px; font-weight: 700; color: #1f2a24;
+    border-left: 4px solid #1f2a24; padding-left: 10px; margin: 0 0 12px;
+  }
+  .attendees ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  .section { margin-bottom: 28px; }
+  .section p { font-size: 14px; margin: 0; }
+  .decisions { margin-bottom: 28px; }
+  .decisions ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  table.actions { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; }
+  table.actions th, table.actions td { border: 1px solid #e3e0d8; padding: 8px 10px; text-align: left; }
+  table.actions th { background: #ece9e2; font-weight: 700; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid #e3e0d8; font-size: 12px; color: #8a8375; }
+  .entry-list { list-style: none; margin: 0; padding: 0; }
+  .entry-card {
+    display: block; background: #fff; border: 1px solid #e3e0d8; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 14px; text-decoration: none; color: inherit;
+  }
+  .entry-card:hover { border-color: #1f2a24; }
+  .entry-card .entry-date { font-size: 13px; color: #6b6459; margin-bottom: 4px; }
+  .entry-card .entry-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .entry-card .entry-themes { margin: 0; padding-left: 20px; font-size: 13px; color: #45412f; }
+  .entry-card .entry-more { margin-top: 8px; font-size: 12px; color: #6b6459; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <a class="backlink" href="/docs/meetings/minutes/taniguchi-4005c3c622c642e75460/">← 議事録一覧に戻る</a>
+    <div class="masthead">
+      <div class="label">Meeting Minutes</div>
+      <h1>谷口社長ミーティング（2026年6月16日）</h1>
+      <div class="meta">2026年06月16日</div>
+    </div>
+    <div class="summary">NFCTSシステムのログイン統合・タグ管理機能の実装状況と、専用アプリ（iOS/TestFlight）の試験運用計画、購入者向けマニュアル整備の方針を確認しました。あわせてGitHubを用いた共同編集フローの導入、ランディングページのデザイン・構成方針、NFCTSライトの事業上の位置づけについて協議し、6月24〜26日の展示会に向けた準備を進めることを確認しました。</div>
+    <div class="attendees">
+      <h2>出席者</h2>
+      <ul><li>谷口主嘉様（谷口松雄堂）</li><li>瀬島和樹（ロンショール合同会社）</li><li>高橋一也様（NFCTSシステム開発担当）</li></ul>
+    </div>
+    
+        <section class="section">
+          <h2>NFCTSシステムの開発状況</h2>
+          <p>法人向け（2B）・個人向け（2C）のログイン画面を1つに統合し、入力されたアカウント情報からシステム側で法人か個人かを自動判定する仕様に変更しました。管理画面のヘッダーには「ライト」「ビジネス」「管理」を直感的に判別できる簡易バッジを追加しています。NFCタグをスキャンした際の挙動（未ログイン時はログイン・新規登録を促し、ログイン時は既存アカウントに紐付ける）についても実装済みであることが共有されました。</p>
+        </section>
+        <section class="section">
+          <h2>購入者向けマニュアルの整備方針</h2>
+          <p>Zoomでの説明内容の録画データと、AIで作成した既存の下書きを元に、商品ごとに特化したマニュアルを整備する方針を確認しました。商品によって表示する機能（例：ギャラリーのみ等）が異なるため、商品別にマニュアルを分ける方が利用者の混乱を防げるとの認識を共有しました。マニュアル作成にはAIを活用し、画面スクリーンショットを整理して効率的に作業を進める体制とすることも確認しました。</p>
+        </section>
+        <section class="section">
+          <h2>専用アプリ（iOS）の開発計画</h2>
+          <p>ブラウザだけでなく、コンテンツ編集やタグの一括コピーなどを行える専用アプリ（iOS向け、既存のNFCTS画面をそのまま表示するハイブリッド型）を開発する方針を確認しました。まずTestFlightを利用した試験運用として社内で共有・検証を行い、問題がなければ審査を経て公開する段取りとします。対象は2C（ライト）向けで、法人利用者は引き続きPCブラウザでの操作を想定しています。</p>
+        </section>
+        <section class="section">
+          <h2>商品テンプレートの絞り込み</h2>
+          <p>テンプレートの選択肢が多いと購入者が選びきれないとの企画チームからの意見を踏まえ、商品ごとに提供するテンプレートを1〜2種類程度に絞り込む方向で企画チームと検討を進めていることが報告されました。テンプレートの絞り込みが確定次第、商品別マニュアルの作成に着手する予定です。</p>
+        </section>
+        <section class="section">
+          <h2>GitHubによる共同編集体制の構築</h2>
+          <p>ランディングページ（NFCTS-LP等）の編集を効率化するため、瀬島氏・谷口社長をリポジトリのコラボレーターとして招待する計画が説明されました。各自がリポジトリをクローンし、ブランチを切ってメインを直接触らずに修正することとし、プルリクエストを出すとVercelにより自動でプレビューURLが発行される仕組みを活用してレビュー・合意形成を行った上でマージするフローを導入します。ホームページやシステムは谷口醤油の資産であるため、GitHub・Vercelの管理を1つのプロジェクトに集約する方針であることも共有されました。</p>
+        </section>
+        <section class="section">
+          <h2>マニュアルの配置場所</h2>
+          <p>マニュアルはPDFではなくウェブページの形で公開する方針を確認しました。配置場所については、アプリ・システム内部にメニューとして組み込む形を基本とし、ユーザーがアクセス時に迷わず操作方法を確認できる導線を設計することで合意しました。</p>
+        </section>
+        <section class="section">
+          <h2>ランディングページの構成・デザイン方針</h2>
+          <p>現状のNFCTSトップページは「NFCTSとは何か」が伝わりにくいとの課題認識から、商品にスマホをかざすことで顧客と継続的につながれる価値を訴求するトップページ構成案が提示されました。法人担当者・経営者を主なペルソナと位置付け、信頼性を重視した専門的で洗練されたデザインへ修正する必要があるとの指摘があり、「楽々会計」のスタイルを参考に文字サイズ・フォントを調整する方針で合意しました。谷口醤油の既存のオレンジ色を基調としつつ青色を組み合わせ、伝統と先進性を両立させるデザイン方針も確認しました。</p>
+        </section>
+        <section class="section">
+          <h2>NFCTSライトの事業上の位置づけ</h2>
+          <p>NFCTSライトは、B2B顧客が導入しやすいエントリーモデルとして活用し、簡便なアプリの提供により営業のハードルを下げ、そこから大規模案件へ発展させる営業戦略が提示されました。あわせて、谷口醤油のOEM販売および和製品展開を事業の基盤とすることが最優先事項であることを再確認しました。</p>
+        </section>
+        <section class="section">
+          <h2>次回ミーティング</h2>
+          <p>次回のミーティングは金曜日11時（2026年6月19日）に実施することで合意しました。</p>
+        </section>
+    <div class="decisions">
+      <h2>決定事項</h2>
+      <ul><li>ログイン画面を法人向け（2B）・個人向け（2C）で統合し、システム側で自動判定する仕様とする</li><li>専用アプリ（iOS）はまずTestFlightで試験運用し、社内で検証を行う</li><li>商品ごとのテンプレートを1〜2種類程度に絞り込む方向で検討する</li><li>GitHubリポジトリに瀬島氏・谷口社長をコラボレーターとして招待し、プルリクエスト＋プレビューURLによるレビューフローを導入する</li><li>マニュアルはウェブページ形式とし、システム内部に組み込んで公開する</li><li>ランディングページのデザインは「楽々会計」のスタイルを参考に、谷口醤油ブランド（オレンジ×青）との統一感を持たせて修正する</li><li>NFCTSライトはB2B顧客向けの導入しやすいエントリーモデルと位置付ける</li><li>谷口醤油のOEM販売・和製品展開を事業の最優先事項として再確認する</li><li>次回ミーティングは2026年6月19日（金）11時に実施する</li></ul>
+    </div>
+    <div class="actions">
+      <h2>次回までの対応事項</h2>
+      <table class="actions">
+        <tr><th>対応事項</th><th>担当</th><th>期限</th></tr>
+        
+          <tr>
+            <td>AIが作成した下書きを元に、購入者向けの詳細な操作マニュアルを完成させる</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>製品説明および登録手順を解説する説明動画を制作する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>TestFlightを利用した試験運用可能なiOSアプリを社内で共有する</td>
+            <td>高橋様</td>
+            <td>2026年6月24日〜26日の展示会まで</td>
+          </tr>
+          <tr>
+            <td>瀬島様・谷口社長をGitHubリポジトリのコラボレーターとして招待する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>リポジトリをクローンし、プルリクエストによる更新手順を確認する</td>
+            <td>瀬島様・谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>操作マニュアルをシステム内に組み込み、アクセス可能な動線を設計する</td>
+            <td>双方</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>商品ごとに提供するテンプレートの種類を1〜2種類に絞り込む</td>
+            <td>双方</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>共通マニュアルの台本をAI（Claudeデザイン）を使用して作成する</td>
+            <td>瀬島様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>ウェブページのデザインを楽々会計のスタイルを参考に反映し、文字の大きさとフォントを調整する</td>
+            <td>瀬島様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>ウェブページの構成を機能ベースに見直し、ペルソナ整理をAIに相談する</td>
+            <td>瀬島様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>ライト向けマニュアルの完成と専用アプリ（TestFlight）の試験運用環境の構築</td>
+            <td>双方</td>
+            <td>2026年6月24日〜26日の展示会まで</td>
+          </tr>
+          <tr>
+            <td>マニュアル作成に関する詳細な指導をZoomで行う</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>次回ミーティングを実施する</td>
+            <td>双方</td>
+            <td>2026年6月19日（金）11:00</td>
+          </tr>
+      </table>
+    </div>
+    <div class="footer">ロンショール合同会社 作成・非公開URL(第三者への共有はご遠慮ください)</div>
+  </div>
+</body>
+</html>
