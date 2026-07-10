@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>谷口社長ミーティング（2026年6月15日） 議事録 | 2026年06月15日</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: #f4f3f0; color: #24211c;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 56px 32px 96px; }
+  .masthead { border-bottom: 2px solid #1f2a24; padding-bottom: 20px; margin-bottom: 36px; }
+  .masthead .label { font-size: 12px; letter-spacing: .12em; color: #6b6459; text-transform: uppercase; }
+  .masthead h1 { font-size: 24px; margin: 8px 0 4px; font-weight: 700; }
+  .masthead .meta { font-size: 14px; color: #55503f; }
+  .backlink { display: inline-block; margin-bottom: 20px; font-size: 13px; color: #55503f; text-decoration: none; }
+  .backlink:hover { text-decoration: underline; }
+  .summary { background: #fff; border: 1px solid #e3e0d8; border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; font-size: 15px; }
+  .attendees { margin-bottom: 32px; }
+  .attendees h2, .section h2, .decisions h2, .actions h2 {
+    font-size: 15px; font-weight: 700; color: #1f2a24;
+    border-left: 4px solid #1f2a24; padding-left: 10px; margin: 0 0 12px;
+  }
+  .attendees ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  .section { margin-bottom: 28px; }
+  .section p { font-size: 14px; margin: 0; }
+  .decisions { margin-bottom: 28px; }
+  .decisions ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  table.actions { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; }
+  table.actions th, table.actions td { border: 1px solid #e3e0d8; padding: 8px 10px; text-align: left; }
+  table.actions th { background: #ece9e2; font-weight: 700; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid #e3e0d8; font-size: 12px; color: #8a8375; }
+  .entry-list { list-style: none; margin: 0; padding: 0; }
+  .entry-card {
+    display: block; background: #fff; border: 1px solid #e3e0d8; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 14px; text-decoration: none; color: inherit;
+  }
+  .entry-card:hover { border-color: #1f2a24; }
+  .entry-card .entry-date { font-size: 13px; color: #6b6459; margin-bottom: 4px; }
+  .entry-card .entry-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .entry-card .entry-themes { margin: 0; padding-left: 20px; font-size: 13px; color: #45412f; }
+  .entry-card .entry-more { margin-top: 8px; font-size: 12px; color: #6b6459; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <a class="backlink" href="/docs/meetings/minutes/taniguchi-4005c3c622c642e75460/">← 議事録一覧に戻る</a>
+    <div class="masthead">
+      <div class="label">Meeting Minutes</div>
+      <h1>谷口社長ミーティング（2026年6月15日）</h1>
+      <div class="meta">2026年06月15日</div>
+    </div>
+    <div class="summary">NFCTSシステムのログインフロー統合およびNCTS説明ページの構成刷新について議論し、Vercel/GitHubを用いた開発・公開体制を整えました。あわせて、リスキリング補助金の計算相違を特定して返済計画を策定するとともに、海外取引に関する税務上の留意点を確認しました。</div>
+    <div class="attendees">
+      <h2>出席者</h2>
+      <ul><li>谷口主嘉様（谷口松雄堂）</li><li>Kazuya Takahashi様（開発担当）</li><li>瀬島和樹（ロンショール合同会社）</li></ul>
+    </div>
+    
+        <section class="section">
+          <h2>ログインフローの統合</h2>
+          <p>個人（B2C）と法人（B2B）で分かれていたログイン画面が利用者の混乱を招いていたため、画面を1つに統合し、内部のフラグ判定によって表示を個人向け・法人向けに分岐させる方針が確認されました。既存のロジックは維持したまま入口部分のみを簡素化する方向です。あわせて、コンテンツが設定されたNFCタグをタップした場合はログイン画面を経由せず直接コンテンツが表示される仕組みであることが確認され、システム上の懸念はないとされました。</p>
+        </section>
+        <section class="section">
+          <h2>デザイン・テンプレート機能の進捗</h2>
+          <p>Kazuya Takahashi様より、UIの横幅拡大やタグ管理番号の表示など画面改修の進捗が共有されました。また、動画メッセージとギャラリーを組み合わせた新テンプレート機能について説明があり、結婚式など複数人からのメッセージを集めるイベント用途を想定した構成案が議論されました。</p>
+        </section>
+        <section class="section">
+          <h2>NCTS説明ページの構成刷新</h2>
+          <p>現状のNCTS説明ページは概要説明がないまま個人向け・法人向けに分岐してしまっている点が課題として指摘されました。改善案として、トップページでNCTSの概要・特徴を説明した上で、個人向け（既製品販売・ECサイト導線）と法人向け（技術詳細・導入事例）の2つの導線に分ける構成が提示されました。本ページはOEM販売における信頼性訴求を主目的とするため、個人向けについては別途独立したランディングページを用意する方針が確認されました。料金体系は、個人向けは既製品の固定価格、法人向けはロット数に応じた価格設定であることが確認されました。</p>
+        </section>
+        <section class="section">
+          <h2>開発・公開環境の整備</h2>
+          <p>ページの公開先としてVercelの利用が検討され、谷口様が管理するGitHubリポジトリを瀬島様と共有し、瀬島様が直接編集できる体制を整えることで合意しました。対象の説明ページ（NCTSJP）はどこにも紐づいていないため、直接改修を進めてよいことが確認されました。</p>
+        </section>
+        <section class="section">
+          <h2>リスキリング補助金の計算相違と返済計画</h2>
+          <p>鎌倉様への支払額921万6000円に関し、開発費160万円分の消費税（16万円×6回＝96万円）の計算漏れにより、当初想定額940万8000円と実質額844万8000円との間に差異が生じていたことが判明しました。この結果、所有動社への返金額は153万6000円となる見込みです。今回分の過剰分211万2000円と今後返還予定の633万6000円（合計844万8000円）については、単価1050円のプラスチックカード（2000枚）発注およびサンプル制作費と組み合わせ、4回に分割して伝票処理する案が提示されました。あわせて、海外（マレーシア等）での売上計上による消費税対応の可能性が検討されましたが、瀬島様がマレーシアで法人を保有していないことなどから実現は難しく、日本国内法人としての処理を継続する方針となりました。</p>
+        </section>
+        <section class="section">
+          <h2>税務調査の振り返りとその他の依頼事項</h2>
+          <p>谷口様より、直近の税務調査で海外取引について指摘を受けた経験が共有されました。あわせて、AI（ChatGPT、Claude、Gemini）を用いた領収書作成を試みた際の挙動や、最終的な調整は人間が行う必要があるとの所感が語られました。また、瀬島様より個人的にプラスチックカード（1000枚程度）の制作依頼があり、谷口様が中国でのオフセット印刷・発送を担当することで合意しました。開発体制については、Claude Codeやサブエージェントを活用した並行作業により、Kazuya Takahashi様側の作業が効率的に進んでいることが確認されました。</p>
+        </section>
+    <div class="decisions">
+      <h2>決定事項</h2>
+      <ul><li>ログイン画面を1つに統合し、フラグ判定によって個人・法人向け表示を内部で分岐させる</li><li>NCTS説明ページはトップページで概要説明を行った上で、個人向け・法人向けの2導線に分ける構成に改修する</li><li>今回作成するページはOEM（法人）向けの信頼性訴求を目的とし、個人向けは別途独立したランディングページを用意する</li><li>ページはVercelにデプロイし、GitHubリポジトリを共有して瀬島様が直接編集できる体制とする</li><li>リスキリング補助金は消費税分の計算漏れ（96万円）が原因と特定し、鎌倉様への返金額を153万6000円とする</li><li>補助金差額の返済（合計844万8000円）は、プラスチックカード発注（単価1050円×2000枚＋サンプル制作費）と組み合わせ4回に分割して処理する</li><li>海外売上計上による消費税対応は実現が難しいため、日本国内法人としての処理を継続する</li><li>瀬島様個人のプラスチックカード（1000枚程度）は谷口様側で中国オフセット印刷にて制作・発送する</li></ul>
+    </div>
+    <div class="actions">
+      <h2>次回までの対応事項</h2>
+      <table class="actions">
+        <tr><th>対応事項</th><th>担当</th><th>期限</th></tr>
+        
+          <tr>
+            <td>ログイン画面の共通化実装（個人・法人をフラグで分岐）</td>
+            <td>Kazuya Takahashi様</td>
+            <td>2026年06月15日</td>
+          </tr>
+          <tr>
+            <td>画面遷移仕様確定後の操作マニュアル作成</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>NFCTSトップページおよび個人向け・法人向けページのサイトマップ・構成案作成</td>
+            <td>ロンショール</td>
+            <td>2026年06月16日</td>
+          </tr>
+          <tr>
+            <td>GitHubリポジトリのコラボレーター招待（瀬島様への権限付与）</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>構成案に基づくWebサイトのUI・コード更新およびデプロイ</td>
+            <td>Kazuya Takahashi様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>海外売上計上等による消費税課題解消の可能性調査</td>
+            <td>ロンショール</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>プラスチックカード発注に向けた前倒し日付での納品書・請求書発行</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>プラスチックカードのデザインデータ作成（中国印刷用）</td>
+            <td>ロンショール</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>デザインデータを基にした中国でのオフセット印刷およびカード発送</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+      </table>
+    </div>
+    <div class="footer">ロンショール合同会社 作成・非公開URL(第三者への共有はご遠慮ください)</div>
+  </div>
+</body>
+</html>
