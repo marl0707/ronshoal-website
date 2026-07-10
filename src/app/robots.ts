@@ -4,11 +4,13 @@ import { MetadataRoute } from 'next';
 // Google はここに書かれた Sitemap を自動発見する（Search Console への手動登録を代替）。
 // 追加のみ・既存ページや rewrites（/pickleball 等の proxy）には非干渉。
 // 認証保護ページは robots ではなく各アプリの認証で守られているため Allow: / で問題ない。
+// /docs/meetings/ は顧問先向け非公開議事録(ランダムslug)。検索エンジン非掲載のため明示的にdisallow。
 export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: '*',
             allow: '/',
+            disallow: '/docs/meetings/',
         },
         sitemap: [
             'https://www.ronshoal.com/pickleball/sitemap.xml',
