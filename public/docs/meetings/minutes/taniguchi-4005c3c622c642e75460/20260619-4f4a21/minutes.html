@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>谷口社長ミーティング（Webサイト改善・NCTSアプリ開発） 議事録 | 2026年06月19日</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: #f4f3f0; color: #24211c;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 56px 32px 96px; }
+  .masthead { border-bottom: 2px solid #1f2a24; padding-bottom: 20px; margin-bottom: 36px; }
+  .masthead .label { font-size: 12px; letter-spacing: .12em; color: #6b6459; text-transform: uppercase; }
+  .masthead h1 { font-size: 24px; margin: 8px 0 4px; font-weight: 700; }
+  .masthead .meta { font-size: 14px; color: #55503f; }
+  .backlink { display: inline-block; margin-bottom: 20px; font-size: 13px; color: #55503f; text-decoration: none; }
+  .backlink:hover { text-decoration: underline; }
+  .summary { background: #fff; border: 1px solid #e3e0d8; border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; font-size: 15px; }
+  .attendees { margin-bottom: 32px; }
+  .attendees h2, .section h2, .decisions h2, .actions h2 {
+    font-size: 15px; font-weight: 700; color: #1f2a24;
+    border-left: 4px solid #1f2a24; padding-left: 10px; margin: 0 0 12px;
+  }
+  .attendees ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  .section { margin-bottom: 28px; }
+  .section p { font-size: 14px; margin: 0; }
+  .decisions { margin-bottom: 28px; }
+  .decisions ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  table.actions { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; }
+  table.actions th, table.actions td { border: 1px solid #e3e0d8; padding: 8px 10px; text-align: left; }
+  table.actions th { background: #ece9e2; font-weight: 700; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid #e3e0d8; font-size: 12px; color: #8a8375; }
+  .entry-list { list-style: none; margin: 0; padding: 0; }
+  .entry-card {
+    display: block; background: #fff; border: 1px solid #e3e0d8; border-radius: 8px;
+    padding: 18px 22px; margin-bottom: 14px; text-decoration: none; color: inherit;
+  }
+  .entry-card:hover { border-color: #1f2a24; }
+  .entry-card .entry-date { font-size: 13px; color: #6b6459; margin-bottom: 4px; }
+  .entry-card .entry-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .entry-card .entry-themes { margin: 0; padding-left: 20px; font-size: 13px; color: #45412f; }
+  .entry-card .entry-more { margin-top: 8px; font-size: 12px; color: #6b6459; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <a class="backlink" href="../">← 議事録一覧に戻る</a>
+    <div class="masthead">
+      <div class="label">Meeting Minutes</div>
+      <h1>谷口社長ミーティング（Webサイト改善・NCTSアプリ開発）</h1>
+      <div class="meta">2026年06月19日</div>
+    </div>
+    <div class="summary">ウェブサイトのトップページ刷新完了の報告と、NFCタグの設定・管理を簡素化するNCTSアプリの開発状況について協議しました。アプリはWebベースの既存機能をiPhoneアプリとしてラップした構成で開発期間は約1.5日であったことが共有され、実機でのTestFlight動作確認を行いながら、ユーザーの導線設計（初回はアプリダウンロードを促し、2枚目以降はアプリへ自動遷移させる方向性）について合意しました。次回は6月22日(月)16:30に、NFCタグ読み取り時のアプリ自動リダイレクトの技術的実現可能性を確認する打ち合わせを行います。</div>
+    <div class="attendees">
+      <h2>出席者</h2>
+      <ul><li>谷口社長（谷口松雄堂）</li><li>高橋様（谷口松雄堂）</li><li>瀬島和樹（ロンショール合同会社）</li></ul>
+    </div>
+    
+        <section class="section">
+          <h2>Webサイトトップページの更新</h2>
+          <p>高橋様より、Googleの「Stitch」でリデザインし、Claudeでソースコードを最適化したトップページの更新報告があり、瀬島より了承されました。仮想ページの作成は現状優先度が低いという認識で一致しました。</p>
+        </section>
+        <section class="section">
+          <h2>NCTSアプリ開発の経緯と技術構成</h2>
+          <p>NFCタグ設定後の管理・変更のしやすさを目的に、既存のWebベースNFC機能をiPhoneアプリとしてラップするハイブリッド構成でNCTSアプリを開発したとの報告がありました（開発期間約1.5日）。iPhone本体のNFC機能を活用することでブラウザより高速な挙動を実現でき、同じ構成であればAndroid版やGoogle向けの展開も比較的容易であるとの説明がありました。</p>
+        </section>
+        <section class="section">
+          <h2>TestFlightによる動作確認とアカウント整理</h2>
+          <p>瀬島がTestFlight経由でアプリをインストールし、実機での動作確認を実施しました。確認の過程で、法人（2B）アカウントと個人（2C）アカウントの紐付けに起因する不具合（位置情報エラー表示等）が見つかり、現行のNCTSシステムには位置情報取得機能が含まれていないことが原因と説明されました。あわせて、法人アカウントに紐づいている検証用NFCタグの一部を個人・NCTSライト用に初期化・解放する必要があることを確認しました。</p>
+        </section>
+        <section class="section">
+          <h2>ユーザーオンボーディング・導線設計</h2>
+          <p>初めてタグをタップするユーザーには、アプリダウンロードまたはブラウザでの継続利用を選択できる画面を表示し、初回はアプリでの登録体験を促す導線が望ましいとの方針で一致しました。法人（2B）向けの運用は従来通りWebベースを基本とし、個人（2C）向けはアプリを主軸とする形で役割を分ける方向性が確認されました。</p>
+        </section>
+        <section class="section">
+          <h2>今後の機能拡張方針（NFC自動リダイレクト）</h2>
+          <p>2枚目以降のタグをタップした際、アプリが既にインストールされていれば自動的にアプリが起動する仕組み（NFCタグの書き込み領域のURL・ドメイン判定によるリダイレクト）の実現可能性を高橋様が調査することになりました。実現できれば、個人ユーザーはアプリ、法人ユーザーはWebという形で導線を明確に分離できる見込みです。</p>
+        </section>
+    <div class="decisions">
+      <h2>決定事項</h2>
+      <ul><li>NCTSアプリの開発を継続し、日本一のイベントに向けて準備を進める</li><li>運用方針として、個人（2C）向けはアプリを主軸、法人（2B）向けはWebを主軸とする形で導線を分ける</li><li>商品の初回タップ時は、アプリダウンロードまたはブラウザ継続を選択できるオンボーディング画面を導入する</li></ul>
+    </div>
+    <div class="actions">
+      <h2>次回までの対応事項</h2>
+      <table class="actions">
+        <tr><th>対応事項</th><th>担当</th><th>期限</th></tr>
+        
+          <tr>
+            <td>NFCタグの初期化（法人アカウントに紐づく特定のタグをNCTSライト用として解放）</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>初回タグ読み込み時に、アプリダウンロードまたはブラウザ継続を選択できるオンボーディング画面の実装</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>個人アカウントに紐づいている設定の確認・不要な紐付けの整理</td>
+            <td>瀬島和樹</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>NFCタグスキャン時にアプリのインストール有無を判定し、アプリ起動またはストア遷移させる仕組みの技術検証</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>アプリの挙動（自動リダイレクト仕様）の進捗確認打ち合わせ</td>
+            <td>双方</td>
+            <td>2026年6月22日(月) 16:30</td>
+          </tr>
+      </table>
+    </div>
+    <div class="footer">ロンショール合同会社 作成・非公開URL(第三者への共有はご遠慮ください)</div>
+  </div>
+</body>
+</html>
