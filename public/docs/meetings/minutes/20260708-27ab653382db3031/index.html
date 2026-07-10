@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>谷口社長ミーティング（NFCTS Lite開発状況・OEM戦略） 議事録 | 2026年07月08日</title>
+<style>
+  :root { color-scheme: light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 0; background: #f4f3f0; color: #24211c;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+  }
+  .page { max-width: 760px; margin: 0 auto; padding: 56px 32px 96px; }
+  .masthead { border-bottom: 2px solid #1f2a24; padding-bottom: 20px; margin-bottom: 36px; }
+  .masthead .label { font-size: 12px; letter-spacing: .12em; color: #6b6459; text-transform: uppercase; }
+  .masthead h1 { font-size: 24px; margin: 8px 0 4px; font-weight: 700; }
+  .masthead .meta { font-size: 14px; color: #55503f; }
+  .summary { background: #fff; border: 1px solid #e3e0d8; border-radius: 8px; padding: 20px 24px; margin-bottom: 32px; font-size: 15px; }
+  .attendees { margin-bottom: 32px; }
+  .attendees h2, .section h2, .decisions h2, .actions h2 {
+    font-size: 15px; font-weight: 700; color: #1f2a24;
+    border-left: 4px solid #1f2a24; padding-left: 10px; margin: 0 0 12px;
+  }
+  .attendees ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  .section { margin-bottom: 28px; }
+  .section p { font-size: 14px; margin: 0; }
+  .decisions { margin-bottom: 28px; }
+  .decisions ul { margin: 0; padding-left: 22px; font-size: 14px; }
+  table.actions { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; }
+  table.actions th, table.actions td { border: 1px solid #e3e0d8; padding: 8px 10px; text-align: left; }
+  table.actions th { background: #ece9e2; font-weight: 700; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid #e3e0d8; font-size: 12px; color: #8a8375; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="masthead">
+      <div class="label">Meeting Minutes</div>
+      <h1>谷口社長ミーティング（NFCTS Lite開発状況・OEM戦略）</h1>
+      <div class="meta">2026年07月08日</div>
+    </div>
+    <div class="summary">NFCTS LiteアプリがApp Storeで正式公開されたことを踏まえ、テンプレートのブラッシュアップやPC対応など今後のUI/UX改善方針を確認しました。あわせて、OEM展開・特許申請・真贋判定機能・MCPサーバーによる業務自動化など、事業拡大に向けた戦略についても議論しました。</div>
+    <div class="attendees">
+      <h2>出席者</h2>
+      <ul><li>谷口主嘉様（谷口松雄堂）</li><li>瀬島和樹（ロンショール合同会社）</li><li>Kazuya Takahashi様</li></ul>
+    </div>
+    
+        <section class="section">
+          <h2>NFCTS Liteアプリの開発状況</h2>
+          <p>NFCTS LiteアプリがApp Storeにて正式に認証・公開されました。現在アプリ内で呼び出し可能なテンプレートは4種類（ファンサイト、デジタル名刺、招待、動画メッセージ）実装済みで、タグに商品が未設定の場合はユーザーが一覧から選択できる仕様です。ログイン認証は不要で、データは端末内に保持され、設定画面のQRコードから別端末へのバックアップ・復元が可能です。</p>
+        </section>
+        <section class="section">
+          <h2>テンプレートのブラッシュアップ</h2>
+          <p>現状のテンプレートは開発視点にとどまっており、営業視点での改善（直感的な操作・デザインの最適化）が必要との認識で一致しました。ユーザーが混乱しないよう、1つのタグに対して1つの機能へシンプルに遷移させる設計方針を維持します。</p>
+        </section>
+        <section class="section">
+          <h2>PCからのデータ操作ニーズ</h2>
+          <p>名刺プロフィール設定などで、スマートフォンだけでなくPCの大画面操作やPC内の画像・動画のアップロード需要があることが確認されました。ログイン不要という現状の設計上、ブラウザから同一データへアクセスさせる実装には課題があり、今後の検討課題として持ち帰りました。</p>
+        </section>
+        <section class="section">
+          <h2>ラフメーカー社への展開とOEM戦略</h2>
+          <p>ラフメーカー社へサンプルのNFCカードを3枚ずつ送付し、動作確認を進めています。アプリの使用方法をまとめた説明書は本日中にPDFで提供予定です。今後は、導入企業がNFCとシステムを連携させた独自商品・アプリを開発できるOEM提供の形を軸に展開し、ラフメーカー社には実際に触れてもらったうえでターゲット企業の紹介につなげる方針です。</p>
+        </section>
+        <section class="section">
+          <h2>特許申請の検討</h2>
+          <p>谷口様より、観光バスの音声ガイドシステムのように、NFCTSを基盤（OS）として様々なアプリケーションを展開できる点を特許化する方向で、来週弁理士事務所と打ち合わせを行う予定であることが報告されました。</p>
+        </section>
+        <section class="section">
+          <h2>開発費用とテンプレート提供の考え方</h2>
+          <p>既存のサンプルテンプレート自体は無料で提供可能ですが、新規アプリやテンプレートの制作は別途見積り（目安として20万円程度からのイメージ）となる見込みです。詳細な費用は案件ごとの内容によって変動します。</p>
+        </section>
+        <section class="section">
+          <h2>NFCタグの誤検知（iOS）対策</h2>
+          <p>NFCタグがiOSのブラウザを自動的に開いてしまう挙動が確認されており、タグの書き込み形式をURL形式からテキスト形式に変更することで誤検知を回避できる可能性が提案されました。既存のリードオンリー設定のタグでは書き換えができないため、書き換え可能な別タグでの検証を進める方針です。</p>
+        </section>
+        <section class="section">
+          <h2>真贋判定機能の検討</h2>
+          <p>アプリでNFCタグのUID（固有ID）を取得できることから、真贋判定への応用が可能であることが確認されました。単なる機能説明よりも、真贋判定専用のテンプレート・アプリとしてデモを見せる方が営業上有効との意見が出ました。</p>
+        </section>
+        <section class="section">
+          <h2>デモコンテンツの重要性</h2>
+          <p>クライアントに提供価値を明確に示すため、完成形のサンプル（谷口様ご自身の名刺データを用いたデモなど）を用意しておくべきとの認識で一致しました。</p>
+        </section>
+        <section class="section">
+          <h2>カード印刷と運用効率化</h2>
+          <p>プラスチックカードへの印刷方法について、A4シートへの差し込み印刷などの案が検討されました。また、将来的には注文データを受けて自動的に印刷まで行えるシステム構築が望ましいとの方向性が共有されました。</p>
+        </section>
+        <section class="section">
+          <h2>MCPサーバーによる業務自動化</h2>
+          <p>モデルコンテキストプロトコル（MCP）サーバーを自作し、タグ番号の登録やデータベース連携などの定型業務を自動化するアイデアが提案されました。将来的には社内で目的別のMCPサーバーを整備し、業務効率化と共通認識の形成に活用する構想が共有されました。</p>
+        </section>
+        <section class="section">
+          <h2>翌日のProtea社打ち合わせに向けて</h2>
+          <p>翌日予定されているProtea社（横田様）との打ち合わせについて、先方はまだ決定権を持つ立場ではないため、時間をかけすぎず現状のヒアリングを中心に進める方針を確認しました。Webマーケティングにおける顧客への付加価値提案を軸に、ロンショール側はバックエンド支援に徹する形での提案戦略とすることを確認しました。</p>
+        </section>
+    <div class="decisions">
+      <h2>決定事項</h2>
+      <ul><li>NFCTS LiteアプリはApp Storeで正式公開済みであることを確認</li><li>テンプレートは営業視点でのブラッシュアップを進める</li><li>OEM展開を軸に、導入企業がNFCと連携した独自商品・アプリを開発できる形で戦略を進める</li><li>来週、弁理士事務所と特許申請に向けた詳細打ち合わせを行う</li><li>既存サンプルテンプレートは無料提供、新規アプリ・テンプレート制作は別途見積りとする</li><li>真贋判定機能を専用テンプレート・アプリとして開発し、営業デモに活用する</li><li>次回定例ミーティングは2026年7月14日14:00に設定</li></ul>
+    </div>
+    <div class="actions">
+      <h2>次回までの対応事項</h2>
+      <table class="actions">
+        <tr><th>対応事項</th><th>担当</th><th>期限</th></tr>
+        
+          <tr>
+            <td>データベースに未登録のテンプレートを順次追加する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>アプリの使用方法をまとめた説明書をPDF形式で作成し、瀬島和樹へメール送付する</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>NFCタグの書き込み形式をURL形式からテキスト形式に変更し、iPhoneでのブラウザ誤検知を防げるか検証する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>PCからサーバーへ直接データ・画像・動画をアップロードするための接続手法を協議する</td>
+            <td>双方</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>真贋判定用のテンプレートを作成し、商品の真正性を確認できる機能をアプリに実装する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>コンテンツ作成とアプリへのアップロードの連携フローについて高井様と協議し、最適な運用形式を決定する</td>
+            <td>谷口社長</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>業務自動化促進のためMCPサーバーを自作する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>作成したMCPサーバーの機能を社内に共有し、全社的な業務効率化の手段として提示する</td>
+            <td>高橋様</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Protea社の事業内容や要望を詳細にヒアリングし、共同作業の可能性を検討する</td>
+            <td>谷口社長</td>
+            <td>2026年7月9日</td>
+          </tr>
+          <tr>
+            <td>顧客主導でロンショールがバックエンドを支援する形式を提案し、Protea社との打ち合わせで戦略的に交渉する</td>
+            <td>ロンショール</td>
+            <td>2026年7月9日</td>
+          </tr>
+      </table>
+    </div>
+    <div class="footer">ロンショール合同会社 作成・非公開URL(第三者への共有はご遠慮ください)</div>
+  </div>
+</body>
+</html>
