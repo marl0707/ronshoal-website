@@ -1,10 +1,10 @@
 "use client";
 
 /* ============================================================
- * AgentSprite.tsx — 25体のAI社員ピクセル肖像
+ * AgentSprite.tsx — 28体のAI社員ピクセル肖像
  *
  * メイン5体 (sena, aiken, piko, manabu, mira) は専用デザイン。
- * 残り20体は4種の "髪型テンプレ" (short/tie/visor/ponytail) を
+ * 残り23体は4種の "髪型テンプレ" (short/tie/visor/ponytail) を
  * 部署×役割パレットで切り替えて識別性を担保。
  * ============================================================ */
 
@@ -366,6 +366,19 @@ const AGENT_SPRITES: Record<string, SpriteSet> = {
     H: "#fde68a", h: "#fef3c7", E: "#7c2d12", M: "#7c2d12",
     B: "#3a2a16", A: "#fde68a", b: "#241a0e", D: "#ec4899",
   }),
+  keiya: makeSprite("tie", {
+    H: "#3a1d3a", h: "#7c3a7a", E: "#ec4899", M: "#831843",
+    B: "#2a1322", A: "#f9a8d4", b: "#160a12",
+  }),
+  boki: makeSprite("short", {
+    H: "#831843", h: "#be5a8a", E: "#0a0a14", M: "#ec4899",
+    B: "#3a1d3a", A: "#fbcfe8", b: "#241224",
+  }),
+  shuu: makeSprite("ponytail", {
+    H: "#fbcfe8", h: "#fde3f0", E: "#831843", M: "#ec4899",
+    B: "#2a1322", A: "#ec4899", b: "#160a12",
+  }),
+
 
   /* 💻 開発 (purple) */
   furo: makeSprite("ponytail", {

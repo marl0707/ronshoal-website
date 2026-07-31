@@ -17,16 +17,16 @@ export function RosterStrip({ onOpen }: RosterStripProps) {
       <div className="roster__inner">
         <div className="roster__head">
           <div>
-            <p className="roster__eyebrow">ROSTER · 5 × 5 = 25 AGENTS</p>
+            <p className="roster__eyebrow">ROSTER · 5 DEPTS · 28 AGENTS</p>
             <h2 className="roster__title">
-              5部署、5名づつで計25体のAI。
+              5部署、計28体のAI。
               <br />
               人間ひとり × チーム規模で動く。
             </h2>
           </div>
           <p className="roster__desc">
             各部署のリーダーAIがチームをまとめ、それぞれに4名の専門スタッフAIがついています。
-            カードをタップしてチーム5名と会う。
+            カードをタップして各部署のチームと会う。
           </p>
         </div>
 

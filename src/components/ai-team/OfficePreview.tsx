@@ -257,7 +257,7 @@ export function OfficePreview({ className }: OfficePreviewProps) {
             className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 transition-opacity duration-300"
             style={{ opacity: pulse % 2 === 0 ? 1 : 0.4 }}
           />
-          AI TEAM · ON DUTY · 25 / 25
+          AI TEAM · ON DUTY · 28 / 28
         </div>
         <div className="flex items-center gap-3 self-end text-[9px] md:text-[10px] font-mono tracking-[0.3em] uppercase text-white/50">
           <span>5 DEPARTMENTS</span>

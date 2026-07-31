@@ -53,7 +53,7 @@ export function Hero({ onDoorClick, tweaks }: HeroProps) {
                 <span className="accent">稼働中。</span>
               </h1>
               <p className="hero__sub">
-                ロンショールでは、25人のAIが5部署に分かれて会社を回しています。
+                ロンショールでは、28人のAIが5部署に分かれて会社を回しています。
                 <br />
                 気になる部屋のドアを覗いてください。
               </p>
@@ -64,7 +64,7 @@ export function Hero({ onDoorClick, tweaks }: HeroProps) {
                 {bootMsg}
               </div>
               <div>2026.05.15 · 09:42 JST</div>
-              <div>HALLWAY · 03F · 25 AGENTS</div>
+              <div>HALLWAY · 03F · 28 AGENTS</div>
             </div>
           </div>
 

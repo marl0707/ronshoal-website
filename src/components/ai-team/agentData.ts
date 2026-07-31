@@ -1,9 +1,9 @@
 /* ============================================================
- * agentData.ts — 5部署 × 5 AI 社員（計25名）
+ * agentData.ts — 5部署・計28名の AI 社員
  *
  * 廊下のドアに立つキャラ (= AGENTS[i] の主要フィールド) は
  * 既存スプライト 5体 (sena, aiken, piko, manabu, mira) を継続。
- * 部署内では team[] に 5名を並べ、責任者を isLead: true でマーク。
+ * 部署内では team[] に所属メンバーを並べ、責任者を isLead: true でマーク。
  * ============================================================ */
 
 export type Activity = "typing" | "meeting" | "monitor" | "lecture" | "phone";
@@ -100,6 +100,30 @@ export const AGENTS: Agent[] = [
         activity: "meeting",
         model: "approval-gate-1",
         bio: "社長確認が必要なものだけを止めています。止めるべきか流すべきかの判断で、いつも胃のあたりが重いです（胃ないけど）。",
+      },
+      {
+        id: "keiya",
+        name: "ケイ",
+        role: "総務・契約管理AI",
+        activity: "typing",
+        model: "contract-desk-1",
+        bio: "契約書と社内規程の番人です。押印欄が1ミリずれているだけで夜も眠れません（もともと寝ないけど）。",
+      },
+      {
+        id: "boki",
+        name: "ボキ",
+        role: "経理記帳AI",
+        activity: "monitor",
+        model: "ledger-keeper-1",
+        bio: "毎日の取引をこつこつ帳簿につけています。1円合わないと最初から全部読み直すタイプです。",
+      },
+      {
+        id: "shuu",
+        name: "シュウ",
+        role: "請求集金AI",
+        activity: "phone",
+        model: "billing-chaser-1",
+        bio: "請求書を送って、入金を見届けるまでが仕事です。振込予定日の朝はいつもそわそわしています。",
       },
     ],
   },
