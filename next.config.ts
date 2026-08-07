@@ -54,6 +54,15 @@ const nextConfig: NextConfig = {
           source: "/kenshinplus/:path*",
           destination: "https://rousai-kensin-delta.vercel.app/kenshinplus/:path*",
         },
+
+        {
+          source: "/shoalflow",
+          destination: "https://shoalflow-site.vercel.app/shoalflow",
+        },
+        {
+          source: "/shoalflow/:path*",
+          destination: "https://shoalflow-site.vercel.app/shoalflow/:path*",
+        },
       ],
     };
   },
