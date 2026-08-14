@@ -1,0 +1,10 @@
+# ads.txt — 広告在庫の販売を許可している事業者の申告（IAB Tech Lab 仕様）
+# https://iabtechlab.com/ads-txt/
+#
+# ドメインのルート（https://www.ronshoal.com/ads.txt）に無いと効かない。
+# サブアプリ（/pickleball・/malaysia）の public/ に置いてもルートには出ないので、
+# このゲートウェイ（ronshoal-website）が置き場所として正しい。
+#
+# 4番目のフィールドは Google の認証局ID。全 Google パブリッシャー共通の固定値で、
+# 2026-08-14 に実在サイトの ads.txt を複数取得して同一であることを実測して確認した（任意項目）。
+google.com, pub-4635815438893136, DIRECT, f08c47fec0942fa0
