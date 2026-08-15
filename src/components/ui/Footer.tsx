@@ -34,7 +34,8 @@ export const Footer = () => {
                         <div className="flex flex-col gap-3 text-sm text-zinc-400">
                             <a href="/" className="hover:text-white transition-colors">ホーム</a>
                             <a href="/secret" className="hover:text-white transition-colors">Secret World</a>
-                            <span className="text-zinc-500">プライバシーポリシー</span>
+                            <a href="/contact" className="hover:text-white transition-colors">お問い合わせ</a>
+                            <a href="/privacy" className="hover:text-white transition-colors">プライバシーポリシー</a>
                         </div>
                     </div>
                 </div>
