@@ -63,6 +63,16 @@ const nextConfig: NextConfig = {
           source: "/shoalflow/:path*",
           destination: "https://shoalflow-site.vercel.app/shoalflow/:path*",
         },
+        // 自鯖 Supabase(GoTrue) のメール確認リンクを正規ドメインで受ける。2026-08-19
+        // それまで再設定メールのリンクが http://95.217.176.121:8000/auth/v1/verify?... と
+        // 生IP・平文HTTPで出ており、受け取った人にはフィッシングにしか見えなかった。
+        // GOTRUE_API_EXTERNAL_URL を https://www.ronshoal.com に変えたうえで、ここで Kong へ橋渡しする。
+        // ⚠️ 通すのは verify の1本だけ。/auth/v1/:path* にすると GoTrue の全APIが公開ドメインに出る。
+        //    アプリ本体は NEXT_PUBLIC_SUPABASE_URL(生IP) で直接 Kong を叩くので、ここは経由しない。
+        {
+          source: "/auth/v1/verify",
+          destination: "http://95.217.176.121:8000/auth/v1/verify",
+        },
       ],
     };
   },
