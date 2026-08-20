@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>パスワード再設定</title>
+</head>
+<!--
+  Ronshoal 共通のパスワード再設定メール（2026-08-19 新設）。
+
+  なぜ中立な文面か:
+    self-hosted Supabase(GoTrue) は1インスタンスにつきテンプレートを1セットしか持てず、
+    ai-ken9kai / pickleball / malaysia / OneFunnel が同じ認証基盤を共有している。
+    従来のテンプレートは「AI研究会」専用の文面で、しかも本文のリンクが
+    https://ai-ken9kai.vercel.app/auth/recovery?token_hash=... にハードコードされていたため、
+    他サイトの利用者が再設定すると別サイトへ飛ばされていた。
+
+  🔑 リンクは必ず {{ .ConfirmationURL }} を使う。
+     GoTrue がアプリ側の redirectTo を組み込んだURLを生成するので、どのサイトから申し込んでも
+     そのサイトへ戻る。token_hash から自分でURLを組み立てると、その瞬間に1サイト専用になる。
+-->
+<body style="margin:0;padding:0;background:#f5f6f5;font-family:'Hiragino Sans','Noto Sans JP',system-ui,sans-serif;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f6f5;padding:32px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border:1px solid #e3e6e3;border-radius:6px;">
+          <tr>
+            <td style="padding:32px 32px 8px;">
+              <p style="margin:0 0 4px;font-size:12px;letter-spacing:.12em;color:#6a7775;font-weight:700;">RONSHOAL</p>
+              <h1 style="margin:0;font-size:20px;line-height:1.5;color:#171f1e;font-weight:700;">パスワードの再設定</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:16px 32px 0;">
+              <p style="margin:0 0 16px;font-size:15px;line-height:1.8;color:#3d4947;">
+                パスワード再設定のリクエストを受け付けました。<br>
+                下のボタンから、新しいパスワードを設定してください。
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 32px 24px;">
+              <a href="{{ .ConfirmationURL }}"
+                 style="display:inline-block;background:#171f1e;color:#ffffff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 28px;border-radius:4px;">
+                パスワードを再設定する
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 32px 24px;">
+              <p style="margin:0 0 8px;font-size:13px;line-height:1.7;color:#6a7775;">
+                ボタンが押せない場合は、次のURLをブラウザのアドレス欄に貼り付けてください。
+              </p>
+              <p style="margin:0;font-size:12px;line-height:1.6;word-break:break-all;color:#0a6f62;">
+                {{ .ConfirmationURL }}
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 32px 32px;">
+              <p style="margin:0;padding-top:20px;border-top:1px solid #e3e6e3;font-size:12px;line-height:1.8;color:#6a7775;">
+                このリンクは一定時間で無効になります。<br>
+                心当たりがない場合は、このメールを破棄してください。パスワードは変更されません。
+              </p>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:16px 0 0;font-size:11px;color:#8b9a96;">Ronshoal LLC</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
