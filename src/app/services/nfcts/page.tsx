@@ -353,10 +353,19 @@ export default function NfctsPage() {
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
                 <a
-                  href="/"
+                  href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-nfc-accent text-white text-sm font-bold tracking-wider hover:bg-nfc-accent/90 transition-colors w-full sm:w-auto"
                 >
                   お問い合わせ
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://app.nfc-ts.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white border border-white/30 text-sm font-bold tracking-wider hover:bg-white/20 transition-colors w-full sm:w-auto"
+                >
+                  製品サイトを見る
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
