@@ -61,6 +61,23 @@ const nextConfig: NextConfig = {
         // GOTRUE_API_EXTERNAL_URL を https://www.ronshoal.com に変えたうえで、ここで Kong へ橋渡しする。
         // ⚠️ 通すのは verify の1本だけ。/auth/v1/:path* にすると GoTrue の全APIが公開ドメインに出る。
         //    アプリ本体は NEXT_PUBLIC_SUPABASE_URL(生IP) で直接 Kong を叩くので、ここは経由しない。
+        // 2026-08-21: ピックルボールを専用 Supabase(Kong 8300) へ分離したため、宛先を振り分ける。
+        // GoTrue は API_EXTERNAL_URL にパスを付けても **オリジンしか使わない**ので、
+        // 専用スタックのメールも /pickleball 抜きでここへ落ちてくる。
+        // 判別材料は redirect_to（リンクに必ず付いており、アプリのパスが入っている）。
+        // ⚠️ 条件付きを先に置くこと。無条件の方が先だと全部が旧スタックへ行き、
+        //    新スタックで発行したトークンが検証できずに「再設定できませんでした」になる。
+        {
+          source: "/auth/v1/verify",
+          has: [
+            {
+              type: "query",
+              key: "redirect_to",
+              value: ".*/pickleball(/.*)?",
+            },
+          ],
+          destination: "http://95.217.176.121:8300/auth/v1/verify",
+        },
         {
           source: "/auth/v1/verify",
           destination: "http://95.217.176.121:8000/auth/v1/verify",
