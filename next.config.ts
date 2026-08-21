@@ -6,14 +6,6 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [
         {
-          source: "/nfcts",
-          destination: "https://nfcts-site.vercel.app/nfcts",
-        },
-        {
-          source: "/nfcts/:path*",
-          destination: "https://nfcts-site.vercel.app/nfcts/:path*",
-        },
-        {
           source: "/malaysia",
           destination: "https://app-tau-livid.vercel.app/malaysia",
         },
@@ -81,6 +73,12 @@ const nextConfig: NextConfig = {
       // 健康パスポート（オンライン診療）は休止中。配下ページへの直アクセスをトップへ一時リダイレクト（permanent:false=307・再開時にこの2行を削除）。2026-07-06
       { source: "/services/kenko-passport", destination: "/", permanent: false },
       { source: "/services/kenko-passport/:path*", destination: "/", permanent: false },
+      // NFC-TS は 2026-07-04 に Vercel 運用終了 → 谷口松雄堂側（app.nfc-ts.com）へ移行済み。
+      // ゲートウェイの rewrite が旧 Vercel を指したままで /nfcts が 404 だった（2026-08-21 実測）。
+      // 配下パスは :path* を引き継がない（旧 /nfcts/... と現行のフラット構成でパス体系が違う＝404 の連鎖になる）。
+      // permanent:false=307。7週間 404 で SEO 資産は既に無く、301 のキャッシュ固定は取り消しを難しくするだけ。
+      { source: "/nfcts", destination: "https://app.nfc-ts.com/", permanent: false },
+      { source: "/nfcts/:path*", destination: "https://app.nfc-ts.com/", permanent: false },
     ];
   },
 };
