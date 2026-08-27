@@ -9,6 +9,8 @@ import Link from "next/link";
  * cruise の「AI相談室」と同じ考え方: LINE の自動応答からこのURLへ飛ばし、
  * ここで AI と会話してもらう。回答は Hetzner の /chat/mwr（RAG付き・検証済み）。
  *
+ * PERSONA_20260827: 法人名を出さず「ギリギリ社長（瀬島和樹）」名義にする（社長指示・2026-08-27）。
+ *
  * 🔴 法定表示: このページも勧誘の一部なので、最上部で目的と事業者を明示する（特商法33条の2）。
  */
 
@@ -61,10 +63,10 @@ export default function TravelClubAiPage() {
             {/* 法定表示（特商法33条の2） */}
             <div className="bg-gray-50 border-b border-gray-200 px-4 py-3">
                 <div className="max-w-2xl mx-auto text-[12px] leading-relaxed text-gray-700">
-                    <strong className="text-corp-main">ロンショール合同会社（担当：瀬島和樹）</strong>による、会員制の旅行サービス
+                    <strong className="text-corp-main">ギリギリ社長（瀬島和樹）</strong>による、会員制の旅行サービス
                     「Travel Advantage™」および <strong className="text-corp-main">MWR Life の連鎖販売取引への参加を勧誘する目的</strong>のご案内です。
                     参加には登録費用・月額費用がかかり、<strong className="text-corp-main">収入は保証されません</strong>。
-                    当社は MWR Life の独立系 Lifestyle Ambassador であり、公式サイトではありません。
+                    MWR Life の独立系 Lifestyle Ambassador による案内であり、公式サイトではありません。
                 </div>
             </div>
 

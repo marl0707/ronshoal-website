@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/ui/Header";
-import { Footer } from "@/components/ui/Footer";
 
 /**
  * 会員制旅行サービス（Travel Advantage / MWR Life）の案内ページ。
  *
  * 設計の根拠は 24_MWRLife/PAGE_構成案_20260826.md、
  * 事実の出典は 24_MWRLife/knowledge/ の各レコード（コメントの C-xxx がレコードID）。
+ *
+ * PERSONA_20260827: 当社（ロンショール合同会社）が MWR を扱っていると外から分からないよう、
+ *   法人名を出さず「ギリギリ社長（瀬島和樹）」名義にする（社長指示・2026-08-27）。
+ *   当社サイトの Header / Footer も外してある。noindex 済み。
  *
  * 🔴 このページで守っていること（24_MWRLife/knowledge/02_compliance_rules.md）
  *  - 最上部で「勧誘目的・商品の種類・事業者名」を明示（特商法33条の2）
@@ -23,7 +25,20 @@ const LINE_URL = "https://line.me/R/ti/p/@376hrzfg";
 // 直リンクでのみ到達させる。サイト内リンク・sitemap には元から載せていない。
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
-  title: "会員制の旅行サービスという選択肢 | ロンショール合同会社",
+  // META_PERSONA_20260827: ルート layout の metadata（keywords / og:site_name / og:url）が
+  // 継承されて <head> に社名が残るため、ここで打ち消す。SNS シェア時の表示もこれで変わる。
+  keywords: [],
+  openGraph: {
+    title: "会員制の旅行サービスという選択肢｜ギリギリ社長",
+    description:
+      "Travel Advantage（MWR Life）の費用・仕組み・実測した価格・そして公表されている収入の実態を、都合の悪い数字も含めてそのまま載せています。",
+    siteName: "ギリギリ社長",
+    url: undefined,
+    type: "website",
+  },
+  twitter: { card: "summary_large_image", title: "会員制の旅行サービスという選択肢｜ギリギリ社長" },
+  metadataBase: undefined,
+  title: "会員制の旅行サービスという選択肢｜ギリギリ社長",
   description:
     "Travel Advantage（MWR Life）の費用・仕組み・実測した価格・そして公表されている収入の実態を、都合の悪い数字も含めてそのまま載せています。連鎖販売取引の勧誘を含むご案内です。",
 };
@@ -53,12 +68,11 @@ function Section({ id, eyebrow, title, children }: {
 export default function TravelClubPage() {
   return (
     <>
-      <Header />
       <main className="bg-white text-corp-main">
         {/* ── 1. 法定表示（特商法33条の2）：最上部・スクロールなしで読める位置 ── */}
         <div className="bg-gray-50 border-b border-gray-200">
           <div className="max-w-3xl mx-auto px-6 py-4 text-[13px] leading-relaxed text-gray-700">
-            <strong className="text-corp-main">ロンショール合同会社（担当：瀬島和樹）</strong>からのご案内です。
+            <strong className="text-corp-main">ギリギリ社長（瀬島和樹）</strong>からのご案内です。
             会員制の旅行サービス「Travel Advantage™」のご紹介と、
             <strong className="text-corp-main">MWR Life の連鎖販売取引（いわゆるMLM）への参加を勧誘する目的</strong>を含みます。
             ご参加には登録費用・月額費用がかかり、<strong className="text-corp-main">収入は保証されません</strong>。
@@ -387,8 +401,12 @@ export default function TravelClubPage() {
           {/* ── 11. 事業者情報 ── */}
           <section className="py-12 border-t border-gray-200 text-[13px] text-gray-600 leading-relaxed space-y-2">
             <p className="font-semibold text-corp-main">事業者情報</p>
+            {/* PERSONA_20260827: 社長指示により法人名を出さず個人名義にする。
+                🔴 ただし特商法33条の2 は「氏名」の明示を求めるため、通称だけにはできない。
+                   前面はギリギリ社長、括弧で本名を併記する形で両立させている。
+                   住所・電話も同法の要求により省略できない。 */}
             <p>
-              ロンショール合同会社 ／ 代表：瀬島和樹 ／ 〒651-2276 兵庫県神戸市西区春日台5丁目8-20 ／ 070-8409-2273
+              ギリギリ社長（瀬島和樹） ／ 〒651-2276 兵庫県神戸市西区春日台5丁目8-20 ／ 070-8409-2273
             </p>
             <p>
               統括者：MWR Life, LLC（300 SE 2nd Street, Suite 600, Fort Lauderdale, FL 33301, U.S.A.）
@@ -402,7 +420,6 @@ export default function TravelClubPage() {
           </section>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
