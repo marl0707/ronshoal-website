@@ -155,6 +155,117 @@ export default function TravelClubPage() {
             </p>
           </Section>
 
+          {/* ── 6.5 報酬の仕組み（C-420 / C-427 / C-428）SECTION_COMP_20260826 ── */}
+          {/* 🔴 この節は「達成した場合の金額」しか書かない。到達率・到達期間の見込みは一切書かない。
+                 直後に 7.（収入の実態＝IDS）が来る順序を崩さない。期待値→実態の順で読ませる。 */}
+          <Section id="how-rewards-work" eyebrow="HOW IT WORKS" title="報酬はどう決まるか">
+            <p>
+              紹介による報酬は、<strong>ランクごとに金額が決まっています</strong>。
+              運営元が公開している報酬プランから、そのまま引用します。
+            </p>
+
+            <div className="overflow-x-auto not-prose">
+              <table className="w-full text-[14px] border border-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="text-left p-3 border-b border-gray-200">ランク</th>
+                    <th className="text-left p-3 border-b border-gray-200">必要な組織</th>
+                    <th className="text-left p-3 border-b border-gray-200">1日あたり</th>
+                    <th className="text-left p-3 border-b border-gray-200">全ボーナス込みの月額</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ["Silver", "約3人", "4ドル", "300ドル"],
+                    ["Gold", "約12人", "10ドル", "600ドル"],
+                    ["Jade", "約60人", "40ドル", "3,000ドル"],
+                    ["Emerald", "約250人", "150ドル", "8,000ドル"],
+                    ["Diamond", "約1,250人", "750ドル", "50,000ドル"],
+                  ].map(([r, n, d, m]) => (
+                    <tr key={r} className="border-b border-gray-100">
+                      <td className="p-3 font-medium">{r}</td>
+                      <td className="p-3">{n}</td>
+                      <td className="p-3">{d}</td>
+                      <td className="p-3 font-semibold">{m}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="text-sm text-gray-600">
+              運営元の報酬プラン（2025年5月版）より抜粋。全19ランクのうち5つを載せています。
+              <strong className="text-gray-800">
+                この金額は「そのランクに到達した場合」のものです。運営元自身が「保証ではなく、あくまで例示」と明記しています。
+              </strong>
+            </p>
+
+            {/* C-427: 当社が最も強調する構造 */}
+            <div className="not-prose mt-8">
+              <p className="text-[15px] leading-relaxed text-gray-800 mb-4">
+                ここからが、この仕組みでいちばん大事なところです。
+                <strong>結果を決めるのは「自分が何人紹介したか」ではありません。</strong>
+              </p>
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="border-2 border-gray-300 rounded-lg p-5 bg-gray-50">
+                  <div className="text-xs tracking-widest text-gray-500 mb-2">パターン A</div>
+                  <div className="text-[15px] font-semibold text-gray-900 leading-snug">
+                    自分が毎月1人ずつ、<br />10年かけて120人紹介する
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-300">
+                    <div className="text-2xl font-bold text-gray-700">月45万円で頭打ち</div>
+                    <div className="mt-2 text-[13px] text-gray-600 leading-relaxed">
+                      紹介した人が誰も紹介しなかった場合。<strong>10年経っても月収100万円には届きません。</strong>
+                    </div>
+                  </div>
+                </div>
+                <div className="border-2 border-corp-main rounded-lg p-5 bg-white">
+                  <div className="text-xs tracking-widest text-gray-500 mb-2">パターン B</div>
+                  <div className="text-[15px] font-semibold text-gray-900 leading-snug">
+                    自分は3人だけ紹介して、<br />その3人が半年に1人ずつ動く
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-corp-main/30">
+                    <div className="text-2xl font-bold text-corp-main">3年7か月で月120万円</div>
+                    <div className="mt-2 text-[13px] text-gray-600 leading-relaxed">
+                      同じ計算式で出した数字です。<strong>「120人紹介する」より「3人育てる」ほうが速くなります。</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-5 text-[14px] space-y-2 mt-6">
+              <p className="font-semibold text-blue-900">なぜこうなるのか</p>
+              <p className="text-blue-900 leading-relaxed">
+                報酬プランには「<strong>1本の系列は、必要ポイントの半分までしか数えない</strong>」という制限があります。
+                そのため、自分の下に120人を横に並べても点数が足りません。
+                一方、3人を支えてその先が伸びると、3本の系列がそれぞれ上限まで育ち、点数が満たされます。
+              </p>
+              <p className="text-blue-900 leading-relaxed">
+                つまり<strong>「広さ」ではなく「深さ」が点数を作ります。</strong>
+                そして深さを作るのは自分ではなく、紹介した人です。
+                <strong>だから当社は、紹介の数を追うのではなく、紹介した方を支えることを前提にしています。</strong>
+              </p>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 text-[14px] space-y-2 mt-4">
+              <p className="font-semibold text-amber-900">ここまでの数字について</p>
+              <ul className="list-disc pl-5 space-y-1 text-amber-900">
+                <li>
+                  いずれも<strong>「そのペースが続いた場合」の計算例</strong>です。
+                  <strong>収入を保証するものではありません。</strong>
+                </li>
+                <li>
+                  「紹介した人のうち何割が動くか」は<strong>当社が置いた仮定</strong>であり、
+                  実際にどれくらいの人が動くかは公表されていません
+                </li>
+                <li>
+                  <strong>実際の分布は、次の「公表されている実績」をご覧ください。</strong>
+                  期待値と実態の両方を見てからご判断ください
+                </li>
+              </ul>
+            </div>
+          </Section>
+
           {/* ── 7. 収入の実態（C-501 / C-502 / C-503）🔴 MWR P&P §3 の必須開示 ── */}
           <Section id="income" eyebrow="INCOME DISCLOSURE" title="紹介報酬について、公表されている実績">
             <p>
