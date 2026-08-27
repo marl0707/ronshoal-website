@@ -19,7 +19,10 @@ import { Footer } from "@/components/ui/Footer";
 const LP_URL = "https://mwrlifejp.com/lp/girigiri";
 const LINE_URL = "https://line.me/R/ti/p/@376hrzfg";
 
+// NOINDEX_20260827: 社長指示（2026-08-27）— 当社が MWR を扱っていることを検索から辿らせない。
+// 直リンクでのみ到達させる。サイト内リンク・sitemap には元から載せていない。
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: "会員制の旅行サービスという選択肢 | ロンショール合同会社",
   description:
     "Travel Advantage（MWR Life）の費用・仕組み・実測した価格・そして公表されている収入の実態を、都合の悪い数字も含めてそのまま載せています。連鎖販売取引の勧誘を含むご案内です。",
