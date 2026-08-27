@@ -29,14 +29,21 @@ const nextConfig: NextConfig = {
           source: "/pickleball/:path*",
           destination: "https://i-love-pickleball.vercel.app/pickleball/:path*",
         },
-        {
-          source: "/onefunnel",
-          destination: "https://onefunnel-lms.vercel.app/onefunnel",
-        },
-        {
-          source: "/onefunnel/:path*",
-          destination: "https://onefunnel-lms.vercel.app/onefunnel/:path*",
-        },
+        // 2026-08-27: OneFunnel を寝かせる社長判断により導線を撤去。
+        //   Supabase スタック13コンテナは同日停止済（最終ダンプ
+        //   supabase_onefunnel_FINAL_20260826.sql.gz）。
+        //   撤去の主目的は死活ではなく表示内容: /onefunnel の LP に実在しない導入事例
+        //   2件（「IT系オンラインスクール運営会社様」「中堅メーカー従業員研修部門様」）が
+        //   実績として載っており、実データはテナント2件・受講者0・課金0だった。
+        //   復活させるときは LP の事例と補助金の記述を正本で裏取りしてから。
+        // {
+        //   source: "/onefunnel",
+        //   destination: "https://onefunnel-lms.vercel.app/onefunnel",
+        // },
+        // {
+        //   source: "/onefunnel/:path*",
+        //   destination: "https://onefunnel-lms.vercel.app/onefunnel/:path*",
+        // },
 
         {
           source: "/kenshinplus",
