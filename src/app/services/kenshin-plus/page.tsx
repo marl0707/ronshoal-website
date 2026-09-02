@@ -1,6 +1,16 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Footer } from "@/components/ui/Footer";
 
+
+import type { Metadata } from 'next';
+
+// 2026-09-02: このページに固有の metadata が無く、layout.tsx の既定タイトル
+// 「ロンショール合同会社 | Ronshoal LLC」が5ページに同じまま出ていた（重複タイトル）。
+export const metadata: Metadata = {
+    title: '健診プラス｜企業負担0円の労災二次健診（訪問健康診断）｜ロンショール合同会社',
+    description:
+        '労災二次健診給付制度を活用し、血液検査・心臓エコー・頸動脈エコー等の精密検査を企業・受診者の負担0円で実施します。労災保険料は上がりません。訪問での実施に対応。',
+};
 export default function KenshinPlusPage() {
     return (
         <main className="min-h-screen bg-[#F8FAFC]">

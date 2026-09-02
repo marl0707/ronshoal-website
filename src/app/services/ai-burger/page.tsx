@@ -1,6 +1,16 @@
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Footer } from "@/components/ui/Footer";
 
+
+import type { Metadata } from 'next';
+
+// 2026-09-02: このページに固有の metadata が無く、layout.tsx の既定タイトル
+// 「ロンショール合同会社 | Ronshoal LLC」が5ページに同じまま出ていた（重複タイトル）。
+export const metadata: Metadata = {
+    title: 'AI Burger｜AI駆動のシステム開発・受託開発｜ロンショール合同会社',
+    description:
+        'MVPから大規模SaaSまで。AIを活用した開発手法でコーディング工数を圧縮し、短納期・低コストでシステムを提供します。LINEから無料相談・お見積りが可能です。',
+};
 export default function AIBurgerPage() {
     return (
         <main className="min-h-screen bg-[#F8FAFC]">

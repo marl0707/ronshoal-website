@@ -13,6 +13,8 @@ export default function robots(): MetadataRoute.Robots {
             disallow: '/docs/meetings/',
         },
         sitemap: [
+            // 2026-09-02 追加。コーポレート面7ページはどの sitemap にも載っていなかった。
+            'https://www.ronshoal.com/sitemap.xml',
             'https://www.ronshoal.com/pickleball/sitemap.xml',
             'https://www.ronshoal.com/malaysia/sitemap.xml',
         ],
