@@ -36,6 +36,9 @@ export const Footer = () => {
                             <a href="/secret" className="hover:text-white transition-colors">Secret World</a>
                             <a href="/contact" className="hover:text-white transition-colors">お問い合わせ</a>
                             <a href="/privacy" className="hover:text-white transition-colors">プライバシーポリシー</a>
+                            {/* 2026-09-02: 運営者情報。社長指示によりヘッダーナビには出さず、
+                                ここからのみ辿れるようにする（クローラと審査担当は辿れる）。 */}
+                            <a href="/operator" className="hover:text-white transition-colors">運営者情報</a>
                         </div>
                     </div>
                 </div>
