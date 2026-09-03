@@ -118,6 +118,120 @@ export default function KenshinPlusPage() {
                 </div>
             </section>
 
+            {/* ===== 制度の解説（2026-09-03 追加） =====
+                 このページは可視テキスト1,039字しかなく、AdSense が ronshoal.com を
+                 「有用性の低いコンテンツ」で却下している要因のひとつだった（管理画面で確認）。
+                 サービスの宣伝文だけでなく、根拠となる制度そのものを解説して読者の役に立つ面にする。
+
+                 ⚠️ 記載した要件・検査項目・期限はすべて厚生労働省／東京労働局の公開情報で裏を取った
+                 （2026-09-03 実測）。制度は改正されうるので、更新時は必ず一次情報を引き直すこと。
+                 出典: https://www.mhlw.go.jp/stf/newpage_05927.html
+                       https://jsite.mhlw.go.jp/tokyo-roudoukyoku/hourei_seido_tetsuzuki/rousai_hoken/rousai-2ji.html */}
+            <section className="py-24 md:py-32 bg-white border-t border-corp-main/10">
+                <div className="max-w-4xl mx-auto px-6">
+                    <h2 className="text-3xl md:text-4xl font-bold text-corp-main mb-4">
+                        労災二次健診（二次健康診断等給付）とは
+                    </h2>
+                    <p className="text-gray-600 mb-12 leading-relaxed">
+                        労働者災害補償保険（労災保険）にもとづく給付制度です。定期健康診断で
+                        脳・心臓疾患につながる所見が出た従業員が、費用の負担なく精密検査と
+                        保健指導を受けられます。あまり知られていませんが、要件を満たせば
+                        どの企業でも利用できる公的な制度です。
+                    </p>
+
+                    <div className="space-y-12">
+                        <div>
+                            <h3 className="text-xl font-bold text-corp-main mb-4 pb-2 border-b border-corp-main/20">
+                                対象になる方
+                            </h3>
+                            <p className="text-gray-700 leading-relaxed mb-4">
+                                直近の定期健康診断（一次健康診断）で、次の
+                                <strong className="font-bold">4項目すべて</strong>に
+                                「異常の所見」があると診断された方が対象です。
+                            </p>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                                {["血圧検査", "血中脂質検査", "血糖検査", "腹囲の検査 または BMI の測定"].map((x) => (
+                                    <li key={x} className="bg-[#F8FAFC] rounded px-4 py-3 text-gray-800 text-sm">
+                                        {x}
+                                    </li>
+                                ))}
+                            </ul>
+                            <p className="text-gray-700 leading-relaxed">
+                                なお、担当医師が「異常なし」と判断した場合でも、事業場に選任されている
+                                産業医等が就業環境を総合的に勘案して異常の所見を認めたときは、
+                                <strong className="font-bold">産業医等の意見が優先されます</strong>。
+                            </p>
+                            <p className="text-gray-700 leading-relaxed mt-4">
+                                ただし、すでに<strong className="font-bold">脳・心臓疾患の症状がある方</strong>と、
+                                <strong className="font-bold">労災保険の特別加入者</strong>は対象外です。
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-xl font-bold text-corp-main mb-4 pb-2 border-b border-corp-main/20">
+                                受けられる検査と指導
+                            </h3>
+                            <p className="text-gray-700 leading-relaxed mb-4">
+                                <strong className="font-bold">二次健康診断</strong>として、
+                                次の検査を受けられます。
+                            </p>
+                            <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
+                                <li>空腹時血中脂質検査</li>
+                                <li>空腹時血糖値検査</li>
+                                <li>ヘモグロビンA1c検査</li>
+                                <li>負荷心電図検査 または 胸部超音波検査（いずれか一方）</li>
+                                <li>頸部超音波検査</li>
+                                <li>微量アルブミン尿検査（一定の条件を満たす場合）</li>
+                            </ul>
+                            <p className="text-gray-700 leading-relaxed">
+                                あわせて<strong className="font-bold">特定保健指導</strong>として、
+                                栄養指導・運動指導・生活指導を受けられます。
+                                いずれも<strong className="font-bold">受診者の負担なく</strong>受けられます。
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-xl font-bold text-corp-main mb-4 pb-2 border-b border-corp-main/20">
+                                見落とされやすい期限
+                            </h3>
+                            <p className="text-gray-700 leading-relaxed">
+                                請求は、
+                                <strong className="font-bold">一次健康診断を受けた日から3か月以内</strong>
+                                に行う必要があります。3か月を過ぎると給付を受けられません。
+                            </p>
+                            <p className="text-gray-700 leading-relaxed mt-4">
+                                制度を知らないまま期限が過ぎてしまう例が少なくありません。
+                                健診結果が返ってきた時点で対象者を洗い出し、早めに手続きへ進むことが重要です。
+                                健診プラスでは、この対象者の抽出から労働局への請求手続きまでを代行します。
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 className="text-xl font-bold text-corp-main mb-4 pb-2 border-b border-corp-main/20">
+                                企業にとっての意味
+                            </h3>
+                            <p className="text-gray-700 leading-relaxed mb-4">
+                                脳・心臓疾患は、長時間労働との関連が指摘され、労災認定の対象にもなり得ます。
+                                発症してからの対応はコストも影響も大きく、
+                                <strong className="font-bold">兆候の段階で見つけること</strong>が
+                                企業と従業員の双方にとって最も負担が小さい選択です。
+                            </p>
+                            <p className="text-gray-700 leading-relaxed">
+                                この制度は労災保険から給付されるため、企業・受診者ともに費用の負担がなく、
+                                利用しても<strong className="font-bold">労災保険料は上がりません</strong>。
+                                健康経営の取り組みとしても、追加の予算をかけずに実施できます。
+                            </p>
+                        </div>
+                    </div>
+
+                    <p className="mt-12 text-xs text-gray-500 leading-relaxed">
+                        ※ 本ページの制度に関する記載は、厚生労働省および東京労働局の公開情報にもとづいています
+                        （2026年9月時点）。制度の詳細や最新の取扱いについては、
+                        所轄の労働局・労働基準監督署にご確認ください。
+                    </p>
+                </div>
+            </section>
+
             {/* サービス内容 */}
             <section className="py-24 md:py-32 bg-corp-main text-white">
                 <div className="container px-4">
