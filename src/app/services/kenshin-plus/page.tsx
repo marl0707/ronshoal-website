@@ -141,12 +141,16 @@ export default function KenshinPlusPage() {
 
                     <div className="space-y-12">
                         <div>
+                            {/* 🔴 2026-09-03 訂正: 当初「4項目すべてに異常の所見」とだけ書いていた。
+                                法26条の原則としては正しいが、**運用では産業医等の判定で1項目でも対象になる**
+                                （社長訂正・memory/rousai_business_flow.md および
+                                 memory/feedback_verify_law_changes_cited_in_client_requests.md に既出）。
+                                原則だけを書くと対象者を取りこぼし、営業上も損をする。**必ず両方書く。** */}
                             <h3 className="text-xl font-bold text-corp-main mb-4 pb-2 border-b border-corp-main/20">
                                 対象になる方
                             </h3>
                             <p className="text-gray-700 leading-relaxed mb-4">
-                                直近の定期健康診断（一次健康診断）で、次の
-                                <strong className="font-bold">4項目すべて</strong>に
+                                直近の定期健康診断（一次健康診断）で、次の4項目に
                                 「異常の所見」があると診断された方が対象です。
                             </p>
                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
@@ -156,14 +160,27 @@ export default function KenshinPlusPage() {
                                     </li>
                                 ))}
                             </ul>
+                            <div className="bg-[#F8FAFC] border-l-2 border-corp-main/30 px-5 py-4 my-6">
+                                <p className="text-gray-800 leading-relaxed font-bold mb-2">
+                                    「4項目すべてに異常」でなくても対象になります
+                                </p>
+                                <p className="text-gray-700 leading-relaxed">
+                                    法令（労働者災害補償保険法第26条）の原則は「4項目すべてに異常の所見」ですが、
+                                    <strong className="font-bold">
+                                        担当医師が「異常なし」と診断した項目があっても、事業場の産業医等が
+                                        就業環境等を総合的に勘案して異常の所見を認めた場合は、産業医等の意見が優先されます
+                                    </strong>
+                                    。<br />
+                                    実際の運用では、<strong className="font-bold">4項目のうち1項目でも異常値があり、
+                                    産業医等が二次健診を要すると判定すれば給付の対象</strong>になります。
+                                    「4項目すべてに所見が出た人だけ」と考えて対象者を絞ってしまうと、
+                                    本来受けられるはずの従業員を取りこぼします。
+                                </p>
+                            </div>
                             <p className="text-gray-700 leading-relaxed">
-                                なお、担当医師が「異常なし」と判断した場合でも、事業場に選任されている
-                                産業医等が就業環境を総合的に勘案して異常の所見を認めたときは、
-                                <strong className="font-bold">産業医等の意見が優先されます</strong>。
-                            </p>
-                            <p className="text-gray-700 leading-relaxed mt-4">
-                                ただし、すでに<strong className="font-bold">脳・心臓疾患の症状がある方</strong>と、
+                                なお、すでに<strong className="font-bold">脳・心臓疾患の症状がある方</strong>と、
                                 <strong className="font-bold">労災保険の特別加入者</strong>は対象外です。
+                                対象になるかどうかの判断に迷う場合は、健診プラスで対象者の洗い出しからお手伝いします。
                             </p>
                         </div>
 
