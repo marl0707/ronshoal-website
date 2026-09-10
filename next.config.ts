@@ -5,6 +5,16 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // Email Harnessの公開配信停止URLを自社ドメインで受け、処理本体だけ
+        // line-harness Workerへ中継する。GET確認画面とRFC 8058 POSTの2経路に限定。
+        {
+          source: "/email/unsubscribe",
+          destination: "https://line-harness.happyss.workers.dev/email/unsubscribe",
+        },
+        {
+          source: "/email/unsubscribe/one-click",
+          destination: "https://line-harness.happyss.workers.dev/email/unsubscribe/one-click",
+        },
         {
           source: "/malaysia",
           destination: "https://app-tau-livid.vercel.app/malaysia",
