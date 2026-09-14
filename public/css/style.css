@@ -1,0 +1,704 @@
+/* ═══════════════════════════════════════════════════════════
+   RONSHOAL LLC — Renewal (site mockup v0.1)
+   白 × 濃紺 × ロイヤルブルー + 稼働グリーン / Space Grotesk + Zen Kaku
+   コンセプト: 「AIが実際に働いている会社を、見に行けるサイト」
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ライト=ブループリント（作戦マップ）。ゲームHUDは白地の上で描く */
+  --bg: #fafaf7;
+  --bg2: #f1f0ea;
+  --ink: #101a2e;
+  --mut: #5c6474;
+  --line: rgba(16, 26, 46, 0.14);
+  --blue: #1d4fd8;
+  --live: #0e9f6e;
+  --live-text: #067a54;
+  --card: #fff;
+  --head-bg: rgba(250, 250, 247, 0.85);
+  --disp: "Space Grotesk", "Zen Kaku Gothic New", sans-serif;
+  --body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; overflow-x: clip; }
+html.flat { scroll-behavior: auto; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-weight: 400;
+  line-height: 2;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+::selection { background: var(--blue); color: #fff; }
+a { color: inherit; text-decoration: none; }
+canvas { max-width: 100%; display: block; }
+
+/* ── ヘッダー ───────────────────────────────── */
+.site-head {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px;
+  padding: 32px 48px; /* 元サイト実測: ロゴ左端 x=48 / 上端 y=32（py-8） */
+  background: var(--head-bg);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.head-logo { display: block; flex: 0 0 auto; }
+/* 元サイト実測: 173x32 = 元画像(1620x300)を高さ32pxで表示 */
+.head-logo img { height: 32px; width: auto; display: block; }
+.head-nav { display: flex; gap: 26px; }
+.head-nav a {
+  font-size: 12px; letter-spacing: 0.16em; font-weight: 500;
+  position: relative; padding: 4px 0;
+}
+.head-nav a::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 2px; background: var(--blue);
+  transform: scaleX(0); transform-origin: 100% 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.head-nav a:hover::after, .head-nav a:focus-visible::after {
+  transform: scaleX(1); transform-origin: 0 0;
+}
+.head-live {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--disp); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--live-text); /* 両テーマでAA(4.5:1)を満たす稼働色 */
+  white-space: nowrap;
+}
+.head-live i {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--live);
+  animation: livepulse 2s ease-in-out infinite;
+}
+@keyframes livepulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 159, 110, 0.45); }
+  50% { box-shadow: 0 0 0 7px rgba(14, 159, 110, 0); }
+}
+.flat .head-live i, .no-js .head-live i { animation: none; }
+
+/* ── リビール ───────────────────────────────── */
+.js:not(.flat) .reveal {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js:not(.flat) .reveal.in { opacity: 1; transform: none; }
+
+.mask { display: inline-block; overflow: hidden; vertical-align: bottom; }
+.mask-in { display: inline-block; }
+.js:not(.flat) .mask-in {
+  transform: translateY(115%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.js:not(.flat) .in .mask-in, .js:not(.flat) .in-line .mask-in { transform: none; }
+
+/* ── セクション見出し共通 ───────────────────── */
+.sec-head { margin-bottom: 8vh; }
+.sec-head h2 {
+  font-family: var(--disp); font-weight: 700;
+  font-size: clamp(38px, 5.4vw, 76px); letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.sec-head h2 span {
+  display: block;
+  font-family: var(--body); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.4em; color: var(--blue);
+  margin-top: 12px;
+}
+.sec-head p {
+  margin-top: 3vh;
+  font-size: 13.5px; letter-spacing: 0.08em; color: var(--mut);
+}
+
+/* ═══════════ HERO（ゲームHUD＝コマンドセンター） ═══════════ */
+.hero {
+  position: relative;
+  /* 元サイトと同じ「ちょうど1画面」= 床まで全部見えるプレイフィールド */
+  height: 100vh;
+  height: 100svh;
+  /* min-height は height より強い。横向きスマホ(844x390)で床とCTAが画面外に沈むため min() で頭打ち */
+  min-height: min(640px, 100svh);
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  touch-action: manipulation; /* ダブルタップズームを止めて無重力トグルに使う */
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 40%, rgba(29, 79, 216, 0.05), transparent),
+    var(--bg);
+}
+/* ブループリント格子 */
+.hero-grid {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(29, 79, 216, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 79, 216, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 75% at 60% 45%, #000 30%, transparent 90%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 75% at 60% 45%, #000 30%, transparent 90%);
+}
+/* ── 物理ブロック（落ちて・掴めて・投げられる） ── */
+.blocks { position: absolute; inset: 0; z-index: 4; }
+.blk {
+  position: absolute; top: 0; left: 0;
+  display: flex; align-items: center; justify-content: center;
+  will-change: transform;
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+  touch-action: none;
+}
+.blk.drag { cursor: grabbing; }
+.blk--sq { border-radius: 22%; }
+.blk--circle { border-radius: 50%; }
+.blk--pill {
+  height: 40px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  font-family: var(--disp); font-weight: 700;
+  font-size: 13px; letter-spacing: 0.06em;
+  color: var(--ink);
+  white-space: nowrap;
+  padding: 0 18px;
+  box-shadow: 0 6px 18px rgba(16, 26, 46, 0.10);
+}
+.blk--pill em { font-style: normal; color: var(--blue); margin-right: 6px; }
+/* 実ロゴマークのブロック（maskで着色できるようにする） */
+.blk--logo {
+  /* mask非対応ブラウザでも画像として出るフォールバック */
+  background: url("../img/ronshoal-mark.png") center / contain no-repeat;
+}
+@supports ((mask: url("")) or (-webkit-mask: url(""))) {
+  .blk--logo {
+    background: var(--ink);
+    -webkit-mask: url("../img/ronshoal-mark.png") center / contain no-repeat;
+    mask: url("../img/ronshoal-mark.png") center / contain no-repeat;
+  }
+}
+.blk--logo.blk--secret { background: var(--blue); }
+.blk--logo.locked { background: var(--live); cursor: default; }
+/* クリック衝撃波 */
+.shock {
+  position: absolute; z-index: 3;
+  width: 12px; height: 12px; margin: -6px 0 0 -6px;
+  border: 2px solid var(--blue); border-radius: 50%;
+  pointer-events: none;
+  animation: shock 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes shock {
+  to { transform: scale(22); opacity: 0; }
+}
+.hero-hint {
+  margin-top: 3.5vh;
+  font-size: 11px; letter-spacing: 0.12em; color: var(--mut);
+}
+.flat .hero-hint, .no-js .hero-hint { display: none; }
+
+/* ── バスケットゴール ── */
+.hoop {
+  position: absolute; z-index: 3;
+  right: clamp(24px, 9vw, 130px); top: clamp(120px, 18vh, 200px);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  pointer-events: none;
+}
+.hoop i {
+  width: 74px; height: 74px;
+  border: 3px solid var(--blue); border-radius: 50%;
+  background: rgba(29, 79, 216, 0.05);
+  display: block;
+}
+.hoop.hit i { animation: hoophit 0.5s ease; }
+@keyframes hoophit {
+  30% { transform: scale(1.18); border-color: var(--live); }
+}
+.hoop span {
+  font-family: var(--disp); font-weight: 500;
+  font-size: 10px; letter-spacing: 0.2em; color: var(--mut);
+}
+.hoop span b { color: var(--blue); font-size: 14px; margin-left: 4px; }
+.flat .hoop, .no-js .hoop { display: none; }
+
+/* ── 遊びボタン ── */
+.toy-bar {
+  position: absolute; z-index: 6;
+  left: 8vw; bottom: 26px;
+  display: flex; gap: 10px;
+}
+.toy-bar button {
+  font-family: var(--disp); font-weight: 500;
+  font-size: 12px; letter-spacing: 0.1em;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 10px 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(16, 26, 46, 0.08);
+  transition: border-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
+}
+.toy-bar button:hover, .toy-bar button:focus-visible { border-color: var(--blue); color: var(--blue); }
+.toy-bar button:active { transform: scale(0.95); }
+.flat .toy-bar, .no-js .toy-bar { display: none; }
+
+.hero-inner {
+  position: relative; z-index: 5;
+  width: 100%;
+  /* 上パディングの半分だけ内容が下がる。元サイトのロゴ中心 cy=373/900 に合わせる */
+  padding: clamp(0px, 12.9vh, 116px) 6vw 0;
+  text-align: center;
+  pointer-events: none; /* 背後のブロックを掴めるように透過（リンク類だけ受ける） */
+}
+.hero-inner a { pointer-events: auto; }
+/* 実ロゴ（本番 ronshoal.com のアセット）をヒーローの主役に据える
+   元サイト実測: hero-text-only を w-[80vw] max-w-[700px] で中央・マークは重ねない */
+.hero-logo { display: inline-block; }
+.hero-lockup {
+  width: min(80vw, 700px); height: auto; display: block;
+}
+.hero-sub {
+  margin-top: 4vh;
+  font-size: clamp(13px, 1.4vw, 15px); font-weight: 300;
+  letter-spacing: 0.1em; color: var(--mut);
+}
+.hero-ctas {
+  margin-top: 4.4vh;
+  display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap;
+}
+.hero-ghost {
+  font-family: var(--disp); font-size: 13px; letter-spacing: 0.12em;
+  color: var(--ink);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 14px 30px;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.hero-ghost:hover, .hero-ghost:focus-visible { border-color: var(--blue); color: var(--blue); }
+
+/* ── シークレット: 実ロゴマークをはめるソケット ── */
+.hex-socket {
+  position: absolute; z-index: 3;
+  right: clamp(24px, 7vw, 110px); bottom: clamp(84px, 14vh, 150px);
+  width: 52px; height: 52px;
+  opacity: 0.5;
+  background: url("../img/ronshoal-mark.png") center / contain no-repeat;
+  transition: background 0.4s ease, transform 0.4s ease, opacity 0.4s ease;
+}
+@supports ((mask: url("")) or (-webkit-mask: url(""))) {
+  .hex-socket {
+    opacity: 1;
+    background: rgba(16, 26, 46, 0.16);
+    -webkit-mask: url("../img/ronshoal-mark.png") center / contain no-repeat;
+    mask: url("../img/ronshoal-mark.png") center / contain no-repeat;
+  }
+}
+.hex-socket.near { background: rgba(29, 79, 216, 0.55); transform: scale(1.08); }
+.hex-socket.locked { background: var(--live); }
+
+.hero-scroll {
+  position: absolute; left: 50%; bottom: 24px; z-index: 5;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  font-size: 9px; letter-spacing: 0.4em; color: var(--mut);
+}
+.hero-scroll i {
+  width: 1px; height: 42px; background: var(--line);
+  position: relative; overflow: hidden; display: block;
+}
+.hero-scroll i::after {
+  content: ""; position: absolute; left: 0; top: -50%;
+  width: 100%; height: 50%; background: var(--blue);
+  animation: scrolldrop 2s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+@keyframes scrolldrop { to { top: 110%; } }
+.flat .hero-scroll i::after, .no-js .hero-scroll i::after { animation: none; }
+
+/* ═══════════ PHILOSOPHY ═══════════ */
+.philosophy {
+  padding: 18vh 8vw;
+  border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: 1fr 1.6fr;
+  gap: 6vh 6vw;
+  max-width: 1320px; margin: 0 auto;
+}
+.philosophy .sec-head { margin-bottom: 0; }
+.philo-lead {
+  font-size: clamp(22px, 2.8vw, 40px); font-weight: 700;
+  letter-spacing: 0.06em; line-height: 1.7;
+  margin-bottom: 4vh;
+}
+.nw { white-space: nowrap; display: inline-block; } /* 語中改行の防止（読点でのみ折る） */
+.philo-txt {
+  font-size: 14px; font-weight: 300;
+  max-width: 600px; margin-bottom: 2.4vh;
+  letter-spacing: 0.06em;
+}
+
+/* ═══════════ AI TEAM ═══════════ */
+.aiteam {
+  padding: 18vh 8vw;
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(29, 79, 216, 0.05), transparent),
+    var(--bg2);
+}
+.dept-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 16px;
+}
+.dept { /* カード両テーマ対応 */
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 24px 20px;
+  position: relative;
+}
+.dept i {
+  position: absolute; top: 24px; right: 22px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--live);
+  animation: livepulse 2.4s ease-in-out infinite;
+}
+.flat .dept i, .no-js .dept i { animation: none; }
+.dept b {
+  display: block;
+  font-size: 18px; font-weight: 700; letter-spacing: 0.1em;
+}
+.dept span {
+  display: block;
+  font-family: var(--disp);
+  font-size: 10px; letter-spacing: 0.24em; color: var(--blue);
+  margin: 4px 0 12px;
+}
+.dept p {
+  font-size: 12px; font-weight: 300; color: var(--mut);
+  line-height: 1.9;
+}
+.aiteam-cta { margin-top: 6vh; }
+.aiteam-cta a {
+  display: inline-block;
+  font-family: var(--disp); font-weight: 500;
+  font-size: 14px; letter-spacing: 0.14em;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 999px;
+  padding: 14px 34px;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+.aiteam-cta a:hover, .aiteam-cta a:focus-visible {
+  background: var(--blue); color: #fff;
+}
+
+/* ═══════════ BUSINESS ═══════════ */
+.business {
+  padding: 18vh 8vw;
+  border-top: 1px solid var(--line);
+  max-width: 1320px; margin: 0 auto;
+}
+.biz-list { display: flex; flex-direction: column; }
+.biz {
+  display: grid;
+  grid-template-columns: 70px 1fr 1.3fr 90px;
+  align-items: baseline; gap: 26px;
+  padding: 5vh 0;
+  border-top: 1px solid var(--line);
+}
+.biz:last-child { border-bottom: 1px solid var(--line); }
+.biz-idx {
+  font-family: var(--disp); font-weight: 500;
+  font-size: 13px; color: var(--mut);
+}
+.biz-head em {
+  display: block; font-style: normal;
+  font-family: var(--disp);
+  font-size: 10px; letter-spacing: 0.26em; color: var(--blue);
+  margin-bottom: 10px;
+}
+.biz-head h3 {
+  font-size: clamp(24px, 2.6vw, 38px);
+  font-weight: 700; letter-spacing: 0.06em; line-height: 1.3;
+}
+.biz p {
+  font-size: 13px; font-weight: 300; color: var(--mut);
+  letter-spacing: 0.05em;
+}
+.biz > a {
+  justify-self: end;
+  font-family: var(--disp); font-size: 12px; letter-spacing: 0.14em;
+  color: var(--blue);
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 3px;
+  transition: opacity 0.3s ease;
+}
+.biz > a:hover, .biz > a:focus-visible { opacity: 0.55; }
+
+/* ═══════════ COMPANY ═══════════ */
+.company {
+  padding: 16vh 8vw;
+  border-top: 1px solid var(--line);
+  background: var(--bg2);
+}
+.company .sec-head { margin-bottom: 5vh; }
+.co-table { max-width: 780px; }
+.co-table div {
+  display: flex; align-items: baseline; gap: 26px;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.co-table div:first-child { border-top: 1px solid var(--line); }
+.co-table dt {
+  flex: 0 0 110px;
+  font-size: 11px; letter-spacing: 0.22em; color: var(--mut);
+}
+.co-table dd { font-size: 14px; letter-spacing: 0.06em; }
+
+/* ═══════════ CONTACT ═══════════ */
+.contact {
+  padding: 18vh 8vw 0;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+.contact-pre {
+  font-size: 12px; letter-spacing: 0.3em; color: var(--mut);
+  margin-bottom: 4vh;
+}
+.contact-mail {
+  font-family: var(--disp); font-weight: 700;
+  font-size: clamp(20px, 3.6vw, 48px);
+  letter-spacing: 0.04em;
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 6px;
+  transition: color 0.35s ease;
+}
+.contact-mail:hover, .contact-mail:focus-visible { color: var(--blue); }
+.foot { margin-top: 14vh; border-top: 1px solid var(--line); }
+.foot-links {
+  display: flex; justify-content: center; gap: 26px; flex-wrap: wrap;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px; letter-spacing: 0.1em; color: var(--mut);
+}
+.foot-links a:hover { color: var(--ink); }
+.foot-base {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; flex-wrap: wrap;
+  padding: 22px 0 54px;
+  font-size: 10px; letter-spacing: 0.18em; color: var(--mut);
+}
+.foot-base a { color: var(--ink); }
+
+/* ═══════════ 健診プラス（kenshin.html） ═══════════ */
+.head-cta {
+  font-size: 12px; letter-spacing: 0.12em; font-weight: 500;
+  color: #fff; background: var(--blue);
+  border-radius: 999px; padding: 9px 22px;
+  white-space: nowrap;
+  transition: opacity 0.3s ease;
+}
+.head-cta:hover, .head-cta:focus-visible { opacity: 0.8; }
+
+.kp-hero {
+  padding: calc(90px + 8vh) 8vw 10vh;
+  background:
+    radial-gradient(ellipse 55% 60% at 85% 20%, rgba(29, 79, 216, 0.06), transparent),
+    var(--bg);
+}
+.kp-hero-inner { max-width: 1100px; margin: 0 auto; }
+.kp-en {
+  font-family: var(--disp); font-weight: 500;
+  font-size: 11px; letter-spacing: 0.4em; color: var(--blue);
+  margin-bottom: 3vh;
+}
+.kp-title {
+  font-size: clamp(28px, 4.6vw, 64px);
+  font-weight: 700; line-height: 1.6; letter-spacing: 0.05em;
+}
+.kp-title em { font-style: normal; color: var(--blue); }
+.kp-chips {
+  list-style: none;
+  display: flex; gap: 12px; flex-wrap: wrap;
+  margin-top: 4vh;
+}
+.kp-chips li {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-size: 12.5px; letter-spacing: 0.1em; color: var(--mut);
+}
+.kp-chips b { color: var(--ink); font-weight: 700; margin: 0 2px; }
+.kp-hero-sub {
+  margin-top: 3.6vh;
+  font-size: 13.5px; font-weight: 300; letter-spacing: 0.08em; color: var(--mut);
+}
+.kp-cta {
+  display: inline-block; margin-top: 4.6vh;
+  font-weight: 700; font-size: 14px; letter-spacing: 0.12em;
+  color: #fff; background: var(--blue);
+  border-radius: 999px; padding: 16px 40px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.kp-cta:hover, .kp-cta:focus-visible { opacity: 0.85; transform: translateY(-2px); }
+.kp-cta--big { font-size: 16px; padding: 18px 52px; }
+.kp-contact-note { font-size: 13px; color: var(--mut); margin-bottom: 4vh; }
+
+.kp-sec {
+  padding: 12vh 8vw;
+  border-top: 1px solid var(--line);
+  max-width: 1320px; margin: 0 auto;
+}
+.kp-sec--tint { max-width: none; background: var(--bg2); }
+.kp-sec--tint > * { max-width: 1170px; margin-left: auto; margin-right: auto; }
+
+.kp-compare {
+  display: flex; align-items: stretch; gap: 22px; flex-wrap: wrap;
+}
+.kp-price {
+  flex: 1 1 260px;
+  border: 1px solid var(--line); border-radius: 12px;
+  background: #fff;
+  padding: 30px 28px;
+}
+.kp-price span { font-size: 11px; letter-spacing: 0.2em; color: var(--mut); }
+.kp-price b {
+  display: block;
+  font-family: var(--disp); font-weight: 700;
+  font-size: clamp(38px, 4.6vw, 64px); line-height: 1.2;
+}
+.kp-price b i { font-style: normal; font-size: 0.45em; margin-left: 4px; }
+.kp-price p { font-size: 11.5px; color: var(--mut); margin-top: 8px; line-height: 1.9; }
+.kp-price--zero { border-color: var(--blue); background: rgba(29, 79, 216, 0.04); }
+.kp-price--zero b { color: var(--blue); }
+.kp-arrow { align-self: center; font-size: 26px; color: var(--mut); }
+
+.kp-checks {
+  list-style: none; margin-top: 6vh;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.kp-checks li {
+  position: relative;
+  padding: 14px 16px 14px 44px;
+  border: 1px solid var(--line); border-radius: 10px;
+  font-size: 13px; letter-spacing: 0.05em;
+  background: #fff;
+}
+.kp-checks li::before {
+  content: "✓";
+  position: absolute; left: 16px; top: 12px;
+  color: var(--live); font-weight: 700;
+}
+
+.stat b {
+  display: block;
+  font-family: var(--disp); font-weight: 700;
+  font-size: clamp(26px, 3vw, 44px); line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.stat span { font-size: 10px; letter-spacing: 0.22em; color: var(--mut); }
+.kp-stats { display: flex; gap: clamp(30px, 6vw, 90px); flex-wrap: wrap; }
+.kp-stats .stat b i { font-style: normal; font-size: 0.5em; }
+.kp-voices { margin-top: 6vh; display: grid; gap: 14px; }
+.kp-voices blockquote {
+  border-left: 3px solid var(--blue);
+  background: var(--bg2);
+  border-radius: 0 10px 10px 0;
+  padding: 18px 22px;
+  font-size: 13px; font-weight: 300; letter-spacing: 0.05em;
+  max-width: 720px;
+}
+
+.kp-flow {
+  list-style: none;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  counter-reset: step;
+}
+.kp-flow li {
+  background: var(--card);
+  border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px 20px;
+}
+.kp-flow b {
+  font-family: var(--disp); font-size: 12px; color: var(--blue);
+  letter-spacing: 0.2em;
+}
+.kp-flow span { display: block; font-weight: 700; font-size: 15px; margin: 8px 0 6px; letter-spacing: 0.08em; }
+.kp-flow p { font-size: 11.5px; color: var(--mut); line-height: 1.9; }
+
+.kp-faq { max-width: 860px; }
+.kp-faq div { padding: 22px 0; border-bottom: 1px solid var(--line); }
+.kp-faq div:first-child { border-top: 1px solid var(--line); }
+.kp-faq dt {
+  font-weight: 700; font-size: 15px; letter-spacing: 0.06em;
+  position: relative; padding-left: 30px;
+}
+.kp-faq dt::before { content: "Q"; position: absolute; left: 0; color: var(--blue); font-family: var(--disp); font-weight: 700; }
+.kp-faq dd {
+  margin-top: 8px; padding-left: 30px;
+  font-size: 13px; font-weight: 300; color: var(--mut);
+}
+
+/* ═══════════ レスポンシブ ═══════════ */
+@media (max-width: 900px) {
+  .philosophy { grid-template-columns: 1fr; }
+  .biz { grid-template-columns: 44px 1fr 70px; }
+  .biz-head { grid-column: 2; }
+  .biz p { grid-column: 2; grid-row: 2; margin-top: 8px; }
+  .biz > a { grid-column: 3; grid-row: 1; }
+  .biz-idx { grid-column: 1; grid-row: 1; }
+}
+
+@media (max-width: 720px) {
+  .head-nav { display: none; } /* モバイルは主要導線をページ内スクロールに集約（本番はメニュー実装） */
+  .site-head { padding: 14px 20px; }
+}
+
+/* 画面が低いとき（横向きスマホ等）はヒーローを圧縮して遊び場を確保 */
+@media (max-height: 520px) {
+  .hero-inner { padding-top: 0; }
+  .hero-lockup { width: min(46vw, 420px); }
+  .hero-sub, .hero-hint { display: none; }
+  .hero-ctas { margin-top: 3vh; }
+  .hero-scroll { display: none; }
+  .hoop { top: 74px; }
+  .hoop i { width: 52px; height: 52px; }
+}
+
+@media (max-width: 700px) {
+  /* モバイルも元サイトと同じ1画面のプレイフィールド（床まで見える） */
+  .hero { height: 100svh; min-height: min(560px, 100svh); }
+  .hero-inner { padding: 0 7vw; }
+  .head-logo img { height: 26px; }
+  .blk--pill { height: 34px; font-size: 11px; padding: 0 13px; }
+  .toy-bar button { font-size: 11px; padding: 9px 16px; white-space: nowrap; }
+  .hero-sub { margin-top: 3vh; }
+  .hero-ctas { margin-top: 3.4vh; }
+  .hero-scroll { display: none; }
+  .hoop { right: 6vw; top: clamp(96px, 15vh, 150px); }
+  .hoop i { width: 58px; height: 58px; }
+  .toy-bar { left: 50%; transform: translateX(-50%); bottom: 18px; }
+  .hex-socket { right: 6vw; bottom: 76px; width: 44px; height: 44px; }
+}
+
+@media (max-width: 640px) {
+  .hero-title { letter-spacing: 0.04em; }
+  .philosophy, .aiteam, .business, .company { padding-left: 7vw; padding-right: 7vw; }
+  .biz { gap: 16px; }
+  .biz > a { justify-self: start; }
+  .co-table div { flex-direction: column; gap: 4px; padding: 14px 0; }
+  .foot-base { flex-direction: column; align-items: flex-start; padding-bottom: 44px; }
+}

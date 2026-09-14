@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [
+        // 2026-09-14: approved corporate-site mock is served as the public top page.
+        { source: "/", destination: "/index.html" },
+        { source: "/ai", destination: "/ai.html" },
+        { source: "/kenshin", destination: "/kenshin.html" },
         // Email Harnessの公開配信停止URLを自社ドメインで受け、処理本体だけ
         // line-harness Workerへ中継する。GET確認画面とRFC 8058 POSTの2経路に限定。
         {
@@ -104,6 +108,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/services/ai-burger", destination: "/ai.html", permanent: false },
+      { source: "/services/kenshin-plus", destination: "/kenshin.html", permanent: false },
       // 健康パスポート（オンライン診療）は休止中。配下ページへの直アクセスをトップへ一時リダイレクト（permanent:false=307・再開時にこの2行を削除）。2026-07-06
       { source: "/services/kenko-passport", destination: "/", permanent: false },
       { source: "/services/kenko-passport/:path*", destination: "/", permanent: false },

@@ -1,0 +1,315 @@
+:root {
+  --ink: #101a2e;
+  --muted: #677084;
+  --line: rgb(16 26 46 / .16);
+  --blue: #1d4fd8;
+  --paper: #f7f6f2;
+  color: var(--ink);
+  font-family: Inter, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { width: 100%; margin: 0; }
+body { background: #fff; }
+.mock-page { min-width: 0; }
+
+.published-site { display: block; width: 100%; height: 100svh; border: 0; background: #fff; }
+
+/* v0.7 の「AIが唯一の案内人」モックの構図を継承したセクション */
+.ron-section {
+  overflow: hidden;
+  padding: clamp(76px, 11vw, 150px) 20px clamp(68px, 10vw, 128px);
+  background: #fff;
+}
+.business .ron-section { margin-top: 10vh; border-top: 1px solid var(--line); }
+.ron-section-head { max-width: 880px; margin: 0 auto clamp(44px, 6vw, 78px); text-align: center; }
+.ron-section-head p { margin: 0 0 18px; color: var(--blue); font: 700 10px/1 Inter, sans-serif; letter-spacing: .22em; }
+.ron-section-head h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(29px, 4.4vw, 54px);
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: .06em;
+}
+
+.ron-stage {
+  display: grid;
+  grid-template-columns: minmax(250px, 320px) minmax(0, 560px);
+  gap: clamp(18px, 3vw, 48px);
+  align-items: center;
+  max-width: 940px;
+  margin: 0 auto;
+}
+.ron {
+  width: min(100%, 320px);
+  justify-self: center;
+}
+
+.ron-console {
+  display: flex;
+  min-height: 540px;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1.5px solid var(--ink);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 16px 44px rgb(16 26 46 / .10);
+}
+.ron-console-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+.ron-console-head strong { font: 700 13px/1 Inter, sans-serif; letter-spacing: .26em; }
+.ron-console-head strong i { color: var(--blue); font-size: 9px; font-style: normal; }
+.ron-console-head span { color: var(--blue); font-size: 10px; letter-spacing: .06em; }
+.ron-conversation { flex: 1; padding: 22px 18px; }
+.ron-message {
+  max-width: 87%;
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 4px 18px 18px 18px;
+  background: var(--paper);
+  color: #3c4659;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: .04em;
+  white-space: pre-line;
+}
+.ron-prompts { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 18px 14px; }
+.ron-prompts button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: #fff;
+  color: var(--ink);
+  font: 400 11px/1.3 inherit;
+  cursor: pointer;
+  transition: border-color .2s ease, color .2s ease;
+}
+.ron-prompts button:hover { border-color: var(--blue); color: var(--blue); }
+.ron-form { display: flex; gap: 10px; padding: 12px 18px 16px; border-top: 1px solid var(--line); }
+.ron-form input {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 13px 16px;
+  background: var(--paper);
+  color: var(--ink);
+  font: 13px/1.3 inherit;
+  outline: none;
+}
+.ron-form input:focus { outline: 2px solid var(--blue); outline-offset: 1px; }
+.ron-form button {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 21px;
+  cursor: pointer;
+}
+.ron-form input:disabled,
+.ron-form button:disabled { cursor: wait; opacity: .55; }
+.ron-note { max-width: 810px; margin: 20px auto 0; color: var(--muted); text-align: right; font-size: 10px; letter-spacing: .04em; }
+.secret-preview-link { display: inline-grid; gap: 4px; margin: 54px 0 0; color: var(--ink); text-decoration: none; }
+.secret-preview-link span { border-bottom: 1px solid var(--ink); padding-bottom: 6px; font: 700 10px/1 Inter, sans-serif; letter-spacing: .16em; }
+.secret-preview-link small { color: var(--muted); font-size: 10px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 720px) {
+  .published-site { height: 92svh; }
+  .ron-section { padding-inline: 18px; }
+  .ron-section-head { margin-bottom: 38px; }
+  .ron-stage { grid-template-columns: 1fr; gap: 28px; }
+  .ron { width: min(78vw, 290px); }
+  .ron3d { border-radius: 30px; }
+  .ron-console { min-height: 470px; }
+  .ron-console-head { min-height: 62px; padding-inline: 18px; }
+  .ron-console-head span { display: none; }
+  .ron-message { max-width: 100%; font-size: 12px; }
+  .ron-note { text-align: left; }
+}
+
+/* 現行公開サイトのFVとローディング演出を、構成検討モックにも残す */
+#site-loader {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #fff;
+  animation: loaderOut .5s ease 2.1s forwards;
+}
+.loader-line { display: flex; flex-wrap: wrap; justify-content: center; max-width: 680px; margin: 0; }
+.loader-line span {
+  display: inline-block;
+  color: #000;
+  font-size: clamp(18px, 3vw, 30px);
+  font-weight: 500;
+  letter-spacing: .25em;
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(20px);
+  animation: loaderLetter .42s ease forwards;
+}
+.loader-line span:nth-child(2) { animation-delay: .06s; }
+.loader-line span:nth-child(3) { animation-delay: .12s; }
+.loader-line span:nth-child(4) { animation-delay: .18s; }
+.loader-line span:nth-child(5) { animation-delay: .24s; }
+.loader-line span:nth-child(6) { animation-delay: .3s; }
+.loader-line span:nth-child(7) { animation-delay: .36s; }
+.loader-line span:nth-child(8) { animation-delay: .42s; }
+.loader-line span:nth-child(9) { animation-delay: .48s; }
+.loader-line span:nth-child(10) { animation-delay: .54s; }
+.loader-line span:nth-child(11) { animation-delay: .6s; }
+.loader-line span:nth-child(12) { animation-delay: .66s; }
+.loader-line span:nth-child(13) { animation-delay: .72s; }
+.loader-line span:nth-child(14) { animation-delay: .78s; }
+.loader-line span:nth-child(15) { animation-delay: .84s; }
+.loader-line span:nth-child(16) { animation-delay: .9s; }
+.loader-line span:nth-child(17) { animation-delay: .96s; }
+@keyframes loaderLetter { to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+@keyframes loaderOut { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+
+.site-head {
+  padding: 24px 28px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+.site-head .head-logo img { height: 26px; filter: brightness(0) invert(1); }
+.site-head .head-nav, .site-head .head-live { display: none; }
+.hero--current { min-height: 100svh; background: #fff; }
+.hero--current .hero-inner { padding: 0 24px; margin-top: -10vh; }
+.hero--current .hero-lockup { width: min(80vw, 700px); }
+.hero--current .hero-scroll { bottom: 24px; color: #101a2e; }
+.hero--current .hero-scroll i { height: 48px; }
+html.flat #site-loader { display: none; }
+@media (prefers-reduced-motion: reduce) { #site-loader { display: none; } }
+
+/* 本番FV準拠: 無地のMatter.jsブロックとロゴを使ったシークレット導線 */
+.hero--current {
+  isolation: isolate;
+  touch-action: pan-y;
+  transition: background-color 2s cubic-bezier(.16, 1, .3, 1);
+}
+.hero--current .hero-inner {
+  z-index: 5;
+  pointer-events: none;
+}
+.live-physics {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  transition: filter 2s cubic-bezier(.16, 1, .3, 1);
+}
+.live-physics:active { cursor: grabbing; }
+.live-physics canvas {
+  display: block;
+  width: 100%;
+  max-width: none;
+  touch-action: pan-y;
+}
+.hero--current.secret-active { background-color: #030014; }
+.hero--current.secret-active .live-physics { filter: invert(1) hue-rotate(180deg); }
+.hero--current.secret-active .hero-lockup {
+  filter: invert(1) drop-shadow(0 0 28px rgba(255, 255, 255, .28));
+  transition: filter 1.8s ease;
+}
+.hero--current.secret-active .hero-scroll { color: rgba(255, 255, 255, .7); }
+
+.secret-effects {
+  position: absolute;
+  z-index: 6;
+  left: 20%;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+}
+.secret-effects::before {
+  content: "";
+  position: absolute;
+  inset: -110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.34), rgba(112,74,255,.13) 35%, transparent 70%);
+  transform: scale(.1);
+}
+.secret-effects i {
+  position: absolute;
+  inset: -42px;
+  border: 1px solid rgba(255, 255, 255, .78);
+  border-radius: 50%;
+  transform: scale(.2);
+}
+.secret-effects i:nth-child(2) { inset: -70px; }
+.secret-effects i:nth-child(3) { inset: -104px; }
+.secret-effects.is-active { opacity: 1; }
+.secret-effects.is-active::before { animation: secretFlash 1.5s cubic-bezier(.16, 1, .3, 1) both; }
+.secret-effects.is-active i { animation: secretRing 2.2s cubic-bezier(.16, 1, .3, 1) infinite; }
+.secret-effects.is-active i:nth-child(2) { animation-delay: .18s; }
+.secret-effects.is-active i:nth-child(3) { animation-delay: .36s; }
+@keyframes secretFlash {
+  0% { opacity: 0; transform: scale(.1); }
+  25% { opacity: 1; }
+  100% { opacity: .42; transform: scale(1); }
+}
+@keyframes secretRing {
+  0% { opacity: 0; transform: scale(.2); }
+  22% { opacity: .9; }
+  100% { opacity: 0; transform: scale(1.55); }
+}
+
+.secret-access {
+  position: relative;
+  z-index: 7;
+  width: max-content;
+  max-width: calc(100vw - 40px);
+  margin: 38px auto 0;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 15px 22px 15px 26px;
+  border: 1px solid rgba(255,255,255,.45);
+  border-radius: 999px;
+  background: rgba(3, 0, 20, .72);
+  box-shadow: 0 0 0 1px rgba(106, 79, 255, .18), 0 18px 60px rgba(0,0,0,.34);
+  color: #fff;
+  font: 600 10px/1 Inter, sans-serif;
+  letter-spacing: .2em;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: auto;
+  backdrop-filter: blur(12px);
+  transition: opacity .7s ease, transform .7s cubic-bezier(.16, 1, .3, 1), background .25s ease;
+}
+.secret-access[hidden] { display: none; }
+.secret-access.is-visible { opacity: 1; transform: translateY(0); }
+.secret-access:hover,
+.secret-access:focus-visible { background: rgba(53, 35, 145, .82); }
+.secret-access span { color: #ff592f; font-size: 16px; letter-spacing: 0; }
+.secret-access.is-leaving { opacity: 0; transform: scale(1.08); }
+
+html.flat .live-physics,
+html.flat .secret-effects { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .live-physics,
+  .secret-effects { display: none; }
+}
+@media (max-width: 720px) {
+  .hero--current .hero-inner { margin-top: -6vh; }
+  .secret-access { margin-top: 28px; padding: 13px 18px 13px 21px; font-size: 9px; }
+}
