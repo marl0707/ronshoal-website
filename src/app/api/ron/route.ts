@@ -50,7 +50,8 @@ export async function POST(request: NextRequest) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 50_000);
   try {
-    const upstream = await fetch(new URL("/chat/company", baseUrl), {
+    const upstreamBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+    const upstream = await fetch(new URL("chat/company", upstreamBase), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
