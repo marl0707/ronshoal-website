@@ -1,10 +1,13 @@
 import json
+import subprocess
 import tempfile
 import time
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 from uuid import uuid4
+from email import policy
+from email.parser import BytesParser
 
 from fastapi import FastAPI, HTTPException
 from fastapi.testclient import TestClient
@@ -107,10 +110,68 @@ class IntakeTests(unittest.TestCase):
     def test_uncertain_send_is_not_immediately_repeated(self):
         intake._prepare_root()
         record = {'id': self.body['requestId'], 'mail_attempted_at': time.time()}
-        with patch.object(intake, '_gws', return_value={'messages': []}) as gmail:
+        with patch.object(intake, '_gws', return_value={'messages': [], 'resultSizeEstimate': 0}) as gmail:
             with self.assertRaises(RuntimeError):
                 intake._notify(record)
         self.assertEqual(gmail.call_count, 1)
+
+    def test_unknown_search_result_never_sends(self):
+        intake._prepare_root()
+        for result in [{}, {'resultSizeEstimate': 1}]:
+            with self.subTest(result=result):
+                with patch.object(intake, '_gws', return_value=result) as gmail:
+                    with self.assertRaises(RuntimeError):
+                        intake._notify({'id': self.body['requestId']})
+                    self.assertEqual(gmail.call_count, 1)
+
+    def test_existing_receipt_subject_prevents_resend(self):
+        intake._prepare_root()
+        record = {'id': self.body['requestId'], 'notification_status': 'pending'}
+        with patch.object(intake, '_gws', side_effect=[
+            {'messages': [{'id': 'existing-mail'}], 'resultSizeEstimate': 1},
+            {'id': 'existing-mail', 'labelIds': ['INBOX']},
+        ]) as gmail:
+            intake._notify(record)
+        self.assertEqual([x.args[1] for x in gmail.call_args_list], ['list', 'modify'])
+        self.assertIn(f'subject:{record["id"]}', gmail.call_args_list[0].args[2]['q'])
+        self.assertEqual(record['gmail_message_id'], 'existing-mail')
+        self.assertEqual(record['notification_status'], 'notified')
+
+    def test_empty_mailbox_result_and_private_upload(self):
+        intake._prepare_root()
+        record = {'id': self.body['requestId'], 'fields': intake.validate(self.body)[1],
+                  'created_at': 'test timestamp', 'policy_version': intake.POLICY_VERSION,
+                  'notification_status': 'pending'}
+        sent = []
+
+        def transport(cmd, **kwargs):
+            params = json.loads(cmd[cmd.index('--params') + 1])
+            if cmd[4] == 'list':
+                self.assertEqual(params['q'], f'in:anywhere to:{intake.RECIPIENT} subject:{record["id"]}')
+                # Observed gws behavior: a mask containing only messages(id)
+                # produces no stdout when there are no matching messages.
+                output = json.dumps({'resultSizeEstimate': 0}) if 'resultSizeEstimate' in params['fields'] else ''
+            elif cmd[4] == 'send':
+                self.assertNotIn('--json', cmd)
+                self.assertEqual(cmd[cmd.index('--upload-content-type') + 1], 'message/rfc822')
+                self.assertEqual(cmd[0], intake.GWS)
+                self.assertNotIn(self.body['idea'], ' '.join(cmd))
+                path = Path(kwargs['cwd']) / cmd[cmd.index('--upload') + 1]
+                message = BytesParser(policy=policy.default).parsebytes(path.read_bytes())
+                self.assertEqual(str(message['To']), intake.RECIPIENT)
+                self.assertEqual(str(message['Reply-To']), self.body['email'])
+                self.assertIn(self.body['idea'], message.get_content())
+                sent.append(message)
+                output = json.dumps({'id': 'test-gmail-id'})
+            else:
+                output = json.dumps({'id': 'test-gmail-id', 'labelIds': ['INBOX', 'UNREAD']})
+            return subprocess.CompletedProcess(cmd, 0, stdout=output, stderr='')
+
+        with patch.object(intake.subprocess, 'run', side_effect=transport):
+            intake._notify(record)
+        self.assertEqual(record['notification_status'], 'notified')
+        self.assertEqual(len(sent), 1)
+        self.assertEqual(list(self.root.glob('*.eml')), [])
 
 
 if __name__ == '__main__':

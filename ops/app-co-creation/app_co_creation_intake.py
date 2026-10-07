@@ -26,6 +26,7 @@ from fastapi import HTTPException, Request
 ROOT = Path('/home/antigravity/cockpit/data_local_mirror/app_co_creation')
 RECIPIENT = 'info@ronshoal.com'
 SENDER = 'sejimakazuki@ronshoal.com'
+GWS = '/home/antigravity/cockpit/runtime/appco/gws-0.14.0/gws'
 POLICY_VERSION = '2026-10-07'
 MAX_BYTES = 65_536
 FIELDS = [
@@ -108,11 +109,11 @@ def _reserve(client_key):
 
 
 def _gws(resource, method, params, body=None, timeout=15, upload=None):
-    cmd = ['/usr/bin/gws', 'gmail', 'users', resource, method, '--params', json.dumps(params)]
+    cmd = [GWS, 'gmail', 'users', resource, method, '--params', json.dumps(params)]
     if body is not None:
         cmd += ['--json', json.dumps(body)]
     if upload is not None:
-        cmd += ['--upload', upload.name]
+        cmd += ['--upload', upload.name, '--upload-content-type', 'message/rfc822']
     result = subprocess.run(cmd, cwd=ROOT if upload is not None else None,
                             capture_output=True, text=True, timeout=timeout)
     if result.returncode:
@@ -124,14 +125,16 @@ def _gws(resource, method, params, body=None, timeout=15, upload=None):
 
 
 def _notify(record):
-    """Search the deterministic Message-ID before retrying an uncertain send."""
+    """Search the unique receipt in Subject; Gmail may replace Message-ID."""
     message_id = record.get('gmail_message_id')
     if not message_id:
         found = _gws('messages', 'list', {
-            'userId': 'me', 'q': f'rfc822msgid:appco.{record["id"]}@ronshoal.com',
-            'maxResults': 2, 'fields': 'messages(id)',
+            'userId': 'me', 'q': f'in:anywhere to:{RECIPIENT} subject:{record["id"]}',
+            'maxResults': 2, 'fields': 'messages(id),resultSizeEstimate',
         }, timeout=10)
         messages = found.get('messages', [])
+        if not isinstance(messages, list) or (not messages and found.get('resultSizeEstimate') != 0):
+            raise RuntimeError('gmail_search_result_unconfirmed')
         if messages:
             message_id = messages[0]['id']
         else:

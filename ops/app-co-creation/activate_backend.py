@@ -48,6 +48,7 @@ def verify():
 
 # Import and lifespan compatibility are exercised by tests, not just py_compile.
 subprocess.run(['python3', '-m', 'unittest', '-v', 'test_app_co_creation_intake'], cwd=SOURCE.parent, check=True)
+subprocess.run(['python3', str(SOURCE.parent / 'install_mail_runtime.py')], check=True)
 candidate = SOURCE.read_bytes()
 compile(candidate.decode(), str(TARGET), 'exec')
 before = TARGET.read_bytes()
