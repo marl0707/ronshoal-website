@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "publish:app-co-creation": "bash ops/app-co-creation/publish.sh"
   },
   "dependencies": {
     "clsx": "^2.1.1",
