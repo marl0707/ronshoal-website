@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
       beforeFiles: [
         // 2026-09-14: approved corporate-site mock is served as the public top page.
         { source: "/", destination: "/index.html" },
+        // Secret World opens the personal site directly, retaining the /secret URL.
+        { source: "/secret", destination: "/personal/index.html" },
         { source: "/ai", destination: "/ai.html" },
         { source: "/kenshin", destination: "/kenshin.html" },
         // Email Harnessの公開配信停止URLを自社ドメインで受け、処理本体だけ
