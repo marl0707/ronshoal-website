@@ -1,0 +1,32 @@
+:root { --ink:#1c1b1a; --accent:#234a8c; --paper:#f3f0e9; --line:#c9c2b7; }
+* { box-sizing:border-box; }
+html { background:var(--paper); }
+body { min-height:100vh; margin:0; color:var(--ink); background:var(--paper); font-family:"Zen Kaku Gothic New", sans-serif; }
+.paper { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.28; background-image:radial-gradient(rgba(0,0,0,.14) .45px,transparent .6px); background-size:5px 5px; mix-blend-mode:multiply; }
+.page-head, .facet-page, footer { position:relative; z-index:1; }
+.page-head { display:flex; justify-content:space-between; align-items:flex-start; padding:30px 4vw; }
+.name { color:var(--ink); font:500 17px/1.1 "Shippori Mincho",serif; letter-spacing:.26em; text-decoration:none; }
+.name span { display:block; margin-top:6px; font:400 8px/1 sans-serif; letter-spacing:.31em; }
+.back { color:var(--ink); font-size:11px; letter-spacing:.14em; text-decoration:none; }
+.back b { margin-left:7px; color:var(--accent); font-size:17px; font-weight:400; }
+.facet-page { width:min(990px,86vw); margin:10vh auto 12vh; }
+.index,.kicker { margin:0; font-size:10px; font-weight:500; letter-spacing:.18em; }
+.index { color:var(--accent); }
+.kicker { margin-top:8vh; color:#74706a; }
+h1 { max-width:850px; margin:15px 0 0; font:500 clamp(48px,9.5vw,130px)/.95 "Shippori Mincho",serif; letter-spacing:.08em; }
+.summary { max-width:590px; margin:6vh 0 0; font-size:clamp(15px,1.6vw,20px); font-weight:300; line-height:2.15; letter-spacing:.08em; }
+.rule { width:100%; height:1px; margin:9vh 0 5vh; background:var(--line); }
+.facet-details { max-width:830px; }
+.detail { display:grid; grid-template-columns:minmax(120px,1fr) minmax(0,2.2fr); gap:7vw; padding:0 0 6vh; }
+.detail + .detail { padding-top:5vh; border-top:1px solid var(--line); }
+.detail-label { margin:0; color:var(--accent); font-size:11px; font-weight:500; letter-spacing:.18em; }
+.detail h2 { margin:0; font:500 clamp(24px,3vw,38px)/1.35 "Shippori Mincho",serif; letter-spacing:.06em; }
+.detail div > p { max-width:590px; margin:22px 0 0; font-size:14px; font-weight:300; line-height:2.1; letter-spacing:.08em; }
+.facet-nav { display:grid; grid-template-columns:repeat(3,1fr); margin-top:11vh; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.facet-nav a { min-height:100px; display:flex; align-items:center; justify-content:space-between; padding:18px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); color:var(--ink); font-size:10px; letter-spacing:.1em; text-decoration:none; transition:background .2s,color .2s; }
+.facet-nav a:hover,.facet-nav a:focus-visible { background:var(--accent); color:#fff; outline:0; }
+.facet-nav span { color:var(--accent); font:400 26px/1 "Shippori Mincho",serif; }
+.facet-nav a:hover span,.facet-nav a:focus-visible span { color:#fff; }
+footer { display:flex; justify-content:space-between; padding:30px 4vw; border-top:1px solid var(--line); font-size:9px; letter-spacing:.16em; }
+footer a { color:var(--ink); text-decoration:none; }
+@media(max-width:650px) { .page-head{padding:22px 7vw}.facet-page{width:86vw;margin-top:8vh}.kicker{margin-top:12vh}.detail{grid-template-columns:1fr;gap:18px;padding-bottom:5vh}.detail + .detail{padding-top:4vh}.facet-nav{grid-template-columns:1fr 1fr}.facet-nav a{min-height:76px;padding:13px;font-size:9px}footer{padding:24px 7vw;gap:20px}.summary{line-height:2} }

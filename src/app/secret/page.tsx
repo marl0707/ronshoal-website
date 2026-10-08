@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Header } from "@/components/ui/Header";
 import Link from "next/link";
-import { ArrowLeft, MapPin, Briefcase, GraduationCap, Heart, ChevronDown, Globe } from "lucide-react";
+import { ArrowLeft, ArrowRight, MapPin, Briefcase, GraduationCap, Heart, ChevronDown, Globe } from "lucide-react";
 import { useRef } from "react";
 import { FadeIn } from "@/components/ui/FadeIn";
 
@@ -89,6 +89,14 @@ export default function SecretPage() {
                             </span>
                         </h1>
                     </motion.div>
+
+                    <a
+                        href="/personal/index.html"
+                        className="inline-flex items-center gap-3 px-6 py-4 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                    >
+                        個人活動のページへ
+                        <ArrowRight aria-hidden="true" className="w-5 h-5" />
+                    </a>
 
                     {/* プロフィール要約 */}
                     <motion.div
@@ -236,13 +244,22 @@ export default function SecretPage() {
             <section className="py-20 border-t border-white/10 relative z-10 bg-black text-center">
                 <FadeIn>
                     <h2 className="text-3xl font-black tracking-[0.2em] mb-8 text-white/50">RONSHOAL</h2>
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors group"
+                    <a
+                        href="/personal/index.html"
+                        className="inline-flex items-center gap-3 px-8 py-4 mb-6 rounded-full bg-purple-600 text-white font-bold hover:bg-purple-700 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                     >
-                        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                        トップページへ戻る
-                    </Link>
+                        個人活動のページへ
+                        <ArrowRight aria-hidden="true" className="w-5 h-5" />
+                    </a>
+                    <div>
+                        <Link
+                            href="/"
+                            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors group"
+                        >
+                            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                            トップページへ戻る
+                        </Link>
+                    </div>
                 </FadeIn>
             </section>
         </main>

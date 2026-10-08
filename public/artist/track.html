@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRACK | 瀬島和樹</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/track.css?v=20260908-3">
+</head>
+<body>
+  <header>
+    <a class="brand" href="./index.html">SEJIMA <span>©2026</span></a>
+    <a class="back" href="./music.html">← MUSIC</a>
+  </header>
+  <main>
+    <section class="track-hero">
+      <div class="hero-copy">
+        <p id="number" class="number"></p>
+        <p class="eyebrow">ORIGINAL TRACK / KEN9KAI</p>
+        <h1 id="title"></h1>
+        <p id="duration" class="duration"></p>
+        <p id="tagline" class="tagline"></p>
+      </div>
+      <figure class="cover">
+        <img id="cover" alt="">
+        <div class="play-visual" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <figcaption>ORIGINAL COVER ART / 2026</figcaption>
+      </figure>
+    </section>
+    <div class="bar"></div>
+    <section class="intro">
+      <p class="label">ABOUT THIS TRACK</p>
+      <p id="intro"></p>
+    </section>
+    <section class="listen">
+      <p class="label">LISTEN</p>
+      <audio id="audio" controls controlslist="nodownload" preload="metadata"></audio>
+      <div class="actions">
+        <span>LYRICS EMBEDDED IN MP3</span>
+      </div>
+    </section>
+    <section class="lyrics-panel" id="lyricsPanel" aria-hidden="true">
+      <div class="lyrics-head"><p class="label">LYRICS</p><span>NOW PLAYING</span></div>
+      <div class="lyrics-body" id="lyrics"></div>
+    </section>
+  </main>
+  <footer><a href="./music.html">ALL TRACKS</a><span>KAZUKI SEJIMA</span></footer>
+  <script src="js/lyrics.js?v=20260908-sections"></script>
+  <script src="js/tracks.js?v=20260908-10"></script>
+</body>
+</html>

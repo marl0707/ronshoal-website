@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>瀬島和樹 | KAZUKI SEJIMA — AI × ART</title>
+<meta name="description" content="瀬島和樹（KAZUKI SEJIMA）。AIとともに楽曲をつくり、AIアーティストをプロデュースし、小説を書く。人生そのものがアート——美しく謳歌して、綺麗に死ぬまで。">
+<meta name="robots" content="noindex">
+<!-- OGP: 公開時に og:url / og:image を絶対URLで設定する（モックのためTODO） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="瀬島和樹 | KAZUKI SEJIMA — AI × ART">
+<meta property="og:description" content="音楽シーンの崩壊ではなく、新たなステージの到来。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260908-listen-off">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "瀬島和樹",
+  "alternateName": "Kazuki Sejima",
+  "jobTitle": "Artist / Music Producer",
+  "birthDate": "1986"
+}
+</script>
+</head>
+<body>
+
+<!-- 粒状ノイズオーバーレイ -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- スクロール進捗バー -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+<!-- カスタムカーソル（pointer:fine のみ） -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+</div>
+
+<!-- プリローダー -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="pre-kanji" id="preKanji">瀬</div>
+  <div class="pre-count"><span id="preCount">0</span><em>%</em></div>
+  <div class="pre-note">SEJIMA — GENERATIVE STUDIES</div>
+</div>
+
+<header class="site-head">
+  <a class="head-logo" href="#top" data-magnetic>SEJIMA<span>©2026</span></a>
+  <nav class="head-nav" aria-label="メインナビゲーション">
+    <a href="/personal/index.html" data-scramble data-magnetic>PROFILE</a>
+    <a href="music.html" data-scramble data-magnetic>楽曲を聴く</a>
+    <a href="#works" data-scramble data-magnetic>WORKS</a>
+    <a href="#about" data-scramble data-magnetic>ABOUT</a>
+    <a href="#contact" data-scramble data-magnetic>CONTACT</a>
+  </nav>
+</header>
+
+<!-- 現在セクション表示 -->
+<div class="section-label" aria-hidden="true"><span id="sectionLabel">01 — INTRO</span></div>
+
+<main id="top">
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero" data-label="01 — INTRO">
+    <h1 class="visually-hidden">瀬島和樹 — KAZUKI SEJIMA。AI×アート — 楽曲制作・AIアーティストプロデュース・小説執筆</h1>
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-fallback" aria-hidden="true">SEJIMA</div>
+    <div class="hero-meta hero-meta--tl reveal">
+      <span>MUSIC / FICTION / AI</span>
+      <span>b.1986 — JAPAN</span>
+    </div>
+    <div class="hero-meta hero-meta--tr reveal">
+      <span>BASED IN MALAYSIA</span>
+      <span>PRODUCING AI ARTISTS</span>
+    </div>
+    <div class="hero-vertical" aria-hidden="true">瀬島和樹</div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>SCROLL</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- ═══════════ MANIFESTO ═══════════ -->
+  <section class="manifesto" data-label="02 — STATEMENT">
+    <div class="mani-inner">
+      <p class="mani-line"><span class="mask"><span class="mask-in">祖母に習った箏の絃から、</span></span></p>
+      <p class="mani-line"><span class="mask"><span class="mask-in">AIとつくる歌声まで。</span></span></p>
+      <p class="mani-line mani-line--accent"><span class="mask"><span class="mask-in">音楽シーンの崩壊ではなく、</span></span></p>
+      <p class="mani-line"><span class="mask"><span class="mask-in">新たなステージの到来。</span></span></p>
+      <p class="mani-en reveal">FROM MY GRANDMOTHER'S KOTO TO VOICES MADE WITH AI — NOT A COLLAPSE, BUT A NEW STAGE.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ WORKS（縦スクロール→横移動） ═══════════ -->
+  <section class="works" id="works" data-label="03 — WORKS">
+    <div class="works-sticky">
+      <div class="works-track" id="worksTrack">
+
+        <div class="work-intro">
+          <h2>WORKS<span>制作</span></h2>
+          <p>MUSIC — AI ARTISTS — FICTION — ROOTS — LIFE<br>5つの領域 / 映像はその場で生成</p>
+          <div class="work-intro-arrow" aria-hidden="true">⟶</div>
+        </div>
+
+        <article class="work" data-gen="signal">
+          <div class="work-frame">
+            <canvas aria-hidden="true"></canvas>
+            <div class="work-idx" aria-hidden="true">01</div>
+          </div>
+          <div class="work-cap">
+            <h3>SOUND<span>楽曲制作</span></h3>
+            <p>AI composition — AIとともに歌をつくる</p>
+          </div>
+        </article>
+
+        <article class="work" data-gen="life">
+          <div class="work-frame">
+            <canvas aria-hidden="true"></canvas>
+            <div class="work-idx" aria-hidden="true">02</div>
+          </div>
+          <div class="work-cap">
+            <h3>PERSONA<span>AIアーティスト</span></h3>
+            <p>producing AI artists — 人格が立ち上がるまでを設計する</p>
+          </div>
+        </article>
+
+        <article class="work" data-gen="ink">
+          <div class="work-frame">
+            <canvas aria-hidden="true"></canvas>
+            <div class="work-idx" aria-hidden="true">03</div>
+          </div>
+          <div class="work-cap">
+            <h3>FICTION<span>執筆</span></h3>
+            <p>words into stories — ことばを物語に編む</p>
+          </div>
+        </article>
+
+        <article class="work" data-gen="strings">
+          <div class="work-frame">
+            <canvas aria-hidden="true"></canvas>
+            <div class="work-idx" aria-hidden="true">04</div>
+          </div>
+          <div class="work-cap">
+            <h3>ROOTS<span>絃</span></h3>
+            <p>thirteen strings — 生田流箏曲・柳川流三線の系譜</p>
+          </div>
+        </article>
+
+        <article class="work" data-gen="vita">
+          <div class="work-frame">
+            <canvas aria-hidden="true"></canvas>
+            <div class="work-idx" aria-hidden="true">05</div>
+          </div>
+          <div class="work-cap">
+            <h3>VITA<span>健康長寿</span></h3>
+            <p>living as the ultimate work — 腸内細菌・エクソソーム・ピックルボール</p>
+          </div>
+        </article>
+
+        <div class="work-outro">
+          <p>歌は、<br>作り手の手を<br>離れてから<br>生きはじめる。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ MUSIC / ORIGINAL TRACKS ═══════════ -->
+  <section class="music" id="music" data-label="04 — MUSIC">
+    <div class="music-head">
+      <p>ORIGINAL TRACKS / 2026</p>
+      <h2>楽曲を、<br>ここから辿る。</h2>
+      <span>8 TRACKS — JACKETS / NOTES / LISTEN</span>
+    </div>
+    <a class="music-cta" href="music.html">楽曲を聴く <b>→</b></a>
+  </section>
+
+  <!-- ═══════════ TICKER ═══════════ -->
+  <section class="ticker-zone" data-label="04 — LOOP" aria-hidden="true">
+    <div class="ticker" id="tickerA">
+      <div class="ticker-row">
+        <span>KAZUKI SEJIMA — AI MUSIC — PRODUCE — FICTION —&nbsp;</span><span>KAZUKI SEJIMA — AI MUSIC — PRODUCE — FICTION —&nbsp;</span>
+      </div>
+    </div>
+    <div class="ticker ticker--rev" id="tickerB">
+      <div class="ticker-row">
+        <span>瀬島和樹 — 箏 — 三味線 — AIの歌声 — 物語 —&nbsp;</span><span>瀬島和樹 — 箏 — 三味線 — AIの歌声 — 物語 —&nbsp;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section class="about" id="about" data-label="05 — ABOUT">
+    <div class="about-grid">
+      <div class="about-head">
+        <h2 class="reveal">ABOUT<span>略歴</span></h2>
+      </div>
+      <div class="about-body">
+        <p class="about-lead"><span class="mask"><span class="mask-in">瀬島和樹 — 1986年生まれ。</span></span></p>
+        <p class="about-txt reveal">音楽は、京都當道会の祖母から始まった。生田流箏曲と柳川流三線（地歌三味線）のプロ奏者だった祖母に子どもの頃から習い、発表会の舞台にも立つ。祖父からはクラシックギターを。吹奏楽部ではテナーサックスとパーカッション、軽音楽部ではベースとボーカルを担い、作詞作曲を始めた。</p>
+        <p class="about-txt reveal">大学院では医科学を修め（修士・奈良県立医科大学大学院）、子どもの腸内細菌を研究。生態系が誰の指示もなく秩序を生む様を見つめてきた。</p>
+        <p class="about-txt reveal">AIの登場で、音楽は誰にでも作れるものになった。その衝撃を「音楽シーンの崩壊」ではなく「新たなステージの到来」と受け止め、AIとともに楽曲を作り、AIアーティストをプロデュースする側へ舵を切る。制作は音楽にとどまらず、小説の執筆にも及ぶ。現在はマレーシアを拠点に、ロンショール合同会社の代表として日本の事業を遠隔経営しながら、AI×アートの可能性を模索している。</p>
+        <ul class="about-facts reveal">
+          <li><i>ROOTS</i>生田流箏曲 / 柳川流三線・地歌三味線（京都當道会）</li>
+          <li><i>INSTRUMENTS</i>ギター / テナーサックス / パーカッション / ベース / ボーカル</li>
+          <li><i>PRACTICE</i>AI楽曲制作 / AIアーティストプロデュース / 小説執筆</li>
+          <li><i>THEME</i>健康長寿 — 腸内細菌 / エクソソーム / ピックルボール</li>
+          <li><i>DEGREE</i>修士（医科学）— 腸内細菌研究</li>
+          <li><i>COMPANY</i>ロンショール合同会社 代表社員</li>
+        </ul>
+      </div>
+      <div class="about-clocks reveal">
+        <div class="clock">
+          <i>KUALA LUMPUR</i>
+          <b id="clockKL">--:--:--</b>
+          <span>現在地 — MYT</span>
+        </div>
+        <div class="clock">
+          <i>JAPAN</i>
+          <b id="clockJP">--:--:--</b>
+          <span>事業拠点 — JST</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PHILOSOPHY ═══════════ -->
+  <section class="philosophy" data-label="06 — PHILOSOPHY">
+    <p class="philo-big"><span class="mask"><span class="mask-in">人生そのものが、<em>アート。</em></span></span></p>
+    <p class="philo-sub reveal">美しく謳歌して、綺麗に死ぬ。<br>健康長寿は、そのための大切なテーマ。</p>
+    <p class="philo-keys reveal">MICROBIOME × EXOSOME × PICKLEBALL<span>腸内細菌 / エクソソーム / スポーツ</span></p>
+  </section>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section class="contact" id="contact" data-label="07 — CONTACT">
+    <p class="contact-pre reveal">楽曲・プロデュース・執筆の相談は</p>
+    <a class="contact-mail" href="mailto:sejimakazuki@ronshoal.com" data-magnetic>
+      <span class="contact-mail-base">LET'S TALK</span>
+      <span class="contact-mail-fill" aria-hidden="true">LET'S TALK</span>
+    </a>
+    <p class="contact-adr reveal">sejimakazuki@ronshoal.com</p>
+    <footer class="foot">
+      <span>© 2026 KAZUKI SEJIMA / RONSHOAL LLC</span>
+      <span>© 2026 KAZUKI SEJIMA</span>
+      <a href="#top" data-scramble>BACK TO TOP ↑</a>
+    </footer>
+  </section>
+
+</main>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
