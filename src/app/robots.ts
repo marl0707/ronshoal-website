@@ -7,6 +7,7 @@ import { MetadataRoute } from 'next';
 // /docs/meetings/ は顧問先向け非公開議事録(ランダムslug)。検索エンジン非掲載のため明示的にdisallow。
 // /malaysia 配下の除外は /malaysia/robots.txt に書いてあるが、クローラーはドメイン直下の
 // robots.txt しか読まないため、ここにも同じ指定を置く（2026-09-24 サイトレビュー）。
+// Pickleball の記事画像も /pickleball/api/articles/image/ から配信されるので Allow で残す（2026-10-19）。
 // 記事画像・広告バナー・掲示板画像は /malaysia/api/ 配下から配信されるので、
 // そのパスだけは Allow で残す（より長い一致の規則が優先される）。
 // Pickleball の子 robots.ts と同じ除外を同期する。AI検索用クローラーも * の公開許可に従う。
@@ -17,6 +18,7 @@ export default function robots(): MetadataRoute.Robots {
             allow: [
                 '/',
                 '/pickleball/api/og',
+                '/pickleball/api/articles/image/',
                 '/malaysia/api/articles/image/',
                 '/malaysia/api/advertise/banner/',
                 '/malaysia/api/classifieds/image/',
