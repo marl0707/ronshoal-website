@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>父の日カップ — Father's Day Pickleball Match | O.pickle</title>
+  <meta name="description" content="2026年6月27日、THE HOODで開催されたO.pickleの父の日ピックルボールイベントをまとめたフォトレポート。">
+  <style>
+    :root {
+      --night: #05070b;
+      --navy: #071d2e;
+      --ink: #111111;
+      --paper: #f7f2e8;
+      --soft: #fff8e8;
+      --gold: #d99a1b;
+      --gold-bright: #f4bf37;
+      --court: #287986;
+      --clay: #b5533e;
+      --white: #ffffff;
+      --muted: #776f64;
+      --line: rgba(17, 17, 17, 0.14);
+      --shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      letter-spacing: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--night);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--night);
+      font-family: "Hiragino Sans", "Yu Gothic", "Helvetica Neue", Arial, sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img,
+    video {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 430px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background:
+        linear-gradient(90deg, rgba(17, 17, 17, 0.07) 0 1px, transparent 1px 100%),
+        linear-gradient(180deg, rgba(17, 17, 17, 0.06) 0 1px, transparent 1px 100%),
+        var(--paper);
+      background-size: 42px 42px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+      padding-bottom: calc(104px + env(safe-area-inset-bottom));
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      overflow: hidden;
+      color: var(--white);
+      background: var(--night);
+    }
+
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.82;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.55) 46%, rgba(0, 0, 0, 0.92)),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.12));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px 14px 108px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      padding: 8px 10px;
+      color: var(--white);
+      background: rgba(0, 0, 0, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .chip.gold {
+      color: var(--ink);
+      background: var(--gold-bright);
+      border-color: var(--gold-bright);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue", sans-serif;
+      font-size: 3.45rem;
+      line-height: 0.86;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 10px 32px rgba(0, 0, 0, 0.78);
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.82;
+    }
+
+    .primary-cta,
+    .sticky-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 58px;
+      color: var(--ink);
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: var(--shadow);
+      font-weight: 900;
+    }
+
+    .primary-cta {
+      margin-top: 18px;
+      width: 100%;
+      padding: 13px 16px;
+    }
+
+    .cta-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      color: var(--gold-bright);
+      background: var(--ink);
+      border-radius: 50%;
+      flex: 0 0 auto;
+      font-size: 1.05rem;
+    }
+
+    .cta-copy strong,
+    .cta-copy small {
+      display: block;
+    }
+
+    .cta-copy strong {
+      font-size: 1.1rem;
+      line-height: 1.1;
+    }
+
+    .cta-copy small {
+      margin-top: 4px;
+      color: rgba(17, 17, 17, 0.72);
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+
+    .event-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      margin-top: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .event-strip div {
+      padding: 14px;
+      min-height: 82px;
+      background: rgba(0, 0, 0, 0.46);
+      backdrop-filter: blur(8px);
+    }
+
+    .event-strip span {
+      display: block;
+      margin-bottom: 7px;
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 0.68rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .event-strip strong {
+      display: block;
+      color: var(--white);
+      font-size: 0.92rem;
+      line-height: 1.32;
+    }
+
+    section {
+      padding: 46px 14px;
+    }
+
+    .dark {
+      color: var(--white);
+      background:
+        linear-gradient(145deg, rgba(5, 7, 11, 0.98), rgba(7, 29, 46, 0.96)),
+        var(--night);
+    }
+
+    .kicker {
+      margin: 0 0 12px;
+      color: var(--clay);
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .dark .kicker {
+      color: var(--gold-bright);
+    }
+
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.05rem;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0;
+      color: #2c2924;
+      font-size: 0.98rem;
+      line-height: 1.92;
+    }
+
+    .dark p {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .copy {
+      display: grid;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .flyer {
+      padding-top: 18px;
+    }
+
+    .flyer img {
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(217, 154, 27, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-facts {
+      display: grid;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 14px;
+      color: var(--white);
+      background: var(--night);
+      border-left: 6px solid var(--gold-bright);
+    }
+
+    .fact span {
+      color: rgba(255, 255, 255, 0.52);
+      font-size: 0.7rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .fact strong {
+      color: var(--white);
+      font-size: 0.98rem;
+      line-height: 1.45;
+    }
+
+    .media-card {
+      position: relative;
+      overflow: hidden;
+      margin-top: 24px;
+      background: var(--night);
+      box-shadow: var(--shadow);
+    }
+
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      height: auto;
+    }
+
+    .media-card.video video {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 46px 14px 13px;
+      color: var(--white);
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.84));
+      font-size: 0.75rem;
+      font-weight: 900;
+      line-height: 1.55;
+    }
+
+    .quote {
+      padding: 48px 14px;
+      color: var(--white);
+      background:
+        linear-gradient(145deg, rgba(5, 7, 11, 0.98), rgba(7, 29, 46, 0.98)),
+        var(--night);
+      border-top: 10px solid var(--gold-bright);
+      border-bottom: 10px solid var(--gold);
+    }
+
+    .quote blockquote {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.15rem;
+      line-height: 1.15;
+    }
+
+    .album-panel {
+      color: var(--white);
+      background:
+        linear-gradient(145deg, rgba(5, 7, 11, 0.96), rgba(7, 29, 46, 0.96)),
+        var(--night);
+      border-top: 1px solid rgba(217, 154, 27, 0.5);
+      border-bottom: 1px solid rgba(217, 154, 27, 0.5);
+    }
+
+    .album-panel .primary-cta {
+      margin-top: 20px;
+    }
+
+    .entrants {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .entrants li {
+      padding: 8px 10px;
+      color: var(--white);
+      background: var(--night);
+      border: 1px solid rgba(217, 154, 27, 0.55);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .gallery figure {
+      position: relative;
+      margin: 0;
+      min-height: 210px;
+      overflow: hidden;
+      background: var(--night);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .gallery figure.wide {
+      grid-column: 1 / -1;
+      min-height: 245px;
+    }
+
+    .gallery figure.tall {
+      min-height: 300px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .closing {
+      color: var(--white);
+      background: var(--night);
+      padding: 48px 14px 28px;
+      border-top: 10px solid var(--gold);
+    }
+
+    .closing h2 {
+      color: var(--gold-bright);
+      font-family: Impact, Haettenschweiler, "Arial Narrow Bold", "Helvetica Neue", sans-serif;
+      font-size: 2.9rem;
+      line-height: 0.9;
+      text-transform: uppercase;
+    }
+
+    .closing p {
+      margin-top: 18px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .sticky-wrap {
+      position: fixed;
+      left: 50%;
+      bottom: 0;
+      z-index: 30;
+      width: 100%;
+      max-width: 430px;
+      transform: translateX(-50%);
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: linear-gradient(180deg, transparent, rgba(5, 7, 11, 0.9) 22%, var(--night));
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .sticky-wrap.is-hidden {
+      opacity: 0;
+      transform: translateX(-50%) translateY(16px);
+      pointer-events: none;
+    }
+
+    .sticky-cta {
+      width: 100%;
+      min-height: 60px;
+      padding: 12px 14px;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 360px) {
+      h1 {
+        font-size: 2.85rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .event-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<style>
+      .archive-nav{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;padding:18px 20px;background:#0a0a0a;color:#f5f4f0;font:600 12px/1.8 Arial,sans-serif;letter-spacing:.04em}
+      .archive-nav a{color:inherit;text-decoration:underline;text-underline-offset:4px}
+      .gallery{align-items:start}.gallery figure,.gallery figure.wide,.gallery figure.tall{height:auto;min-height:0;overflow:visible}
+      .gallery img,.media-card img,.flyer img{width:100%;height:auto;max-height:none;aspect-ratio:auto;object-fit:contain}
+      .hero video,.media-card.video video{object-fit:contain}
+      .archive-badge{position:fixed;bottom:8px;left:8px;background:#eeede8;color:#111;padding:5px 8px;font:10px Arial,sans-serif;z-index:100;pointer-events:none}
+      a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+    </style><link rel="canonical" href="https://www.ronshoal.com/opickle/journal/2026-06-27-fathers-day-cup"><meta property="og:url" content="https://www.ronshoal.com/opickle/journal/2026-06-27-fathers-day-cup"><meta property="og:image" content="https://www.ronshoal.com/opickle/assets/fathers-day/posters/hero-loop.jpg"><meta name="twitter:card" content="summary_large_image"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "父の日カップ — Father’s Day Pickleball Match", "datePublished": "2026-06-27", "dateModified": "2026-10-19", "url": "https://www.ronshoal.com/opickle/journal/2026-06-27-fathers-day-cup", "image": "https://www.ronshoal.com/opickle/assets/fathers-day/posters/hero-loop.jpg", "author": {"@type": "Organization", "name": "O.pickle"}, "inLanguage": "ja"}</script></head>
+<body><nav class="archive-nav" aria-label="O.pickle navigation"><a href="/opickle/">O.pickle ↗</a><a href="/opickle/journal/">すべての活動記録 ↗</a><a href="/opickle/journal/2026-10-18-friendly-match/">O.pickle × Pickle Jam ↗</a></nav>
+  <div class="page">
+    <header class="hero">
+      <video src="/opickle/assets/fathers-day/videos/hero-loop.mp4" poster="/opickle/assets/fathers-day/posters/hero-loop.jpg" autoplay muted loop playsinline></video>
+      <div class="hero-content">
+        <div class="chips" aria-label="event tags">
+          <span class="chip gold">Father's Day</span>
+          <span class="chip">O.pickle</span>
+          <span class="chip">THE HOOD</span>
+        </div>
+
+        <h1>Father's Day Pickleball Match</h1>
+        <p class="lead">6月27日、THE HOODに集まったO.pickleの仲間たち。父の日の夜、コートにはプレーを楽しむ声と、負けたくない気持ちが同じ温度で流れていた。</p>
+
+        <div class="event-strip" aria-label="event summary">
+          <div>
+            <span>Date</span>
+            <strong>Saturday, June 27</strong>
+          </div>
+          <div>
+            <span>Time</span>
+            <strong>5:00 gather / 5:30 start</strong>
+          </div>
+          <div>
+            <span>Community</span>
+            <strong>O.pickle</strong>
+          </div>
+          <div>
+            <span>Venue</span>
+            <strong>THE HOOD Pickleball</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="dark">
+        <p class="kicker">Prologue</p>
+        <h2>父の日の夜、コートが少しだけ特別になった。</h2>
+        <div class="flyer">
+          <img src="/opickle/assets/fathers-day/flyer/fathers-day-pickleball-match.png" alt="父の日ピックルボールイベントの案内チラシ">
+        </div>
+        <div class="quick-facts">
+          <div class="fact">
+            <span>Schedule</span>
+            <strong>5:00 PM集合、5:30 PM試合開始、8:00 PM終了</strong>
+          </div>
+          <div class="fact">
+            <span>Rule</span>
+            <strong>ダブルスのチームは当日くじ引きで決定</strong>
+          </div>
+          <div class="fact">
+            <span>Entrants</span>
+            <strong>Masato / Masamichi / Gogo / Sejima~Ru / Hiroki / Kyon / Hiroyuki / Jun / Mori / Joji</strong>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">Match Report</p>
+        <h2>5時半、空気が試合へ切り替わる。</h2>
+        <div class="copy">
+          <p>集合時間を過ぎると、青いコートの周りに参加者が集まり始めた。名前が呼ばれ、ラケットを手にする。いつもの会話の延長に、少しだけ勝負の気配が混ざっていく。</p>
+          <p>この日のよさは、和やかさの中に本気があることだった。笑いながらコートに入り、ボールが浮いた瞬間だけ表情が変わる。父の日らしいあたたかさと、ゲームへの集中が同じ場所にあった。</p>
+        </div>
+        <div class="media-card">
+          <img src="/opickle/assets/fathers-day/images/photo-06.jpg" alt="大会後にコートで撮影した集合写真">
+        </div>
+      </section>
+
+      <section class="dark">
+        <p class="kicker">Rally</p>
+        <h2>速さより、判断が勝負を分ける。</h2>
+        <div class="copy">
+          <p>ネット際では、強打より一歩早い判断がものを言う。浮いたボールに詰める。角度を消す。相手の一歩先へ置く。短い距離で交わされる読み合いが、ピックルボールの面白さを引き出していた。</p>
+        </div>
+        <div class="media-card video">
+          <video src="/opickle/assets/fathers-day/videos/rally-cut.mp4" poster="/opickle/assets/fathers-day/posters/rally-cut.jpg" controls playsinline preload="metadata"></video>
+        </div>
+      </section>
+
+      <section class="quote">
+        <blockquote>勝ちたいから、声が出る。楽しいから、最後まで笑っていられる。</blockquote>
+      </section>
+
+      <section>
+        <p class="kicker">Between Games</p>
+        <h2>試合の合間に、もう一つの表情があった。</h2>
+        <div class="copy">
+          <p>スコアを追う目、ボードの前で交わされる会話、名前を見つけて笑う声。コートの外にいる時間にも、この会らしい距離の近さが出ていた。</p>
+        </div>
+        <div class="media-card">
+          <img src="/opickle/assets/fathers-day/images/photo-42.jpg" alt="勝敗表の前で確認している参加者">
+        </div>
+        <div class="gallery" aria-label="award photo gallery">
+          <figure class="tall">
+            <img src="/opickle/assets/fathers-day/images/photo-28.jpg" alt="表彰でメダルを持つ参加者">
+          </figure>
+          <figure class="tall">
+            <img src="/opickle/assets/fathers-day/images/photo-29.jpg" alt="マイクを持つ表彰シーン">
+          </figure>
+          <figure class="wide">
+            <img src="/opickle/assets/fathers-day/images/photo-35.jpg" alt="メダルを持つ子どもたち">
+          </figure>
+        </div>
+      </section>
+
+      <section class="dark">
+        <p class="kicker">Video Moments</p>
+        <h2>歓声まで残しておきたい夜だった。</h2>
+        <div class="media-card video">
+          <video src="/opickle/assets/fathers-day/videos/team-roar.mp4" poster="/opickle/assets/fathers-day/posters/team-roar.jpg" controls playsinline preload="metadata"></video>
+        </div>
+        <div class="media-card video">
+          <video src="/opickle/assets/fathers-day/videos/medal-moment.mp4" poster="/opickle/assets/fathers-day/posters/medal-moment.jpg" controls playsinline preload="metadata"></video>
+        </div>
+      </section>
+
+      <section>
+        <p class="kicker">Selected Frames</p>
+        <h2>写真に残ったのは、勝敗の先にある表情。</h2>
+        <div class="copy">
+          <p>メダルを手にした顔、家族と並ぶ姿、コートに立つ背中。どの写真にも、勝敗だけでは拾いきれない父の日の時間が写っている。</p>
+        </div>
+        <div class="gallery" aria-label="selected photo gallery">
+          <figure class="wide">
+            <img src="/opickle/assets/fathers-day/images/photo-45.jpg" alt="THE HOODのコートで行われる試合">
+          </figure>
+          <figure class="tall">
+            <img src="/opickle/assets/fathers-day/images/photo-16.jpg" alt="親子で撮影した記念写真">
+          </figure>
+          <figure class="tall">
+            <img src="/opickle/assets/fathers-day/images/photo-17.jpg" alt="メダルを持つ子どもたち">
+          </figure>
+          <figure class="wide">
+            <img src="/opickle/assets/fathers-day/images/photo-10.jpg" alt="参加者の集合写真">
+          </figure>
+          <figure>
+            <img src="/opickle/assets/fathers-day/images/photo-30.jpg" alt="賞品を持つ参加者">
+          </figure>
+          <figure>
+            <img src="/opickle/assets/fathers-day/images/photo-33.jpg" alt="表彰後の記念写真">
+          </figure>
+          <figure class="wide">
+            <img src="/opickle/assets/fathers-day/images/photo-46.jpg" alt="THE HOODのコート全景">
+          </figure>
+          <figure>
+            <img src="/opickle/assets/fathers-day/images/photo-23.jpg" alt="表彰シーンの親子写真">
+          </figure>
+          <figure>
+            <img src="/opickle/assets/fathers-day/images/photo-40.jpg" alt="親子で賞品を持つ記念写真">
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="closing">
+      <h2>JUNE 27 MATCH</h2>
+      <p>6月27日、THE HOODに集まったO.pickleの仲間たちと家族の時間。勝負は真剣に、余韻はあたたかく。父の日のコートには、また集まりたくなる理由が残っていた。</p>
+    </footer>
+  </div>
+<nav class="archive-nav" aria-label="O.pickle navigation"><a href="/opickle/">O.pickle ↗</a><a href="/opickle/journal/">すべての活動記録 ↗</a><a href="/opickle/journal/2026-10-18-friendly-match/">O.pickle × Pickle Jam ↗</a></nav></body>
+</html>

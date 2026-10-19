@@ -11,6 +11,18 @@ const nextConfig: NextConfig = {
         { source: "/secret", destination: "/personal/index.html" },
         { source: "/ai", destination: "/ai.html" },
         { source: "/kenshin", destination: "/kenshin.html" },
+        // O.pickle community and the two event journals share the corporate domain.
+        { source: "/opickle", destination: "/opickle/index.html" },
+        { source: "/opickle/story", destination: "/opickle/story/index.html" },
+        { source: "/opickle/journal", destination: "/opickle/journal/index.html" },
+        {
+          source: "/opickle/journal/2026-10-18-friendly-match",
+          destination: "/opickle/journal/2026-10-18-friendly-match/index.html",
+        },
+        {
+          source: "/opickle/journal/2026-06-27-fathers-day-cup",
+          destination: "/opickle/journal/2026-06-27-fathers-day-cup/index.html",
+        },
         // Email Harnessの公開配信停止URLを自社ドメインで受け、処理本体だけ
         // line-harness Workerへ中継する。GET確認画面とRFC 8058 POSTの2経路に限定。
         {
