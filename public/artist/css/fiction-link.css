@@ -1,0 +1,14 @@
+.fiction-link { display: inline-flex; align-items: center; gap: 24px; min-height: 44px; margin-top: 12px; padding: 10px 0; border-bottom: 1px solid #827e74; color: #ece7dd; font-size: 12px; letter-spacing: .06em; text-decoration: none; }
+.fiction-link:hover { color: #f18c63; }
+.fiction-link:focus-visible { outline: 2px solid #ece7dd; outline-offset: 5px; }
+.fiction-link span { font-size: 20px; }
+.head-nav .novel-entry { border-bottom: 1px solid currentColor; }
+.head-nav .novel-entry:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+@media (min-width: 641px) and (max-width: 960px) {
+  .head-nav { gap: 14px; }
+  .head-nav a { font-size: 10px; letter-spacing: .12em; }
+}
+@media (max-width: 640px) {
+  .head-nav { gap: 0 4px; }
+  .head-nav a { font-size: 9px; letter-spacing: .02em; }
+}

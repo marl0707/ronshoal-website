@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:fiction-link && next build",
     "start": "next start",
     "lint": "eslint",
+    "check:fiction-link": "node ops/check-fiction-link.mjs",
     "publish:app-co-creation": "bash ops/app-co-creation/publish.sh"
   },
   "dependencies": {
