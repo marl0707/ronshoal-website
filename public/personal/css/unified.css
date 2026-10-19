@@ -1,0 +1,210 @@
+/* Personal-site visual system. Deliberately loaded only under /personal/. */
+html:has(body.personal-theme) { background: #111; color-scheme: dark; scroll-behavior: smooth; }
+body.personal-theme {
+  --bg: #111; --panel: #191919; --ink: #ece7dd; --sumi: #ece7dd;
+  --paper: #111; --paper2: #191919; --mut: #aaa59b;
+  --line: rgba(236,231,221,.19); --accent: #ff6541; --acc: #ff6541;
+  --facet: #ff6541 !important; --role-color: #ff6541 !important;
+  --role-wash: #1c1c1c !important; --forest: #ece7dd; --sage: #191919; --terracotta: #ff6541;
+  --display: "Archivo Black", "Zen Kaku Gothic New", sans-serif;
+  --serif: "Archivo Black", "Zen Kaku Gothic New", sans-serif;
+  --sans: "Zen Kaku Gothic New", sans-serif;
+  background: var(--bg); color: var(--ink); font-family: var(--sans); font-weight: 400;
+}
+.personal-theme *, .personal-theme *::before, .personal-theme *::after { box-sizing: border-box; }
+.personal-theme ::selection { background: var(--acc); color: #111; }
+.personal-theme a { color: inherit; text-underline-offset: 6px; }
+.personal-theme a:focus-visible { outline: 2px solid var(--acc); outline-offset: 6px; }
+.personal-theme .paper { z-index: 80; opacity: .045; mix-blend-mode: screen; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E"); }
+.personal-theme :where(section,article,nav,li,dd,dl,div,span,a) { border-color: var(--line); }
+.personal-theme .site-head, body.personal-theme .page-head {
+  max-width: none; margin: 0; padding: 20px 28px; min-height: 76px;
+  background: rgba(17,17,17,.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
+  align-items: center; z-index: 100;
+}
+body.personal-theme .page-head { position: relative; display: flex; }
+.personal-theme .head-name, body.personal-theme .name { display: inline-flex; align-items: baseline; gap: 4px; color: var(--ink); font: 400 16px/1.4 var(--display); letter-spacing: .07em; text-decoration: none; }
+.personal-theme .head-name span, .personal-theme .name span { display: inline; margin: 0; font: 500 9px/1 var(--sans); color: var(--acc); letter-spacing: .06em; align-self: flex-start; padding-top: 3px; }
+.personal-theme .head-nav { gap: 28px; }
+.personal-theme .head-nav a, .personal-theme .back { display: inline-flex; align-items: center; min-height: 44px; font: 500 11px/1.5 var(--sans); letter-spacing: .16em; color: var(--ink); }
+.personal-theme .back b { color: var(--acc); }
+.personal-home section[id] { scroll-margin-top: 100px; }
+.personal-theme .section-label { left: 28px; right: auto; bottom: 22px; writing-mode: horizontal-tb; color: var(--mut); font: 10px/1.5 var(--sans); letter-spacing: .2em; }
+.personal-theme .section-label::before { width: 26px; height: 1px; background: var(--acc); }
+.personal-theme .hero { min-height: 620px; }
+.identity-field { position: absolute; inset: 18% 4% 24%; pointer-events: none; }
+.identity-canvas { width: 100%; height: 100%; display: block; }
+.identity-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 400 15vw/1 var(--display); letter-spacing: -.05em; color: var(--ink); }
+.identity-field.is-drawn .identity-fallback { visibility: hidden; }
+.personal-theme .hero-name { left: auto; right: 28px; top: 49%; font: 700 24px/1.45 var(--sans); letter-spacing: .34em; writing-mode: vertical-rl; }
+.personal-theme .hero-latin { top: auto; left: 5vw; bottom: 150px; transform: none; writing-mode: horizontal-tb; font-size: 10px; letter-spacing: .24em; color: var(--mut); }
+.personal-theme .hero-tag { left: 5vw; right: auto; bottom: 94px; font: 500 clamp(20px,2.2vw,31px)/1.7 var(--sans); letter-spacing: .08em; }
+.personal-theme .hero-meta { top: 112px; font-size: 9px; letter-spacing: .2em; }
+.personal-theme .hero-meta--l { left: 28px; }
+.personal-theme .hero-meta--r { right: 28px; }
+.personal-theme .hero-scroll { bottom: 26px; }
+.personal-theme .hero-scroll i::after { background: var(--acc); }
+.personal-theme .facets, .personal-theme .profile, .personal-theme .threads, .personal-theme .philosophy, .personal-theme .contact { border-color: var(--line); }
+.personal-theme :is(.facets-head,.profile-head,.threads-head) h2 { font: 400 clamp(42px,7.5vw,108px)/1 var(--display); letter-spacing: -.05em; }
+.personal-theme :is(.facets-head,.profile-head,.threads-head) h2 span { font-family: var(--sans); letter-spacing: .22em; color: var(--mut); font-size: 12px; margin-top: 20px; }
+.personal-theme .facet-mark { color: var(--ink); opacity: .025; }
+.personal-theme .facet { grid-template-columns: 40px 1.25fr 1fr 30px; gap: 20px; padding: 34px 0; }
+.personal-theme .f-name { font: 400 clamp(25px,3.6vw,53px)/1.15 var(--display); letter-spacing: -.035em; }
+.personal-theme .f-name em { display: block; font: 400 12px/1.8 var(--sans); letter-spacing: .12em; margin: 10px 0 0; }
+.personal-theme .f-idx, .personal-theme .f-arrow { color: var(--acc); }
+.personal-theme .f-desc { color: #c0bbb1; font-weight: 400; font-size: 14px; }
+.personal-theme .facet-note { font-size: 11px; letter-spacing: .12em; }
+.personal-theme .profile-lead, .personal-theme .thread h3, .personal-theme .philo-line { font-family: var(--sans); font-weight: 700; }
+.personal-theme .profile-lead { letter-spacing: .02em; }
+.personal-theme .profile-txt, .personal-theme .thread div p { font-size: 15px; font-weight: 400; color: #c0bbb1; }
+.personal-theme .profile-facts dd { margin: 0; font-size: 14px; }
+.personal-theme .philo-line { letter-spacing: .025em; }
+.personal-theme .philo-line em { color: var(--acc); border-color: var(--acc); }
+.personal-theme .contact-mail { font-family: var(--display); letter-spacing: -.03em; }
+.personal-theme .foot { border-color: var(--line); }
+.personal-theme .foot-links a { padding: 12px 0; }
+.theme-progress { position: fixed; inset: 0 0 auto; height: 2px; pointer-events: none; z-index: 150; }
+.theme-progress span { display: block; height: 100%; background: var(--acc); transform: scaleX(0); transform-origin: left; }
+/* One language, five different subjects. Existing narrative and diagrams stay. */
+body.personal-theme.is-role, body.personal-theme.is-father { background: #111; --paper: #111; --ink: #ece7dd; --accent: #ff6541; --line: rgba(236,231,221,.19); }
+body.personal-theme.is-role .role-page, body.personal-theme.is-father .father-page { width: min(1180px,90%); margin: 28px auto 90px; }
+.identity-strip { position: relative; padding-top: 10px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+.identity-strip-top { display: flex; justify-content: space-between; gap: 20px; font: 10px/1.7 var(--sans); color: var(--mut); letter-spacing: .18em; }
+.identity-strip-top span:first-child { color: var(--acc); }
+.identity-strip .identity-field { position: relative; inset: auto; width: 100%; height: clamp(105px,19vw,245px); margin: 12px 0; }
+.identity-strip .identity-fallback { font-size: clamp(42px,13vw,190px); }
+body.personal-theme.is-role .role-hero, body.personal-theme.is-father .father-hero { padding-top: 24px; padding-bottom: 65px; gap: 55px; }
+body.personal-theme.is-role .role-hero h1, body.personal-theme.is-father .father-hero h1 { font-family: var(--sans); font-weight: 700; color: var(--ink); letter-spacing: -.035em; line-height: 1.45; }
+body.personal-theme.is-role .role-hero h1 { font-size: clamp(34px,4.6vw,60px); }
+body.personal-theme.is-role .role-page h2, body.personal-theme.is-father h2, body.personal-theme.is-father h3, body.personal-theme.is-role .role-work-card h3 { font-family: var(--sans); font-weight: 700; letter-spacing: .01em; }
+body.personal-theme.is-role .role-page h2 { font-size: clamp(26px,3.1vw,40px); line-height: 1.7; }
+.personal-theme :is(.role-lead,.father-lead,.role-intro>p,.role-card-body,.section-body,.chapter-copy>p,.role-details .detail div>p,.perspective-columns p,.process-rail p,.research-lens>div>p,.role-connections>p,.father-education>p) { font-size: 15px; line-height: 2.2; font-weight: 400; color: #c0bbb1; }
+.personal-theme :is(.role-eyebrow,.father-eyebrow,.detail-label,.chapter-index,.role-card-tag,.court-label,.notebook-label,.card-eyebrow,.research-record dt,.research-keywords li,.hero-foot>p) { color: var(--acc); }
+.personal-theme :is(.role-art figcaption,.journey-art figcaption,.perspective-note,.record-note,.source-note,.section-word,.years-note) { color: var(--mut); font-size: 11px; }
+body.personal-theme.is-role :is(.role-art-word,.research-record>p:first-child) { color: var(--mut); }
+.personal-theme :is(.role-tags li,.role-eyebrow>span) { border-color: var(--line); color: var(--mut); }
+body.personal-theme :is(.role-toc,.role-details,.detail,.role-perspective,.hero-foot,.founder-pillars,.process-rail,.process-rail li,.facet-nav,.facet-nav a,.story-nav,.father-section,.father-culture,.risk-grid>div,.choice-card,.research-record,.role-work-card,.role-card-art,.console-bar,.console-steps) { border-color: var(--line); }
+.personal-theme :is(.role-toc a,.story-nav a,.role-read,.story-link,.role-related a) { color: var(--ink); }
+.personal-theme :is(.role-toc a,.story-nav a):hover { background: var(--panel); color: var(--acc); }
+body.personal-theme.is-role :is(.founder-route,.maker-console,.research-notebook,.research-record,.athlete-court .role-art,.role-work-card,.role-card-art,.role-connections) { background: var(--panel); color: var(--ink); border-radius: 0; }
+body.personal-theme.is-role .role-work-card { border: 1px solid var(--line); border-top: 1px solid var(--line); padding: 28px; transition: border-color .25s, transform .25s; }
+body.personal-theme.is-role .role-work-card:hover { border-color: var(--acc); transform: translateY(-3px); }
+body.personal-theme.is-role .role-card-art { border-bottom: 1px solid var(--line); padding: 12px 0 28px; }
+.personal-theme .role-card-art>span { font-family: var(--display); opacity: .25; }
+.personal-theme .role-work-card a { color: var(--ink); }
+body.personal-theme.is-role .role-work-card a:hover { color: var(--acc); }
+.personal-theme :is(.founder-route,.research-notebook,.maker-console) { border: 1px solid var(--line); }
+.personal-theme .founder-route>p:first-child { color: var(--mut); }
+.personal-theme .route-countries>span { font-family: var(--display); color: var(--ink); }
+.personal-theme .route-countries small { color: var(--mut); }
+.personal-theme .route-countries b { color: var(--acc); }
+.personal-theme .founder-editorial, .personal-theme .athlete-values { border-top: 1px solid var(--line); }
+.personal-theme .maker-console { box-shadow: none; }
+.personal-theme :is(.console-bar,.console-steps,.perspective-columns article>span,.process-rail li>span) { color: var(--mut); }
+body.personal-theme.is-role .art-disc { fill: #191919; }
+body.personal-theme.is-role .art-lines { stroke: #c0bbb1; }
+body.personal-theme.is-role .art-block { fill: #202020; }
+body.personal-theme.is-role .art-dot, body.personal-theme.is-role .art-ball { fill: var(--acc); }
+body.personal-theme.is-role .art-paddle { fill: #79766f; }
+.personal-theme .research-notebook { background-image: none; }
+.personal-theme .research-keywords li { border-color: var(--line); }
+.personal-theme .court-actions a { background: var(--ink); color: #111; border: 1px solid var(--ink); }
+.personal-theme .court-actions a+a { background: transparent; color: var(--ink); border-color: var(--line); }
+.personal-theme .role-kanji { color: var(--ink); opacity: .035; font-family: var(--sans); }
+.personal-theme .role-connections { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.personal-theme .detail div>p a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 12px; color: var(--ink); border-bottom: 1px solid var(--acc); text-decoration: none; }
+body.personal-theme .facet-nav a { color: var(--ink); border-color: var(--line); }
+body.personal-theme .facet-nav a span { color: var(--acc); font-family: var(--sans); }
+body.personal-theme .facet-nav a:hover, body.personal-theme .facet-nav a:focus-visible { background: var(--ink); color: #111; }
+body.personal-theme .facet-nav a:hover span, body.personal-theme .facet-nav a:focus-visible span { color: #111; }
+.personal-theme footer { color: var(--mut); border-color: var(--line); }
+.personal-theme footer a { color: var(--ink); }
+/* Father's story uses the same editorial contrast as the portfolio. */
+body.personal-theme.is-father .father-hero h1 { font-size: clamp(52px,6.5vw,88px); line-height: 1.25; }
+.personal-theme .father-hero h1 em { color: var(--acc); }
+.personal-theme .father-why { background: #1b1b1b; color: var(--ink); border: 1px solid var(--line); }
+.personal-theme .father-why .chapter-index { color: var(--acc); }
+.personal-theme .future-years span, .personal-theme .stat-number b, .personal-theme .country-code { font-family: var(--display); }
+.personal-theme :is(.risk-grid>div,.language-card,.chinese-card,.culture-stat,.choice-card.chosen,.father-education) { background: #191919; color: var(--ink); }
+.personal-theme :is(.risk-grid span,.language-glyph,.chinese-card .language-glyph,.country-code,.chosen .country-code,.stat-number,.chosen-label) { color: var(--acc); }
+.personal-theme .risk-grid p { font-family: var(--sans); }
+.personal-theme .language-glyph { font-family: var(--display); }
+.personal-theme .father-education { border: 1px solid var(--line); }
+.personal-theme .father-education h2 em { color: var(--acc); }
+.personal-theme .education-ring, .personal-theme .education-ring::before, .personal-theme .education-ring::after { border-color: var(--line); }
+.personal-theme .education-word { color: var(--mut); font-family: var(--display); opacity: .12; }
+.personal-theme .stat-caption strong { color: var(--ink); }
+.personal-theme .person-outline { stroke: #79766f; }
+.personal-theme .person-active { fill: var(--acc); stroke: var(--acc); }
+.personal-theme .choice-card.chosen { border-color: var(--acc); }
+@media(max-width:960px) {
+  .personal-theme .facet { grid-template-columns: 30px 1fr 1fr 20px; gap: 16px; }
+  .personal-theme .f-name { font-size: clamp(23px,3.8vw,37px); }
+  .personal-theme .profile-grid, .personal-theme .threads-head { grid-template-columns: 1fr 1.8fr; gap: 30px; }
+  .personal-theme .profile-head h2, .personal-theme .threads-head h2 { font-size: clamp(34px,5.5vw,64px); }
+  body.personal-theme.is-role .role-hero, body.personal-theme.is-father .father-hero { gap: 28px; }
+}
+@media(max-width:760px) {
+  .personal-theme .site-head, body.personal-theme .page-head { padding: 14px 5%; min-height: 76px; }
+  .personal-theme .head-nav { gap: 18px; }
+  .personal-theme .head-nav a { font-size: 11px; letter-spacing: .06em; }
+  .personal-theme .head-name, body.personal-theme .name { font-size: 14px; }
+  .personal-theme .hero { min-height: 650px; }
+  .personal-theme .hero-meta { top: 108px; font-size: 8px; letter-spacing: .12em; }
+  .personal-theme .hero-meta--l { left: 5%; }
+  .personal-theme .hero-meta--r { right: 5%; }
+  .personal-theme .identity-field { inset: 24% 3% 29%; }
+  .personal-theme .hero-name { top: 63%; right: 5%; font-size: 16px; letter-spacing: .18em; }
+  .personal-theme .hero-latin { bottom: 173px; left: 5%; font-size: 9px; letter-spacing: .12em; }
+  .personal-theme .hero-tag { bottom: 122px; left: 5%; font-size: clamp(16px,4.5vw,25px); letter-spacing: .035em; }
+  .personal-theme .facets, .personal-theme .profile, .personal-theme .threads { padding: 85px 5%; }
+  .personal-theme .facets-head { margin-bottom: 45px; }
+  .personal-theme .facet { grid-template-columns: 24px minmax(0,1fr) 20px; padding: 27px 0; align-items: center; gap: 12px; }
+  .personal-theme .f-name { font-size: clamp(25px,7vw,42px); }
+  .personal-theme .f-name em { font-size: 11px; margin-top: 8px; }
+  .personal-theme .f-desc { grid-column: 2; font-size: 14px; letter-spacing: .025em; margin-top: 2px; }
+  .personal-theme .f-arrow { grid-column: 3; grid-row: 1; }
+  .personal-theme .profile-grid, .personal-theme .threads-head { grid-template-columns: 1fr; }
+  .personal-theme :is(.profile-head,.threads-head) h2 { font-size: clamp(42px,10vw,68px); }
+  .personal-theme .thread { grid-template-columns: 22px 1fr; }
+  .personal-theme .profile-facts dt { flex-basis: 80px; }
+  .personal-theme .profile-facts dd { font-size: 13px; }
+  .personal-theme .contact-mail { font-family: var(--sans); font-size: clamp(14px,4vw,26px); font-weight: 700; }
+  .personal-theme .section-label { display: none; }
+  .personal-theme .identity-strip .identity-field { inset: auto; height: clamp(85px,21vw,155px); }
+  .identity-strip-top { font-size: 8px; letter-spacing: .09em; }
+  body.personal-theme.is-role .role-hero h1 { font-size: clamp(30px,8vw,48px); }
+  body.personal-theme.is-role .role-page h2, body.personal-theme.is-father h2 { font-size: clamp(25px,6.5vw,36px); }
+  body.personal-theme.is-role .role-hero, body.personal-theme.is-father .father-hero { padding-top: 0; padding-bottom: 40px; }
+  body.personal-theme.is-father .father-hero h1 { font-size: clamp(43px,11vw,70px); }
+  .personal-theme .identity-strip { margin-bottom: 32px; }
+  .personal-theme .back { font-size: 10px; letter-spacing: .02em; }
+  .personal-theme .role-art { max-width: 380px; }
+  .personal-theme .maker-console { margin-right: 0; box-shadow: none; }
+  .personal-theme .founder-route { padding: 28px; }
+  .personal-theme .facet-nav a { font-size: 10px; min-height: 80px; }
+  .personal-theme :is(.role-toc a,.story-nav a) { font-size: 11px; }
+  .personal-theme .father-why { padding: 30px 22px; }
+  .personal-theme .chapter-copy p:not(.chapter-index), .personal-theme .section-body { font-size: 15px; }
+  .personal-theme .father-education { padding: 35px 24px 65px; }
+}
+@media(max-width:420px) {
+  .personal-theme .site-head { flex-wrap: wrap; gap: 0; }
+  .personal-theme .head-nav { width: 100%; justify-content: space-between; gap: 8px; }
+  .personal-theme .hero-meta { top: 126px; }
+  .personal-theme .head-name { padding-top: 1px; }
+  .personal-theme .profile-facts div { gap: 12px; }
+  .personal-theme .identity-strip-top span:last-child { max-width: 140px; text-align: right; }
+}
+html.flat:has(body.personal-theme) { scroll-behavior: auto; }
+.flat body.personal-theme *, .flat body.personal-theme *::before, .flat body.personal-theme *::after { animation: none !important; transition: none !important; }
+.flat body.personal-theme .role-work-card:hover { transform: none; }
+@media(prefers-reduced-motion:reduce) {
+  html:has(body.personal-theme) { scroll-behavior: auto; }
+  .personal-theme *, .personal-theme *::before, .personal-theme *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  body.personal-theme { --ink:#111; --mut:#444; --bg:#fff; --paper:#fff; color:#111; background:#fff; }
+  .personal-theme .paper, .theme-progress, .identity-canvas { display:none; }
+  .identity-field.is-drawn .identity-fallback { visibility:visible; }
+}

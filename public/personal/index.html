@@ -12,8 +12,9 @@
 <meta property="og:description" content="六つの面、ひとつの人生。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/personal/css/style.css">
+<link rel="stylesheet" href="/personal/css/unified.css?v=20261019">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,13 +25,13 @@
 }
 </script>
 </head>
-<body>
+<body class="personal-theme personal-home">
 
 <!-- 和紙の質感 -->
 <div class="paper" aria-hidden="true"></div>
 
 <header class="site-head">
-  <a class="head-name" href="#top">瀬島和樹<span>KAZUKI SEJIMA</span></a>
+  <a class="head-name" href="#top" aria-label="瀬島 和樹 トップ">SEJIMA<span>©2026</span></a>
   <nav class="head-nav" aria-label="メインナビゲーション">
     <a href="#facets">側面</a>
     <a href="#profile">略歴</a>
@@ -46,7 +47,7 @@
   <!-- ═══════════ HERO ═══════════ -->
   <section class="hero" data-label="序">
     <h1 class="visually-hidden">瀬島和樹 — KAZUKI SEJIMA オフィシャルサイト</h1>
-    <canvas id="cubeCanvas" aria-hidden="true"></canvas>
+    <div class="identity-field" aria-hidden="true"><span class="identity-fallback">SEJIMA</span><canvas class="identity-canvas" data-word="SEJIMA"></canvas></div>
     <div class="hero-name" aria-hidden="true">瀬島和樹</div>
     <div class="hero-latin reveal">KAZUKI SEJIMA — OFFICIAL</div>
     <p class="hero-tag"><span class="mask"><span class="mask-in">六つの面、ひとつの人生。</span></span></p>
@@ -189,5 +190,6 @@
 
 <script src="/personal/js/site-config.js"></script>
 <script src="/personal/js/main.js?v=20260909-final" defer></script>
+<script src="/personal/js/unified.js?v=20261019" defer></script>
 </body>
 </html>
