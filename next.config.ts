@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
         { source: "/kenshin", destination: "/kenshin.html" },
         // O.pickle community and the two event journals share the corporate domain.
         { source: "/opickle", destination: "/opickle/index.html" },
+        { source: "/opickle/sponsorship", destination: "/opickle/sponsorship/index.html" },
         { source: "/opickle/welcome", destination: "/opickle/welcome/index.html" },
         { source: "/opickle/story", destination: "/opickle/story/index.html" },
         { source: "/opickle/journal", destination: "/opickle/journal/index.html" },

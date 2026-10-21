@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${BASE}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
         // O.pickle is served from this project's public/opickle, not an external proxy.
         { url: `${BASE}/opickle`, changeFrequency: 'monthly', priority: 0.7 },
+        { url: `${BASE}/opickle/sponsorship`, changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE}/opickle/story`, changeFrequency: 'yearly', priority: 0.5 },
         { url: `${BASE}/opickle/journal`, changeFrequency: 'monthly', priority: 0.6 },
         { url: `${BASE}/opickle/journal/2026-10-18-friendly-match`, changeFrequency: 'yearly', priority: 0.5 },
