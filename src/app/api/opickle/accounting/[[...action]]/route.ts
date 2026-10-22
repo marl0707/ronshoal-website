@@ -24,17 +24,18 @@ type Context = { params: Promise<{ action?: string[] }> };
 
 export async function GET(request: NextRequest, context: Context) {
   const { action = [] } = await context.params;
-  if (action.length) return json({ error: 'not_found' }, 404);
+  const photo = action.length === 2 && action[0] === 'photo' && /^[a-f0-9]{64}$/.test(action[1]);
+  if (action.length && !photo) return json({ error: 'not_found' }, 404);
   const session = request.cookies.get(COOKIE)?.value || '';
   if (!/^[A-Za-z0-9_-]+\.[a-f0-9]{64}$/.test(session) || session.length > 512) {
     return json({ error: 'unauthorized' }, 401);
   }
-  return upstream(request, 'dashboard', { 'X-Opickle-Session': session });
+  return upstream(request, photo ? `photo/${action[1]}` : 'dashboard', { 'X-Opickle-Session': session });
 }
 
 export async function POST(request: NextRequest, context: Context) {
   const { action = [] } = await context.params;
-  if (action.length !== 1 || !['login', 'logout', 'form'].includes(action[0])) return json({ error: 'not_found' }, 404);
+  if (action.length !== 1 || !['login', 'logout', 'form', 'photo'].includes(action[0])) return json({ error: 'not_found' }, 404);
   if (!allowedOrigin(request)) return json({ error: 'invalid_origin' }, 403);
   if (action[0] === 'logout') {
     const response = json({ ok: true });
@@ -42,19 +43,30 @@ export async function POST(request: NextRequest, context: Context) {
     return response;
   }
   if (!(request.headers.get('content-type') || '').startsWith('application/json')) return json({ error: 'invalid_request' }, 400);
-  const sizeLimit = action[0] === 'form' ? 24576 : 2048;
+  const sizeLimit = action[0] === 'photo' ? 2000000 : action[0] === 'form' ? 24576 : 2048;
   if (Number(request.headers.get('content-length') || 0) > sizeLimit) return json({ error: 'request_too_large' }, 413);
   let body: unknown;
   try {
-    const raw = await request.text();
-    if (Buffer.byteLength(raw) > sizeLimit) return json({ error: 'request_too_large' }, 413);
-    body = JSON.parse(raw);
+    const reader = request.body?.getReader();
+    if (!reader) return json({ error: 'invalid_request' }, 400);
+    const chunks: Uint8Array[] = []; let size = 0;
+    while (true) {
+      const { done, value } = await reader.read(); if (done) break;
+      size += value.length;
+      if (size > sizeLimit) { await reader.cancel(); return json({ error: 'request_too_large' }, 413); }
+      chunks.push(value);
+    }
+    body = JSON.parse(Buffer.concat(chunks).toString('utf8'));
   } catch { return json({ error: 'invalid_request' }, 400); }
   if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ error: 'invalid_request' }, 400);
-  if (action[0] === 'form') {
+  if (action[0] === 'form' || action[0] === 'photo') {
     const session = request.cookies.get(COOKIE)?.value || '';
     if (!/^[A-Za-z0-9_-]+\.[a-f0-9]{64}$/.test(session) || session.length > 512) return json({ error: 'unauthorized' }, 401);
     const b = body as Record<string, unknown>;
+    if (action[0] === 'photo') {
+      if (Object.keys(b).sort().join(',') !== 'image,token' || typeof b.token !== 'string' || !/^[a-fA-F0-9]{64}$/.test(b.token) || typeof b.image !== 'string' || !/^data:image\/(jpeg|png|webp);base64,/.test(b.image)) return json({ error: 'invalid_request' }, 400);
+      return upstream(request, 'photo', { 'X-Opickle-Session': session }, b);
+    }
     if (!['load', 'preview', 'commit'].includes(String(b.action)) || !b.payload || typeof b.payload !== 'object' || Array.isArray(b.payload)) return json({ error: 'invalid_request' }, 400);
     const p = b.payload as Record<string, unknown>;
     if (typeof p.token !== 'string' || !/^[a-fA-F0-9]{64}$/.test(p.token) || Object.keys(p).some(k => !['token', 'data', 'nonce'].includes(k))) return json({ error: 'invalid_request' }, 400);
@@ -65,7 +77,7 @@ export async function POST(request: NextRequest, context: Context) {
   return upstream(request, 'login', {}, { password });
 }
 
-async function upstream(request: NextRequest, operation: 'login' | 'dashboard' | 'form', extraHeaders: Record<string, string>, body?: Record<string, unknown>) {
+async function upstream(request: NextRequest, operation: 'login' | 'dashboard' | 'form' | 'photo' | `photo/${string}`, extraHeaders: Record<string, string>, body?: Record<string, unknown>) {
   // Reuse the website's existing private service bridge. No Google credentials reach Vercel.
   const base = process.env.RONSHOAL_CHAT_BASE_URL;
   const secret = process.env.RONSHOAL_CHAT_SECRET;
@@ -82,8 +94,15 @@ async function upstream(request: NextRequest, operation: 'login' | 'dashboard' |
         'X-Opickle-Client': clientKey, ...extraHeaders },
       body: body ? JSON.stringify(body) : undefined, signal: controller.signal });
     if (!response.ok) {
-      const status = [401, 429, 503].includes(response.status) ? response.status : 502;
-      return json({ error: status === 401 ? 'unauthorized' : status === 429 ? 'too_many_requests' : 'source_unavailable' }, status);
+      const status = [400, 401, 403, 404, 413, 422, 429, 503, 507].includes(response.status) ? response.status : 502;
+      const errors: Record<number, string> = { 400: 'invalid_request', 401: 'unauthorized', 403: 'invalid_photo_ticket', 404: 'photo_not_found', 413: 'request_too_large', 422: 'invalid_photo', 429: 'too_many_requests', 507: 'photo_storage_full' };
+      return json({ error: errors[status] || 'source_unavailable' }, status);
+    }
+    if (operation.startsWith('photo/')) {
+      if (!(response.headers.get('content-type') || '').startsWith('image/jpeg')) return json({ error: 'source_unavailable' }, 502);
+      const bytes = await response.arrayBuffer();
+      if (bytes.byteLength > 1400000) return json({ error: 'source_unavailable' }, 502);
+      return new NextResponse(bytes, { headers: { 'Content-Type': 'image/jpeg', 'Cache-Control': 'private, no-store, max-age=0', 'X-Content-Type-Options': 'nosniff', 'X-Robots-Tag': 'noindex, nofollow, noarchive' } });
     }
     const value = await response.json();
     if (operation === 'login') {
@@ -94,7 +113,7 @@ async function upstream(request: NextRequest, operation: 'login' | 'dashboard' |
       result.cookies.set(COOKIE, value.session, cookieOptions);
       return result;
     }
-    if (operation === 'form') {
+    if (operation === 'form' || operation === 'photo') {
       if (typeof value.ok !== 'boolean') return json({ error: 'source_unavailable' }, 502);
       return json(value);
     }
