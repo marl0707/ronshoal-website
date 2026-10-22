@@ -34,6 +34,13 @@
     document.querySelectorAll('[data-alt-ja][data-alt-en]').forEach(node => {
       node.alt = lang === 'en' ? node.dataset.altEn : node.dataset.altJa;
     });
+    document.querySelectorAll('[data-src-ja][data-src-en]').forEach(node => {
+      const source = lang === 'en' ? node.dataset.srcEn : node.dataset.srcJa;
+      if (node.getAttribute('src') !== source) node.setAttribute('src', source);
+    });
+    document.querySelectorAll('[data-href-ja][data-href-en]').forEach(node => {
+      node.setAttribute('href', lang === 'en' ? node.dataset.hrefEn : node.dataset.hrefJa);
+    });
     document.querySelectorAll('[data-label-ja][data-label-en]').forEach(node => {
       node.setAttribute('aria-label', lang === 'en' ? node.dataset.labelEn : node.dataset.labelJa);
     });
