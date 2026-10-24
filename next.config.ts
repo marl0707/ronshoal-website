@@ -113,7 +113,9 @@ const nextConfig: NextConfig = {
               value: ".*/pickleball(/.*)?",
             },
           ],
-          destination: "http://95.217.176.121:8300/auth/v1/verify",
+          // 2026-10-24: raw :8300 times out from outside; use the existing TLS relay.
+          // Keep the public verify URL and query intact, and expose no other Auth endpoint.
+          destination: "https://line-incruises.ronshoal.com/pickleball-data/auth/v1/verify",
         },
         {
           source: "/auth/v1/verify",
