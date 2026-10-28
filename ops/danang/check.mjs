@@ -19,6 +19,8 @@ const fragmentLinks = [...html.matchAll(/<a\b[^>]*\bhref="(#[^"]*)"[^>]*>/g)].ma
 const mapLinks = [...html.matchAll(/href="https:\/\/maps\.app\.goo\.gl\/([^"]+)"/g)].map(match => match[1]);
 const cardIds = [...html.matchAll(/<article\b[^>]*\bid="spot-([^"]+)"/g)].map(match => match[1]);
 const saveIds = [...html.matchAll(/\bdata-save="([^"]+)"/g)].map(match => match[1]);
+const filterTags = [...html.matchAll(/<button\b[^>]*\bdata-filter="([^"]+)"[^>]*>/g)];
+const dockTag = html.match(/<nav\b[^>]*class="mobile-dock"[^>]*>[\s\S]*?<\/nav>/);
 check(data.length === 20 && new Set(data.map(s => s.id)).size === 20, 'Expected 20 distinct candidate records');
 check(new Set(ids).size === ids.length, 'Duplicate HTML ID');
 check(fragmentLinks.every(link => ids.includes(link.slice(1))), 'Broken internal anchor');
@@ -26,7 +28,12 @@ check(mapLinks.length === 20 && new Set(mapLinks).size === 20, 'Expected 20 dist
 check(data.every(s => mapLinks.includes(s.map)), 'A supplied candidate map is missing');
 check(cardIds.length === 20 && data.every(s => cardIds.includes(s.id)), 'Candidate/card ID mismatch');
 check(saveIds.length === 20 && data.every(s => saveIds.includes(s.id)), 'Candidate/save button mismatch');
-for (const asset of ['style.css', 'app.js']) check(fs.existsSync(path.join(folder, asset)), `Missing ${asset}`);
+for (const asset of ['style.css', 'mobile.css', 'app.js']) check(fs.existsSync(path.join(folder, asset)), `Missing ${asset}`);
+check(/<link\b[^>]*href="mobile\.css\?[^\"]*"/.test(html), 'Mobile stylesheet is not connected');
+check(Boolean(dockTag), 'Mobile dock is missing');
+const filterNames = ['all','banhmi','coffee','steak','seafood','saved'];
+check(filterTags.length===12 && filterNames.every(name=>filterTags.filter(tag=>tag[1]===name).length===2), 'Each filter must have a page and dock control');
+check((dockTag[0].match(/\bdata-filter=/g)||[]).length===6, 'Mobile dock must have six filter buttons');
 const embedded = html.match(/<script type="application\/json" id="spots-data">([\s\S]*?)<\/script>/);
 check(Boolean(embedded), 'Embedded candidate JSON missing');
 const publicData = JSON.parse(embedded[1]);
@@ -61,7 +68,7 @@ function harness({hash = '', stored = '[]', blocked = false, source = code} = {}
     }
     focus() { document.activeElement = this; }
     select() { this.selected = true; }
-    scrollIntoView() { this.scrolled = true; }
+    scrollIntoView() { this.scrolled = true; document.lastScrolled = this; }
     click() {
       if (this.disabled) return;
       const event = {target: this, currentTarget: this, defaultPrevented: false, preventDefault() { this.defaultPrevented = true; }};
@@ -73,12 +80,13 @@ function harness({hash = '', stored = '[]', blocked = false, source = code} = {}
   const groups = ['banhmi','coffee','steak','seafood'].map(id => {
     const item = byId[id]; item.classes.add('chapter'); item.dataset.group = id; return item;
   });
-  const cards = data.map(s => {
+  const cards = cardIds.map(id => data.find(s=>s.id===id)).map(s => {
     const item = byId[`spot-${s.id}`]; item.classes.add('spot');
     item.dataset = {id:s.id, category:s.category};
     item.parentElement = byId[s.category]; byId[s.category].children.push(item); return item;
   });
-  const filters = ['all','banhmi','coffee','steak','seafood','saved'].map(filter => new Element({dataset:{filter}}));
+  const dock = new Element({classes:['mobile-dock']});
+  const filters = filterTags.map(tag => new Element({dataset:{filter:tag[1]},parent:tag.index>=dockTag.index&&tag.index<dockTag.index+dockTag[0].length?dock:null}));
   const saves = data.map(s => new Element({dataset:{save:s.id}}));
   const anchors = fragmentLinks.map(href => new Element({href}));
   const progress = new Element();
@@ -100,9 +108,10 @@ function harness({hash = '', stored = '[]', blocked = false, source = code} = {}
   };
   vm.runInNewContext(source, {document,window,location:{hash},localStorage,navigator:{},innerHeight:800,scrollY:0,requestAnimationFrame:fn=>{fn();return 1},cancelAnimationFrame(){},URL,decodeURIComponent,Set,JSON}, {timeout:1000});
   return {
-    byId,cards,groups,filters,saves,anchors,document,window,
+    byId,cards,groups,filters,saves,anchors,document,window,dock,
     visible: () => cards.filter(card=>!card.hidden),
     filter: name => { const item=filters.find(item=>item.dataset.filter===name);assert.ok(item);item.click(); },
+    dockFilter: name => { const item=filters.find(item=>item.dataset.filter===name&&item.closest('.mobile-dock'));assert.ok(item);item.click(); },
     save: id => { const item=saves.find(item=>item.dataset.save===id);assert.ok(item);item.click(); },
     stored: () => storageValue
   };
@@ -144,6 +153,19 @@ clean.filter('coffee'); clean.byId.shuffle.click();
 check(!clean.byId.pick.hidden && clean.visible().some(card=>`#spot-${card.dataset.id}`===clean.byId['pick-link'].href), 'Random suggestion escaped selected category');
 clean.byId['close-pick'].click();
 check(clean.byId.pick.hidden && clean.document.activeElement===clean.byId.shuffle, 'Suggestion close/focus failed');
+const phone=harness();
+for (const [category,count] of Object.entries({banhmi:7,coffee:6,steak:5,seafood:2,all:20})) {
+  phone.dockFilter(category);
+  check(phone.visible().length===count && (category==='all'||phone.visible().every(card=>card.dataset.category===category)), `Dock ${category} filter failed`);
+  check(phone.document.lastScrolled===phone.visible()[0], `Dock ${category} did not scroll to the first rendered result`);
+  check(phone.filters.every(button=>button.attributes['aria-pressed']===String(button.dataset.filter===category)), `Page/dock pressed states diverged for ${category}`);
+}
+phone.dockFilter('saved');
+check(phone.visible().length===0 && !phone.byId.empty.hidden && phone.document.lastScrolled===phone.byId.empty, 'Empty dock wishlist did not scroll to the empty state');
+phone.filter('all');phone.save('ngon');phone.save('xliii');phone.dockFilter('saved');
+check(phone.visible().length===2 && phone.document.lastScrolled===phone.visible()[0], 'Populated dock wishlist did not scroll to its first result');
+phone.filter('coffee');
+check(phone.filters.every(button=>button.attributes['aria-pressed']===String(button.dataset.filter==='coffee')), 'Regular filter did not synchronize the dock');
 let selfTest;
 if (process.argv.includes('--self-test')) {
   const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'danang-check-self-test-'));
@@ -155,7 +177,7 @@ if (process.argv.includes('--self-test')) {
     fs.mkdirSync(tempPublic, {recursive:true});
     fs.copyFileSync(fileURLToPath(import.meta.url), path.join(tempOps, 'check.mjs'));
     fs.copyFileSync(path.join(root, 'ops/danang/spots.json'), path.join(tempOps, 'spots.json'));
-    for (const asset of ['index.html','style.css','app.js']) fs.copyFileSync(path.join(folder, asset), path.join(tempPublic, asset));
+    for (const asset of ['index.html','style.css','mobile.css','app.js']) fs.copyFileSync(path.join(folder, asset), path.join(tempPublic, asset));
     const run = () => spawnSync(process.execPath, [path.join(tempOps, 'check.mjs')], {encoding:'utf8',timeout:10000,maxBuffer:1024*1024});
     const baseline = run();
     check(!baseline.error && baseline.status===0, 'Self-test positive control did not pass');

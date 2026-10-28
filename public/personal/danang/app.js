@@ -38,7 +38,14 @@
     shuffle.disabled = visible === 0;
     pick.hidden = true;
   }
-  for (const button of filterButtons) button.addEventListener('click', () => { filter = button.dataset.filter; render(); });
+  for (const button of filterButtons) button.addEventListener('click', () => {
+    filter = button.dataset.filter;
+    render();
+    if (button.closest('.mobile-dock')) {
+      const first = cards.find(card => !card.hidden) || document.getElementById('empty');
+      first.scrollIntoView({behavior:'auto',block:'start'});
+    }
+  });
   for (const button of saveButtons) button.addEventListener('click', () => {
     const id = button.dataset.save;
     saved.has(id) ? saved.delete(id) : saved.add(id);
@@ -108,7 +115,7 @@
   let pointer = {x:-10000,y:-10000};
   function size() {
     width = hero.clientWidth; height = hero.clientHeight;
-    const dpr = Math.min(devicePixelRatio || 1, 1.5);
+    const dpr = Math.min(devicePixelRatio || 1, width < 768 ? 1.25 : 1.5);
     canvas.width = Math.round(width*dpr); canvas.height = Math.round(height*dpr);
     canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
     ctx.setTransform(dpr,0,0,dpr,0,0);
@@ -117,7 +124,7 @@
     frame = 0;
     if (!active || document.hidden || motion.matches || flat) return;
     frame = requestAnimationFrame(draw);
-    if (time-last < 32) return;
+    if (time-last < (width < 768 ? 50 : 32)) return;
     last = time;
     ctx.clearRect(0,0,width,height);
     const t = time/9000, mobile = width < 640;
