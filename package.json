@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:auth-relay && npm run check:fiction-link && next build",
+    "build": "npm run check:danang && npm run check:auth-relay && npm run check:fiction-link && next build",
     "start": "next start",
     "lint": "eslint",
+    "check:danang": "node ops/danang/build.mjs",
     "check:fiction-link": "node ops/check-fiction-link.mjs",
     "check:auth-relay": "node --experimental-strip-types ops/check-auth-relay.mjs",
     "publish:app-co-creation": "bash ops/app-co-creation/publish.sh"
