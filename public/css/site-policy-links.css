@@ -1,0 +1,34 @@
+.site-policy-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ai-foot .site-policy-row {
+  align-items: center;
+}
+
+.ai-foot a.site-policy-link {
+  color: #fff;
+}
+
+.kp2-foot a.site-policy-link {
+  color: #101a2e;
+}
+
+a.site-policy-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a.site-policy-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
