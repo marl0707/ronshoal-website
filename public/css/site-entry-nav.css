@@ -1,0 +1,29 @@
+/* Keep the existing fixed header and secret-world interaction; expose business paths. */
+.site-head { gap: 8px; }
+.site-head .entry-nav {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+.entry-nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border: 1px solid currentColor;
+  color: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.entry-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.entry-nav a:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+#business, #contact { scroll-margin-top: 110px; }
+@media (max-width: 480px) {
+  .site-head { padding: 16px 20px; }
+  .site-head .entry-nav { gap: 6px; }
+  .entry-nav a { padding: 0 8px; font-size: 11px; }
+}
