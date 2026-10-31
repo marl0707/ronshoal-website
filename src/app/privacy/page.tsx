@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     alternates: { canonical: "https://www.ronshoal.com/privacy" },
 };
 
-const UPDATED = "2026年8月15日";
+const UPDATED = "2026年10月31日";
 
 export default function PrivacyPage() {
     return (
@@ -97,6 +97,17 @@ export default function PrivacyPage() {
                             Google アナリティクス オプトアウト アドオン
                         </a>
                         から行えます。
+                    </p>
+                </Section>
+
+                <Section n="6.1" title="公式HPのアクセス解析の選択">
+                    <p>
+                        公式HPの会社トップ・AI事業・健診プラス紹介の3ページでは、利用者が許可した場合にGoogle Analyticsを読み込みます。
+                        選択は、各ページのフッターにある「アクセス解析の設定」から変更できます。許可しなくてもページをご利用いただけます。
+                    </p>
+                    <p>
+                        この解析へ氏名・メールアドレス・お問い合わせ本文を送信しません。個人ページやログイン・認証ページは対象に含めません。
+                        許可を取り消すと以後の計測を停止します。取り消す前に送信された情報がさかのぼって削除されるものではありません。
                     </p>
                 </Section>
 

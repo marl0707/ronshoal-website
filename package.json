@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:danang && npm run check:auth-relay && npm run check:fiction-link && next build",
+    "build": "npm run check:danang && npm run check:auth-relay && npm run check:fiction-link && npm run check:corporate-analytics && next build",
+    "check:corporate-analytics": "node --test ops/corporate-analytics.test.mjs",
     "start": "next start",
     "lint": "eslint",
     "check:danang": "node ops/danang/build.mjs",
