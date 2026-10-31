@@ -112,12 +112,14 @@ export function startCorporateAnalytics(win, loadTag = loadGoogleTag) {
         win[disableKey] = false;
         command('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
         command('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+        command('set', 'ads_data_redaction', true);
+        command('set', 'url_passthrough', false);
         command('js', new Date());
         command('config', MEASUREMENT_ID, {
           ...publicContext(win.location), send_page_view: false,
           cookie_prefix: COOKIE_PREFIX, cookie_domain: 'www.ronshoal.com', cookie_path: '/',
+          cookie_flags: 'SameSite=Lax;Secure',
           allow_google_signals: false, allow_ad_personalization_signals: false,
-          ads_data_redaction: true, url_passthrough: false,
         });
         await loadTag(win);
         ready = true;

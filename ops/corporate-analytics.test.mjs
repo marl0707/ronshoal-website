@@ -93,6 +93,13 @@ test('only fixed context and navigation enums enter the event payload; free-form
   const config = e.commands().find(command => command[0] === 'config')[2];
   assert.equal(config.send_page_view, false); assert.equal(config.allow_google_signals, false); assert.equal(config.allow_ad_personalization_signals, false);
   assert.equal(config.cookie_prefix, COOKIE_PREFIX); assert.equal(config.cookie_domain, 'www.ronshoal.com'); assert.equal(config.cookie_path, '/');
+  assert.equal(config.cookie_flags, 'SameSite=Lax;Secure');
+  assert.equal(Object.hasOwn(config, 'ads_data_redaction'), false);
+  assert.equal(Object.hasOwn(config, 'url_passthrough'), false);
+  assert.ok(e.commands().some(command => command[0] === 'set' && command[1] === 'ads_data_redaction' && command[2] === true));
+  assert.ok(e.commands().some(command => command[0] === 'set' && command[1] === 'url_passthrough' && command[2] === false));
+  const configIndex = e.commands().findIndex(command => command[0] === 'config');
+  for (const name of ['ads_data_redaction', 'url_passthrough']) assert.ok(e.commands().findIndex(command => command[0] === 'set' && command[1] === name) < configIndex);
   const consent = e.commands().filter(command => command[0] === 'consent');
   assert.equal(consent[0][2].analytics_storage, 'denied'); assert.equal(consent[1][2].analytics_storage, 'granted');
   for (const command of consent) for (const name of ['ad_storage','ad_user_data','ad_personalization']) assert.equal(command[2][name], 'denied');
