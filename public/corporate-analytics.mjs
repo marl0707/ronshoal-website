@@ -83,7 +83,7 @@ export function startCorporateAnalytics(win, loadTag = loadGoogleTag) {
     if (initial.origin !== ORIGIN || initial.username || initial.password || !Object.hasOwn(ROUTES, initial.pathname)) return null;
     if (runtimes.has(win)) return runtimes.get(win);
     const doc = win.document;
-    let choice = storedChoice(win), ready = false, loading = false, pageSent = false, scopeStopped = false;
+    let choice = storedChoice(win), ready = false, loading = false, pageSent = false, scopeStopped = false, tagRequested = false;
     const disableKey = 'ga-disable-' + MEASUREMENT_ID;
     win[disableKey] = true;
 
@@ -121,8 +121,9 @@ export function startCorporateAnalytics(win, loadTag = loadGoogleTag) {
           cookie_flags: 'SameSite=Lax;Secure',
           allow_google_signals: false, allow_ad_personalization_signals: false,
         });
+        tagRequested = true;
         await loadTag(win);
-        ready = true;
+        ready = Boolean(eligible() && !win[disableKey]);
         if (!pageSent && send('page_view')) pageSent = true;
       } catch { win[disableKey] = true; }
       finally { loading = false; }
@@ -161,7 +162,7 @@ export function startCorporateAnalytics(win, loadTag = loadGoogleTag) {
 
     function choose(value) {
       if (value !== 'granted' && value !== 'denied') return;
-      const wasActive = ready || loading;
+      const wasActive = tagRequested || ready || loading;
       // Stop locally before storage or a reload; never send a consent-denial ping.
       if (value === 'denied') { choice = 'denied'; ready = false; win[disableKey] = true; removeOwnCookies(win); }
       if (!saveChoice(win, value)) {
@@ -198,7 +199,7 @@ export function startCorporateAnalytics(win, loadTag = loadGoogleTag) {
       if (event.key !== CONSENT_KEY && event.key !== null) return;
       const value = storedChoice(win);
       if (value !== 'granted') {
-        const wasActive = ready || loading;
+        const wasActive = tagRequested || ready || loading;
         choice = value; ready = false; win[disableKey] = true; removeOwnCookies(win);
         if (wasActive) win.location.reload();
       } else { choice = value; panel.hidden = true; void enable(); }

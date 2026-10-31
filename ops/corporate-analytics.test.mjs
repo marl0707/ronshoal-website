@@ -122,6 +122,16 @@ test('withdrawal disables the destination before reload, preserves shared cookie
   const next = environment({ choice: e.store.get(CONSENT_KEY) }); startCorporateAnalytics(next.win, next.loadTag); await settle(); assert.equal(next.loads, 0);
 });
 
+test('withdrawal after a scope stop still reloads a previously requested SDK', async () => {
+  for (const crossTab of [false, true]) {
+    const e = environment({ choice: 'granted' }); const c = startCorporateAnalytics(e.win, e.loadTag); await settle();
+    e.win.location.href += '#SYNTHETIC_PRIVATE_CANARY'; e.win.emit('hashchange'); assert.equal(c.getState().ready, false);
+    if (crossTab) { e.store.set(CONSENT_KEY, 'denied'); e.win.emit('storage', { key: CONSENT_KEY }); }
+    else c.choose('denied');
+    assert.equal(e.reloads, 1); assert.equal(e.win['ga-disable-' + MEASUREMENT_ID], true); assert.equal(c.send('page_view'), false);
+  }
+});
+
 test('a late tag load after withdrawal cannot emit a pageview', async () => {
   const e = environment(); let resolve; const c = startCorporateAnalytics(e.win, () => new Promise(done => { resolve = done; }));
   c.choose('granted'); c.choose('denied'); resolve(); await settle(); assert.equal(e.events().length, 0); assert.equal(e.win['ga-disable-' + MEASUREMENT_ID], true);
