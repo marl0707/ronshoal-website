@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check:danang && npm run check:auth-relay && npm run check:fiction-link && npm run check:corporate-analytics && next build",
+    "build": "npm run check:danang && npm run check:auth-relay && npm run check:fiction-link && npm run check:ron-3d && npm run check:corporate-analytics && next build",
+    "check:ron-3d": "node --test ops/ron-3d-deferred.test.mjs",
     "check:corporate-analytics": "node --test ops/corporate-analytics.test.mjs",
     "start": "next start",
     "lint": "eslint",
