@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { startCorporateAnalytics, publicContext, ROUTES, MEASUREMENT_ID, CONSENT_KEY, COOKIE_PREFIX } from '../public/corporate-analytics.mjs';
+import { startCorporateAnalytics, publicContext, ROUTES, MEASUREMENT_ID, CONSENT_KEY, COOKIE_PREFIX, CONSENT_CSS } from '../public/corporate-analytics.mjs';
 
 class Element {
   constructor(tag, owner) { this.tagName = tag; this.owner = owner; this.children = []; this.handlers = {}; this.attrs = {}; this.hidden = false; }
@@ -162,6 +162,28 @@ test('the real loader is appended only after consent and suppresses the request 
   c.choose('granted'); const script = e.doc.head.children.find(node => node.tagName === 'script');
   assert.equal(script.src, 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID); assert.equal(script.referrerPolicy, 'no-referrer');
   script.onload(); await settle(); assert.equal(e.events().length, 1);
+});
+
+test('footer settings explicitly meet 4.5:1 on each actual host theme instead of inheriting caption opacity', () => {
+  function luminance(hex) {
+    assert.match(hex, /^#[0-9a-f]{6}$/i);
+    const values = hex.slice(1).match(/../g).map(value => parseInt(value,16)/255).map(value => value <= 0.04045 ? value/12.92 : ((value+0.055)/1.055)**2.4);
+    return values[0]*0.2126+values[1]*0.7152+values[2]*0.0722;
+  }
+  for (const [file, footer, selector, background] of [
+    ['index','foot','.ronshoal-analytics-settings','#f7f7f2'],
+    ['ai','ai-foot','.ai-foot .ronshoal-analytics-settings','#0b1630'],
+    ['kenshin','kp2-foot','.kp2-foot .ronshoal-analytics-settings','#f5f4ee'],
+  ]) {
+    const text = readFileSync(new URL('../public/' + file + '.html', import.meta.url), 'utf8');
+    assert.ok(text.includes('<footer class="' + footer + '"'));
+    const rule = CONSENT_CSS.split('\n').find(line => line.startsWith(selector + '{'));
+    assert.ok(rule, 'Explicit host-theme rule required');
+    const foreground = rule.match(/(?:^|[;{])color:(#[0-9a-f]{6})(?:[;}])/i)?.[1];
+    assert.ok(foreground, 'Do not inherit low-contrast caption colors');
+    const fg = luminance(foreground), bg = luminance(background);
+    assert.ok((Math.max(fg,bg)+0.05)/(Math.min(fg,bg)+0.05)>=4.5, file + ' footer contrast');
+  }
 });
 
 test('public documents register this module once; the shared app layout remains outside its registration', () => {

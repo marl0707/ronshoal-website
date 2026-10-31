@@ -33,7 +33,9 @@ export const CONSENT_CSS = `
 #ronshoal-analytics-consent .rca-actions{display:flex;gap:12px;flex-wrap:wrap}
 #ronshoal-analytics-consent button{min-height:44px;flex:1 1 120px;padding:10px 14px;background:#fff;color:#111;border:1px solid #111;font:700 14px/1.5 system-ui,sans-serif;letter-spacing:normal;cursor:pointer;box-sizing:border-box}
 #ronshoal-analytics-consent button:focus-visible,.ronshoal-analytics-settings:focus-visible{outline:2px solid currentColor;outline-offset:4px}
-.ronshoal-analytics-settings{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:8px 10px;border:1px solid currentColor;background:transparent;color:inherit;font:12px/1.5 system-ui,sans-serif;letter-spacing:normal;cursor:pointer;box-sizing:border-box}
+.ronshoal-analytics-settings{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:8px 10px;border:1px solid currentColor;background:transparent;color:#101a2e;font:12px/1.5 system-ui,sans-serif;letter-spacing:normal;cursor:pointer;box-sizing:border-box}
+.ai-foot .ronshoal-analytics-settings{color:#ffffff;}
+.kp2-foot .ronshoal-analytics-settings{color:#101a2e;}
 @media(max-width:374px){#ronshoal-analytics-consent{inset:auto 12px 12px;padding:16px}#ronshoal-analytics-consent .rca-actions{gap:8px}}
 `;
 
