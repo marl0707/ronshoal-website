@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#11273a">
+  <title>この名刺、話せます。｜瀬島 和樹AI</title>
+  <meta name="description" content="名刺の、その先へ。ロンショール合同会社 CEO・瀬島 和樹のAIに、事業やAIの活用について気軽に質問できます。日本語・英語に対応。">
+  <meta property="og:title" content="この名刺、話せます。｜瀬島 和樹AI">
+  <meta property="og:description" content="名刺交換から、次の会話へ。事業のこと、AIのこと。まずは一言、話しかけてみてください。">
+  <meta property="og:url" content="https://www.ronshoal.com/card">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.ronshoal.com/card">
+  <link rel="icon" type="image/png" href="/ronshoal-logo-mark.png">
+  <link rel="stylesheet" href="/card/card.css">
+  <script src="/card/card.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <section class="identity" aria-labelledby="headline">
+      <img class="watermark" src="/card/mark.svg" alt="" aria-hidden="true">
+      <header class="brand-row">
+        <a class="brand" href="https://www.ronshoal.com/" aria-label="Ronshoal LLC"><img src="/card/mark.svg" alt=""><span>Ronshoal <small>LLC</small></span></a>
+        <div class="language" role="group" aria-label="Language"><button type="button" data-lang="ja" aria-pressed="true">JP</button><span>/</span><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+      </header>
+      <div class="introduction">
+        <p class="eyebrow" data-i18n="eyebrow">A CONVERSATION BEYOND THE CARD</p>
+        <h1 id="headline"><span data-i18n="headline1">この名刺、</span><br><span data-i18n="headline2">話せます。</span></h1>
+        <p class="lead" data-i18n="lead">名刺交換から、次の会話へ。<br>事業のこと、AIのこと。まずは一言。</p>
+      </div>
+      <div class="profile">
+        <div class="profile-top"><div><p class="company" data-i18n="company">ロンショール合同会社</p><h2 data-i18n="name">瀬島 和樹</h2><p class="roman" data-i18n="roman">KAZUKI SEJIMA</p></div><span class="monogram" aria-hidden="true">KS<span>AI</span></span></div>
+        <p class="credential" data-i18n="credential">CEO / 医学修士（MSMS）</p>
+        <p class="business" data-i18n="business">医療関連事業 / AI・システム開発</p>
+        <div class="profile-links"><a href="mailto:info@ronshoal.com">info@ronshoal.com <span aria-hidden="true">↗</span></a><a href="https://www.ronshoal.com/">ronshoal.com <span aria-hidden="true">↗</span></a></div>
+        <a class="save-contact" href="/card/kazuki-sejima.vcf" download><span data-i18n="save">連絡先を保存</span><span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="identity-footer">RONSHOAL / DIGITAL BUSINESS CARD</p>
+    </section>
+    <section class="conversation" aria-labelledby="chat-title">
+      <div class="chat-top"><div><p class="eyebrow">MEET MY AI</p><h2 id="chat-title" data-i18n="chatTitle">瀬島 和樹AI</h2></div><span class="ai-label" data-i18n="aiLabel">AIとの会話</span></div>
+      <div class="chat-log" id="messages" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Conversation">
+        <div class="message assistant welcome"><span class="speaker">KAZUKI SEJIMA AI</span><p data-i18n="welcome">名刺を受け取っていただき、ありがとうございます。瀬島 和樹のAIです。<br>ロンショールの事業やAIの活用について、気軽にお聞きください。</p></div>
+      </div>
+      <div class="prompts" id="prompts" aria-label="Suggested questions"><button type="button" data-prompt="business" data-i18n="promptBusiness">どんな事業をしていますか？</button><button type="button" data-prompt="ai" data-i18n="promptAI">私の仕事にAIを活用するなら？</button><button type="button" data-prompt="person" data-i18n="promptPerson">瀬島さんのことを教えて</button></div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <form id="chat-form" class="composer"><label class="sr-only" for="question" data-i18n="inputLabel">質問を入力</label><textarea id="question" name="question" rows="1" maxlength="500" placeholder="気になることを、自由に。" required></textarea><button type="submit" id="send" aria-label="送信"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button></form>
+      <div class="composer-meta"><span id="status" role="status" aria-live="polite"></span><span id="counter">0 / 500</span></div>
+      <p class="disclosure" data-i18n="disclosure">公開情報をもとにAIが回答します。本人の発言・確約ではありません。個人情報や秘密情報の入力はお控えください。</p>
+      <div class="chat-footer"><span data-i18n="footer">会話の続きは、本人と。</span><a href="mailto:info@ronshoal.com" data-i18n="contact">瀬島に連絡する ↗</a></div>
+      <noscript>会話にはJavaScriptが必要です。お問い合わせは <a href="mailto:info@ronshoal.com">info@ronshoal.com</a> へ。</noscript>
+    </section>
+  </main>
+</body>
+</html>
