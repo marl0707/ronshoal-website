@@ -6,7 +6,7 @@ from unittest.mock import Mock
 from fastapi import FastAPI, HTTPException
 from pydantic import ValidationError
 from starlette.requests import Request
-from sejima_card_chat import CardRequest, install, PUBLIC_FACTS
+from sejima_card_chat import CardRequest, install, PUBLIC_FACTS, PUBLIC_CONTEXT, render_public_context
 
 
 class CardTests(unittest.IsolatedAsyncioTestCase):
@@ -32,6 +32,30 @@ class CardTests(unittest.IsolatedAsyncioTestCase):
         self.g._check_auth.assert_called_once_with(self.request)
         self.g._rate_limit_ok.assert_called_once_with("test")
         self.assertNotIn("1986",PUBLIC_FACTS)
+
+    async def test_all_public_facets_reach_the_real_generation_entry_for_both_languages(self):
+        for language in ['ja','en']:
+            await self.ask(language=language)
+            system = self.g._claude_guarded.call_args.args[1]
+            for _, title, text, source in PUBLIC_CONTEXT:
+                self.assertIn(title,system)
+                self.assertIn(text,system)
+                self.assertIn(source,system)
+            for term in ['後悔のない人生','マレーシア','腸内細菌','作詞作曲','O.pickle','@ojisan.pickle','教育移住','iOSアプリ共同開発']:
+                self.assertIn(term,system)
+
+    def test_reduced_profile_cannot_silently_replace_full_context(self):
+        # A plausible-looking basic bio must not pass the profile coverage gate.
+        for removed in ['artist','research','maker','education','pickleball']:
+            with self.assertRaisesRegex(ValueError,'coverage'):
+                render_public_context(tuple(row for row in PUBLIC_CONTEXT if row[0] != removed))
+
+    def test_context_contains_public_sources_and_no_internal_storage_or_birthdate(self):
+        self.assertEqual(len({row[0] for row in PUBLIC_CONTEXT}),10)
+        for _, _, _, source in PUBLIC_CONTEXT:
+            self.assertTrue(source.startswith('https://www.ronshoal.com/'))
+        for excluded in ['1986','/home/','/Users/','X-Chat-Secret','RONSHOAL_CHAT_SECRET','sejimakazuki@']:
+            self.assertNotIn(excluded,PUBLIC_FACTS)
 
     async def test_unauthenticated_never_generates(self):
         self.g._check_auth.side_effect = HTTPException(401)

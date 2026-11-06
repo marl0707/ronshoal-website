@@ -44,13 +44,14 @@ candidate=before if MARKER.encode() in before else before+MARKER.encode()
 module= (SOURCE / 'sejima_card_chat.py').read_bytes()
 compile(candidate.decode(),str(GATEWAY),'exec');compile(module.decode(),str(MODULE),'exec')
 prior_module=MODULE.read_bytes() if MODULE.exists() else None
-release=ROOT / 'releases' / ('sejima-card-'+hashlib.sha256(before).hexdigest()[:16])
+release=ROOT / 'releases' / ('sejima-card-'+hashlib.sha256(before+(prior_module or b'')).hexdigest()[:16])
 release.mkdir(exist_ok=True,parents=True)
 backup=release / 'ronshoal_chat_server.before.py'
 if not backup.exists():backup.write_bytes(before)
 if prior_module is not None and not (release/'sejima_card_chat.before.py').exists():
     (release/'sejima_card_chat.before.py').write_bytes(prior_module)
 assert GATEWAY.read_bytes()==before,'Gateway changed concurrently'
+assert (MODULE.read_bytes() if MODULE.exists() else None)==prior_module,'Card module changed concurrently'
 atomic(MODULE,module);atomic(GATEWAY,candidate)
 try:
     restart()
@@ -66,10 +67,13 @@ try:
             time.sleep(.4)
 except Exception:
     assert GATEWAY.read_bytes()==candidate,'Concurrent change prevents automatic rollback'
+    assert MODULE.read_bytes()==module,'Concurrent card change prevents automatic rollback'
     atomic(GATEWAY,before)
     if prior_module is not None:atomic(MODULE,prior_module)
     restart()
     raise
 print(json.dumps({'status':'activated','gateway_before_sha256':hashlib.sha256(before).hexdigest(),
     'gateway_after_sha256':hashlib.sha256(candidate).hexdigest(),'backup':str(backup),
+    'module_before_sha256':hashlib.sha256(prior_module or b'').hexdigest(),
+    'module_after_sha256':hashlib.sha256(module).hexdigest(),'module_backup':str(release/'sejima_card_chat.before.py'),
     'checks':['health 200','existing company unauthenticated 401','card unauthenticated 401','overlong authenticated card 422']}))
