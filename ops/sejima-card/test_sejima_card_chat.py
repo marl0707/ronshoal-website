@@ -6,7 +6,8 @@ from unittest.mock import Mock
 from fastapi import FastAPI, HTTPException
 from pydantic import ValidationError
 from starlette.requests import Request
-from sejima_card_chat import CardRequest, install, PUBLIC_FACTS, PUBLIC_CONTEXT, render_public_context
+from sejima_card_chat import (CardRequest, install, PUBLIC_FACTS, PUBLIC_CONTEXT,
+                              APPROVED_OBSIDIAN_CONTEXT, render_public_context)
 
 
 class CardTests(unittest.IsolatedAsyncioTestCase):
@@ -43,6 +44,30 @@ class CardTests(unittest.IsolatedAsyncioTestCase):
                 self.assertIn(source,system)
             for term in ['後悔のない人生','マレーシア','腸内細菌','作詞作曲','O.pickle','@ojisan.pickle','教育移住','iOSアプリ共同開発']:
                 self.assertIn(term,system)
+
+    async def test_selected_obsidian_biography_reaches_the_generation_entry_in_both_languages(self):
+        for language in ['ja','en']:
+            await self.ask(language=language)
+            system=self.g._claude_guarded.call_args.args[1]
+            for _, title, text, source in APPROVED_OBSIDIAN_CONTEXT:
+                self.assertIn(title,system)
+                self.assertIn(text,system)
+                self.assertIn(source,system)
+            for term in ['日本イーライリリー','業務委託','社会への貢献','自己実現','料理','武道','好奇心']:
+                self.assertIn(term,system)
+
+    def test_missing_or_unapproved_obsidian_source_is_rejected(self):
+        with self.assertRaisesRegex(ValueError,'Obsidian context coverage'):
+            render_public_context(obsidian_context=APPROVED_OBSIDIAN_CONTEXT[:-1])
+        invalid=[*APPROVED_OBSIDIAN_CONTEXT]
+        row=invalid[0];invalid[0]=(row[0],row[1],row[2],'private-notes-directory')
+        with self.assertRaisesRegex(ValueError,'Unapproved Obsidian source'):
+            render_public_context(obsidian_context=invalid)
+
+    def test_private_archive_and_disputed_details_are_not_imported(self):
+        self.assertEqual(len(APPROVED_OBSIDIAN_CONTEXT),5)
+        for excluded in ['private_sources','source_manifest.json','Lonshor','2024年','2021年1月','2025年2月','約10年弱','調理師免許','簿記検定','副理事長','OneFunnel','APIキー']:
+            self.assertNotIn(excluded,PUBLIC_FACTS)
 
     def test_reduced_profile_cannot_silently_replace_full_context(self):
         # A plausible-looking basic bio must not pass the profile coverage gate.
