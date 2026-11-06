@@ -1,0 +1,2 @@
+# Keep vCard wire-format line endings consistent across macOS, Linux and Vercel.
+public/card/*.vcf text eol=crlf
