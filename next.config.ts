@@ -44,14 +44,7 @@ const nextConfig: NextConfig = {
           source: "/malaysia/:path*",
           destination: "https://app-tau-livid.vercel.app/malaysia/:path*",
         },
-        {
-          source: "/gscope",
-          destination: "https://g-scope-app.vercel.app/gscope",
-        },
-        {
-          source: "/gscope/:path*",
-          destination: "https://g-scope-app.vercel.app/gscope/:path*",
-        },
+        // /gscope の rewrite は 2026-11-15 撤去（g-scope-app は Vercel 上で一時停止中＝503 を返していた）。redirects() 側でトップへ 307。
         {
           source: "/pickleball",
           destination: "https://i-love-pickleball.vercel.app/pickleball",
@@ -132,6 +125,9 @@ const nextConfig: NextConfig = {
       // 健康パスポート（オンライン診療）は休止中。配下ページへの直アクセスをトップへ一時リダイレクト（permanent:false=307・再開時にこの2行を削除）。2026-07-06
       { source: "/services/kenko-passport", destination: "/", permanent: false },
       { source: "/services/kenko-passport/:path*", destination: "/", permanent: false },
+      // G-Scope は Vercel プロジェクト g-scope-app を一時停止中（2026-11-15 社長判断）。再開時はこの2行を消し rewrites() に戻す。
+      { source: "/gscope", destination: "/", permanent: false },
+      { source: "/gscope/:path*", destination: "/", permanent: false },
       // NFC-TS は 2026-07-04 に Vercel 運用終了 → 谷口松雄堂側（app.nfc-ts.com）へ移行済み。
       // ゲートウェイの rewrite が旧 Vercel を指したままで /nfcts が 404 だった（2026-08-21 実測）。
       // 配下パスは :path* を引き継がない（旧 /nfcts/... と現行のフラット構成でパス体系が違う＝404 の連鎖になる）。
