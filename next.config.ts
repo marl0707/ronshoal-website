@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         // 2026-09-14: approved corporate-site mock is served as the public top page.
         { source: "/", destination: "/index.html" },
         { source: "/card", destination: "/card/index.html" },
+        // Printed card URL: preserve this path permanently.
+        { source: "/kohtaro", destination: "/kohtaro/index.html" },
         // Secret World opens the personal site directly, retaining the /secret URL.
         { source: "/secret", destination: "/personal/index.html" },
         { source: "/ai", destination: "/ai.html" },
